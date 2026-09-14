@@ -2,7 +2,7 @@
 
 ## Presentation outline, v2
 
-**Session:** 50 minutes. About 30 of presentation, 20 of questions and discussion.
+**Session:** 50 minutes. About 35 of presentation, 15 of questions and discussion.
 
 **Date:** September 17, 2026.
 
@@ -29,14 +29,14 @@ AI engineering is a distinct discipline built on a foundation of software engine
 |---|---|---|
 | 1. Intro and central thesis | 5 | 6 |
 | 2.0 The map | 2 | 1 |
-| 2.1 Models | 2 | 2 |
+| 2.1 Models | 3.5 | 2 |
 | 2.2 Context and knowledge | 3.5 | 2 |
 | 2.3 Tools and extensibility | 3 | 2 |
-| 2.4 Harness and orchestration | 3 | 2 |
-| 2.5 Verification and evals | 3.5 | 2 |
-| 2.6 Operating it | 3 | 2 |
+| 2.4 Harness and orchestration | 3.5 | 2 |
+| 2.5 Verification and evals | 5 | 2 |
+| 2.6 Operating it | 4.5 | 2 |
 | 3. Making the transition | 5 | 6 |
-| 4. Questions and discussion | 20 | none, slide 25 stays up |
+| 4. Questions and discussion | 15 | none, slide 25 stays up |
 
 ### The Section 2 pattern
 
@@ -87,7 +87,7 @@ Every one of the six areas has the same three beats:
 - Slide, build 2: the three commitments.
 - Say:
   - In traditional software, the behavior is the code. In an AI system, part of the behavior is delegated to a probabilistic model that is context-sensitive, variable, and impossible to specify exhaustively in advance.
-  - Anthropic's distinction is the useful one. Workflows are LLMs and tools orchestrated through predefined code paths. Agents are LLMs that dynamically direct their own processes and tool usage. Agents are where the control flow itself is model-dependent, so every guarantee you used to get from a code path has to be re-established another way. That is why agentic systems are the most demanding expression of this discipline, and why they are the focus for the next twenty minutes.
+  - Anthropic's distinction is the useful one. Workflows are LLMs and tools orchestrated through predefined code paths. Agents are LLMs that dynamically direct their own processes and tool usage. Agents are where the control flow itself is model-dependent, so every guarantee you used to get from a code path has to be re-established another way. That is why agentic systems are the most demanding expression of this discipline, and why they are the focus for the next twenty-five minutes.
   - Fowler's framing: this is software joining the rest of engineering in a world of non-determinism. Other disciplines build tolerances for what they cannot measure. We now have to.
   - One more thing changes, and it is subtle. Shankar and colleagues showed in a peer-reviewed study that people cannot fully write their evaluation criteria before seeing outputs. Grading outputs is how you discover the criteria. They call it criteria drift. So the order you are used to, spec then tests then code, partly inverts. You learn the spec by watching the system.
   - Three commitments for the rest of the talk, each of which comes back later:
@@ -102,7 +102,7 @@ Every one of the six areas has the same three beats:
 - Slide: three takeaways on the left, agenda on the right.
 - Say:
   - Three things to leave with: a conceptual map of the discipline, an honest sense of how much there is, and a roadmap for making the transition.
-  - The agenda: the map, two minutes. Six areas, eighteen minutes: models, context and knowledge, tools, the harness, verification and evals, and operating it. The transition, five minutes. Then twenty minutes for your questions.
+  - The agenda: the map, two minutes. Six areas, twenty-three minutes: models, context and knowledge, tools, the harness, verification and evals, and operating it. The transition, five minutes. Then fifteen minutes for your questions.
   - The pattern for each area, so you know what is coming: what you touched in your coding agent, what someone engineered to make it work, and what changes when it is your agent.
 - Source: the session description in the README.
 
@@ -118,7 +118,7 @@ Every one of the six areas has the same three beats:
 
 ---
 
-## Section 2. What AI engineers actually engineer (20:00, 13 slides)
+## Section 2. What AI engineers actually engineer (25:00, 13 slides)
 
 The map, then six areas. Each area has the three beats: what you touched, what someone engineered, when it's your agent. Cost and latency are deliberately spread across 2.1 (selection and routing), 2.2 (cache economics), 2.4 (budgets), and 2.6 (production metrics).
 
@@ -135,7 +135,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 - Takeaway line: "Agent equals model plus harness. Everything that is not the model is what you engineer."
 - Sources: Osmani, April 2026; OpenAI, "Codex as a platform," August 2026. Research §0.
 
-### 2.1 Models (2:00). Slides 8 and 9
+### 2.1 Models (3:30). Slides 8 and 9
 
 **Slide 8, what you touched.** A model picker: `/model`, the `opusplan` alias, a dropdown.
 
@@ -190,7 +190,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 - Takeaway line: "Design tools for a caller that reads the description every time and can still get it wrong."
 - Sources: Anthropic, September 2025 and November 2025; MCP security best practices, July 2026. Research §3.
 
-### 2.4 Harness and orchestration (3:00). Slides 14 and 15
+### 2.4 Harness and orchestration (3:30). Slides 14 and 15
 
 **Slide 14, what you touched.** Plan mode, the todo list, subagents, hooks, `/compact`, resume. Under them the loop: gather context, act, verify, repeat.
 
@@ -210,7 +210,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 - Takeaway line: "The harness is where autonomy gets its limits. Start with the workflow."
 - Sources: Anthropic, December 2024, June 2025, November 2025; OpenAI, August 2026; Osmani, April 2026; 12-Factor Agents; Gartner, June 2025. Research §4.
 
-### 2.5 Verification and evals (3:30). Slides 16 and 17
+### 2.5 Verification and evals (5:00). Slides 16 and 17
 
 **Slide 16, what you touched.** The test loop, and the agent that said "all tests green."
 
@@ -232,7 +232,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 - Takeaway line: "Tests check a path. Evals check a distribution. You need both, and only one of them ever stops."
 - Sources: Anthropic, "Demystifying evals for AI agents," January 2026; Anthropic Agent SDK post, September 2025; Husain, 2024 and 2026; Shankar et al., UIST 2024; Fowler, August 2025. Research §5.
 
-### 2.6 Operating it (3:00). Slides 18 and 19
+### 2.6 Operating it (4:30). Slides 18 and 19
 
 **Slide 18, what you touched.** `/cost`, the telemetry flag, the sandbox, the OAuth flow. Then three incidents.
 
@@ -258,7 +258,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 ### Section 2 checks
 
-- Time: 2:00 + 2:00 + 3:30 + 3:00 + 3:00 + 3:30 + 3:00 = 20:00.
+- Time: 2:00 + 3:30 + 3:30 + 3:00 + 3:30 + 5:00 + 4:30 = 25:00.
 - Slides: 7 through 19, thirteen slides.
 - Description scope, with beat numbers: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design and orchestration (2.4); evaluations and verification (2.5); observability (2.6); guardrails (2.6); security (2.3, 2.6); cost and latency (2.1, 2.2, 2.4, 2.6). Claims: prototype is not production (2.5, 2.6 incidents); tests necessary but not sufficient (2.5); evals continue after deployment (2.5).
 - Structure: each area has what you touched, what someone engineered, when it's your agent, and a named pitfall.
@@ -272,7 +272,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 - Slide: two columns. Left, the software engineering skill. Right, what it becomes.
 - Say:
-  - Everything in the last twenty minutes was engineering. Most of it is engineering you already do.
+  - Everything in the last twenty-five minutes was engineering. Most of it is engineering you already do.
   - **Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem.
   - **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed.
   - **Testing discipline becomes eval discipline.** Not the same thing, but the habit of writing the check before trusting the code is the habit you need.
@@ -340,7 +340,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 **Slide 25, close.** The two thesis sentences, then "Questions."
 
-- Say: Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer. The difference is not the tools. It is what you are responsible for. We have twenty minutes for your questions.
+- Say: Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer. The difference is not the tools. It is what you are responsible for. We have fifteen minutes for your questions.
 - Sources: research §4.
 
 ### Section 3 checks
@@ -352,7 +352,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 ---
 
-## Section 4. Questions and discussion (20:00, Slide 25 stays up)
+## Section 4. Questions and discussion (15:00, Slide 25 stays up)
 
 ### Anticipated questions, with two-line answers
 
@@ -382,7 +382,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 ### Whole-talk checks
 
-- Time: Section 1, 5:00. Section 2, 20:00. Section 3, 5:00. Total 30:00, plus 20:00 for questions.
+- Time: Section 1, 5:00. Section 2, 25:00. Section 3, 5:00. Total 35:00, plus 15:00 for questions.
 - Deck: 25 slides. Six in Section 1, thirteen in Section 2, six in Section 3.
 - Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design and orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.4, 2.5, 3.3); why tests are necessary but not sufficient (1.4, 2.5); why evals continue after deployment (1.4, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
 

@@ -37,7 +37,7 @@ A claim graduates from `UNVERIFIED` to `[primary]` only after being checked in a
 ## Invariants when editing the outline
 
 - **Scope is fixed.** The talk description in the README was published to attendees. Every outline version must cover every topic it names. Only the weighting changes.
-- **Time and slide counts must reconcile.** Presentation is 30:00 across 25 slides: Section 1 is 5:00 and 6 slides, Section 2 is 20:00 and 13 slides, Section 3 is 5:00 and 6 slides. Each section ends with a "checks" block that sums its beat times and lists which beats cover which description topics. Changing a beat's time or slide count means updating that block and the "Structure and time budget" table.
+- **Time and slide counts must reconcile.** Presentation is 35:00 across 25 slides: Section 1 is 5:00 and 6 slides, Section 2 is 25:00 and 13 slides, Section 3 is 5:00 and 6 slides. Each section ends with a "checks" block that sums its beat times and lists which beats cover which description topics. Changing a beat's time or slide count means updating that block and the "Structure and time budget" table.
 - **Every Section 2 area follows the same three beats** (what you touched, what someone engineered, when it's your agent) and names one pitfall. The six pitfalls are collected again on slide 22 in 3.3, so a pitfall change lands in two places.
 - **Beat format is fixed.** Time, slide, say, takeaway line, sources. It is a talk track, not a script.
 
