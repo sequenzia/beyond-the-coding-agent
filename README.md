@@ -6,8 +6,14 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 
 - **Length:** 50 minutes, roughly 30 of presentation and 20 of questions and discussion
 - **Audience:** software engineers who want to move into AI engineering, most of whom have used a coding agent but few of whom have shipped a system whose behavior depends on a model
-- **Focus:** agentic AI, taught by taking apart the coding agent everyone in the room has used, area by area, with a beat in each area for where a customer-facing agent differs
-- **When:** September 2026
+- **Focus:** agentic AI, taught by taking apart the coding agent everyone in the room has used, area by area. Each area closes with a "when it's your agent" beat: what the vendor engineered that you now own, how a customer-facing or enterprise deployment raises the stakes, and that area's most common pitfall
+- **When:** September 17, 2026
+
+## Repo Layout
+
+- `outlines/outline-v2.md` is the current outline: slide-level beats with timings, talk track, evidence, and sources. `outlines/outline-v1.md` is the earlier exploratory draft, kept for history.
+- `research/section-1.md`, `research/section-2.md`, and `research/section-3.md` hold the sourced notes behind each section: quotes, dates, URLs, verification markers, and a "verify before stage" list.
+- `internal/anatomy-of-an-agentic-ai-system.png` is the system diagram shown once as the map at the start of Section 2.
 
 ## Presentation Description
 
