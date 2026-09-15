@@ -33,14 +33,18 @@ We have fifteen minutes for your questions.
 
 The outline's Section 4 is canonical; this is the podium copy. Two-line answers, each traced to a slide.
 
-1. **Do I need to learn machine learning first?** No. swyx, quoting Karpathy: "One can be quite successful in this role without ever training anything." You need model behavior intuition from reading outputs, plus enough theory to know what a model cannot do. Slide 21.
-2. **Which framework should I learn?** The loop, first. Frameworks obscure prompts and responses. Build one agent on raw API calls; after that a framework is a convenience you can evaluate. Slides 14 and 22.
-3. **How are evals different from tests?** A test checks one path deterministically and must pass. An eval checks a distribution against graders and reports a rate, and a 100% pass rate usually means the suite is too easy. Slides 16 and 17.
-4. **Is prompt injection solved?** No. Willison: "we still don't know how to 100% reliably prevent this from happening." Break the trifecta, treat retrieved content as untrusted, gate consequential actions. Slide 18.
-5. **Single agent or multi-agent?** Single agent with tools until it demonstrably fails. Multi-agent pays for parallel, breadth-first work at about fifteen times the tokens and is a poor fit for shared context. Slide 14.
-6. **What about cost at scale?** Measure cost per completed task. Lay out prompts for cache hits, route the calls that do not need the frontier model, set token and action budgets per run. Slides 9, 10, 15, 18.
-7. **Will better models make the harness obsolete?** The harness moves up, not away. Compaction and verification loops were harness work two years ago; parts moved into the model and the remaining harness got bigger. Slide 7.
-8. **How do I get hired as an AI engineer?** Ship one model-dependent system with an eval suite you can show. AI engineer is the top role on LinkedIn's 2026 list, and Dice reports AI and machine learning postings up 101% year over year in August 2026, more than five times the 18% for tech overall. The ranking says demand; the eval suite says you can do the job.
+1. **Do I need to learn machine learning first?** You can begin without training a model. Learn enough about model behavior, retrieval, evaluation, and uncertainty to investigate failures.
+2. **Which framework should I learn?** Build or inspect a small loop whose state and tool calls you understand. Choose abstractions you can observe, test, and replace.
+3. **How are evals different from tests, concretely?** Evals are tests that measure AI behavior across cases and repeated trials. Code checks, model graders, and human review can all contribute. Capability suites probe limits; regression suites should keep established cases passing. Inside and outside the loop are this talk's organizing model.
+4. **Is prompt injection solved?** Investigate the specific attack path: untrusted content influencing actions, private data access, or external communication. Enforce access and action limits outside the model. Breaking an exfiltration path does not solve every security threat.
+5. **Single agent or multi-agent?** Start with a simple call or workflow and measure whether more autonomy helps. Use task decomposition and observed gains to decide. Anthropic's historical 90.2% quality gain compared research systems; its roughly 15x token comparison was against chat, not the single-agent research baseline.
+6. **What about cost at scale?** Measure cost per completed task at the required quality, including failures, judge overhead, and tail latency. Test caching and routing on your traffic, preserve useful stable prefixes, and enforce token and action budgets. Correctness and authorization take precedence over cache savings.
+7. **Will better models absorb the harness and make this obsolete?** My judgment is that some mechanisms will simplify, but the future architecture is uncertain. The product still needs explicit permissions, integration, measurement, and accountable operation.
+8. **How do I get hired as an AI engineer?** Demonstrate a small system, its failure cases, its evals, and improvements justified by evidence. Show that you can investigate failures and operate within clear limits. Hiring figures are optional backup context, not the evidence of your competence.
+9. **How do I trust the judge?** Use direct checks where possible. Calibrate subjective graders against domain experts, review disagreements, and evaluate on separate data that was not used to tune the judge. Recheck calibration as tasks and models change.
+10. **How much accuracy is enough to ship?** Set a requirement for the use case and failure severity. Measure under expected operating conditions, examine serious failure cases separately, and design human fallback and safe failure handling. There is no universal threshold.
+
+Optional hiring backup: Dice reported AI/ML postings up 101% year over year in August 2026 versus 18% for all tech postings. The publisher page was checked September 14. Dice also reported LinkedIn's #1 AI Engineer ranking; the ranking is secondary evidence. Research §1 in `research/section-3.md`.
 
 If the room is quiet:
 

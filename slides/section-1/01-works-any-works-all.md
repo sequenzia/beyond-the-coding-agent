@@ -37,15 +37,15 @@ In June 2025, Andrej Karpathy put the whole problem in one line.
 
 **"Demo is works.any(), product is works.all()."**
 
-A demo works if any path through it works. A product works only if every path does.
+**A demo proves that a useful path exists. A product needs reliable behavior across its intended use, with a safe response when it cannot complete the task.**
 
-[0:25] **Everyone in this room has shipped a works.any() this week.** You opened a coding agent, described what you wanted, and it did it. And it was impressive.
+[0:25] **You have probably seen your coding agent do something impressive this week.** That experience is the starting point for this talk.
 
 [0:40] **The distance between those two calls is what this talk is about.** It is the distance between using AI and engineering it.
 
 [1:00] Advance to slide 2.
 
-Cuttable if short on time: the gloss line "A demo works if any path through it works." Everything else stays.
+Cut first: the greeting and the final setup sentence. Never cut the intended-use and safe-failure interpretation of the metaphor.
 
 ## Sources
 

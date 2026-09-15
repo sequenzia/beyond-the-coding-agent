@@ -1,97 +1,79 @@
-# Slide 16: Verification and evals, what you touched
+# Slide 16: Verification and evals, When you are the user
 
 Beat 2.5 Verification and evals, first half. Section 2. Time 3:45 of the beat's 5:00, including story #2 at 1:00; slide 17 takes 1:15. Builds: 5.
 
 ## On the slide
 
-**Kicker, top left, small:** Verification and evals · What you touched
+**Kicker:** Verification and evals · When you are the user
 
-**Build 1.** The test loop, then a quote.
+**Build 1.** Preserve the test loop and Fowler quote.
 
-The loop, four steps in a row with arrows: write, run, read the failure, retry.
-
-Beneath, quoted, attributed small to Martin Fowler, August 2025:
-"LLMs are quite happy to say 'all tests green', yet when I run them, there are failures."
-
-**Build 2.** Loop and quote shrink to a strip. Two definitions side by side.
+**Build 2.** Two complementary uses of checks. This talk's organizing model:
 
 | Verification | Evaluation |
 |---|---|
-| Is this one output or action correct? | Is the behavior correct across a population of runs? |
-| Inside the loop. | Outside the loop. |
-| Lint. Screenshot. A judge for fuzzy rules. | Task. Trial. Grader. Suite. |
+| Check an action before accepting it | Measure behavior across representative cases |
+| Inside the loop | Outside the loop |
+| Rules, state checks, visual checks | Tasks, trials, graders, suites |
 
-Beneath the right column: Graders: code (fast, brittle) · model (flexible, needs calibration) · human (gold standard, slow)
+Graders: code · model, with expert calibration · human
 
-**Build 3.** One line, large, then an example.
+**Build 3.** Replace the table.
 
-Grade the outcome, not the transcript.
+Check the result. Inspect the trace.
 
-"Your flight has been booked" is a sentence. A reservation row is an outcome.
+Illustrative flight-booking grader:
 
-**Build 4.** Two lines.
+- Claim: "Your flight has been booked."
+- Result check: matching reservation for the requested traveler and itinerary?
+- No matching reservation: FAIL
+- Trace check: required approvals and access constraints satisfied?
 
-- pass@k: at least one of k trials succeeds.
-- pass^k: all k trials succeed.
+**Build 4.** Replace the grader. Preserve pass@k and pass^k with their existing definitions and notation.
 
-Beneath: Identical at k = 1. Opposite stories at k = 10.
-
-**Build 5.** Three short lines.
+**Build 5.** Replace the formulas.
 
 - Start with 20 to 50 tasks drawn from real failures.
-- Error analysis is 60 to 80% of the time.
-- A 0% pass rate with a frontier model is usually a broken task.
+- Read failures and refine the criteria.
+- Review grader disagreements.
+
+Hold this state for story #2.
 
 ## Layout and visual
 
-- Build 1 is the "what you touched" moment: the loop everyone in the room has watched run. Four boxes and three arrows. The Fowler quote beneath is the failure everyone has also seen; give it room.
-- Build 2 is the conceptual center of the whole talk. Two columns, three rows, matched. The words "inside the loop" and "outside the loop" are the distinction that slide 17 and the third commitment depend on, so they should be visibly parallel.
-- Build 3 is one large sentence. It is the most quotable line in the area.
-- Build 4 is two formulas set in a monospace face with the caret visible. The audience is engineers; the notation will land.
-- Build 5 is the practical close: three numbers on three lines.
-- Story #2 has no build. Either hold on build 5 or cut to a blank slide for the sixty seconds. A blank slide signals that this part is not on the deck.
+- Keep the test-loop entry and Morph strip. The definitions table remains editable.
+- The grader is a compact illustration. Separate the result check from the trace check. It has its own visible illustration label and does not stand in for the personal story.
+- Keep existing probability typography. The final build contains no allocation or zero-pass statistic.
+- Hold the final state for story #2. No extra physical slide.
 
 ## Talk track
 
-[0:00] Build 1.
+[0:00] The coding agent can run the repository's checks: write, run, read the failure, retry. Fowler observed models claiming all tests were green when they were not. **Run the check before accepting the claim.** A hook can enforce that check. A model reporting success cannot substitute for it.
 
-The coding agent works because your repo already has a verifier: the test suite. Write, run, read the failure, retry. It works only because ground truth was already there. And you have seen the failure. Martin Fowler: **"LLMs are quite happy to say 'all tests green', yet when I run them, there are failures."** Anthropic saw the same thing in long-running agents: an instance declares the job done. **The fix is a hook that runs the check, not a model that reports it.** Codex adds a `/review` command and an auto reviewer that can deny a command outright. Same idea, shipped as a product.
+[0:32] Build 2. **Checking an action and measuring behavior across cases are complementary uses of checks.** This talk places verification inside the loop and evaluation across runs outside it. Evals are tests of an AI system. Code, models, and people can all grade. Subjective graders need expert calibration.
 
-[0:38] Build 2.
+[1:04] Build 3. **Check the result. Inspect the trace.** Here is an illustrative grader. The agent says a flight is booked. Look for a reservation matching the requested traveler and itinerary. No matching reservation means the result check fails. Separately inspect required approvals and access constraints. Those matter. An arbitrary sequence of tool calls does not define success.
 
-What someone engineered: two different things, and the words matter. **Verification asks: is this one output or action correct?** It runs inside the loop. Rules-based checks like linting. Visual checks like screenshots. An LLM judge for fuzzy rules, which is less robust and costs latency. **Evaluation asks: is the behavior correct across a population of runs?** It runs outside the loop. The vocabulary: task, trial, grader, suite. Three kinds of grader. Code-based: fast, cheap, objective, brittle. Model-based: flexible, non-deterministic, needs human calibration. Human: the gold standard, and slow.
+[1:40] Build 4. pass@k is the probability of at least one success in k trials. pass^k is the probability all k succeed. They match at k equals one, but answer different questions as k grows. **Consistency matters for repeated customer use.**
 
-[1:16] Build 3.
+[2:00] Build 5. **Start with 20 to 50 tasks drawn from real failures.** Read failures, refine criteria, and review grader disagreements. Watching outputs can expose missing requirements, the criteria-drift idea from the introduction.
 
-**Grade the outcome, not the transcript.** "Your flight has been booked" at the end of a transcript is not the same as a reservation row in the database. And do not grade the process either, because agents find valid paths you did not anticipate.
+[2:28] **[your story #2]** A failure your tests passed and evals or production caught. It must show three things: the suite was green, the behavior was wrong, and a population-level check or a real user found it. Sixty seconds. This remains the presenter's personal story, separate from the flight-booking illustration.
 
-[1:34] Build 4.
+[3:28] Hold. Advance to slide 17 at [3:45].
 
-Non-determinism has its own arithmetic. pass at k is at least one success in k tries. pass to the k is all k succeed. Identical at k equals one. Opposite stories at k equals ten. **For a customer-facing agent you care about pass to the k.**
+Backup only: Hamel Husain reports that his teams spent 60–80% of development time on error analysis and evaluation in projects they worked on. This describes that experience, not an industry-wide rule.
 
-[1:52] Build 5.
-
-Where to start: **twenty to fifty tasks drawn from real failures. Error analysis is the core activity.** Hamel Husain's teams spend sixty to eighty percent of development time on it. "You can never stop looking at data." And a diagnostic worth memorizing: a zero percent pass rate with a frontier model usually means a broken task, not a broken agent. Criteria drift from the start of the talk returns here. Grading outputs is how you discover the criteria, so the suite grows from looking, not from the spec.
-
-[2:28] Story #2.
-
-**[your story #2]** A failure your tests passed and evals or production caught. It must show three things: the suite was green, the behavior was wrong, and a population-level check or a real user found it. Sixty seconds.
-
-[3:28] Hold, then advance to slide 17 at [3:45].
-
-The track runs about 2:28 before the story and 3:28 after it, against 3:45. Cuttable if the section runs long, in this order: the Codex `/review` sentence; the grader descriptions in build 2, since they are on the slide; "And do not grade the process either." Do not cut the Fowler quote, the two definitions, "grade the outcome," pass to the k, the twenty-to-fifty line, or the criteria drift callback.
+Cut first: the hook example and grader list. Never cut the complementary-checks distinction, actual reservation check, trace constraints, probability distinction, 20–50-case starting point, or the protected 60-second story slot.
 
 ## Sources
 
-- Fowler, "Some thoughts on LLMs and Software Development," August 2025. Quoted verbatim without the leading "I find." Research §5 in `research/section-2.md`. `[primary]`.
-- Anthropic, "Effective harnesses for long-running agents," November 2025, for premature completion. Research §4. `[primary]`.
-- Codex CLI slash commands: `/review` "Ask for a working tree review"; `/approve` "Approve one retry of a recent auto review denial." Research §5. `[primary]`, checked in a browser September 14, 2026.
-- Anthropic, "Building agents with the Claude Agent SDK," September 2025. Rules-based feedback, visual feedback, LLM as judge for "fuzzy rules" with "heavy latency tradeoffs." Research §0. `[primary]`.
-- Anthropic, "Demystifying evals for AI agents," January 2026. Vocabulary; graders; the flight-booking sentence; "agents regularly find valid approaches that eval designers didn't anticipate"; pass@k and pass^k with "At k=1, they're identical" and "By k=10, they tell opposite stories"; "20-50 simple tasks drawn from real failures is a great start"; "a 0% pass rate across many trials is most often a signal of a broken task, not an incapable agent." Research §5. `[primary]`.
-- Husain, "AI Evals: Everything You Need to Know," updated September 2026: "Error analysis is the most important activity in evals"; "We've spent 60-80% of our development time on error analysis and evaluation." "Your AI Product Needs Evals," March 2024: "You can never stop looking at data." Research §5. `[primary]`.
-- Shankar et al., UIST 2024, for criteria drift. Research §3 in `research/section-1.md`. `[primary]`.
+- Fowler, August 2025. Research §5 in `research/section-2.md`.
+- Anthropic, January 2026: evals are tests; outcome and trace checks; capability and regression suites; probability notation; 20–50 starting cases. Research §5. The traveler/itinerary grader is an illustration adapted for the talk, not a reported incident.
+- Anthropic, September and November 2025, for verification mechanisms and premature completion. Research §0 and §4.
+- Husain, eval FAQ, updated September 2026. Research §5. Team-specific experience in backup only.
+- Shankar et al., UIST 2024. Research §3 in `research/section-1.md`.
 
 ## Open items
 
-- Story #2. Decide whether it stays here or is told with story #1 merged into it. If both stories exist, this slot takes one of them, not both.
-- Decide whether the story is told over build 5 or over a blank slide.
+- Deferred by the presenter: story #2 remains a 60-second personal-story slot over build 5.

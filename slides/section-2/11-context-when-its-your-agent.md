@@ -1,10 +1,10 @@
-# Slide 11: Context and knowledge, when it's your agent
+# Slide 11: Context and knowledge, When you are the owner
 
 Beat 2.2 Context and knowledge, second half. Section 2. Time 1:00 of the beat's 3:30; slide 10 took 2:30. Builds: 4.
 
 ## On the slide
 
-**Kicker, top left, small:** Context and knowledge · When it's your agent
+**Kicker, top left, small:** Context and knowledge · When you are the owner
 
 **Title:** Every token in the window is now your decision.
 
@@ -20,8 +20,8 @@ The context budget · The compaction policy · The memory convention · The retr
 
 **Build 3. Customer-facing.** Two lines.
 
-- A compaction that drops a constraint is a wrong answer to a customer.
-- A memory that crosses sessions is a breach.
+- A compaction that drops a constraint can produce a wrong answer.
+- Memory exposed to the wrong user or tenant is a breach.
 
 **Build 4. Pitfall band, bottom.**
 
@@ -47,7 +47,7 @@ The vendor chose your context budget, your compaction policy, your memory conven
 
 [0:19] Build 3.
 
-Customer-facing raises the stakes, because the context now holds another person's data. **A compaction that drops a constraint is a wrong answer to a customer. A memory that crosses sessions is a breach.**
+Customer-facing raises the stakes, because the context now holds another person's data. **A compaction that drops a constraint can produce a wrong answer. Memory exposed to the wrong user or tenant is a breach.**
 
 [0:33] Build 4.
 

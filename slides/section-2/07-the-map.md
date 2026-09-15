@@ -28,7 +28,7 @@ After build 4, everything returns to full brightness for the close.
 
 [0:08] Build 1, the model. At the center, an agent is a model plus a harness. The line that stuck this spring: **"If you're not the model, you're the harness."**
 
-[0:20] Build 2, the harness. What is a harness? OpenAI's definition, from last month. An agent "needs a way to understand a task, maintain context over time, inspect relevant information, call tools, expose progress, handle failures, request human approval when necessary, and return a useful result. That surrounding execution system is the harness."
+[0:20] Build 2, the harness. What is a harness? OpenAI's August 2026 definition. An agent "needs a way to understand a task, maintain context over time, inspect relevant information, call tools, expose progress, handle failures, request human approval when necessary, and return a useful result. That surrounding execution system is the harness."
 
 [0:45] **Four layers.** The model, which decides what to do. The harness around it: instructions, context and memory, tools, orchestration, guardrails, verification.
 
@@ -38,7 +38,7 @@ After build 4, everything returns to full brightness for the close.
 
 [1:16] Full brightness. "Harness engineering" is probably the phrase you have heard most since spring. It maps onto this picture. **Every box on it exists inside the coding agent you used this morning. Someone built each one. We are going to take six of them apart.**
 
-[1:35] For each: what you touched, what someone engineered, and what changes when it is your agent.
+[1:35] For each: When you are the user, what someone engineered, and what changes when you are the owner.
 
 [1:45] **Agent equals model plus harness. Everything that is not the model is what you engineer.**
 

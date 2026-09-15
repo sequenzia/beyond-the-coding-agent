@@ -1,10 +1,10 @@
-# Slide 15: Orchestration, when it's your agent
+# Slide 15: Orchestration, When you are the owner
 
 Beat 2.4 Orchestration, second half. Section 2. Time 1:30 of the beat's 3:30; slide 14 took 2:00. Builds: 4.
 
 ## On the slide
 
-**Kicker, top left, small:** Orchestration · When it's your agent
+**Kicker, top left, small:** Orchestration · When you are the owner
 
 **Title:** Start with the workflow. Own the loop.
 
@@ -31,7 +31,7 @@ A human is waiting. Latency is a product requirement. An unbounded loop is an ou
 
 Pitfall: multi-agent before a workflow was tried.
 
-Beneath, small: Gartner, June 2025. Over 40% of agentic AI projects canceled by end of 2027, "due to escalating costs, unclear business value or inadequate risk controls."
+Beneath, small: Gartner forecast, June 2025: over 40% canceled by end of 2027. Cited risks: cost, unclear value, inadequate controls.
 
 ## Layout and visual
 
@@ -57,13 +57,13 @@ Customer-facing: a human is waiting. Latency is a product requirement. **An unbo
 
 [0:50] Build 4.
 
-The pitfall: **multi-agent orchestration before a workflow was tried.** Gartner said in June 2025 that over 40% of agentic AI projects will be canceled by the end of 2027, "due to escalating costs, unclear business value or inadequate risk controls." Every one of those three is cheaper to discover on a workflow than on a fleet of agents.
+The pitfall: **multi-agent orchestration before a workflow was tried.** Separately, Gartner's June 2025 forecast predicted over 40% of agentic projects canceled by end of 2027, citing cost, unclear value, and inadequate controls. **That forecast does not establish that multi-agent architecture causes cancellations.**
 
 [1:10] **The loop is where autonomy gets its limits. Start with the workflow.**
 
 [1:30] Advance to slide 16.
 
-The track runs about 1:15. The slack belongs to build 2, which is a list and should not be rushed. Cuttable if the section runs long: the five pattern names, since they are on the slide; the last sentence after the Gartner quote. Do not cut "start with the workflow," "you own the loop," "an unbounded loop is an outage," the pitfall, or the takeaway.
+The track runs about 1:15. The slack belongs to build 2, which is a list and should not be rushed. Cuttable if the section runs long: the five pattern names, since they are on the slide; the Gartner forecast, if needed. Keep its forecast label whenever used. Do not cut "start with the workflow," "you own the loop," "an unbounded loop is an outage," the pitfall, or the takeaway.
 
 ## Sources
 

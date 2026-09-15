@@ -94,3 +94,8 @@ If the source slide count changes, update the authoring blocks and the explicit 
 Each run records `build-manifest.json`, stage logs, `build-map.json`, `native-build-map.json`, `fit-warnings.json`, PNG previews, and `validation.json`. The manifest hashes inputs and the final PPTX so a future update can be compared with a known build. It also records the runtime locations; keep this generated file private in `.deck-build/`.
 
 The native XML patcher includes two PowerPoint compatibility fixes: each text body has only one autofit element, and table border children stay in schema order. Preserve those fixes when changing the patcher. The exported package may vary in internal IDs and timestamps between builds; compare rendered states and semantic content rather than expecting identical PPTX bytes.
+
+
+## September 15 essential-corrections pass
+
+The paired Section 2 labels are “When you are the user” and “When you are the owner”. The user slide contains the “What someone engineered” bridge. Source keys and historical filenames remain stable. This pass preserves all six screenshot placeholders, story #2 as a 60-second personal-story slot, and all resource content and destination/QR decisions. See design brief section 11 for revised evidence layouts.

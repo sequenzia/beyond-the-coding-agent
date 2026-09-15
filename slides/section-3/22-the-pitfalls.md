@@ -10,9 +10,9 @@ Six lines. No title, no other text.
 
 1. Models: a hardcoded model ID with no eval suite behind it.
 2. Context: adding instead of curating.
-3. Tools: one endpoint per tool.
+3. Tools: copying the API surface without evaluating task fit.
 4. Orchestration: multi-agent before a workflow was tried.
-5. Evals: a generic judge instead of error analysis. Grading the transcript instead of the outcome.
+5. Evals: a generic judge instead of error analysis. Trusting the success claim without checking the result.
 6. Operating: the lethal trifecta, assembled one integration at a time.
 
 ## Layout and visual

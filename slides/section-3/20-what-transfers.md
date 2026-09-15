@@ -39,7 +39,7 @@ Everything in the last twenty-five minutes was engineering. **Most of it is engi
 
 [0:06] Build 1.
 
-**Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem. **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed. **Testing discipline becomes eval discipline.** Not the same thing, but the habit of writing the check before trusting the code is the habit you need. Observability transfers with a new schema: traces, spans, p95s. Security transfers: least privilege now applies to tools. Operations transfer: cost, latency, incident response, rollback. The units changed to tokens.
+**Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem. **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed. **Testing discipline extends to evals.** The habit of checking before accepting a result transfers. Ordinary tests remain part of the machinery. Observability transfers with a new schema: traces, spans, p95s. Security transfers: least privilege now applies to tools. Operations transfer: cost, latency, incident response, rollback. The units changed to tokens.
 
 [0:50] Build 2.
 

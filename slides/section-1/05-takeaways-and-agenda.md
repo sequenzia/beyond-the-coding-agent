@@ -20,7 +20,7 @@ Beat 1.5 What you will leave with, and the agenda. Section 1. Time 0:45. Builds:
 
 **Footer line, full width, smaller:**
 
-For each area: what you touched, what someone engineered, when it's your agent.
+When you are the user · What someone engineered · When you are the owner
 
 ## Layout and visual
 
@@ -35,7 +35,7 @@ For each area: what you touched, what someone engineered, when it's your agent.
 
 [0:10] The agenda. The map, two minutes. Six areas, twenty-three minutes: models, context and knowledge, tools, orchestration, verification and evals, and operating it. The transition, five minutes. Then fifteen minutes for your questions.
 
-[0:26] **For each of the six areas, the same three beats. What you touched in your coding agent. What someone engineered to make it work. And what changes when it is your agent.**
+[0:26] **For each area: When you are the user, including what someone engineered, then When you are the owner.**
 
 [0:45] Advance to slide 6.
 
