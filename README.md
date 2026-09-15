@@ -15,6 +15,7 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 - `research/section-1.md`, `research/section-2.md`, and `research/section-3.md` hold the sourced notes behind each section: quotes, dates, URLs, verification markers, and a "verify before stage" list.
 - `internal/anatomy-of-an-agentic-ai-system.png` is the system diagram shown as the map at the start of Section 2 and again at its close. `internal/anatomy-of-an-agentic-ai-system-landscape.svg` is the same diagram re-laid for a 16:9 slide, editable. `internal/anatomy-of-an-agentic-ai-system-landscape-yours.svg` is the slide 19 variant, generated from it, with a "yours" badge on every box except Goal. `internal/profile-320.webp` is the presenter photo for slide 2.
 - `slides/section-1/`, `slides/section-2/`, and `slides/section-3/` hold one Markdown file per slide: on-slide text build by build, layout notes, a near-script talk track, sources, and open items. Written from `outlines/outline-v2.md` one slide at a time.
+- `style/colors.md` holds the palette. `style/design-brief.md` fixes the deck's typography, grid, color roles, component specs, build rules, and diagram theme. It is the source of truth for every visual value, and slide files defer to it.
 
 ## Presentation Description
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Preparation materials for a 50-minute conference talk on September 17, 2026. Everything is Markdown plus one PNG diagram. There is no code, no build, no lint, and no test suite. Do not look for package manifests or try to run anything. Context7 is disabled in the local Claude settings because there are no libraries to look up.
+Preparation materials for a 50-minute conference talk on September 17, 2026. Everything is Markdown plus one PNG diagram, its two SVG variants, a photo, and the `style/` folder that holds the palette and the design brief. There is no code, no build, no lint, and no test suite. Do not look for package manifests or try to run anything. Context7 is disabled in the local Claude settings because there are no libraries to look up.
 
 The README holds the session details, the published talk description, and the repo layout. Read it first.
 
@@ -33,6 +33,7 @@ Conventions the slide files follow:
 - **Takeaways are spoken, not shown.** Titles on "when it's your agent" slides state the responsibility instead.
 - **Cut order.** Each talk track names what to cut first if the section runs long and what may never be cut.
 - **Diagram.** Slide 7 uses `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 19 uses the `-yours.svg` variant generated from it. Regenerate the variant if the base changes.
+- **Visual values.** `style/design-brief.md` holds the type scale, grid, color roles, component specs, build rules, and diagram theme. Slide files describe intent in words like "small" or "strip" and defer to the brief for every size, color, and position. A visual change goes into the brief, not into slide files.
 
 ## Markers
 
