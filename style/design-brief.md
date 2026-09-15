@@ -527,3 +527,7 @@ Use the shared header on every Section 2 and 3 content state. Full-screen anatom
 ### Typography and transitions
 
 Attributions carry no decorative `//` prefix. Numbering is Helvetica. Actual commands, filenames, formulas, and the `works.any()` / `works.all()` metaphor remain Consolas. Slides 6 and 20 use the identical section-divider component specified in section 6. Both boundaries use hard cuts. The seven existing Morph destinations remain. Replacement states use consecutive physical slides under section 7; non-overlapping additive reveals retain their existing effects.
+
+## 15. Speaker notes
+
+Build cues use native bold uppercase headings on their own paragraphs, with one blank paragraph before and after each heading when content is present. Keep the existing note font and size. Preserve must-say emphasis as native bold text. Export the talk track through its advance cue, without timestamps or metadata. The closing slide ends at the Q&A handoff.

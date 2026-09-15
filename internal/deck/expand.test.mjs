@@ -10,7 +10,8 @@ test('replacement boundaries preserve states, rebase reveals, and keep Morph onl
     { id:'4', name:'addition', start:5, end:7, kind:'text', effect:'fade', duration:300 },
     { id:'5', name:'last', start:7, end:99, kind:'text', effect:'appear' },
   ];
-  const paragraphs = [{runs:[{text:'Complete talk track. [your story] https://example.com/source'}]}];
+  const paragraphs = [{runs:[{text:'BUILD 2',textStyle:{bold:true}}]},
+    {runs:[{text:'Complete talk track. [your story]'}]}];
   const original = {slides:[{id:'source', index:0, elements:objects.map(o => ({id:o.id,name:o.name,bbox:{xEmu:42},paragraphs})),
     notesSlide:{id:'notes',elements:[{placeholderType:'body',paragraphs}]}}]};
   const map = [{key:'12b',source:12,slideIndex:1,morph:true,objects}];
@@ -24,6 +25,9 @@ test('replacement boundaries preserve states, rebase reveals, and keep Morph onl
   assert.equal(result.map[1].objects.find(o => o.name==='addition').duration,300);
   assert.ok(result.map.every(s => s.objects[0].name==='!!paired-image'));
   assert.ok(result.map.every(s => s.objects.every(o => o.end===99)));
+  for (const slide of result.proto.slides) {
+    assert.deepEqual(slide.notesSlide.elements[0].paragraphs, paragraphs);
+  }
   assert.ok(result.map.every(s => selectedSlide(s,'12,12b')));
   assert.equal(selectedSlide(result.map[1],'13'),false);
   assert.equal(result.counts.presentationStates,4);

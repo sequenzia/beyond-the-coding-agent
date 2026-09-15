@@ -6,6 +6,7 @@ import sharp from 'sharp';
 import { ROOT, BUILD, registerFonts } from './runtime.mjs';
 import assert from 'node:assert/strict';
 import { expandStates, EXPECTED_COUNTS } from './expand.mjs';
+import { speakerNoteParagraphs } from './notes.mjs';
 
 registerFonts(GlobalFonts);
 const ctx=createCanvas(8,8).getContext('2d');
@@ -20,7 +21,6 @@ kickerLayout.placeholders.add({type:'body',index:0,geometry:'textbox',position:{
 kickerLayout.placeholders.add({type:'picture',index:1,geometry:'rect',position:{left:1002.6667,top:48,width:213.3333,height:120},fill:'none',line:{fill:'none',width:0}});
 const sourceFiles=(await Promise.all([1,2,3].map(async n=>(await fs.readdir(path.join(ROOT,`slides/section-${n}`))).sort().map(f=>path.join(ROOT,`slides/section-${n}`,f))))).flat();
 const sources={};for(const f of sourceFiles){const txt=await fs.readFile(f,'utf8');sources[parseInt(path.basename(f))]={file:f,text:txt};}
-const research={};for(const n of [1,2,3]) research[n]=await fs.readFile(path.join(ROOT,`research/section-${n}.md`),'utf8');
 const meta=[];let cur,slide,serial=0;
 const clearMarkdown=t=>t.replace(/\*\*/g,'').replace(/`/g,'');
 function run(text,color,bold=false,font='Helvetica'){return {run:text,textStyle:{typeface:font,color,bold}};}
@@ -60,13 +60,7 @@ function sectionDivider(number,title){
 async function newSlide(key,{area,beat='When you are the owner',map,title,header=false,variant,color,morph=false,note=''}={}){
  slide=deck.slides.add();slide.setLayout(blank);slide.background.fill=C.bg;
  cur={key,source:Number.parseInt(key),slideIndex:meta.length+1,objects:[],morph,note};meta.push(cur);serial=0;
- const base=sources[cur.source];let src=base.text;const spoken=src.split('## Talk track')[1]||'';
- const section=cur.source<=6?1:cur.source<=19?2:3;
- const sourceText=(src.split('## Sources')[1]||'').split('## Open items')[0];
- let urls=[];const secRE=section===2?/Research §(\d)/g:null;
- if(section===2){const wanted=new Set([...sourceText.matchAll(/(?:Research |research )?§(\d)/g)].map(x=>Number(x[1])));for(const n of wanted){const block=research[2].split(new RegExp(`## ${n}\\. `))[1]?.split(/\n## \d+\./)[0]||'';urls.push(...block.match(/https?:\/\/[^\s)<>]+/g)||[]);}}
- else urls=research[section].match(/https?:\/\/[^\s)<>]+/g)||[];
- slide.speakerNotes.textFrame.setText(`Source slide ${key}\n${base.text.split('\n')[2]}\n${note}\n\n${spoken}\n\nResearch links\n${[...new Set(urls)].join('\n')}`);
+ slide.speakerNotes.textFrame.setText(speakerNoteParagraphs(sources[cur.source].text));
  if(area||title||header)await slideHeader({area,beat,map,title,header,color,variant});
  return slide;
 }

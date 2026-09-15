@@ -93,8 +93,19 @@ for m in meta:
     assert rpr.find('a:latin',NS).get('typeface')=='Helvetica',m['key']
     assert rpr.find('a:solidFill/a:srgbClr',NS).get('val').upper()=='ADACA9',m['key']
     notes=E.fromstring(data[f"ppt/notesSlides/notesSlide{m['slideIndex']}.xml"])
-    note_text='\n'.join(notes.xpath('.//a:t/text()',namespaces=NS))
-    assert f"Narrative slide {m['narrativeNumber']} | Authoring key {m['sourceKey']} | Original states {m['stateInterval']['start']} to {m['stateInterval']['end']} | Physical slide {m['physicalIndex']}" in note_text,m['key']
+    note_body=notes.xpath('.//p:sp[p:nvSpPr/p:nvPr/p:ph[@type="body"]]/p:txBody',namespaces=NS)
+    assert len(note_body)==1,m['key']
+    paragraphs=note_body[0].findall('a:p',NS)
+    note_lines=[''.join(p.xpath('.//a:t/text()',namespaces=NS)) for p in paragraphs]
+    note_text='\n'.join(note_lines).strip()
+    assert not re.search(r'\[\d+:\d{2}\]|^## |^Narrative slide |^Source slide |^Beat \d|Research links',note_text,re.M),m['key']
+    assert re.search(r'Advance to|Section 4 begins\. The slide stays\.',note_text.splitlines()[-1]),m['key']
+    for index,(p,line) in enumerate(zip(paragraphs,note_lines)):
+        if not re.match(r'^BUILD \d+',line):continue
+        assert index==0 or not note_lines[index-1],(m['key'],'space before build cue')
+        assert index+1<len(note_lines) and not note_lines[index+1],(m['key'],'space after build cue')
+        for run in p.findall('a:r',NS):
+            assert run.find('a:rPr',NS).get('b')=='1',(m['key'],'bold build cue')
     data[name]=save(root);native_map.append(m)
 
 for name in list(data):

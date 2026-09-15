@@ -100,7 +100,7 @@ async function main() {
   await fs.mkdir(path.join(root, '.deck-build'), { recursive: true });
   const build = await fs.mkdtemp(path.join(root, '.deck-build/run-'));
   await fs.symlink(modules, path.join(build, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
-  for (const name of ['author.mjs', 'expand.mjs', 'package.py', 'render.mjs', 'finalize.mjs', 'runtime.mjs']) {
+  for (const name of ['author.mjs', 'notes.mjs', 'expand.mjs', 'package.py', 'render.mjs', 'finalize.mjs', 'runtime.mjs']) {
     await fs.copyFile(path.join(sourceDir, name), path.join(build, name), constants.COPYFILE_EXCL);
   }
   const env = {

@@ -59,7 +59,7 @@ The launcher itself needs Node on `PATH`. If it is unavailable, invoke `build.mj
 4. Rebuild. Inspect the PNG states named `key-click.png` in the printed `renders/` directory, plus every complete physical slide in `physical-renders/`. Continuation keys include the original state boundary, such as `12b-c1`. Fix overlaps and awkward wrapping in `author.mjs`, then rebuild to a new output filename.
 5. Open the final PPTX in PowerPoint and rehearse the clicks and transitions. Rendered images and automated checks cannot validate playback on the presentation machine.
 
-**Markdown synchronization:** speaker notes, talk tracks, source sections, and research links are read from the Markdown on each build. Visible slide copy, geometry, and click assignments are deliberately authored in JavaScript. Editing on-slide text in Markdown alone does not change the visible slide. Keep both layers in sync. Manual PowerPoint edits also need to be transferred into the builder before the next rebuild.
+**Markdown synchronization:** speaker notes reload the talk track from Markdown on each build. The export removes timestamps, puts build cues in bold uppercase paragraphs with blank lines around them, and ends after the advance instruction. Slide 26 ends at the Q&A handoff. Metadata, authoring notes, cut guidance after the advance, backup sections, sources, research links, and open items stay out of exported notes. Timing and evidence remain in the source Markdown. Visible slide copy, geometry, and click assignments are deliberately authored in JavaScript. Editing on-slide text in Markdown alone does not change the visible slide. Keep both layers in sync. Manual PowerPoint edits also need to be transferred into the builder before the next rebuild.
 
 ### Screenshot placeholders
 
@@ -80,11 +80,11 @@ text('Visible after click 1, replaced at click 2.', 48, 180, 864, 60, 24,
 
 `start: 0` is initially visible. `end: 99` means it remains visible. Every finite exit becomes a boundary between consecutive physical slides. Each segment contains only objects whose lifetimes intersect it. Objects visible at the boundary appear immediately. Later additions retain their order and effects, with local click numbers starting at 1. The default effect is Appear for text and Fade for cards/images; `effect` and `duration` can override it. Replacement boundaries are hard cuts. `morph: true` on `newSlide()` applies only to the first segment of that composition. Keep shared `!!` names stable across the paired slides. Geometry and text sizes in the authoring helpers are points, converted to the Artifact Tool's CSS pixels internally.
 
-`build-map.json` preserves authored keys and original object lifetimes. `expanded-build-map.json` adds the original key, narrative number, inclusive original state interval, physical index, and local-to-original state mapping for each physical slide. The first segment keeps its key; continuations append `-c` and the original boundary, for example `12b-c1`. `native-build-map.json` adds PowerPoint shape IDs. The full talk track and research links remain in every segment's notes, below its narrative number, original key, state interval, and physical index.
+`build-map.json` preserves authored keys and original object lifetimes. `expanded-build-map.json` adds the original key, narrative number, inclusive original state interval, physical index, and local-to-original state mapping for each physical slide. The first segment keeps its key; continuations append `-c` and the original boundary, for example `12b-c1`. `native-build-map.json` adds PowerPoint shape IDs. Every segment keeps its narrative slide's cleaned talk track and native bold formatting. Build mapping metadata stays in the maps.
 
 `--slides 12,12b` renders every segment generated from those original keys. `render-map.json` connects each preview to its original state. Slide 7 produces six physical slides: full brightness, four highlights, then full brightness.
 
-Expected counts live in `expand.mjs`; packaging also asserts the native slide, click, and transition counts. The compiler checks every state's content, geometry, object order, and notes before export. Run its focused tests with `node --test internal/deck/expand.test.mjs`. Do not silently change the 26-slide narrative or the timing invariants.
+Expected counts live in `expand.mjs`; packaging also asserts the native slide, click, and transition counts, notes cutoff, and bold build cues. The compiler checks every state's content, geometry, object order, and notes before export. Run the compiler and notes tests with `node --test internal/deck/expand.test.mjs internal/deck/notes.test.mjs`. Do not silently change the 26-slide narrative or the timing invariants.
 
 ## Files and build stages
 
@@ -93,6 +93,7 @@ Expected counts live in `expand.mjs`; packaging also asserts the native slide, c
 | `build.mjs` | Resolves dependencies, creates an isolated run directory, snapshots scripts and input hashes, runs all stages |
 | `archive.mjs` | Moves previous decks into `output/archive/` after a successful build without overwriting archived revisions |
 | `author.mjs` | Theme, components, visible copy, layout, source notes, and object build metadata |
+| `notes.mjs` | Extracts the talk track through the handoff, removes timestamps, and formats build cues and must-say text |
 | `expand.mjs` | Splits replacements into physical slides, preserves source mapping, rebases reveals, and checks state equivalence |
 | `expand.test.mjs` | Focused compiler checks for replacement boundaries, sparse clicks, notes, Morph, and source selection |
 | `package.py` | Adds native click animation XML, Morph, font policy, line spacing, and border corrections |

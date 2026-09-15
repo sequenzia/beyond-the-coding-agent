@@ -78,9 +78,7 @@ export function expandStates(authoredProto, authoredMap) {
       };
       const body = slide.notesSlide?.elements.find(e => e.placeholderType === 'body');
       assert.ok(body, `${key}: missing speaker notes`);
-      const prefix = `Narrative slide ${source.source} | Authoring key ${source.key} | Original states ${start} to ${info.stateInterval.end} | Physical slide ${info.physicalIndex}`;
-      body.paragraphs.unshift({ id: '', runs: [{ id: '', text: prefix, citations: [], reviewMarkIds: [] }], inlineNodes: [] });
-      // Notes have their own identity. Keep the complete original talk track below the mapping.
+      // Notes have their own identity. Keep the cleaned talk track and its formatting.
       slide.notesSlide.id = randomUUID();
       proto.slides.push(slide);
       map.push(info);
@@ -107,7 +105,7 @@ export function validateExpansion(authoredProto, authoredMap, expandedProto, exp
     assert.ok(info.objects.every(o => o.end === 99), `${info.key}: remaining exit`);
     assert.ok(!info.morph || info.key === info.sourceKey, `${info.key}: Morph on continuation`);
     const originalBody = original.notesSlide.elements.find(e => e.placeholderType === 'body');
-    assert.deepEqual(slide.notesSlide.elements.find(e => e.placeholderType === 'body').paragraphs.slice(1), originalBody.paragraphs);
+    assert.deepEqual(slide.notesSlide.elements.find(e => e.placeholderType === 'body').paragraphs, originalBody.paragraphs);
     for (const { click, originalState } of info.states) {
       const before = original.elements.filter((e, j) => source.objects[j].start <= originalState && source.objects[j].end > originalState);
       const after = slide.elements.filter((e, j) => info.objects[j].start <= click);
