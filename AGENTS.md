@@ -4,9 +4,15 @@ This file provides guidance to coding agents when working in this repository.
 
 ## What this is
 
-Preparation materials for a 50-minute conference talk on September 17, 2026. Everything is Markdown plus the diagram sources and renders under `internal/`, a photo, and the `style/` folder that holds the palette and the design brief. The one script in the repo is `internal/build-diagrams.mjs`, which regenerates every diagram variant and render from the base SVG; it needs Node and Google Chrome and no packages. There is no other code, no build, no lint, and no test suite. Do not look for package manifests. Context7 is disabled in the local Claude settings because there are no libraries to look up.
+Preparation materials for a 50-minute conference talk on September 17, 2026. The Markdown sources are accompanied by diagram assets, a photo, the `style/` design brief, and reusable PowerPoint build code. `internal/build-diagrams.mjs` regenerates diagram variants and renders from the base SVG; it needs Node and Google Chrome and no packages. `internal/deck/build.mjs` builds, renders, and validates the PowerPoint deck with Codex's bundled runtimes and the Presentations plugin. Read `internal/deck/README.md` before changing the builder. There is no lint or test suite and no package install step. Context7 is disabled in the local Claude settings.
 
 The README holds the session details, the published talk description, and the repo layout. Read it first.
+
+## Rebuilding the deck
+
+Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/`; never make `.deck-build/` the only copy of authoring code. The latter is ignored scratch space. The builder creates a new output filename each run and preserves earlier decks.
+
+Speaker notes and research links reload from Markdown. Visible text, layouts, and click assignments are authored in `internal/deck/author.mjs`; update those blocks alongside the corresponding slide specs. Rebuild from the saved code instead of reconstructing the deck. Inspect rendered states after changes and validate native PowerPoint playback before presenting.
 
 ## Source of truth and the evidence layer
 
