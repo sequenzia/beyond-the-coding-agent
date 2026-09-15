@@ -48,11 +48,11 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Harness engineering.** Mitchell Hashimoto, "My AI Adoption Journey," February 5, 2026 [primary]. https://mitchellh.com/writing/my-ai-adoption-journey "anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again," either by updating an AGENTS.md style file or by building a verification tool. UNVERIFIED that he uses the phrase "harness engineering" in the post.
 
-**Evals, the headline competency.** Hamel Husain, "AI Evals: Everything You Need to Know," published May 28, 2025, last modified September 1, 2026 [primary]. https://hamel.dev/blog/posts/evals-faq/
+**Evals and error analysis.** Hamel Husain, "AI Evals: Everything You Need to Know," published May 28, 2025, last modified September 1, 2026 [primary]. https://hamel.dev/blog/posts/evals-faq/
 
 - "Error analysis is the most important activity in evals."
-- "We've spent 60-80% of our development time on error analysis and evaluation."
-- "If you're passing 100% of your evals, you're likely not challenging your system enough."
+- "We've spent 60-80% of our development time on error analysis and evaluation." Backup context only: Husain describes his teams' projects, not an industry-wide allocation rule.
+- Capability suites should probe limits. Regression suites should keep established cases passing. See Anthropic in Section 2 research §5.
 
 **Tool design.** OpenAI, "A practical guide to building agents," p. 9: "Well-documented, thoroughly tested, and reusable tools improve discoverability, simplify version management, and prevent redundant definitions." Three tool types: data, action, orchestration. https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
 
@@ -62,7 +62,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Observability.** OpenTelemetry GenAI semantic conventions, run by the GenAI SIG since April 2024, standardize spans for model calls, token usage, tool calls, and agent steps. As of September 14, 2026 the conventions live in their own repository and are marked "Status: Development" with a warning that they are subject to change; verified entry in `research/section-2.md` §6. The earlier claim here that core attributes were stable since 1.37.0 was secondary and is superseded. The "your instincts transfer, the schema is new" beat.
 
-**No source explicitly ranks the new competencies.** The ladder plus Husain's 60 to 80% time allocation is the nearest defensible priority ordering.
+**No source explicitly ranks the new competencies.** Keep the slide's current display order as an unranked list. The ladder is a teaching frame, not a profession-wide chronology or a ranking.
 
 ## 3. Transition pitfalls
 
@@ -111,9 +111,21 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Gergely Orosz, "The impact of AI on software engineers in 2026: key trends, Part 1," April 14, 2026** [primary]. https://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026 900-plus survey responses. AI amplifies existing tendencies, splitting "builders" who absorb more AI slop from "shippers" who gain speed and accrue debt. Roughly 30% of respondents had hit tool usage limits. Best evidence that the audience is already AI-enabled but has not crossed into AI engineering.
 
-**Role distinction.** "AI-enabled software engineer vs AI engineer" is not a term of art in any primary source. The closest anchor is swyx's three-way split, now verified in `research/section-1.md` §1: the "AI enhanced engineer" who uses AI coding tools, the software engineer building AI products, and the non-human software engineer. His first tier is this talk's first term under another name.
+**Role distinction.** The talk uses a working definition focused on responsibility for model-dependent product behavior. AI and ML roles overlap. See Section 1 research §1. The historical taxonomy remains background research, not spoken content.
 
 **UNVERIFIED for this window:** the 6,000-attendee figure and the "42% of committed code is AI-generated" closing-keynote claim, both from a DEV Community recap.
+
+## Q&A synthesis and limits
+
+These are the talk's judgments, grounded in the cited research rather than new empirical claims.
+
+- Entry path: begin without model training, but learn model behavior, retrieval, evaluation, and uncertainty well enough to investigate failures (Section 1 §1).
+- Frameworks: understand a small loop and choose abstractions whose state and tool calls can be observed, tested, and replaced (Anthropic §3).
+- Judge trust: calibrate against domain experts, review disagreements, use direct state checks where possible, and reserve separate evaluation data. Required approvals and access constraints remain part of the check (Section 2 §5).
+- Shipping threshold: choose by use case, failure severity, human fallback, and measured operating conditions. There is no universal accuracy threshold (talk judgment).
+- Future architecture: mechanisms may simplify as models improve. The prediction is judgment. Permissions, integration, measurement, and accountable operation remain product responsibilities (Section 2 §0, §6).
+- Cost and architecture: compare alternatives on representative work. Include judge overhead, cache behavior, tail latency, failure recovery, and quality. Historical multipliers do not forecast a new product (Section 2 §1, §2, §4).
+- Hiring: lead with a demonstrable system, failure cases, evals, and evidence-driven improvements. The Dice figures are attributed backup context only.
 
 ## Verify before stage
 
@@ -123,4 +135,4 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - Hashimoto and "harness engineering": do not credit him with coining the phrase.
 - Maven course enrollment and Anthropic Academy course counts: do not cite numbers.
 
-**Do not use:** 143% growth; any salary band; MIT 95% as fact.
+**Do not use:** unsupported growth figures such as 143%; any salary band; MIT 95% as fact. The separately documented Dice 101% and 18% figures remain optional, attributed Q&A context. The LinkedIn ranking is secondary reporting via Dice, not a checked LinkedIn primary source.

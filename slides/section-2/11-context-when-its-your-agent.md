@@ -1,10 +1,10 @@
-# Slide 11: Context and knowledge, when it's your agent
+# Slide 11: Context and knowledge, When you are the owner
 
 Beat 2.2 Context and knowledge, second half. Section 2. Time 1:00 of the beat's 3:30; slide 10 took 2:30. Builds: 4.
 
 ## On the slide
 
-**Kicker, top left, small:** Context and knowledge · When it's your agent
+**Kicker, top left, small:** Context and knowledge · When you are the owner
 
 **Title:** Every token in the window is now your decision.
 
@@ -18,10 +18,10 @@ Beneath the frame, one line: Each has a relevance, a freshness, a provenance, an
 
 The context budget · The compaction policy · The memory convention · The retrieval strategy
 
-**Build 3. Customer-facing.** Two lines.
+**Build 3. Customer-facing.** Replace the window, note, and policy items with two lines.
 
-- A compaction that drops a constraint is a wrong answer to a customer.
-- A memory that crosses sessions is a breach.
+- A compaction that drops a constraint can produce a wrong answer.
+- Memory exposed to the wrong user or tenant is a breach.
 
 **Build 4. Pitfall band, bottom.**
 
@@ -29,10 +29,15 @@ Pitfall: adding instead of curating.
 
 ## Layout and visual
 
+- Display narrative number 11 throughout, using the shared component in the design brief.
+- Playback: Two physical slides. The window and policy items remain internal reveals. The risk sentences begin the second slide with a hard cut, followed by the pitfall reveal.
+
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Build 1 is the picture of this area: the window as a container with six named things inside it. Draw the frame so it reads as a fixed-size box, because the whole point is that it does not stretch.
 - Build 2 sits directly under the frame. The four items are the ones slide 10 said the vendor chose, in the same order, so the hand-off is visible.
-- Build 3 is two sentences, set as sentences, not bullets. They are the sharpest lines on the slide.
-- The pitfall band matches the treatment on slide 9: a strip across the bottom, one sentence, labeled "Pitfall." Its wording, "adding instead of curating," matches line 2 of slide 22 exactly. The fuller sentence is spoken.
+- Build 3 replaces the earlier body content with two sentences, set as sentences, not bullets. They are the sharpest lines on the slide.
+- The pitfall band matches the treatment on slide 9: a strip across the bottom, one sentence, labeled "Pitfall." Its wording, "adding instead of curating," matches line 2 of slide 23 exactly. The fuller sentence is spoken.
 - The takeaway is spoken, not shown.
 
 ## Talk track
@@ -47,7 +52,7 @@ The vendor chose your context budget, your compaction policy, your memory conven
 
 [0:19] Build 3.
 
-Customer-facing raises the stakes, because the context now holds another person's data. **A compaction that drops a constraint is a wrong answer to a customer. A memory that crosses sessions is a breach.**
+Customer-facing raises the stakes, because the context now holds another person's data. **A compaction that drops a constraint can produce a wrong answer. Memory exposed to the wrong user or tenant is a breach.**
 
 [0:33] Build 4.
 

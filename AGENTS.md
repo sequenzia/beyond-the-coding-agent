@@ -4,15 +4,17 @@ This file provides guidance to coding agents when working in this repository.
 
 ## What this is
 
-Preparation materials for a 50-minute conference talk on September 17, 2026. The Markdown sources are accompanied by diagram assets, a photo, the `style/` design brief, and reusable PowerPoint build code. `internal/build-diagrams.mjs` regenerates diagram variants and renders from the base SVG; it needs Node and Google Chrome and no packages. `internal/deck/build.mjs` builds, renders, and validates the PowerPoint deck with Codex's bundled runtimes and the Presentations plugin. Read `internal/deck/README.md` before changing the builder. There is no lint or test suite and no package install step. Context7 is disabled in the local Claude settings.
+Preparation materials for a 50-minute conference talk on September 17, 2026. The Markdown sources are accompanied by diagram assets, a photo, the `style/` design brief, and reusable PowerPoint build code. `internal/build-diagrams.mjs` regenerates diagram variants and renders from the base SVG; it needs Node and Google Chrome and no packages. `internal/deck/build.mjs` builds, renders, and validates the PowerPoint deck with Codex's bundled runtimes and the Presentations plugin. Read `internal/deck/README.md` before changing the builder. There is no lint or package install step. Run `node --test internal/deck/expand.test.mjs` for the state-expansion compiler checks. Context7 is disabled in the local Claude settings.
 
 The README holds the session details, the published talk description, and the repo layout. Read it first.
 
 ## Rebuilding the deck
 
-Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/`; never make `.deck-build/` the only copy of authoring code. The latter is ignored scratch space. The builder creates a new output filename each run and preserves earlier decks.
+Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/`; never make `.deck-build/` the only copy of authoring code. The latter is ignored scratch space. The builder creates a new output filename each run. Keep only the current deck directly in `output/`; preserve every older deck in `output/archive/`. After a successful build into `output/`, the builder archives the previous decks automatically. Follow the same rule for decks created or revised outside the builder. Never delete or overwrite archived decks, and keep links to moved decks accurate.
 
-Speaker notes and research links reload from Markdown. Visible text, layouts, and click assignments are authored in `internal/deck/author.mjs`; update those blocks alongside the corresponding slide specs. Rebuild from the saved code instead of reconstructing the deck. Inspect rendered states after changes and validate native PowerPoint playback before presenting.
+Speaker notes reload the talk track from Markdown, without timestamps, metadata, or material after the advance cue. Build cues use native bold uppercase headings. Research links and rehearsal guidance remain in Markdown. Visible text, layouts, and click assignments are authored in `internal/deck/author.mjs`; update those blocks alongside the corresponding slide specs. Rebuild from the saved code instead of reconstructing the deck. Inspect rendered states after changes and validate native PowerPoint playback before presenting.
+
+The 26 narrative slides use 34 authored compositions. `internal/deck/expand.mjs` splits compositions at finite object exits into 64 physical slides, retaining 19 internal clicks and seven Morph transitions. Every physical slide displays its narrative number. The presentation has 83 states and 82 advances. Preserve both authored and expanded build maps, and inspect full editing views as well as presentation states.
 
 ## Source of truth and the evidence layer
 
@@ -27,16 +29,17 @@ Every source entry in research has the same shape: a bold line with author, titl
 
 ## The slides layer
 
-`slides/section-N/NN-descriptive-name.md` holds one file per slide, numbered to match the outline (`01` through `25`). Each file is a tool-agnostic spec with five sections: on-slide text build by build, layout and visual notes, a near-script talk track with `[m:ss]` marks and bold must-say lines, short-form sources pointing to research sections, and open items.
+`slides/section-N/NN-descriptive-name.md` holds one file per slide, numbered to match the outline (`01` through `26`). Each file is a tool-agnostic spec with five sections: on-slide text build by build, layout and visual notes, a near-script talk track with `[m:ss]` marks and bold must-say lines, short-form sources pointing to research sections, and open items.
 
 Slide files render the outline. They do not restate its reasoning and they never introduce a claim. A new claim goes into the research file and the outline first, then onto the slide. The `[verify]`, `[you write]`, and `[your story]` markers mean the same thing in slide files as in the outline.
 
 Conventions the slide files follow:
 
 - **Time splits.** A two-slide beat splits its time between the two files, stated in each header, and the two must sum to the beat. Section sums must match the outline's checks blocks.
-- **Kickers.** Every Section 2 area slide has a top-left label, area name then beat: "Models · What you touched," "Models · When it's your agent." The area name is Bold in the area's color. On the first state of a "what you touched" slide the kicker is the area header, a full-bleed color strip with the area name large, which shrinks into the kicker when the images shrink to the strip. Section 3 slides use "The transition · " plus the beat name. A mini-map of the anatomy diagram sits top right on every slide with a kicker except 22, with the current area's boxes lit.
-- **Pitfall bands.** Every "when it's your agent" slide ends with a strip across the bottom: a solid block in the area color holding the word "Pitfall," then the sentence, whose text matches slide 22 word for word. Slide 22 stacks six of the same bands with the area names in the blocks.
-- **Takeaways are spoken, not shown.** Titles on "when it's your agent" slides state the responsibility instead.
+- **Section dividers.** Slides 6 and 20 are matching typographic dividers with hard cuts and no internal builds. Slide 6 takes 0:15 in Section 1; slide 20 takes 0:10 in Section 3.
+- **Kickers.** Every Section 2 area slide has a top-left label, area name then beat: "Models · When you are the user," "Models · When you are the owner." The area name is Bold in the area's color. On the first state of a "When you are the user" slide the kicker is the area header, a full-bleed color strip with the area name large, which shrinks into the kicker when the images shrink to the strip. Section 3 slides use "The transition · " plus the beat name. A mini-map of the anatomy diagram sits top right on every slide with a kicker except 23, with the current area's boxes lit.
+- **Pitfall bands.** Every "When you are the owner" slide ends with a strip across the bottom: a solid block in the area color holding the word "Pitfall," then the sentence, whose text matches slide 23 word for word. Slide 23 stacks six of the same bands with the area names in the blocks.
+- **Takeaways are spoken, not shown.** Titles on "When you are the owner" slides state the responsibility instead.
 - **Cut order.** Each talk track names what to cut first if the section runs long and what may never be cut.
 - **Diagram.** Slide 7 uses the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 19 uses the render of the `-yours.svg` variant generated from it; the mini-maps are generated from it too. Run `node internal/build-diagrams.mjs` if the base changes.
 - **Visual values.** `style/design-brief.md` holds the type scale, grid, color roles, area colors, component specs, build rules, and diagram theme. Slide files describe intent in words like "small" or "strip" and defer to the brief for every size, color, and position. A visual change goes into the brief, not into slide files.
@@ -59,9 +62,9 @@ A claim graduates from `UNVERIFIED` to `[primary]` only after being checked in a
 ## Invariants when editing the outline
 
 - **Scope is fixed.** The talk description in the README was published to attendees. Every outline version must cover every topic it names. Only the weighting changes.
-- **Two named tools.** The coding agents named on stage are Codex CLI and Devin. Devin's CLI carries the command anchors; Devin Desktop, the IDE, appears on slide 8 for its model picker. No other tool is named as a "what you touched" example. Other products appear only as incident evidence, such as EchoLeak in Microsoft 365 Copilot. Tool facts come from the vendors' own docs and are marked `[primary]` in research with the date they were checked.
-- **Time and slide counts must reconcile.** Presentation is 35:00 across 25 slides: Section 1 is 5:00 and 6 slides, Section 2 is 25:00 and 13 slides, Section 3 is 5:00 and 6 slides. Each section ends with a "checks" block that sums its beat times and lists which beats cover which description topics. Changing a beat's time or slide count means updating that block and the "Structure and time budget" table.
-- **Every Section 2 area follows the same three beats** (what you touched, what someone engineered, when it's your agent) and names one pitfall. The six pitfalls are collected again on slide 22 in 3.3, so a pitfall change lands in two places.
+- **Two named tools.** The coding agents named on stage are Codex CLI and Devin. Devin's CLI carries the command anchors; Devin Desktop, the IDE, appears on slide 8 for its model picker. No other tool is named as a "When you are the user" example. Other products appear only as incident evidence, such as EchoLeak in Microsoft 365 Copilot. Tool facts come from the vendors' own docs and are marked `[primary]` in research with the date they were checked.
+- **Time and slide counts must reconcile.** Presentation is 35:00 across 26 slides: Section 1 is 5:00 and 6 slides, Section 2 is 25:00 and 13 slides, Section 3 is 5:00 and 7 slides. Each section ends with a "checks" block that sums its beat times and lists which beats cover which description topics. Changing a beat's time or slide count means updating that block and the "Structure and time budget" table.
+- **Every Section 2 area follows the same three beats** (When you are the user, what someone engineered, When you are the owner) and names one pitfall. The six pitfalls are collected again on slide 23 in 3.3, so a pitfall change lands in two places.
 - **Beat format is fixed.** Time, slide, say, takeaway line, sources. It is a talk track, not a script.
 
 ## Adding or changing a claim

@@ -1,4 +1,4 @@
-# Slide 14: Orchestration, what you touched
+# Slide 14: Orchestration, When you are the user
 
 Beat 2.4 Orchestration, first half. Section 2. Time 2:00 of the beat's 3:30; slide 15 takes 1:30. Builds: 5.
 
@@ -6,7 +6,7 @@ This area is the "Orchestration" box inside the harness on the map: the loop, ho
 
 ## On the slide
 
-**Kicker, top left, small:** Orchestration · What you touched
+**Kicker, top left, small:** Orchestration · When you are the user
 
 **Build 1.** Six chips in a row, then the loop beneath them.
 
@@ -35,19 +35,24 @@ Same model, better loop: 13% to 38% on ARC-AGI-3, with six times fewer output to
 - Over-ambition: try to one-shot the whole app.
 - Premature completion: see progress, declare the job done.
 
-The fix: an initializer, a feature list, a progress file, one feature per session, and tests are never edited to pass.
+The fix: an initializer, a feature list, a progress file, one feature per session, and protected acceptance criteria. Faulty or obsolete tests may change through review.
 
 **Build 5.** One line with the numbers.
 
-Lead plus subagents: 90% better on a research eval. Fifteen times the tokens of a chat. Poor fit when agents need shared context.
+Anthropic, June 13, 2025. Internal research eval: 90.2% improvement over its single-agent research system. Separate token comparison: multi-agent systems used about 15x chat tokens. Poor fit when agents need shared context.
 
 ## Layout and visual
 
-- Build 1 is the "what you touched" moment for the area. The six chips are the features; the ring beneath them is the claim that they are all one thing. Draw the ring simply, three nodes and three arrows, no icons. It is the picture the audience should hold for the rest of the talk, and it returns on slide 23 as "learn the loop."
+- Display narrative number 14 throughout, using the shared component in the design brief.
+- Playback: Five physical slides. Preserve the Morph into the loop decisions. The quote, failure modes, and multi-agent comparisons each begin a new slide with a hard cut.
+
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
+- Build 1 is the "When you are the user" moment for the area. The six chips are the features; the ring beneath them is the claim that they are all one thing. Draw the ring simply, three nodes and three arrows, no icons. It is the picture the audience should hold for the rest of the talk, and it returns on slide 24 as "learn the loop."
 - Build 2 is five short lines. They are the same shape as the "you now own" list on slide 15, which is the point: what someone engineered here is what you will engineer there.
 - Build 3 is the only large quote in Section 2. Set it big, attribute it small: Addy Osmani, April 2026. The OpenAI figure sits beneath as evidence.
 - Build 4 is two labeled failure modes. The labels are the vocabulary; keep them bold. The fix line is smaller, one sentence.
-- Build 5 is one line, three numbers: the gain, the cost, and the limit, in that order.
+- Build 5 separates the internal research comparison from the chat token comparison. Give each its baseline, with the source and date adjacent. Never combine them into one implied experiment.
 
 ## Talk track
 
@@ -61,15 +66,15 @@ What someone engineered is the loop's decisions. When to stop. What carries betw
 
 [0:46] Build 3.
 
-Addy Osmani's line applies most sharply here: **"A decent model with a great harness beats a great model with a bad harness."** Evidence from OpenAI last month, and it is loop-level evidence: retained reasoning across turns plus a compaction trigger took one model's score on a reasoning benchmark from 13% to 38%, with six times fewer output tokens. Same model.
+Addy Osmani's line applies most sharply here: **"A decent model with a great harness beats a great model with a bad harness."** Evidence from OpenAI in August 2026, and it is loop-level evidence: retained reasoning across turns plus a compaction trigger took one model's score on a reasoning benchmark from 13% to 38%, with six times fewer output tokens. Same model.
 
 [1:10] Build 4.
 
-Anthropic found two failure modes in long-running agents. **Over-ambition: try to one-shot the whole app. Premature completion: a later instance sees progress and declares the job done.** The fix was engineering, not prompting. An initializer writes a feature list and a progress file. Each session does one feature with a fixed startup routine. And there is a hard rule that tests are never edited to pass.
+Anthropic found two failure modes in long-running agents. **Over-ambition: try to one-shot the whole app. Premature completion: a later instance sees progress and declares the job done.** The fix was engineering, not prompting. An initializer writes a feature list and a progress file. Each session does one feature with a fixed startup routine. **Protect the acceptance criteria.** Do not weaken tests merely to get a pass. Faulty or obsolete tests may change through review.
 
 [1:38] Build 5.
 
-Multi-agent, honestly. **A lead plus subagents beat a single agent by 90% on a research eval. It also used fifteen times the tokens of a chat.** And it is a poor fit for work where agents need shared context or have dependencies. Anthropic names coding as the example.
+Multi-agent, honestly. **Anthropic reported a 90.2% improvement against its single-agent research system on an internal eval. Separately, it reported about 15 times chat token use for multi-agent systems.** And it is a poor fit for work where agents need shared context or have dependencies. Anthropic names coding as the example.
 
 [2:00] Advance to slide 15.
 

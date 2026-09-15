@@ -7,6 +7,8 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { archivePreviousDecks } from './archive.mjs';
+import { EXPECTED_COUNTS } from './expand.mjs';
 
 const sourceDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(sourceDir, '../..');
@@ -15,6 +17,7 @@ const help = `Rebuild Beyond the Coding Agent.
 Usage: node internal/deck/build.mjs [--output output/NAME.pptx] [--slides 08,08b]
 
 The default output has a unique timestamp. Existing files are never overwritten.
+After a successful build into output/, older decks move into output/archive/.
 --slides limits PNG previews to the listed source slide keys; the PPTX stays complete.
 Build sources, intermediate files, PNG previews, and validation logs are kept in
 .deck-build/run-*/. See internal/deck/README.md for dependencies and update guidance.
@@ -97,7 +100,7 @@ async function main() {
   await fs.mkdir(path.join(root, '.deck-build'), { recursive: true });
   const build = await fs.mkdtemp(path.join(root, '.deck-build/run-'));
   await fs.symlink(modules, path.join(build, 'node_modules'), process.platform === 'win32' ? 'junction' : 'dir');
-  for (const name of ['author.mjs', 'package.py', 'render.mjs', 'finalize.mjs', 'runtime.mjs']) {
+  for (const name of ['author.mjs', 'notes.mjs', 'expand.mjs', 'package.py', 'render.mjs', 'finalize.mjs', 'runtime.mjs']) {
     await fs.copyFile(path.join(sourceDir, name), path.join(build, name), constants.COPYFILE_EXCL);
   }
   const env = {
@@ -132,14 +135,16 @@ async function main() {
     for (const key of options.slides.split(',')) if (!keys.has(key)) throw new Error(`Unknown source slide key: ${key}`);
   }
   await run('Adding native click builds and Morph transitions...', python, [path.join(build, 'package.py')], 'package.log');
-  await run('Rendering slide states...', node, [path.join(build, 'render.mjs')], 'render.log');
+  await run('Rendering presentation states and editing views...', node, [path.join(build, 'render.mjs')], 'render.log');
   const warnings = JSON.parse(await fs.readFile(path.join(build, 'fit-warnings.json'), 'utf8'));
   if (warnings.length) throw new Error(`Text-fit review required: ${path.join(build, 'fit-warnings.json')}`);
   await run('Validating and finalizing the PPTX...', node, [path.join(build, 'finalize.mjs')], 'finalize.log');
   manifest.finalSha256 = createHash('sha256').update(await fs.readFile(output)).digest('hex');
-  manifest.slideCount = meta.length;
+  manifest.counts = EXPECTED_COUNTS;
+  manifest.slideCount = EXPECTED_COUNTS.physicalSlides;
   await fs.writeFile(path.join(build, 'build-manifest.json'), JSON.stringify(manifest, null, 2));
-  console.log(`Saved ${output}\nPreviews: ${path.join(build, 'renders')}\nValidation: ${path.join(build, 'validation.json')}`);
+  if (path.dirname(output) === path.join(root, 'output')) await archivePreviousDecks(output);
+  console.log(`Saved ${output}\nStates: ${path.join(build, 'renders')}\nEditing views: ${path.join(build, 'physical-renders')}\nValidation: ${path.join(build, 'validation.json')}`);
 }
 
 main().catch(error => { console.error(error.message); process.exitCode = 1; });

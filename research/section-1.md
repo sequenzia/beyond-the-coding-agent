@@ -27,6 +27,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 **Chip Huyen, "AI Engineering: Building Applications with Foundation Models," O'Reilly, 2025.** Repo: https://github.com/chiphuyen/aie-book [primary for the repo]
 
 - "AIE focuses on building applications on top of foundation models, which involves more prompt engineering, context construction, and parameter-efficient finetuning." Contrast with her earlier book: "more tabular data annotations, feature engineering, and model training."
+- Talk scope: AI and ML roles overlap. ML engineering typically focuses on models and their production pipelines. This talk focuses on products around foundation models and on measuring and controlling model-dependent behavior. The title is not dated from the 2023 essay.
 - Chapter 1 wording is UNVERIFIED (O'Reilly returned 403). The circulating shorthand "AI engineering is the process of building applications with readily available foundation models" is marketing copy; do not attribute it as her sentence.
 - Orosz's interview with Huyen reports her view that AI engineering is closer to software engineering than to ML engineering because it is product-first, not model-first. https://newsletter.pragmaticengineer.com/p/ai-engineering-with-chip-huyen
 
@@ -58,6 +59,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 
 - "the hottest new programming language is English"
 - "Demo is works.any(), product is works.all()"
+- Talk interpretation of the metaphor: a demo shows a useful path. Production readiness means reliable behavior across intended use, with safe handling when the system cannot complete a task. This is not a claim of exhaustive correctness.
 - On the generation-verification loop: "To improve verification: Make it easy, fast to win. To improve generation: Keep AI on tight leash."
 - Software 1.0 (hand-written code), 2.0 (learned weights), 3.0 (prompts as programs).
 
@@ -136,7 +138,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 - "we recommend finding the simplest solution possible, and only increasing complexity when needed."
 - "Agents are the better option when flexibility and model-driven decision-making are needed at scale. For many applications, however, optimizing single LLM calls with retrieval and in-context examples is usually enough."
 - "you should consider adding complexity only when it demonstrably improves outcomes."
-- Load-bearing for the talk: agents are the case where control flow itself is model-dependent, so every guarantee normally supplied by a code path must be re-established some other way.
+- Talk framing: an agent adds model-selected actions to control flow. Ordinary code can still enforce permissions, limits, and other guarantees. Model behavior calls for measurement and failure handling within those boundaries.
 
 **OpenAI, "A practical guide to building agents," April 2025.** https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
 
@@ -173,13 +175,13 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 
 ## 7. Candidate openers, ranked
 
-1. **works.any() vs works.all().** Karpathy, June 2025, verified. Everyone in the room has shipped a works.any() demo with a coding agent; the gap between the two calls is the talk. Short, flattering, sets up the recurring prototype-to-production argument.
+1. **works.any() vs works.all().** Karpathy, June 2025, verified. You have probably seen your coding agent do something impressive this week. The metaphor distinguishes a useful path from reliable intended use with safe failure handling.
 2. **The prediction that came true.** swyx, June 2023: ML engineer postings outnumbered AI engineer postings ten to one; he predicted inversion within five years. AI engineer is #1 on LinkedIn Jobs on the Rise 2026. Turn: the title arrived before the discipline did. Use the ranking, not the percentages.
 3. **Fowler's tolerances.** "Maybe LLMs mark the point where we join our engineering peers in a world on non-determinism." Every other discipline builds for variance; software was the exception; the exception just ended. Substantive but slower.
 4. **The six-week vocabulary.** Prompt, context, loop, harness engineering in one summer. Labels churn; the problem underneath does not. Requires the date and joke-framing verification above.
 5. **The stat you should not trust.** Name the MIT 95%, then the 80% who never piloted. Establishes credibility through skepticism but spends the first minute on someone else's work.
 
-**Avoid as openers:** the raw MIT 95%; the Gartner 40% without attribution and date; any AI-engineer salary or growth percentage; the reconstructed Karpathy Sequoia quotes.
+**Avoid as openers:** the raw MIT 95%; the Gartner 40% without attribution and date; any AI-engineer salary or unsupported growth percentage; the reconstructed Karpathy Sequoia quotes.
 
 ## Verify before stage
 

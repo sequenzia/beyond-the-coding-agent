@@ -4,13 +4,15 @@ import path from 'node:path';
 import { Presentation, PresentationFile, FileBlob } from '@oai/artifact-tool';
 import { GlobalFonts, createCanvas } from '@napi-rs/canvas';
 import { BUILD as B, consolasFonts, registerFonts } from './runtime.mjs';
+import { selectedSlide } from './expand.mjs';
 FontLibrary.use('Consolas', consolasFonts);
 registerFonts(GlobalFonts);
 const proto=(await PresentationFile.importPptx(await FileBlob.load(path.join(B,'candidate.pptx')))).toProto();
 for(const im of proto.images)if(im.data&&!ArrayBuffer.isView(im.data))im.data=Uint8Array.from(Object.values(im.data));
 const meta=JSON.parse(await fs.readFile(path.join(B,'native-build-map.json'),'utf8'));
 await fs.mkdir(path.join(B,'renders'),{recursive:true});
-const ctx=createCanvas(1,1).getContext('2d');const warnings=[];let count=0;
+await fs.mkdir(path.join(B,'physical-renders'),{recursive:true});
+const ctx=createCanvas(1,1).getContext('2d');const warnings=[];const rendered=[];let count=0,physicalCount=0;
 for(let i=0;i<meta.length;i++){
  const info=meta[i];const ms=new Map(info.objects.map(x=>[x.name,x]));
  for(const e of proto.slides[i].elements){const m=ms.get(e.name);if(!e.paragraphs?.length||!m?.fontSize)continue;
@@ -20,16 +22,23 @@ for(let i=0;i<meta.length;i++){
   const need=lines*(m.exact||m.fontSize*(m.fontSize===32?1.15:1.25));
   if(need>height+3||max>width+1)warnings.push({slide:info.key,name:m.name,text:e.paragraphs.map(p=>p.runs.map(r=>r.text).join('')).join('\n'),height,need,width,max});
  }
- const states=[...new Set([0,...info.objects.flatMap(o=>[o.start,...(o.end<99?[o.end]:[])])])].sort((a,b)=>a-b);
- for(const state of states){
-  if(process.env.SLIDES&&!process.env.SLIDES.split(',').includes(info.key))continue;
+ if(!selectedSlide(info,process.env.SLIDES))continue;
+ async function renderState(state,filename){
   const p=structuredClone(proto);p.slides=[p.slides[i]];p.slides[0].index=0;delete p.slides[0].timing;delete p.slides[0].transition;
-  p.slides[0].elements=p.slides[0].elements.filter(e=>{const m=ms.get(e.name);return m&&m.start<=state&&m.end>state;});
+  if(state!==null)p.slides[0].elements=p.slides[0].elements.filter(e=>{const m=ms.get(e.name);return m&&m.start<=state&&m.end>state;});
   const d=Presentation.load(p);const s=d.slides.items[0];
   const image=await d.export({slide:s,format:'png',scale:1});
-  await fs.writeFile(path.join(B,'renders',`${info.key}-${state}.png`),new Uint8Array(await image.arrayBuffer()));count++;
+  await fs.writeFile(path.join(B,filename),new Uint8Array(await image.arrayBuffer()));
  }
- console.log(`Rendered source ${info.key}`);
+ for(const {click,originalState} of info.states){
+  const filename=`renders/${info.key}-${click}.png`;
+  await renderState(click,filename);count++;
+  rendered.push({key:info.key,sourceKey:info.sourceKey,narrativeNumber:info.narrativeNumber,physicalIndex:info.physicalIndex,click,originalState,filename});
+ }
+ await renderState(null,`physical-renders/${String(info.physicalIndex).padStart(2,'0')}-${info.key}.png`);physicalCount++;
+ console.log(`Rendered physical slide ${info.physicalIndex}: ${info.key}`);
 }
 await fs.writeFile(path.join(B,'fit-warnings.json'),JSON.stringify(warnings,null,2));
-console.log(JSON.stringify({renderedStates:count,warnings},null,2));
+await fs.writeFile(path.join(B,'render-map.json'),JSON.stringify(rendered,null,2));
+await fs.writeFile(path.join(B,'render-validation.json'),JSON.stringify({renderedStates:count,renderedPhysicalSlides:physicalCount,warnings},null,2));
+console.log(JSON.stringify({renderedStates:count,renderedPhysicalSlides:physicalCount,warnings},null,2));

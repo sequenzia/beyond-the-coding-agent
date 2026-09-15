@@ -1,6 +1,6 @@
-# Slide 20: What transfers
+# Slide 21: What transfers
 
-Beat 3.1 What transfers. Section 3. Time 1:15. Builds: 2.
+Beat 3.1 What transfers. Section 3. Time 1:05. Builds: 2.
 
 ## On the slide
 
@@ -19,7 +19,7 @@ Beat 3.1 What transfers. Section 3. Time 1:15. Builds: 2.
 | Security and least privilege | Least privilege for tools |
 | Operations: cost, latency, incidents, rollback | The same, in tokens |
 
-**Build 2.** Beneath the table, two lines.
+**Build 2.** Replace the table with evidence.
 
 Engineers at incident.io, Sentry, Elsevier, and others crossed over in months, not years. One twenty-five-year veteran: about two months.
 
@@ -27,29 +27,30 @@ Small, quoted: "For experienced engineers who know how to break problems down, A
 
 ## Layout and visual
 
+- Display narrative number 21 throughout, using the shared component in the design brief.
+- Playback: Two consecutive physical slides. The comparison table cuts to the evidence and quote.
+
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - The table is the slide. Six rows, two columns, no rules between rows. The left column should look like a job description the audience recognizes; the right column should look like Section 2's kickers, because it is. Rows 1 to 3 are the transformations; rows 4 to 6 are near-identities, and the wording "the same" on the right makes that visible.
-- Build 2 is the evidence, small, beneath. The company names matter more than the quote; keep them.
+- Build 2 replaces the table with the field evidence and attributed quote. The company names matter more than the quote; keep them.
 - The takeaway is spoken, not shown.
 
 ## Talk track
 
-[0:00] Title up.
+[0:00] Build 1. The introductory bridge was spoken on slide 20.
 
-Everything in the last twenty-five minutes was engineering. **Most of it is engineering you already do.**
+**Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem. **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed. **Testing discipline extends to evals.** The habit of checking before accepting a result transfers. Ordinary tests remain part of the machinery. Observability transfers with a new schema: traces, spans, p95s. Security transfers: least privilege now applies to tools. Operations transfer: cost, latency, incident response, rollback. The units changed to tokens.
 
-[0:06] Build 1.
-
-**Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem. **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed. **Testing discipline becomes eval discipline.** Not the same thing, but the habit of writing the check before trusting the code is the habit you need. Observability transfers with a new schema: traces, spans, p95s. Security transfers: least privilege now applies to tools. Operations transfer: cost, latency, incident response, rollback. The units changed to tokens.
-
-[0:50] Build 2.
+[0:40] Build 2.
 
 Field evidence. Gergely Orosz profiled engineers at incident.io, Sentry, Elsevier, and others who crossed over in months, not years. One twenty-five-year veteran became his company's generative AI expert in about two months, by reading and prototyping.
 
-[1:06] **You are not starting over. You are adding a layer.**
+[0:56] **You are not starting over. You are adding a layer.**
 
-[1:15] Advance to slide 21.
+[1:05] Advance to slide 22.
 
-The track runs about 1:10. Cuttable if Section 3 runs long, in this order: the Morgis quote spoken aloud, since it is on the slide; the three near-identity rows spoken as sentences, reduced to "Observability, security, and operations transfer almost unchanged." Do not cut the three bold transformations, the field evidence, or the takeaway.
+The track runs about 1:00. Cuttable if Section 3 runs long, in this order: the Morgis quote spoken aloud, since it is on the slide; the three near-identity rows spoken as sentences, reduced to "Observability, security, and operations transfer almost unchanged." Do not cut the three bold transformations, the field evidence, or the takeaway.
 
 ## Sources
 

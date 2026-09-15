@@ -22,8 +22,11 @@ product = works.all()
 
 ## Layout and visual
 
+- Display narrative number 1 throughout, using the shared component in the design brief.
+- Playback: Two consecutive physical slides. The title cuts to the code metaphor on the same advance as before.
+
 - Title state: title centered, subtitle beneath it, name line small at the bottom. Nothing else.
-- Build 1: the title exits. The two lines sit centered, in a monospace face, large enough to read from the back of the room. Align the equals signs so the eye reads the two right-hand sides as a pair. The attribution is the only other text.
+- Build 1: the title exits. The two lines sit centered, in a monospace face, large enough to read from the back of the room. Align the equals signs so the eye reads the two right-hand sides as a pair. The attribution and narrative number are the only other text.
 - Keep the two lines up for the whole minute. They are the first content the audience sees and the line the talk returns to on slides 4, 17, and 22.
 - Alternative: split into two builds, one line each, if you want a beat between works.any() and works.all(). It costs nothing in time.
 
@@ -37,15 +40,15 @@ In June 2025, Andrej Karpathy put the whole problem in one line.
 
 **"Demo is works.any(), product is works.all()."**
 
-A demo works if any path through it works. A product works only if every path does.
+**A demo proves that a useful path exists. A product needs reliable behavior across its intended use, with a safe response when it cannot complete the task.**
 
-[0:25] **Everyone in this room has shipped a works.any() this week.** You opened a coding agent, described what you wanted, and it did it. And it was impressive.
+[0:25] **You have probably seen your coding agent do something impressive this week.** That experience is the starting point for this talk.
 
 [0:40] **The distance between those two calls is what this talk is about.** It is the distance between using AI and engineering it.
 
 [1:00] Advance to slide 2.
 
-Cuttable if short on time: the gloss line "A demo works if any path through it works." Everything else stays.
+Cut first: the greeting and the final setup sentence. Never cut the intended-use and safe-failure interpretation of the metaphor.
 
 ## Sources
 

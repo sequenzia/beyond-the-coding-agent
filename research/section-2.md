@@ -41,24 +41,27 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - Vocabulary: deprecation is the announcement; sunset or shutdown is when it stops answering; legacy means no updates but not yet deprecated.
 - Twenty-plus models scheduled to shut down October to December 2026, including early GPT-5 snapshots and o3 variants. gpt-5.4-cyber announced September 11, 2026, shutdown October 1, 2026. Transcription family announced August 26, 2026, shutdown February 26, 2027.
 
-**Lingjiao Chen, Matei Zaharia, James Zou, "How is ChatGPT's behavior changing over time?" July 2023.** https://arxiv.org/abs/2307.09009
+**Lingjiao Chen, Matei Zaharia, James Zou, "How Is ChatGPT's Behavior Changing over Time?", arXiv 2307.09009, July 2023, revised version 3** [primary]. https://arxiv.org/html/2307.09009v3 Checked in a browser September 15, 2026.
 
-- GPT-4 scored 84% identifying prime vs composite numbers in March 2023 and 51% in June 2023, same questions. Framing: "the behavior of the 'same' LLM service can change substantially in a relatively short amount of time." Exact quote wording UNVERIFIED; the 84/51 figures are well documented.
+- "using CoT increased GPT-4's performance from 59.6% to 84.0% in March" (typographic apostrophe normalized).
+- On the paper's prime-versus-composite task with step-by-step prompting, GPT-4 accuracy was 84% for the March 2023 version and 51% for the June 2023 version. The June version followed that instruction less often, partly explaining the difference.
+- This is task- and prompt-specific evidence of behavior across versions. It is not a measure of overall model quality and does not show a pinned snapshot changing internally.
 
-**LangChain, "How many of your agent's calls actually need a frontier model?" Srimanth Tangedipalli and Karan Singh, August 11, 2026** [primary]. https://www.langchain.com/blog/switchyard-agent-routing-benchmark
+**Srimanth Tangedipalli and Karan Singh, "How many of your agent's calls actually need a frontier model?", LangChain, August 11, 2026** [primary]. https://www.langchain.com/blog/switchyard-agent-routing-benchmark Checked in a browser September 15, 2026.
 
-- 145 multi-step agentic tasks averaging 6.3 model calls each: customer support under policy constraints, on-call incident investigation, workflow automation.
+- "Call counts exclude the judge".
+- 145 controlled multi-step tasks, averaging 6.3 model calls, covering support, incident investigation, and workflow automation. One workload, not a forecast for another product.
 
-| Configuration | Accuracy | Cost per task |
+| Configuration | Accuracy | Cost per completed task |
 |---|---|---|
-| Frontier model alone | 86.0% | $0.092 |
+| Frontier only | 86.0% | $0.092 |
 | Routed | 80.0% | $0.026 |
-| Small model alone | 77.7% | $0.006 |
+| Small model only | 77.7% | $0.006 |
 
-- Only 7% of calls needed the frontier model (4.1% to 9.1% across five runs).
-- "The frontier model was used far less often than a single-model setup assumes, and the last six points of accuracy cost 3.5x more per completed task."
-- "Routing between NVIDIA Nemotron 3.5 Lightning and Claude Opus 4.8 cut the total cost by 74%."
-- Break-even rule: "minimum offload = judge cost / (expensive cost - cheap cost)." Routing only pays when the price gap exceeds the router's own cost.
+- The router selected the frontier model for about 7% of agent calls. It did not establish which calls required that model. The share ranged from 4.1% to 9.1% over five runs and excludes judge calls.
+- Observed accuracy variation was about 2.7 percentage points. The routed arm's 2.3-point gain over small-only was smaller than that variation.
+- Calculation from displayed values: (0.092 - 0.026) / 0.092 = 71.7%, approximately 72% lower cost per completed task. The article's 74% reduction concerns total run cost, $11.45 to $3.00. These denominators differ.
+- Product decision: measure which configuration meets the quality requirement under its operating conditions. Include judge cost and latency in the comparison.
 
 **Benchmarks as weak evidence.** All specifics UNVERIFIED (secondary sources): identical weights can score ten to twenty points apart depending on the eval harness; on one SWE-bench Verified leaderboard as of June 2026 only one of a hundred results was independently verified; the same model produces sharply different numbers on SWE-bench Verified self-reported vs SWE-bench Pro on a vendor scaffold vs Scale's SEAL harness; memorization of widely circulated repository issues. Contamination-resistant alternative: SWE-bench-Live, https://swe-bench-live.github.io/ . The defensible claim needs no citation: a public benchmark measures a population you did not choose, on a harness you do not control, reported by a party with an interest in the result. Your eval suite measures your traffic.
 
@@ -75,7 +78,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Coding-agent anchor, Devin Desktop.** The IDE, formerly Windsurf. Devin Desktop changelog, https://docs.devin.ai/desktop/changelog [primary], checked September 14, 2026: v3.0.12, June 2, 2026, "Windsurf is now Devin Desktop." Cascade plugin changelog, https://docs.devin.ai/windsurf/plugins/changelog [primary]: v2.12.13, February 26, 2026, "Added support for GPT-5.3-Codex with four reasoning efforts (low, medium, high, and xhigh)"; v2.12.14, March 11, 2026, GPT-5.4 billed from "No Reasoning: 1x credits" through "Extra High Reasoning: 8x credits"; v2.12.20, April 6, 2026, "The model picker now shows token pricing information directly, so you can see the exact rate extra usage is billed at." The picker opens as a pop-out window with a slider for reasoning level: presenter's first-hand observation, not in the docs text; the slide 8 screenshot is the evidence. Devin Desktop is used on slide 8 because the slider is the visual. Devin CLI carries every other Devin anchor.
 
-What the picker hides: the vendor chose the default, tuned prompts and tool descriptions per model, handles failover, absorbs price changes, and migrated every user off every retired model. On stage the example is Anthropic's cadence above: seven models retired in 2026, the latest Opus 4.1 on August 5.
+Provider responsibilities behind the picker: defaults, model-specific prompt and tool tuning, failover, price-change handling, and retirement handling. The documented retirements illustrate lifecycle work. They do not establish how every coding-tool provider migrated users, who paid a price change, or whether a migration was silent.
 
 **GitHub Changelog, "Selected GitHub Copilot models deprecated," August 31, 2026** [primary]. Not used on stage since the September 14 revision; the talk names only Codex CLI and Devin CLI. Kept for Q&A. https://github.blog/changelog/2026-08-31-selected-github-copilot-models-deprecated/ Checked in a browser September 14, 2026.
 
@@ -84,7 +87,7 @@ What the picker hides: the vendor chose the default, tuned prompts and tool desc
 - Surfaces: Copilot Chat, inline edits, ask and agent modes, code completions. Claude Sonnet 4.6 stays available to individual subscribers on annual plans.
 - A later entry, "Upcoming deprecation of selected GitHub Copilot models," September 3, 2026, announces a further wave. Contents UNVERIFIED; title only.
 
-**When it's your agent.** Six selection axes: capability on your tasks, cost per completed task, latency at p95, context window, tool-use reliability, data residency. Routing and fallback. Pinning: a dated snapshot buys reproducibility and an expiry; an alias buys silent upgrades and silent drift. Data residency can override every other axis for enterprise. Fallback composition reported for 2026 (UNVERIFIED): retry primary, rotate provider on exhaustion, serve semantic cache hit, degrade UI.
+**When you are the owner.** Six selection axes: capability on your tasks, cost per completed task, latency at p95, context window, tool-use reliability, data residency. Routing and fallback. Pinned version: controlled migration and lifecycle management. Moving alias: automatic updates and regression monitoring. A snapshot controls one source of variation. Prompts, tools, retrieval, and the environment also affect behavior. Data residency can override every other axis for enterprise. Fallback composition reported for 2026 (UNVERIFIED): retry primary, rotate provider on exhaustion, serve semantic cache hit, degrade UI.
 
 **Open weights vs hosted API.** UNVERIFIED, practitioner blogs: self-hosting is priced as GPU rental but decided by operations, redundancy, and an eval harness proving a quantized model kept quality; hosted APIs scale to zero and GPUs do not; self-hosting earns its keep at sustained high utilization or when privacy, latency, or fine-tuning control forces it; open-weight models trail closed by a few points on the benchmarks that matter.
 
@@ -105,11 +108,13 @@ What the picker hides: the vendor chose the default, tuned prompts and tool desc
 - System prompts: "The optimal altitude strikes a balance: specific enough to guide behavior effectively, yet flexible enough to provide the model with strong heuristics."
 - Tools: "tools should be self-contained, robust to error, and extremely clear with respect to their intended use." "One of the most common failure modes we see is bloated tool sets."
 - Long-horizon techniques: compaction ("summarizing its contents, and reinitiating a new context window with the summary"); note-taking ("the agent regularly writes notes persisted to memory outside of the context window"); sub-agents ("specialized sub-agents can handle focused tasks with clean context windows"); just-in-time retrieval ("maintain lightweight identifiers... and use these references to dynamically load data into context at runtime").
-- Source for RAG as one technique among several: pre-retrieval embedding search is set against agentic just-in-time loading.
+- Talk definition: retrieval-augmented generation (RAG) retrieves relevant external information and supplies it to the model. Grep, file reads, embeddings, and hybrid retrieval are methods chosen for the data and task. Just-in-time file retrieval can be part of RAG.
 
 **Yichao "Peak" Ji, Manus, "Context Engineering for AI Agents: Lessons from Building Manus," July 18, 2025** [primary]. https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
 
 - "the KV-cache hit rate is the single most important metric for a production-stage AI agent"
+- Scope: these are Manus's reported production experience and its July 2025 pricing example, not universal cache economics.
+- Talk lesson: preserve stable prefixes when useful, measure savings, and update context or tool access when correctness or authorization requires it.
 - "the average input-to-output token ratio is around 100:1"
 - "cached input tokens cost 0.30 USD/MTok, while uncached ones cost 3 USD/MTok, a 10x difference"
 - "avoid dynamically adding or removing tools mid-iteration." Manus masks logits rather than mutating the tool list, because mutation invalidates the cache and orphans earlier references.
@@ -139,11 +144,11 @@ What the picker hides: the vendor chose the default, tuned prompts and tool desc
 - On embeddings: "The embeddings can even be counterproductive, as the agent can give too much weight to irrelevant information."
 - Shipped as Fast Context in Windsurf, now Devin Desktop, with Devin and DeepWiki to follow. Docs: https://docs.windsurf.com/context-awareness/fast-context . The claim that agent trajectories spent more than 60% of the first turn retrieving context is from a secondary summary of those docs; UNVERIFIED wording.
 - SWE-grep-mini serves at 2,800 tokens per second; SWE-grep at 650.
-- Use on stage: the retrieval strategy inside the audience's own tool is engineered agentic search, not a vector index. Codex does the same through the shell. RAG is one technique, not the discipline.
+- Use on stage: SWE-grep illustrates choosing retrieval for code. It does not establish that grep is universally preferable to embeddings. RAG describes retrieval plus generation, not a specific search method.
 
 **Coding-agent anchor.** Both tools read AGENTS.md, the cross-tool standard, https://agents.md/ (formalized August 2025, 60,000-plus projects, donated to the Linux Foundation's Agentic AI Foundation December 2025; adoption and donation UNVERIFIED beyond the site). Codex: `/init` will "Generate an `AGENTS.md` scaffold in the current directory"; `/compact` will "Summarize the visible chat to free tokens"; `model_auto_compact_token_limit` sets the threshold for automatic compaction and `compact_prompt` overrides the summary prompt; `/memories` toggles memory injection and generation. Devin CLI: AGENTS.md in the user config directory for global rules and in the project; `/compact` forces compaction; `/context` shows context window usage. Docs in §1 [primary].
 
-**When it's your agent.** The vendor chose the context budget, compaction policy, memory convention, and retrieval strategy. You own all four. What goes in: instructions, examples, retrieved knowledge, session state, memory, tool results, each with relevance, freshness, provenance, size. Customer-facing: the context holds another person's data; a compaction that drops a constraint is a wrong answer to a customer; memory that crosses sessions is a breach.
+**When you are the owner.** The vendor chose the context budget, compaction policy, memory convention, and retrieval strategy. You own all four. What goes in: instructions, examples, retrieved knowledge, session state, memory, tool results, each with relevance, freshness, provenance, size. Customer-facing: the context holds another person's data; a compaction that drops a constraint can produce a wrong answer. Memory exposed to the wrong user or tenant is a breach. Cross-session memory can be intentional.
 
 **Pitfall.** Adding context rather than curating it. A large window is not permission to fill it; Chroma shows degradation well before the window is full.
 
@@ -152,8 +157,9 @@ What the picker hides: the vendor chose the default, tuned prompts and tool desc
 **Anthropic, "Writing effective tools for agents, with agents," Ken Aizawa, September 11, 2025** [primary]. https://www.anthropic.com/engineering/writing-tools-for-agents
 
 - "deterministic systems produce the same output every time given identical inputs, while non-deterministic systems, like agents, can generate varied responses." Tools are a contract between deterministic code and a non-deterministic caller; "we need to design them for agents."
-- Consolidation: "Tools can consolidate functionality, handling potentially multiple discrete operations (or API calls) under the hood." schedule_event, not list_users plus list_events plus create_event.
+- Consolidation is a task-design option, to evaluate against finer-grained alternatives. Consolidation: "Tools can consolidate functionality, handling potentially multiple discrete operations (or API calls) under the hood." schedule_event, not list_users plus list_events plus create_event.
 - Namespacing: "Namespacing (grouping related tools under common prefixes) can help delineate boundaries between lots of tools"; prefix vs suffix had "non-trivial effects on our tool-use evaluations."
+- Talk rule: return meaningful names alongside stable IDs needed to act. Names alone may be ambiguous.
 - Results: prefer "contextual relevance over flexibility, and eschew low-level technical identifiers." Resolving UUIDs to names "significantly improves Claude's precision in retrieval tasks."
 - response_format enum: "concise" vs "detailed"; Slack example 206 tokens vs 72.
 - "Even small refinements to tool descriptions can yield dramatic improvements." Claude Sonnet 3.5 reached state of the art on SWE-bench Verified "after we made precise refinements to tool descriptions."
@@ -161,7 +167,7 @@ What the picker hides: the vendor chose the default, tuned prompts and tool desc
 
 **Anthropic, "Introducing advanced tool use on the Claude Developer Platform," Bin Wu, November 24, 2025** [primary]. https://www.anthropic.com/engineering/advanced-tool-use
 
-- Five MCP servers (GitHub, Slack, Sentry, Grafana, Splunk) consume "approximately 55K tokens before the conversation even" begins; internally "tool definitions consume 134K tokens before optimization."
+- In Anthropic's particular five-server example, MCP servers (GitHub, Slack, Sentry, Grafana, Splunk) consume "approximately 55K tokens before the conversation even" begins; internally "tool definitions consume 134K tokens before optimization."
 - "the most common failures are wrong tool selection and incorrect parameters, especially when tools have similar names"
 - Deferred loading with tool search: "an 85% reduction in token usage while maintaining access to your full tool library." MCP evals: "Opus 4 improved from 49% to 74%, and Opus 4.5 improved from 79.5% to 88.1%."
 - Programmatic tool calling: "Average usage dropped from 43,588 to 27,297 tokens, a 37% reduction on complex research tasks."
@@ -179,25 +185,31 @@ What the picker hides: the vendor chose the default, tuned prompts and tool desc
 - Codex (config reference, §1): `sandbox_mode` is read-only, workspace-write, or danger-full-access. `approval_policy` is on-request or never, or a table of per-category booleans. Each MCP server has `default_tools_approval_mode` of auto, prompt, writes, or approve. `/permissions` will "Set what Codex can do without asking first."
 - Devin CLI permissions page, https://docs.devin.ai/cli/reference/permissions [primary]: five modes. Normal: reads auto-approve, writes and shell prompt. Accept Edits: workspace edits auto-approve. Smart: for shell, fetch, MCP, and external writes, "a fast model judges whether the action is safe to run unattended," and never auto-approves package installs, mutating git operations, rm or sudo, destructive cloud CLI commands, or anything touching dotenv files or credentials. Bypass: everything auto-approves. Autonomous: pairs with `--sandbox`; shell and fetch auto-approve "because the sandbox enforces what they can read, write, and reach over the network," while direct edits still prompt. Organization deny and ask rules override user settings in every mode.
 
-Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendered as a model.
+Scoped reads, reversible changes, consequential actions are this talk's starting categories. Authorization applies to all three and is enforced outside the model. A model-based recommendation to approve does not establish permission.
 
-**When it's your agent.** The vendor wrote descriptions, chose granularity, shaped payloads, built the approval UI. You write descriptions as prompt engineering and eval them; you decide verbosity because it is your token bill; you classify every action and build the gate. Customer-facing: no developer to click approve, so the gate is an async human step or an automated policy.
+**When you are the owner.** The vendor wrote descriptions, chose granularity, shaped payloads, built the approval UI. You write descriptions as prompt engineering and eval them; you decide verbosity because it is your token bill; you classify every action and build the gate. The gate can use human approval, an async workflow, or an enforced policy, according to the product and action.
 
 **Incidents.**
 
+**OWASP, "LLM06:2025 Excessive Agency", Gen AI Security Project, 2025** [primary]. https://genai.owasp.org/llmrisk/llm062025-excessive-agency/ Checked in a browser September 15, 2026.
+
+- "Implement authorization in downstream systems rather than relying on an LLM to decide if an action is allowed or not."
+- Enforce access policy for scoped reads. Validate reversible changes and support recovery. Consequential actions need policy authorization or approval. Authorization applies to every category. These three categories are the talk's heuristic, not OWASP's taxonomy.
+
 **Omer Mayraz, Legit Security, "CamoLeak: Critical GitHub Copilot Vulnerability Leaks Private Source Code," October 8, 2025** [primary]. https://www.legitsecurity.com/blog/camoleak-critical-github-copilot-vulnerability-leaks-private-source-code Checked in a browser September 14, 2026.
 
+- Researcher-demonstrated vulnerability, not evidence of observed exploitation of customers.
 - "CVSS 9.6." Instructions hidden in a pull request description inside `<!-- -->` comments, invisible in the web UI, processed by Copilot Chat for every user who viewed the page.
 - GitHub's Camo image proxy rewrites external image URLs to signed proxy URLs. The researcher pre-generated Camo URLs for every letter and symbol and had Copilot render leaked data "as ASCII art composed entirely of images," which passed the content security policy because the URLs were GitHub-signed.
 - The demo exfiltrated "the description of a zero-day vulnerability inside an issue of a private project" and AWS credentials.
 - Reported through HackerOne in June 2025. Fixed by August 14, 2025, by "disabling image rendering in Copilot Chat completely."
 
-**Koi Security's ClawHub audit, reported by The Hacker News, February 2, 2026** [primary for the report; Koi's post is the underlying source]. https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html Checked September 14, 2026.
+**Koi Security's ClawHub audit, reported by The Hacker News, February 2, 2026** [primary] for directly checked secondary reporting only. Koi's underlying audit was not independently checked. https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html Checked September 14, 2026.
 
 - "A security audit of 2,857 skills on ClawHub has found 341 malicious skills across multiple campaigns." Campaign named ClawHavoc. "335 skills use fake pre-requisites to install an Apple macOS stealer named Atomic Stealer (AMOS)." 341 of 2,857 is 11.9%, roughly one in eight.
 - Unit 42, "OpenClaw's Skill Marketplace and the Emerging AI Supply Chain Threat," June 23, 2026 [primary]. https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/ Bitdefender Labs found "approximately 17% of OpenClaw skills they analyzed in the first few weeks of the platform's release carried malicious payloads." For a skill, "installation results in complete control over the agent's identity." Use the Koi figure on stage; the Bitdefender figure is a different sample.
 
-**Pitfall.** Exposing the API surface as tools, one endpoint per tool. Counter: consolidation and namespacing. Consequence: BFCL degradation with tool count and wrong-tool selection under similar names.
+**Pitfall.** copying the API surface without evaluating task fit. Evaluate granularity, descriptions, payloads, and safe boundaries against representative tasks.
 
 ## 4. Orchestration: the loop
 
@@ -224,6 +236,7 @@ Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendere
 - Over-ambition: agents "tended to try to do too much at once, essentially to attempt to one-shot the app." Premature completion: "a later agent instance would look around, see that progress had been made, and declare the job done."
 - Fix: initializer agent writes init.sh, a progress file, a JSON feature list (200-plus features), first commit; coding agents do one feature per session with a fixed startup routine; verify with browser automation.
 - "It is unacceptable to remove or edit tests because this could lead to missing or buggy functionality."
+- Talk interpretation: protect acceptance criteria. Do not weaken tests merely to pass. Faulty or obsolete tests may change through review.
 
 **Dex Horthy, HumanLayer, "12-Factor Agents"** [primary]. https://github.com/humanlayer/12-factor-agents
 
@@ -236,33 +249,36 @@ Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendere
 
 - "Over 40% of agentic AI projects will be canceled by the end of 2027, due to escalating costs, unclear business value or inadequate risk controls, according to Gartner, Inc."
 - Anushree Verma, Senior Director Analyst: "Most agentic AI projects right now are early stage experiments or proof of concepts that are mostly driven by hype and are often misapplied. This can blind organizations to the real cost and complexity of deploying AI agents at scale, stalling projects from moving into production."
+- Evidence type: forecast, not observed cancellations. It does not establish that multi-agent architecture causes cancellations.
 - Basis: a January 2025 poll of 3,412 webinar attendees, per the syndicated copy at Machine Learning Times.
 
 **Coding-agent anchor.** Both tools: `/plan`, subagents, hooks, `/compact`, `/resume`, `/fork`. Codex: `/plan` will "Switch to plan mode and optionally send a prompt"; `agents.enabled` and `agents.max_concurrent_threads_per_session`; `hooks.<Event>` for PreToolUse, PostToolUse, SessionStart, SessionEnd, gated by `features.hooks`, which defaults to off; `/hooks` to "View and manage lifecycle hooks." Devin CLI: `/plan` and `/mode plan` for read-only planning; `subagents_enabled`, default true; `/hooks` lists loaded hooks with event types and sources; `/resume`, `/continue`, `/fork`; hand-off to a cloud agent with its own machine. Neither tool documents a todo list; the visible artifact is the plan. Loop: gather context, take action, verify, repeat. A PostToolUse hook runs the formatter or tests regardless of what the model believes it did. Docs in §1 and §3 [primary].
 
-**When it's your agent.** You own the loop, stopping conditions, state and resume, retries, escalation, planner-to-worker routing, the compaction trigger, and the budgets for tokens, actions, and latency. Customer-facing: a human is waiting; latency is a product requirement; an unbounded loop is an outage.
+**When you are the owner.** You own the loop, stopping conditions, state and resume, retries, escalation, planner-to-worker routing, the compaction trigger, and the budgets for tokens, actions, and latency. Customer-facing: a human is waiting; latency is a product requirement; an unbounded loop is an outage.
 
 **Pitfall.** Multi-agent orchestration before a workflow was tried.
 
 ## 5. Verification and evaluation
 
-**The distinction.** Verification: is this one output or action correct, inside the loop. Evaluation: is behavior correct across a population of runs, outside the loop.
+**The organizing model for this talk.** Verification checks an action before accepting it. Evaluation measures behavior across representative cases. Inside and outside the loop describe complementary uses of checks, not a universal boundary between tests and evals. Keep both running as the system changes.
 
 **Anthropic, "Demystifying evals for AI agents," Mikaela Grace, Jeremy Hadfield, Rodrigo Olivares, Jiri De Jonghe, January 9, 2026** [primary]. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
 
 - "The capabilities that make agents useful also make them difficult to evaluate." "Agents use tools across many turns, modifying state in the environment and adapting as they go, which means mistakes can propagate and compound."
 - Vocabulary: task, trial, agent harness, eval harness, transcript, outcome, grader, suite.
 - "A flight-booking agent might say 'Your flight has been booked' at the end of the transcript, but the outcome is whether a reservation exists in the environment's SQL database."
-- Against process grading: "too rigid and results in overly brittle tests, as agents regularly find valid approaches that eval designers didn't anticipate."
+- Process checks: required approvals, access constraints, and policy compliance matter. Avoid prescribing an arbitrary sequence of tools. The talk's line is "Check the result. Inspect the trace."
+- Against rigid process grading: "too rigid and results in overly brittle tests, as agents regularly find valid approaches that eval designers didn't anticipate."
 - Graders. Code-based: "Fast, cheap, objective, reproducible, easy to debug," brittle to valid variation. Model-based: "Flexible, scalable, captures nuance, handles open-ended tasks," but "non-deterministic, requires human calibration." Human: gold standard, expensive, slow.
 - pass@k: "Likelihood that an agent gets at least one correct solution in k attempts." pass^k: "Probability that all k trials succeed." "At k=1, they're identical (both equal the per-trial success rate). By k=10, they tell opposite stories."
 - "20-50 simple tasks drawn from real failures is a great start."
 - "A good task is one where two domain experts would independently reach the same pass/fail verdict."
 - "You won't know if your graders are working well unless you read the transcripts and grades from many trials."
-- "With frontier models, a 0% pass rate across many trials is most often a signal of a broken task, not an incapable agent."
+- Capability suites probe limits. Regression suites should keep established cases passing. A 100% regression pass rate is desirable.
+- Illustrative grader adapted for this talk: a success sentence fails when no matching reservation exists. Check the requested traveler and itinerary against reservation state, then inspect required approvals and access constraints separately. This is an illustration, not story #2.
 - "One-sided evals create one-sided optimization."
 
-**Hamel Husain, "Your AI Product Needs Evals," March 29, 2024** [primary]. https://hamel.dev/blog/posts/evals/ Quotes in research/section-1.md §3. Also "AI Evals: Everything You Need to Know," updated September 1, 2026, https://hamel.dev/blog/posts/evals-faq/ : "Error analysis is the most important activity in evals." "We've spent 60-80% of our development time on error analysis and evaluation." "If you're passing 100% of your evals, you're likely not challenging your system enough." LLM-as-judge guide: https://hamel.dev/blog/posts/llm-judge/ (the "a judge is a hack to make you look at your data" line is UNVERIFIED as to wording).
+**Hamel Husain, "Your AI Product Needs Evals," March 29, 2024** [primary]. https://hamel.dev/blog/posts/evals/ Quotes in research/section-1.md §3. Also "AI Evals: Everything You Need to Know," updated September 1, 2026, https://hamel.dev/blog/posts/evals-faq/ : "Error analysis is the most important activity in evals." "We've spent 60-80% of our development time on error analysis and evaluation." Backup only: this describes projects his teams worked on, not an industry allocation rule or competency ranking. His challenge-the-suite advice applies to probing capability; established regression cases should continue to pass. LLM-as-judge guide: https://hamel.dev/blog/posts/llm-judge/ (the "a judge is a hack to make you look at your data" line is UNVERIFIED as to wording).
 
 **Shankar et al., "Who Validates the Validators?" UIST 2024.** https://arxiv.org/abs/2404.12272 Criteria drift; quotes in research/section-1.md §3.
 
@@ -274,9 +290,9 @@ Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendere
 
 **Coding-agent anchor.** The test suite is the coding agent's verifier: write, run, read the failure, retry. It works because the repo already contains ground truth. Codex adds `/review`, "Ask for a working tree review," and an auto reviewer that can deny a command, with `/approve` to "Approve one retry of a recent auto review denial." Failure mode: the agent declares success without running anything; the fix is a hook or startup routine that runs the check. Docs in §1 [primary].
 
-**When it's your agent.** No test suite for "was this refund correct." Build the verifier (schema check, business-rule assertion, database state check, rubric-driven second model, human), then the eval suite, then online evals on sampled production traffic. Payoff: eval-gated model adoption, a one-day yes or no when a new model ships.
+**When you are the owner.** You must define the checks your domain needs. Refund limits, account ownership, duplicate actions, and ledger state can be checked directly. Other judgments may need a calibrated rubric or expert. Measure across representative cases, keep checks running, and use results as evidence for a migration decision.
 
-**Pitfalls.** Skipping error analysis for a generic judge or a public benchmark. Grading the transcript instead of the outcome.
+**Pitfall.** a generic judge instead of error analysis. Trusting the success claim without checking the result.
 
 ## 6. Operating it: observability, guardrails, security, identity, governance
 
@@ -286,9 +302,9 @@ Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendere
 
 **Simon Willison, "The lethal trifecta for AI agents," June 16, 2025** [primary]. https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/
 
-- The three: "Access to your private data," "Exposure to untrusted content," "The ability to externally communicate." Any two is safe.
+- The three: "Access to your private data," "Exposure to untrusted content," "The ability to externally communicate." These capabilities can combine into an exfiltration path. Break or constrain the path. This does not certify safety against other threats.
 - "LLMs are unable to reliably distinguish the importance of instructions based on where they came from."
-- "we still don't know how to 100% reliably prevent this from happening." Vendor guardrails advertising 95% catch rates are not an adequate security control.
+- "we still don't know how to 100% reliably prevent this from happening." A probabilistic filter is insufficient as the sole security boundary. Filtering can contribute to defense in depth. A web fetch can communicate externally, and one integration can supply multiple capabilities.
 
 **OWASP Top 10 for LLM Applications 2025.** https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf LLM01 prompt injection; LLM06 excessive agency (too much functionality, permissions, or autonomy); new in 2025: LLM07 system prompt leakage, LLM08 vector and embedding weaknesses, LLM10 unbounded consumption.
 
@@ -296,20 +312,26 @@ Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendere
 
 **Guardrail patterns (practitioner consensus, secondary).** Defense in depth at every boundary: input classification, provenance tagging on retrieved content, sandboxed tool execution, output validation, post-hoc trace review. For agents that change production state: circuit breakers on token and action counts, approval gates on consequential actions, least-privilege tool scopes.
 
-**Identity and access.** MCP rules above. 2026 direction (UNVERIFIED, vendor and analyst blogs): agent gets its own standing identity separate from the user, with short-lived per-invocation delegation tokens; SPIFFE/WIMSE for workload identity; OAuth 2.1 via the MCP authorization spec; IETF Identity Assertion Authorization Grant for enterprise brokering. Present as direction, not standard.
+**Identity and access, talk design pattern.** A distinct workload identity with short-lived delegated authority is an illustrative design pattern, not a universal identity prescription or a claimed standard. Supported requirements are separate: enforce the user's authorized scope in downstream systems (OWASP §3), avoid token passthrough, and minimize scopes (MCP §3).
 
-**Governance.** EU AI Act Article 50, per the EU AI Act tracker, https://artificialintelligenceact.eu/transparency-rules-article-50/ [primary for the tracker], checked in a browser September 14, 2026. Transparency obligations apply from "2 August 2026." Providers of systems that interact with people must ensure "users are informed they are interacting with an AI," "at the latest at the time of the first interaction or exposure." The May 2026 AI Omnibus provisional agreement gives generative systems deployed before August 2, 2026 "until 2 December 2026 to meet the machine-readable marking requirement under Article 50(2)." The obligation used on stage is the interaction disclosure, which is not extended. High-risk obligations reportedly moved to December 2, 2027 and August 2, 2028 per law-firm commentary; UNVERIFIED and not used on stage.
+**European Commission, "Transparency obligations under Article 50 of the AI Act", Shaping Europe's digital future, checked September 15, 2026** [primary]. https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act
+
+- "unless this is obvious".
+- Article 50 applies from August 2, 2026. Direct-interaction disclosure is the provider's Article 50(1) obligation for covered direct AI interactions with natural persons, with an exception when the interaction is obvious. Background machine-to-machine systems do not meet this direct-interaction scope.
+- Providers develop or commission systems and place them on the market or put them into service under their name. Deployers use systems under their authority. Deployer obligations separately cover emotion recognition, biometric categorisation, deepfakes, and certain public-interest text. Determine the role and applicable EU scope before assigning duties.
+- The FAQ has an inconsistent subsection number in its opening provider answer. Its dedicated direct-interaction answer correctly identifies Article 50(1). Use that answer.
+- Slide wording: EU AI Act Article 50: disclosure duties for covered direct AI interactions. This is a scoped summary, not a compliance determination for every deployment.
 
 **Incidents.**
 
-- EchoLeak, CVE-2025-32711, CVSS 9.3, disclosed June 2025 by Aim Security. Zero-click indirect prompt injection in Microsoft 365 Copilot. One crafted email, ingested during summarization, caused Copilot to pull data from OneDrive, SharePoint, and Teams and exfiltrate it through a trusted Microsoft domain, bypassing the injection classifier and link redaction. Microsoft: no customer action required, no evidence of exploitation. Analysis: https://arxiv.org/pdf/2509.10540
+- EchoLeak was a researcher-demonstrated vulnerability, CVE-2025-32711, CVSS 9.3, disclosed June 2025 by Aim Security. Zero-click indirect prompt injection in Microsoft 365 Copilot. One crafted email, ingested during summarization, caused Copilot to pull data from OneDrive, SharePoint, and Teams and exfiltrate it through a trusted Microsoft domain, bypassing the injection classifier and link redaction. Microsoft: no customer action required, no evidence of exploitation. Analysis: https://arxiv.org/pdf/2509.10540
 - Replit agent deletes a production database, July 2025. During a public twelve-day experiment by Jason Lemkin of SaaStr, under an explicit code freeze, the agent ran destructive commands and erased data covering about 1,206 executives and 1,196 companies. Replit's CEO apologized July 19, 2025 and shipped dev/prod database separation, a planning-only mode, mandatory documentation checks, and one-click restore. https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure and https://incidentdatabase.ai/cite/1152/
-- Moffatt v. Air Canada, BC Civil Resolution Tribunal, February 2024. The airline argued its chatbot was a separate legal entity responsible for its own actions. Rejected; negligent misrepresentation; C$812.02 awarded. https://www.mccarthy.ca/en/insights/blogs/techlex/moffatt-v-air-canada-misrepresentation-ai-chatbot
+- Moffatt v. Air Canada, BC Civil Resolution Tribunal, February 2024, via McCarthy Tétrault legal commentary. Secondary evidence only; the tribunal decision has not been independently verified. Paraphrase: the airline was held responsible for misleading information supplied by its chatbot. Do not use the disputed separate-entity quotation. https://www.mccarthy.ca/en/insights/blogs/techlex/moffatt-v-air-canada-misrepresentation-ai-chatbot
 - GTG-1002, disclosed by Anthropic November 14, 2025. AI-orchestrated espionage using Claude Code and MCP tools against about thirty targets; the model executed 80 to 90 percent of the operation. https://www-cdn.anthropic.com/d7dd50dd1185f59be051b307150d877f2b82bd2c.pdf and https://attack.mitre.org/campaigns/C0062/ Stakes only, not fear.
 
-**When it's your agent.** All of this was rendered for you as a permission prompt, a sandbox, an OAuth flow, `/usage`, and a vendor trust and safety team. In your deployment there is no prompt to click. The gate becomes an async workflow or policy; the sandbox becomes your infrastructure; the audit trail becomes a compliance artifact; Article 50 requires disclosure.
+**When you are the owner.** All of this was rendered for you as a permission prompt, a sandbox, an OAuth flow, `/usage`, and a vendor trust and safety team. You own the approval process, using human approval, async workflows, or enforced policies as needed. The sandbox becomes infrastructure and the audit trail supports accountability. Apply Article 50 disclosure duties within their relevant role and scope.
 
-**Pitfall.** Assembling the lethal trifecta by accident, one useful integration at a time: a retriever, then web fetch, then an email sender.
+**Pitfall.** the lethal trifecta, assembled one integration at a time. Map capabilities: private data, untrusted content, external communication. A web fetch may already provide an outbound channel, and one integration may occupy more than one corner.
 
 ## 7. June to September 2026: what the audience lived through
 
@@ -317,17 +339,23 @@ Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendere
 - **"Harness engineering" became the standard phrase.** OpenAI February 2026; Osmani April 2026; OpenAI August 2026 definition. Loop engineering and graph engineering are blog-level coinages.
 - **Routing evidence got concrete.** LangChain August 11, 2026 (area 1).
 - **A deprecation wave landed inside the window.** OpenAI twenty-plus shutdowns October to December; Anthropic retired Opus 4.1 August 5; Copilot retired six models September 1 (verified, §1).
-- **OpenClaw.** Open-source autonomous agent past 135,000 GitHub stars; CVE-2026-25253, one-click remote code execution via an unvalidated WebSocket origin; web UI on port 8080 with auth disabled by default; about 12% of its skill marketplace malicious (verified in §3: 341 of 2,857, Koi Security, February 2026); a related agent social network exposed 1.5 million API tokens. The CVE, the star count, and the token exposure remain UNVERIFIED; start at https://en.wikipedia.org/wiki/OpenClaw . If confirmed, the strongest recent "the harness is the attack surface" example.
+- **OpenClaw.** Open-source autonomous agent past 135,000 GitHub stars; CVE-2026-25253, one-click remote code execution via an unvalidated WebSocket origin; web UI on port 8080 with auth disabled by default; about 12% of its skill marketplace malicious (secondary report checked in §3: 341 of 2,857, Koi Security via The Hacker News, February 2026); a related agent social network exposed 1.5 million API tokens. The CVE, the star count, and the token exposure remain UNVERIFIED; start at https://en.wikipedia.org/wiki/OpenClaw . If confirmed, the strongest recent "the harness is the attack surface" example.
 - **The audience's tools.** Devin CLI launched April 27, 2026, with a dedicated virtual machine and cloud hand-off; Fusion reached it September 11 (not used on stage). Codex CLI docs now live at learn.chatgpt.com. Both read AGENTS.md, both have `/plan`, `/compact`, `/resume`, `/fork`, subagents, hooks, MCP, a sandbox, and a usage command. Anchors in §1 through §6 [primary].
 - **Anthropic's evals post, January 9, 2026**, is the newest canonical text in area 5; pass@k vs pass^k is new vocabulary for most engineers.
 - **Enterprise standardization.** Salesforce on Claude Code June 4, 2026; Zalando, "Agentic Engineering at Zalando: a snapshot," August 2026, https://engineering.zalando.com/posts/2026/08/agentic-engineering-at-zalando-a-snapshot.html . UNVERIFIED.
-- **Models in the room.** Claude Sonnet 5 (June 30), Opus 5 (July 24, updated August 12), Fable 5.1 and Mythos 5.1 (September 1, reportedly with breaking API changes), GLM-5.2 open-weight (June 15). Dates UNVERIFIED. Useful only for "a capable model shipped two weeks ago; how would you decide whether to switch?"
+- **Models in the room.** Claude Sonnet 5 (June 30), Opus 5 (July 24, updated August 12), Fable 5.1 and Mythos 5.1 (September 1, reportedly with breaking API changes), GLM-5.2 open-weight (June 15). Dates UNVERIFIED. Historical research leads only. Do not use these model names or dates on stage without primary verification. The migration lesson does not depend on them.
 
 ## Verify before stage
 
-- OpenAI "Harness engineering" post: every quote and number is secondhand. Open both URLs in a browser.
+- OpenAI "Harness engineering" research lead: verify its secondhand material before use. This is distinct from the directly fetched August 19 "Codex as a platform" source in §0 used on slides 7 and 14.
 - OpenAI "A practical guide to building agents": confirm quotes against the PDF.
-- OpenClaw CVE, star count, and token exposure: confirm or drop. CamoLeak and the malicious-skill count are verified in §3.
+- OpenClaw CVE, star count, and token exposure: confirm or drop. CamoLeak is a checked researcher report in §3. The malicious-skill count comes from a directly checked secondary report, not a checked underlying audit.
 - Benchmark-criticism percentages: the general claim is safe; the numbers are not.
-- Chen, Zaharia, Zou exact quote wording: confirm against the paper; the 84/51 figures are safe.
+- Chen, Zaharia, Zou: revised paper checked September 15, 2026. The 84/51 result is limited to prime/composite classification, step-by-step prompting, and the March/June 2023 versions.
+- Air Canada and Replit: keep explicit secondary-source attribution. The tribunal decision and underlying Replit event have not been independently checked.
+- ClawHub: The Hacker News report was checked, not Koi's underlying audit.
+- Identity: an illustrative design pattern, not a verified universal requirement.
+- Article 50 and OWASP authorization: Commission FAQ and OWASP page checked September 15, 2026.
 - AGENTS.md adoption and Linux Foundation donation: confirm or say "cross-tool standard" without numbers.
+
+**Do not use:** unverified model-release dates, unsupported benchmark percentages, disputed Air Canada quotation, forecasts as observed outcomes, or secondary reporting as primary evidence of an event.
