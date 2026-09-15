@@ -10,7 +10,7 @@ From the repository root:
 node internal/deck/build.mjs
 ```
 
-The command writes a new timestamped `.pptx` under `output/`. It prints the output path and the private build directory. It does not overwrite earlier decks.
+The command writes a new timestamped `.pptx` under `output/`. It prints the output path and the private build directory. After validation succeeds, it moves older decks into `output/archive/`, leaving only the current deck directly in `output/`. Archived decks are never overwritten; filename collisions receive a numeric suffix. PowerPoint lock files are skipped. Only builds written directly into `output/` trigger archiving.
 
 To choose a revision name:
 
@@ -85,6 +85,7 @@ If the source slide count changes, update the authoring blocks and the explicit 
 | File | Responsibility |
 | --- | --- |
 | `build.mjs` | Resolves dependencies, creates an isolated run directory, snapshots scripts and input hashes, runs all stages |
+| `archive.mjs` | Moves previous decks into `output/archive/` after a successful build without overwriting archived revisions |
 | `author.mjs` | Theme, components, visible copy, layout, source notes, and object build metadata |
 | `package.py` | Adds native click animation XML, Morph, font policy, line spacing, and border corrections |
 | `render.mjs` | Imports the candidate PPTX and renders every visibility state; reports likely text-fit problems |

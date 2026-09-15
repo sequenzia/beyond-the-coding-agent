@@ -7,6 +7,7 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { archivePreviousDecks } from './archive.mjs';
 
 const sourceDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(sourceDir, '../..');
@@ -15,6 +16,7 @@ const help = `Rebuild Beyond the Coding Agent.
 Usage: node internal/deck/build.mjs [--output output/NAME.pptx] [--slides 08,08b]
 
 The default output has a unique timestamp. Existing files are never overwritten.
+After a successful build into output/, older decks move into output/archive/.
 --slides limits PNG previews to the listed source slide keys; the PPTX stays complete.
 Build sources, intermediate files, PNG previews, and validation logs are kept in
 .deck-build/run-*/. See internal/deck/README.md for dependencies and update guidance.
@@ -139,6 +141,7 @@ async function main() {
   manifest.finalSha256 = createHash('sha256').update(await fs.readFile(output)).digest('hex');
   manifest.slideCount = meta.length;
   await fs.writeFile(path.join(build, 'build-manifest.json'), JSON.stringify(manifest, null, 2));
+  if (path.dirname(output) === path.join(root, 'output')) await archivePreviousDecks(output);
   console.log(`Saved ${output}\nPreviews: ${path.join(build, 'renders')}\nValidation: ${path.join(build, 'validation.json')}`);
 }
 

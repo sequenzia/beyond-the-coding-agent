@@ -18,7 +18,7 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 - `slides/section-1/`, `slides/section-2/`, and `slides/section-3/` hold one Markdown file per slide: on-slide text build by build, layout notes, a near-script talk track, sources, and open items. Written from `outlines/outline-v2.md` one slide at a time.
 - `style/colors.md` holds the palette. `style/design-brief.md` fixes the deck's typography, grid, color roles, component specs, build rules, and diagram theme. It is the source of truth for every visual value, and slide files defer to it.
 - `internal/deck/` holds the reusable PowerPoint authoring, animation, rendering, and validation scripts. See [the build guide](internal/deck/README.md) for dependencies and update instructions.
-- `output/` holds final PowerPoint decks. `.deck-build/` holds ignored intermediate files and previews.
+- `output/` holds the current PowerPoint deck. `output/archive/` preserves older decks. `.deck-build/` holds ignored intermediate files and previews.
 
 ## Rebuild the PowerPoint deck
 
@@ -26,7 +26,7 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 node internal/deck/build.mjs
 ```
 
-This creates a new timestamped deck under `output/` and renders its click states for review. It uses the Codex bundled runtimes and the Presentations plugin. Speaker notes load from Markdown; visible copy and layouts are maintained in `internal/deck/author.mjs`. See [the build guide](internal/deck/README.md) before making changes.
+This creates a new timestamped deck under `output/` and renders its click states for review. After a successful build, older decks move into `output/archive/`. It uses the Codex bundled runtimes and the Presentations plugin. Speaker notes load from Markdown; visible copy and layouts are maintained in `internal/deck/author.mjs`. See [the build guide](internal/deck/README.md) before making changes.
 
 ## Presentation Description
 

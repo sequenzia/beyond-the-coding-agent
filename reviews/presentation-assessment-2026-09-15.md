@@ -45,7 +45,7 @@ My recommendation is a focused revision. Keep the architecture of the talk. Corr
 
 I read the [README](../README.md) first, then all 25 slide specifications, including their build descriptions, layouts, talk tracks, sources, open items, and Q&A notes. I also reviewed the [current outline](../outlines/outline-v2.md), all three research files, the design brief, and the deck build guide.
 
-For visual context, I inspected contact sheets covering all 81 rendered states in `.deck-build/2026-09-15/renders/`, plus a full-size spot check. The validation record for that build identifies the same final file hash as [the current PowerPoint](../output/beyond-the-coding-agent-2026-09-17.pptx). Its build map contains 33 physical slides representing the 25 narrative slides. This review did not test native PowerPoint animation or venue projection.
+For visual context, I inspected contact sheets covering all 81 rendered states in `.deck-build/2026-09-15/renders/`, plus a full-size spot check. The validation record for that build identifies the same final file hash as [the reviewed PowerPoint](../output/archive/beyond-the-coding-agent-2026-09-17.pptx). Its build map contains 33 physical slides representing the 25 narrative slides. This review did not test native PowerPoint animation or venue projection.
 
 I also checked selected external sources where the wording materially affected the recommendation. Those checks are cited beside the relevant findings. This is a presentation and content assessment with targeted source checks, rather than a complete re-verification of every product command, quotation, and date.
 

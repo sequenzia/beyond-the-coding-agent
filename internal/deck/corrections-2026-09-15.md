@@ -4,7 +4,7 @@ Implemented September 15, 2026 from [Apply essential corrections](../../reviews/
 
 ## Delivered build
 
-- [Revised PowerPoint](../../output/beyond-the-coding-agent-2026-09-15T17-54-38-632Z.pptx).
+- [Revised PowerPoint](../../output/archive/beyond-the-coding-agent-2026-09-15T17-54-38-632Z.pptx).
 - SHA-256: `931db07e57e333aea6ad3affec1d9b64e9eb8d82015c108191ad1cba015fb42b`.
 - 2,994,252 bytes. Built with `node internal/deck/build.mjs` from saved authoring code.
 - Private build evidence: `.deck-build/run-eBmSx2/`. The earlier draft and earlier decks are preserved.

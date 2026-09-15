@@ -10,7 +10,7 @@ The README holds the session details, the published talk description, and the re
 
 ## Rebuilding the deck
 
-Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/`; never make `.deck-build/` the only copy of authoring code. The latter is ignored scratch space. The builder creates a new output filename each run and preserves earlier decks.
+Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/`; never make `.deck-build/` the only copy of authoring code. The latter is ignored scratch space. The builder creates a new output filename each run. Keep only the current deck directly in `output/`; preserve every older deck in `output/archive/`. After a successful build into `output/`, the builder archives the previous decks automatically. Follow the same rule for decks created or revised outside the builder. Never delete or overwrite archived decks, and keep links to moved decks accurate.
 
 Speaker notes and research links reload from Markdown. Visible text, layouts, and click assignments are authored in `internal/deck/author.mjs`; update those blocks alongside the corresponding slide specs. Rebuild from the saved code instead of reconstructing the deck. Inspect rendered states after changes and validate native PowerPoint playback before presenting.
 
