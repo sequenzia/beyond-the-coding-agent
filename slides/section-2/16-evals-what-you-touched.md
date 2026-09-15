@@ -22,12 +22,13 @@ Graders: code · model, with expert calibration · human
 
 Check the result. Inspect the trace.
 
-Illustrative flight-booking grader:
+Illustrative FRB-042 grader:
 
-- Claim: "Your flight has been booked."
-- Result check: matching reservation for the requested traveler and itinerary?
-- No matching reservation: FAIL
-- Trace check: required approvals and access constraints satisfied?
+- FRB-042-BRF r1 · slide 6: “Bearing wear is a possible cause.”
+- FRB-042-MIN r2 · §3, paragraph 2: “Cause remains unresolved. Inspect the bearing before assigning a cause.”
+- Observed answer: “The board confirmed bearing wear.”
+- FAIL: hypothesis reported as a finding.
+- Expected: unresolved cause. Inspect before assigning a cause.
 
 **Build 4.** Replace the grader. Preserve pass@k and pass^k with their existing definitions and notation.
 
@@ -47,7 +48,7 @@ Hold this state for story #2.
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Keep the test-loop entry and Morph strip. The definitions table remains editable.
-- The grader is a compact illustration. Separate the result check from the trace check. It has its own visible illustration label and does not stand in for the personal story.
+- The grader is a compact illustration. Use the paired source excerpts and observed/expected result layout in design brief §16. Keep source identities and revisions attached. Trace inspection remains in the talk track. This does not stand in for the personal story.
 - Keep existing probability typography. The final build contains no allocation or zero-pass statistic.
 - Hold the final state for story #2. No extra physical slide.
 
@@ -57,24 +58,24 @@ Hold this state for story #2.
 
 [0:32] Build 2. **Checking an action and measuring behavior across cases are complementary uses of checks.** This talk places verification inside the loop and evaluation across runs outside it. Evals are tests of an AI system. Code, models, and people can all grade. Subjective graders need expert calibration.
 
-[1:04] Build 3. **Check the result. Inspect the trace.** Here is an illustrative grader. The agent says a flight is booked. Look for a reservation matching the requested traveler and itinerary. No matching reservation means the result check fails. Separately inspect required approvals and access constraints. Those matter. An arbitrary sequence of tool calls does not define success.
+[1:04] Build 3. **Check the result. Inspect the trace.** Our illustrative briefing says bearing wear is possible. Later minutes leave the cause unresolved and call for inspection. The answer says the board confirmed bearing wear. **Fail: a hypothesis became an established finding.** The expected answer separates the unresolved cause from the inspection decision. A citation can exist without supporting that sentence. Inspect the retrieved revisions, worker findings, synthesis, and required access constraints.
 
 [1:40] Build 4. pass@k is the probability of at least one success in k trials. pass^k is the probability all k succeed. They match at k equals one, but answer different questions as k grows. **Consistency matters for repeated customer use.**
 
 [2:00] Build 5. **Start with 20 to 50 tasks drawn from real failures.** Read failures, refine criteria, and review grader disagreements. Watching outputs can expose missing requirements, the criteria-drift idea from the introduction.
 
-[2:28] **[your story #2]** A failure your tests passed and evals or production caught. It must show three things: the suite was green, the behavior was wrong, and a population-level check or a real user found it. Sixty seconds. This remains the presenter's personal story, separate from the flight-booking illustration.
+[2:28] **[your story #2]** A failure your tests passed and evals or production caught. It must show three things: the suite was green, the behavior was wrong, and a population-level check or a real user found it. Sixty seconds. This remains the presenter's personal story, separate from the illustrative FRB failure.
 
 [3:28] Hold. Advance to slide 17 at [3:45].
 
 Backup only: Hamel Husain reports that his teams spent 60–80% of development time on error analysis and evaluation in projects they worked on. This describes that experience, not an industry-wide rule.
 
-Cut first: the hook example and grader list. Never cut the complementary-checks distinction, actual reservation check, trace constraints, probability distinction, 20–50-case starting point, or the protected 60-second story slot.
+Cut first: the hook example and grader list. Never cut the complementary-checks distinction, hypothesis-as-fact failure and expected distinction, trace constraints, probability distinction, 20–50-case starting point, or the protected 60-second story slot.
 
 ## Sources
 
 - Fowler, August 2025. Research §5 in `research/section-2.md`.
-- Anthropic, January 2026: evals are tests; outcome and trace checks; capability and regression suites; probability notation; 20–50 starting cases. Research §5. The traveler/itinerary grader is an illustration adapted for the talk, not a reported incident.
+- Anthropic, January 2026: evals are tests; outcome and trace checks; capability and regression suites; probability notation; 20–50 starting cases. Research §5. The flight-booking illustration remains backup in research. The active FRB grader is invented teaching material documented in Research §0 and §5 and `internal/frb-running-example.md`, not a reported incident.
 - Anthropic, September and November 2025, for verification mechanisms and premature completion. Research §0 and §4.
 - Husain, eval FAQ, updated September 2026. Research §5. Team-specific experience in backup only.
 - Shankar et al., UIST 2024. Research §3 in `research/section-1.md`.

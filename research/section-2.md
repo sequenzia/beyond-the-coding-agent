@@ -24,6 +24,18 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - The loop: gather context, take action, verify work, repeat.
 - Verification mechanisms: rules-based feedback (linting), visual feedback (screenshots, renders), LLM as judge for "fuzzy rules," flagged as less robust with "heavy latency tradeoffs."
 
+### Illustrative FRB case, authored September 15, 2026
+
+**Teaching material, not source evidence.** All FRB cases, document IDs, revisions, excerpts, and answers are invented. They carry no `[primary]` marker. The complete packet, expected brief, tool contract, and acceptance checks are in `internal/frb-running-example.md`.
+
+- Purpose: help engineers research Failure Review Boards, understand their discussions and decisions, compare recurring issues, and export authorized records or a cited brief. People own official causes, decisions, and board records.
+- Recurring request: “Review FRB-042 about a pump shutdown. Summarize its discussion and decisions, compare similar FRBs from the past year, and export a cited brief distinguishing possible causes from established findings.”
+- Synthetic evidence: FRB-042-BRF r1, slide 6, August 19, 2026: “Bearing wear is a possible cause.” FRB-042-MIN r2, §3 paragraph 2, August 22, 2026: “Cause remains unresolved. Inspect the bearing before assigning a cause.” These are different documents, not two revisions of one file.
+- Deliberately wrong answer: “The board confirmed bearing wear.” The expected distinction preserves the preliminary hypothesis, unresolved cause, and inspection decision.
+- FRB-017 has a sensor fault. FRB-031 has confirmed bearing wear. Similar symptoms justify comparison, not proof of a common cause. Duplicate records do not create independent cases.
+- Teaching rationale: one request connects six distinct owner responsibilities. It makes evidence fidelity and uncertainty visible without implying a deployed system, model benchmark, or personal experience. The failure is separate from both protected personal-story slots.
+- The design confines research workers to authorized internal FRB records and attachments. Missing, unreadable, conflicting, incomplete, or unauthorized evidence produces an explicit limitation. Citation existence and semantic support are separate checks.
+
 ## 1. Models: a component you select, measure, and replace
 
 **Anthropic model deprecations page** [primary]. https://platform.claude.com/docs/en/about-claude/model-deprecations
@@ -93,6 +105,10 @@ Provider responsibilities behind the picker: defaults, model-specific prompt and
 
 **Pitfall.** Treating the model as a fixed dependency: a hardcoded model ID with no eval suite behind it, so the deprecation email arrives with a replacement you have never measured. Mirror image: an alias with drift you never detect. Same fix, which sets up area 5.
 
+### FRB application and displaced evidence
+
+Illustrative application of §0, not a measured result: compare candidate models and versions on evidence extraction, discussion summaries, and qualified synthesis. Evaluate research workers for faithful evidence and coverage, and the main analyst for reconciliation and warranted uncertainty. Record quality, cost per completed brief, and p95 latency, including workers, retries, and verification. No scores, cheaper-worker assumption, or winner is supplied. Pinned versions and moving aliases retain their existing lifecycle distinction. The Chen prime/composite result and LangChain routing experiment above remain backup evidence, with all original limitations; neither is on slide 9.
+
 ## 2. Context engineering and knowledge
 
 **Andrej Karpathy, X post, June 25, 2025.** https://x.com/karpathy/status/1937902205765607626
@@ -151,6 +167,10 @@ Provider responsibilities behind the picker: defaults, model-specific prompt and
 **When you are the owner.** The vendor chose the context budget, compaction policy, memory convention, and retrieval strategy. You own all four. What goes in: instructions, examples, retrieved knowledge, session state, memory, tool results, each with relevance, freshness, provenance, size. Customer-facing: the context holds another person's data; a compaction that drops a constraint can produce a wrong answer. Memory exposed to the wrong user or tenant is a breach. Cross-session memory can be intentional.
 
 **Pitfall.** Adding context rather than curating it. A large window is not permission to fill it; Chroma shows degradation well before the window is full.
+
+### FRB context design
+
+Illustrative application of §0: retrieve relevant excerpts from the authorized corpus with IDs, revisions, source locations, decision status, and comparison cases. Keep FRB-042-BRF r1's preliminary hypothesis distinct from FRB-042-MIN r2's unresolved cause and inspection decision. Refresh retrieval as records arrive. Preserve access constraints, source revisions, and the unresolved status during compaction and resume. A large corpus requires selection within context limits. Relevance, freshness, provenance, and size remain the owner's decisions. Do not use stale memory or duplicate copies as independent evidence.
 
 ## 3. Tools and extensibility
 
@@ -211,6 +231,10 @@ Scoped reads, reversible changes, consequential actions are this talk's starting
 
 **Pitfall.** copying the API surface without evaluating task fit. Evaluate granularity, descriptions, payloads, and safe boundaries against representative tasks.
 
+### FRB tool contract and displaced incidents
+
+Illustrative application of §0: separate background parsing and indexing of PDF, Word, and PowerPoint from the tools the agent calls. Expose search by ID/date/category, retrieval of source passages, export of selected records, and export of a cited brief. Results retain IDs, revisions, locations, coverage, and explicit parse or retrieval failures. Enforce authorization outside the model for reads and exports, including the destination. The export must match selected records or the checked draft, preserve citations and uncertainty, and return a receipt. This is a teaching design, not a deployed API. CamoLeak and the ClawHub audit stay above as backup evidence with their demonstration and secondary-source limitations. Slide 18 retains operating security evidence.
+
 ## 4. Orchestration: the loop
 
 **Anthropic, "Building effective agents," Erik Schluntz and Barry Zhang, December 19, 2024** [primary]. https://www.anthropic.com/engineering/building-effective-agents
@@ -258,6 +282,10 @@ Scoped reads, reversible changes, consequential actions are this talk's starting
 
 **Pitfall.** Multi-agent orchestration before a workflow was tried.
 
+### FRB workflow and displaced forecast
+
+Illustrative application of §0: retrieve the target packet, inspect evidence, compare cases, reconcile findings, verify, export. Begin with this bounded workflow. Measure it before adding workers for independent comparisons of FRB-017 and FRB-031. Workers return evidence and uncertainty to the main analyst, within the authorized internal corpus and attachments. Conflicting findings prompt source inspection or an unresolved result. Persist completed steps and revisions for resume, recheck freshness and access, bound retries, and check export receipts before repeating an export. Incomplete indexing and action/token/latency limits produce explicit limitations. Deliver the sequence directly, without an audience pause. The pattern inventory, 12-Factor ownership list, and Gartner forecast remain background or backup, not slide 15 content. Routing now points to the unmeasured FRB framework on slide 9, not the displaced benchmark.
+
 ## 5. Verification and evaluation
 
 **The organizing model for this talk.** Verification checks an action before accepting it. Evaluation measures behavior across representative cases. Inside and outside the loop describe complementary uses of checks, not a universal boundary between tests and evals. Keep both running as the system changes.
@@ -290,9 +318,13 @@ Scoped reads, reversible changes, consequential actions are this talk's starting
 
 **Coding-agent anchor.** The test suite is the coding agent's verifier: write, run, read the failure, retry. It works because the repo already contains ground truth. Codex adds `/review`, "Ask for a working tree review," and an auto reviewer that can deny a command, with `/approve` to "Approve one retry of a recent auto review denial." Failure mode: the agent declares success without running anything; the fix is a hook or startup routine that runs the check. Docs in §1 [primary].
 
-**When you are the owner.** You must define the checks your domain needs. Refund limits, account ownership, duplicate actions, and ledger state can be checked directly. Other judgments may need a calibrated rubric or expert. Measure across representative cases, keep checks running, and use results as evidence for a migration decision.
+**Earlier domain examples, backup only.** Refund limits, account ownership, duplicate actions, and ledger state illustrated direct checks. The active FRB examples below replace these on slide 17.
 
 **Pitfall.** a generic judge instead of error analysis. Trusting the success claim without checking the result.
+
+### FRB evaluation and retained backup
+
+Illustrative application of §0: the grader fails “The board confirmed bearing wear” because neither the preliminary FRB-042-BRF r1 slide 6 nor the later FRB-042-MIN r2 §3 paragraph 2 supports confirmation. The expected answer separates possible cause, established findings, and the decision to inspect. Inspect whether parsing, retrieval, compaction, worker output, or synthesis caused the error before changing the system. Direct checks cover IDs, revisions, permissions, source locations, selected records, and exported content. Experts judge semantic support, useful synthesis, and warranted uncertainty. Citation existence alone cannot establish support. Calibrate model graders to expert decisions. Inspect the failure and trace, identify the responsible component, change it, rerun the representative suite with repeated trials, and monitor production samples. Model, prompt, retrieval, and tool changes all need regression evidence. Flight booking and refund examples remain backup illustrations only. The 60-second story remains a presenter-authored slot.
 
 ## 6. Operating it: observability, guardrails, security, identity, governance
 
@@ -333,6 +365,10 @@ Scoped reads, reversible changes, consequential actions are this talk's starting
 
 **Pitfall.** the lethal trifecta, assembled one integration at a time. Map capabilities: private data, untrusted content, external communication. A web fetch may already provide an outbound channel, and one integration may occupy more than one corner.
 
+### FRB operating design
+
+Illustrative application of §0: enforce FRB access and allowed export destinations outside the model. Trace the request through exact retrieved revisions, optional worker evidence, synthesis, verification, and export. Restrict trace access. Monitor freshness, parsing/tool failures, quality failures, cost per completed brief, and end-to-end latency. Humans own official causes, decisions, and board records. The capability-based security pitfall still applies to internal documents: attachments can contain untrusted instructions. Internal-only research does not make exports safe by itself. Slide 18 retains the existing security evidence and scoped governance treatment.
+
 ## 7. June to September 2026: what the audience lived through
 
 - **MCP revision 2026-07-28**, the largest since launch. Stateless at the protocol layer; Multi Round-Trip Requests replace server-initiated sampling and elicitation; formal deprecation policy with a twelve-month minimum window; HTTP+SSE transport deprecated; new rule "MCP servers MUST NOT treat possession of a state handle as authentication." https://blog.modelcontextprotocol.io/posts/2026-07-28/ Release-note specifics UNVERIFIED beyond spec pages.
@@ -347,11 +383,13 @@ Scoped reads, reversible changes, consequential actions are this talk's starting
 
 ## Verify before stage
 
+- FRB material is illustrative. Check IDs, revisions, source locations, uncertainty, and human ownership against `internal/frb-running-example.md`; do not seek or imply real-world verification of invented cases.
+
 - OpenAI "Harness engineering" research lead: verify its secondhand material before use. This is distinct from the directly fetched August 19 "Codex as a platform" source in §0 used on slides 7 and 14.
 - OpenAI "A practical guide to building agents": confirm quotes against the PDF.
 - OpenClaw CVE, star count, and token exposure: confirm or drop. CamoLeak is a checked researcher report in §3. The malicious-skill count comes from a directly checked secondary report, not a checked underlying audit.
 - Benchmark-criticism percentages: the general claim is safe; the numbers are not.
-- Chen, Zaharia, Zou: revised paper checked September 15, 2026. The 84/51 result is limited to prime/composite classification, step-by-step prompting, and the March/June 2023 versions.
+- Backup only, Chen, Zaharia, Zou: revised paper checked September 15, 2026. The 84/51 result is limited to prime/composite classification, step-by-step prompting, and the March/June 2023 versions.
 - Air Canada and Replit: keep explicit secondary-source attribution. The tribunal decision and underlying Replit event have not been independently checked.
 - ClawHub: The Hacker News report was checked, not Koi's underlying audit.
 - Identity: an illustrative design pattern, not a verified universal requirement.

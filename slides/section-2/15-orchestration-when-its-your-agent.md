@@ -4,79 +4,68 @@ Beat 2.4 Orchestration, second half. Section 2. Time 1:30 of the beat's 3:30; sl
 
 ## On the slide
 
-**Kicker, top left, small:** Orchestration · When you are the owner
+**Kicker:** Orchestration · When you are the owner
 
 **Title:** Start with the workflow. Own the loop.
 
-**Build 1. Workflows and agents.** Two short definitions side by side, then five chips.
+**Build 1.** Illustrative FRB workflow. Six ordered steps:
 
-| Workflows | Agents |
-|---|---|
-| LLMs and tools on predefined code paths. | LLMs that direct their own process. |
+1. Retrieve the target packet.
+2. Inspect evidence.
+3. Compare cases.
+4. Reconcile findings.
+5. Verify the brief.
+6. Export.
 
-Chaining · Routing · Parallelization · Orchestrator and workers · Evaluator and optimizer
+**Build 2.** Replace the sequence. Illustrative extension after measuring the workflow:
 
-**Build 2. You now own.** Eight items in two rows, then four lines set as a small quote block.
+Optional workers: compare FRB-017 and FRB-031 independently.
 
-The loop · Stopping conditions · State and resume · Retries
-Escalation as a tool call · Planner-to-worker routing · The compaction trigger · Budgets: tokens, actions, latency
+Return evidence and uncertainty to the main analyst. Authorized internal FRB corpus and attachments only.
 
-Own your prompts. Own your context window. Own your control flow. Contact humans with tool calls.
+Bound retries. Save steps and revisions for resume. Recheck freshness, access, and export receipts.
 
-**Build 3. Customer-facing.** Replace the ownership list and quotation with three short sentences.
+**Build 3.** Replace the worker state. Illustrative operating limits:
 
-A human is waiting. Latency is a product requirement. An unbounded loop is an outage.
+Conflicting findings: inspect sources or leave the result unresolved.
 
-**Build 4. Pitfall band, bottom.**
+Incomplete indexing must be explicit.
 
-Pitfall: multi-agent before a workflow was tried.
+Bound actions, tokens, and end-to-end latency.
 
-Beneath, small: Gartner forecast, June 2025: over 40% canceled by end of 2027. Cited risks: cost, unclear value, inadequate controls.
+**Build 4. Pitfall:** multi-agent before a workflow was tried.
+
+Within the band, small: A bounded result can be an explicit limitation or a human handoff.
 
 ## Layout and visual
 
-- Display narrative number 15 throughout, using the shared component in the design brief.
-- Playback: Three physical slides. Definitions remain an internal reveal. Ownership, then customer-facing sentences, begin new slides with hard cuts. The pitfall and forecast remain one internal reveal.
-
-- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
-
-- Build 1 is the definitions pair from slide 4, now with the five pattern names under it. The pair should look like the columns on slide 4 so the audience recognizes the distinction.
-- Build 2 is the longest "you now own" list in Section 2, so it runs as chips in two rows rather than bullets. The four 12-factor lines sit beneath as a quote block, attributed small: 12-Factor Agents, Dex Horthy.
-- Build 3 replaces the preceding body state with three sentences, with the third carrying the weight.
-- The pitfall band matches slides 9, 11, and 13. Its wording, "multi-agent before a workflow was tried," matches line 4 of slide 23 exactly. The Gartner line sits under it, small, quoted, dated.
-- The takeaway is spoken, not shown.
+- Preserve narrative number 15, header, mini-map, and three physical slides.
+- Sequence enters on build 1. Workers and limits replace it at the existing build 2 and build 3 cuts. Pitfall remains an internal reveal with the expanded band.
+- Use the native six-step sequence and flat text layouts in design brief §16. Deliver the sequence directly. No audience pause or extra advance.
+- Preserve the existing pitfall sentence. The forecast is retained in research, replaced here by a limitation principle. Speak the takeaway.
 
 ## Talk track
 
-[0:00] Build 1.
+[0:00] Build 1. **Retrieve the target packet, inspect evidence, compare cases, reconcile findings, verify, export. Start with that bounded workflow.** The process can use predefined paths before adding model-selected actions.
 
-Workflows are LLMs and tools on predefined code paths. Agents direct their own. **Start with the workflow.** Five patterns cover most of it: chaining, routing, parallelization, orchestrator and workers, evaluator and optimizer.
+[0:17] Build 2. After measuring that workflow, optional workers can compare FRB-017 and FRB-031 independently. **They return evidence and uncertainty to the main analyst, using only authorized internal FRB records and attachments.** Save completed steps and exact revisions for resume. Recheck freshness and access. Bound retries and check the prior export receipt before repeating an export.
 
-[0:14] Build 2.
+[0:46] Build 3. **Conflicting findings trigger source inspection or an unresolved result.** Similar symptoms and duplicate documents cannot establish a common cause. Incomplete indexing must be visible. Set action, token, and end-to-end latency limits. At a limit, return an explicit limitation or hand off to a person. **An unbounded loop is an outage.**
 
-**You own the loop.** Stopping conditions, starting with a maximum number of iterations. State and resume. Retries. Escalation to a human as a tool call. Routing between a planner and cheap workers. The compaction trigger. And the budgets: tokens, actions, latency. Twelve-factor agents says it in four lines: own your prompts, own your context window, own your control flow, contact humans with tool calls.
+[1:11] Build 4. **Multi-agent before a workflow was tried.** More workers have to earn their cost and complexity.
 
-[0:42] Build 3.
-
-Customer-facing: a human is waiting. Latency is a product requirement. **An unbounded loop is an outage.**
-
-[0:50] Build 4.
-
-The pitfall: **multi-agent orchestration before a workflow was tried.** Separately, Gartner's June 2025 forecast predicted over 40% of agentic projects canceled by end of 2027, citing cost, unclear value, and inadequate controls. **That forecast does not establish that multi-agent architecture causes cancellations.**
-
-[1:10] **The loop is where autonomy gets its limits. Start with the workflow.**
+[1:21] **The loop is where autonomy gets its limits. Start with the workflow.**
 
 [1:30] Advance to slide 16.
 
-The track runs about 1:15. The slack belongs to build 2, which is a list and should not be rushed. Cuttable if the section runs long: the five pattern names, since they are on the slide; the Gartner forecast, if needed. Keep its forecast label whenever used. Do not cut "start with the workflow," "you own the loop," "an unbounded loop is an outage," the pitfall, or the takeaway.
+Cut first: the spoken resume details and comparison case names. Never cut the bounded sequence, authorized-worker boundary, conflict response, budgets, or pitfall. There is no audience pause.
 
 ## Sources
 
-- Anthropic, "Building effective agents," December 2024. Workflow and agent definitions quoted; "we recommend finding the simplest solution possible"; stopping conditions "such as a maximum number of iterations"; the five patterns: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer. Research §4 in `research/section-2.md`. `[primary]`.
-- Dex Horthy, HumanLayer, "12-Factor Agents." Factors 2, 3, 8, and 7 in the order spoken: own your prompts, own your context window, own your control flow, contact humans with tool calls. Research §4. `[primary]`.
-- Gartner, press release, June 25, 2025. "Over 40% of agentic AI projects will be canceled by the end of 2027, due to escalating costs, unclear business value or inadequate risk controls." Research §4. `[primary]`, read in a browser September 14, 2026. The `[verify wording]` flag is cleared in the outline.
-- Planner-to-worker routing points back to the LangChain figures on slide 9. Research §1.
+- Anthropic, December 2024 and June 2025. Workflow/agent distinction, simplicity, stopping conditions, and limits of multi-agent research. Research §4 in `research/section-2.md`.
+- 12-Factor Agents for ownership of context and control flow, Research §4. The longer inventory and Gartner forecast remain backup there.
+- Illustrative FRB workflow, Research §0 and §4. `internal/frb-running-example.md` fixes the evidence and uncertainty contract. Slide 9 supplies an unmeasured comparison framework, not a routing benchmark result.
 
 ## Open items
 
-- None. The flag on this slide is cleared.
+- None.

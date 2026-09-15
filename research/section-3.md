@@ -85,9 +85,15 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Anthropic** version: the simplest-thing-that-works rule in pitfall 1.
 
-**Hashimoto's individual arc** [primary]. https://mitchellh.com/writing/my-ai-adoption-journey Chatbot, then reproducing manual work with an agent, then background agents, then delegating tasks he is confident in, then building verification tools, then continuous operation.
+**Hashimoto's individual arc, backup only since the FRB revision** [primary]. https://mitchellh.com/writing/my-ai-adoption-journey Chatbot, then reproducing manual work with an agent, then background agents, then delegating tasks he is confident in, then building verification tools, then continuous operation.
 
 **Where to start, concretely.** Husain, evals FAQ [primary]: "Start with error analysis, not infrastructure. Spend 30 minutes manually reviewing 20-50 LLM outputs." The single best "do this Monday" line in the research set.
+
+### First assignment, authored September 15, 2026
+
+Teaching adaptation of Husain's error-analysis advice above. Slide 24 keeps the four roadmap steps and replaces the adoption arc with: “Review 20 to 50 outputs. Record the input, observed behavior, expected behavior, and check.” The four-field record is the talk's authoring framework, not a direct quote from Husain.
+
+Illustrative callback: input, an FRB-042 summary; observed behavior, bearing wear reported as confirmed; expected behavior, cause remains unresolved; check, whether the cited passage supports the claim and preserves its status. The invented packet is in Section 2 research §0 and `internal/frb-running-example.md`. Attendees apply the same record to their own systems. Keep the existing 30-second personal-story reservation on this state. The example is not a personal experience.
 
 **Materials a September 2026 audience recognizes.**
 

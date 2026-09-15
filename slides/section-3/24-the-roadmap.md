@@ -4,7 +4,7 @@ Beat 3.4 The roadmap. Section 3. Time 1:25, including story #3 at 0:30. Builds: 
 
 ## On the slide
 
-**Kicker, top left, small:** The transition · The roadmap
+**Kicker:** The transition · The roadmap
 
 **Title:** The roadmap
 
@@ -18,39 +18,36 @@ Beat 3.4 The roadmap. Section 3. Time 1:25, including story #3 at 0:30. Builds: 
    Prompts, context window, control flow. Learn the loop before a framework.
 4. Add autonomy as your evals earn it.
 
-**Build 2.** Replace the four roadmap steps with the six-stage adoption arc, attributed.
+**Build 2.** Replace the four steps with the first assignment:
 
-chat · an agent reproducing manual work · background agents · delegating what you trust · building verification tools · continuous operation
+Review 20 to 50 outputs.
 
-Mitchell Hashimoto, "My AI Adoption Journey," February 2026.
+Record the input, observed behavior, expected behavior, and check.
+
+Illustrative FRB callback. Use your own system's outputs.
+
+| Input | Observed | Expected | Check |
+|---|---|---|---|
+| FRB-042 summary | Bearing wear confirmed | Cause remains unresolved | Does the source support the claim? |
 
 ## Layout and visual
 
-- Display narrative number 24 throughout, using the shared component in the design brief.
-- Playback: Two consecutive physical slides. The roadmap cuts to the adoption arc. Hold the latter for story #3.
-
-- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
-
-- Build 1 is the deliverable of the talk. Four lines, numbered, large enough that a phone photo from the back row is legible. The sublines are small and can be dropped from the slide if they crowd it; they are all in the talk track.
-- Build 2 replaces the four rows with the adoption arc as dot-separated text. Keep the attribution visible. It shows a climb someone has actually made.
-- Story #3 has no build. Hold on build 2 while it is told.
-- The takeaway is spoken, not shown.
+- Preserve narrative number 24, header, mini-map, and two physical slides.
+- The four roadmap rows cut to the assignment at the existing boundary. Hold the assignment through story #3. No additional advance.
+- Use design brief §16's native assignment and four-column record. The observed error is visibly separate from the expected behavior.
+- The four steps remain large. Sublines stay spoken. Keep the 30-second story slot and speak the takeaway.
 
 ## Talk track
 
-[0:00] Build 1.
+[0:00] Build 1. Four steps. **Look before you build. Review twenty to fifty outputs by hand.** Record the input, observed behavior, expected behavior, and check. That is your first eval material.
 
-Four steps. **Look before you build. On Monday, review twenty to fifty outputs of whatever AI feature you are closest to, by hand.** Write down what is wrong with each one. That is your first eval. Do it before any infrastructure.
+[0:14] **Start constrained. One model call with retrieval and examples. Then a workflow. Add a loop only when it demonstrably improves outcomes.**
 
-[0:18] **Start constrained. A single model call with retrieval and examples. Then a workflow on predefined code paths. Add a loop only when it demonstrably improves outcomes.**
+[0:26] Own the harness: prompts, context, control flow. Understand the loop before choosing a framework.
 
-[0:29] Own the harness. Your prompts, your context window, your control flow. Learn the loop before you adopt a framework for it, so the framework is a convenience you can evaluate, not a black box you depend on.
+[0:35] **Add autonomy as your evals earn it.** Each increase needs checks that catch what it breaks.
 
-[0:41] **Add autonomy as your evals earn it.** Every step up is paid for by a check that catches what it breaks.
-
-[0:49] Build 2.
-
-On the slide, the shape of Mitchell Hashimoto's own year: six steps, each earned by the last.
+[0:45] Build 2. For our FRB summary, record the false confirmation, the unresolved cause, and the source-support check. **Use this same record for your own system.**
 
 [0:55] Story #3.
 
@@ -58,19 +55,18 @@ On the slide, the shape of Mitchell Hashimoto's own year: six steps, each earned
 
 [1:25] **Autonomy is earned by evals, one step at a time.** Advance to slide 25 on the last word.
 
-The track runs about 1:27 with the story. If story #3 is not told, speak the arc in full instead: chat, then an agent reproducing manual work, then background agents, then delegating what you are confident in, then building verification tools, then continuous operation. Each step earned by the last. That version runs about 1:10.
-
-Cuttable if Section 3 runs long, in this order: the second sentence of "own the harness"; "Write down what is wrong with each one. That is your first eval." Backup for questions, not spoken: Anthropic's "find the simplest solution possible" and OpenAI's "start small, validate with real users, and grow."
+Cut first: the framework sentence and elaboration of the constrained progression. Never cut the visible first assignment, the four record fields, or the protected 30-second story. If the story is not told, hold the assignment and explain how the failure becomes a regression case. Do not invent a personal experience.
 
 ## Sources
 
-- Husain, "AI Evals: Everything You Need to Know": "Start with error analysis, not infrastructure. Spend 30 minutes manually reviewing 20-50 LLM outputs." Research §4 in `research/section-3.md`. `[primary]`.
-- Anthropic, "Building effective agents," December 2024: "we recommend finding the simplest solution possible"; "optimizing single LLM calls with retrieval and in-context examples is usually enough"; "adding complexity only when it demonstrably improves outcomes." Research §5 in `research/section-1.md`. `[primary]`.
-- OpenAI, "A practical guide to building agents," 2025: "Start small, validate with real users, and grow capabilities over time." Research §4 in `research/section-3.md`. Quoted from the PDF; page numbers unconfirmed. Backup only.
-- 12-Factor Agents for "own your prompts, own your context window, own your control flow." Research §4 in `research/section-2.md`. `[primary]`.
-- Hashimoto, "My AI Adoption Journey," February 5, 2026. The six-step arc, paraphrased. Do not credit him with the phrase "harness engineering." Research §4 in `research/section-3.md`. `[primary]`.
+- Husain, “AI Evals: Everything You Need to Know.” Research §4 in `research/section-3.md`. The four-field record is the talk's adaptation of his error-analysis advice.
+- Anthropic, December 2024. Research §5 in `research/section-1.md`. Simplicity and measured complexity.
+- OpenAI, “A practical guide to building agents,” 2025. Research §4 in `research/section-3.md`. Start small and validate with users.
+- 12-Factor Agents, Research §4 in `research/section-2.md`.
+- Illustrative FRB callback, Section 2 Research §0 and Section 3 Research §4. `internal/frb-running-example.md`.
+- Hashimoto's adoption arc remains research backup, with its original attribution.
 
 ## Open items
 
-- Story #3.
+- Story #3 remains a presenter-authored 30-second slot.
 - Sublines stay spoken under the design brief's body budget.

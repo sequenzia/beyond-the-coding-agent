@@ -76,6 +76,13 @@ function twoTable(headers,rows,y,rowHeights,opts={}){
  for(let r=0;r<vals.length;r++){obj.rows[r].height=rowHeights[r]*P;for(const c of [0,2]){obj.getCell(r,c).text.style={typeface:'Helvetica',fontSize:(r===0?24:20)*P,color:r===0?(opts.color||C.pink):(c===2&&opts.rightColors?opts.rightColors[r-1]:C.text),bold:r===0||!!(c===2&&opts.rightColors),autoFit:'none',lineSpacing:1.25};}}
  addMeta(obj,'table',opts);return obj;
 }
+function evidenceTable(values,widths,y,heights,opts={}){
+ const obj=slide.tables.add({rows:values.length,columns:widths.length,left:48*P,top:y*P,width:864*P,height:heights.reduce((a,b)=>a+b,0)*P,columnWidths:widths.map(w=>w*P),values});
+ obj.styleOptions={headerRow:false,bandedRows:false,bandedColumns:false,firstColumn:false,lastColumn:false};
+ obj.cells.block({row:0,column:0,rowCount:values.length,columnCount:widths.length}).assign({fill:C.bg,textStyle:{typeface:'Helvetica',fontSize:20*P,color:C.text},margins:{left:0,right:0,top:0,bottom:0},anchor:'top'});
+ for(let r=0;r<values.length;r++){obj.rows[r].height=heights[r]*P;for(let c=0;c<widths.length;c++)obj.getCell(r,c).text.style={typeface:'Helvetica',fontSize:20*P,color:r===0?(opts.color||C.pink):C.text,bold:r===0,autoFit:'none',lineSpacing:1.25};}
+ addMeta(obj,'table',opts);return obj;
+}
 function strip(str,opts={}){text(str,48,68,692,24,16,{...opts,color:C.secondary,exact:20});}
 function excerpt(title,body,x,y,w,h,opts={}){
  const labels={ 'Devin Desktop':'Devin Desktop model picker\nReasoning-effort slider visible', 'Codex CLI':cur.key.startsWith('10')?'Codex /compact notice':'Codex /model picker\nReasoning effort choices', 'AGENTS.md':'Your AGENTS.md\n10 to 15 lines', 'MCP configuration':'Your MCP server configuration', 'The permission prompt':'Live shell-command approval prompt'};
@@ -128,24 +135,26 @@ text('Provider responsibilities behind the picker:',48,192,864,30,24,{bold:true}
 list(['Defaults.','Model-specific prompt and tool tuning.','Failover.','Price-change handling.','Retirement handling.'],48,235,864,24,{step:37});
 text('Model retirement creates migration work.',48,450,864,40,24,{bold:true,start:1});
 await newSlide('09',{area:'Models',map:'models',color:C.blue,title:'The model is a component you select,\nmeasure, and replace.'});
-text('Select',48,196,124,30,20,{color:C.blue,bold:true,start:1,end:3});pills(['Capability on your tasks','Cost per completed task','Latency at p95','Context window','Tool-use reliability','Data residency'],196,192,716,{start:1,end:3});
-text('Measure',48,300,124,30,20,{color:C.blue,bold:true,start:2,end:3});text('Benchmarks use their task population and harness.\nMeasure your product on representative cases.',196,296,716,65,24,{start:2,end:3});
+attr('Illustrative FRB request',48,192,864,{end:3});
+text('“Review FRB-042 about a pump shutdown. Summarize its discussion\nand decisions, compare similar FRBs from the past year, and export\na cited brief distinguishing possible causes from established findings.”',48,220,864,100,20,{end:3});
+text('Select',48,334,124,30,20,{color:C.blue,bold:true,start:1,end:3});
+text('Evidence extraction · Discussion summaries · Qualified synthesis\nCost per completed brief · p95 latency',196,334,716,60,20,{start:1,end:3});
+text('Measure',48,410,124,30,20,{color:C.blue,bold:true,start:2,end:3});
+text('Representative FRB cases. Preserve the distinction between\npossible causes and established findings.',196,410,716,60,20,{start:2,end:3});
 text('Replace',48,192,864,30,20,{color:C.blue,bold:true,start:3,end:4});
 card(48,228,420,110,'Pinned version','Controlled migration and\nlifecycle management.',{start:3,end:4,bodyY:48,tint:C.blueTint,stroke:C.blue});
 card(492,228,420,110,'Moving alias','Automatic updates and\nregression monitoring.',{start:3,end:4,bodyY:48,tint:C.blueTint,stroke:C.blue});
-text('A snapshot controls one source of variation. Prompts, tools, retrieval,\nand the environment also affect behavior.',48,350,864,52,20,{start:3,end:4});
-text('GPT-4 prime/composite task, step-by-step prompting:\n84% in March 2023, 51% in June 2023.',48,410,864,54,20,{start:3,end:4});
-attr('Chen, Zaharia, Zou, revised 2023 paper. Task-specific, not overall model quality.',48,468,864,{start:3,end:4});
-text('Route',48,192,124,30,20,{start:4,end:5,color:C.blue,bold:true});
-text('LangChain, August 11, 2026 · 145 tasks · 7% frontier selection · judge calls excluded',196,192,716,25,16,{start:4,end:5,color:C.secondary});
-const routeValues=[['Configuration','Accuracy','Cost per\ncompleted task'],['Frontier only','86.0%','$0.092'],['Routed','80.0%','$0.026'],['Small model only','77.7%','$0.006']];
-const routeTable=slide.tables.add({rows:4,columns:3,left:48*P,top:230*P,width:864*P,height:146*P,columnWidths:[360*P,180*P,324*P],values:routeValues});
-routeTable.styleOptions={headerRow:false,bandedRows:false,bandedColumns:false,firstColumn:false,lastColumn:false};
-routeTable.cells.block({row:0,column:0,rowCount:4,columnCount:3}).assign({fill:C.bg,textStyle:{typeface:'Helvetica',fontSize:20*P,color:C.text},margins:{left:0,right:0,top:0,bottom:0},anchor:'top'});
-for(let r=0;r<4;r++){routeTable.rows[r].height=(r===0?50:32)*P;for(let c=0;c<3;c++)routeTable.getCell(r,c).text.style={typeface:'Helvetica',fontSize:20*P,color:r===0?C.blue:C.text,bold:r===0,autoFit:'none',lineSpacing:1.25};}
-addMeta(routeTable,'table',{start:4,end:5});
-text('Run variation: about 2.7 points. Routed gain over small-only: 2.3 points.\nFrontier selection: 4.1% to 9.1% across five runs.',48,386,864,40,16,{start:4,end:5,color:C.secondary});
-text('About 72% lower cost per completed task; article: 74% lower total cost.',48,438,864,22,16,{start:4,end:5,color:C.secondary});
+text('Research workers: evidence fidelity and coverage.',48,356,864,50,20,{start:3,end:4});
+text('Main analyst: faithful summaries, reconciliation, warranted uncertainty.',48,408,864,50,20,{start:3,end:4});
+text('Route',48,192,124,30,20,{color:C.blue,bold:true,start:4,end:5});
+attr('Each candidate model and version. Illustrative framework, no results yet.',196,202,716,{start:4,end:5});
+evidenceTable([
+ ['Task and role','Quality requirement','Cost','p95 latency'],
+ ['Evidence extraction\n(research workers)','Faithful passages\nwith exact citations','Measure','Measure'],
+ ['Discussion summary\n(main analyst)','Faithful discussion\nand decisions','Measure','Measure'],
+ ['Qualified synthesis\n(main analyst)','Supported findings\nand uncertainty','Measure','Measure'],
+],[236,324,144,160],240,[40,56,56,56],{color:C.blue,start:4,end:5});
+text('Route by measured task fit. Include workers, retries, and verification.',48,462,864,28,20,{start:4,end:5});
 text("Which configuration meets your product's quality requirement?",48,192,864,80,32,{start:5,bold:true});band(pitfalls[0],C.blue,{start:5});
 // Context and knowledge.
 await newSlide('10',{area:'Context and knowledge',header:true,color:C.pink});
@@ -164,11 +173,17 @@ text('Preserve useful stable prefixes.\nMeasure cache savings.',48,192,864,84,32
 text('Update context and tool access\nfor correctness and authorization.',48,306,864,75,24,{start:2});
 text('Manus, July 2025: reported 100:1 input/output; $0.30 cached vs $3 uncached\nper million input tokens in its pricing example.',48,420,864,40,16,{start:2,color:C.secondary});
 await newSlide('11',{area:'Context and knowledge',map:'context',color:C.pink,title:'Every token in the window is now\nyour decision.'});
-shape(48,204,864,118,'none',C.pink,6,{start:1,end:3,strokeWidth:2});shape(64,192,110,22,C.bg,'none',0,{start:1,end:3});text('the window',72,192,106,22,16,{start:1,end:3,color:C.secondary});
-['Instructions','Examples','Retrieved\nknowledge','Session\nstate','Memory','Tool\nresults'].forEach((v,i)=>card(60+i*142,224,136,75,v,'',{start:1,end:3,titleSize:20,titleBold:false,titleH:60}));
-text('Each has a relevance, a freshness, a provenance, and a size.',48,334,864,25,20,{start:1,end:3});
-pills(['Context budget','Compaction policy','Memory convention','Retrieval strategy'],48,375,864,{start:2,end:3});
-text('A compaction that drops a constraint can produce a wrong answer.\nMemory exposed to the wrong user or tenant is a breach.',48,192,864,90,24,{start:3});band(pitfalls[1],C.pink,{start:4});
+attr('Illustrative FRB-042 evidence',48,192,864,{start:1,end:3});
+attr('FRB-042-BRF r1 · slide 6 · preliminary',48,224,420,{start:1,end:3});
+attr('FRB-042-MIN r2 · §3, paragraph 2 · later',492,224,420,{start:1,end:3});
+text('“Bearing wear is a possible cause.”',48,256,420,124,24,{start:1,end:3});
+text('“Cause remains unresolved.\nInspect the bearing before\nassigning a cause.”',492,256,420,124,24,{start:1,end:3});
+text('Retrieve relevant excerpts with revision, source location,\nand decision status. Refresh as records arrive.',48,394,864,68,20,{start:2,end:3});
+attr('Illustrative FRB context',48,192,864,{start:3});
+text('Compaction must preserve: unresolved cause,\ninspection required, authorized scope.',48,224,864,64,24,{start:3});
+text("Compare FRB-017’s sensor fault and FRB-031’s bearing wear.\nSimilar symptoms do not prove a common cause.",48,304,864,64,24,{start:3});
+text('Missing or inaccessible evidence must stay an explicit limitation.',48,384,864,64,24,{start:3});
+band(pitfalls[1],C.pink,{start:4});
 // Tools and extensibility.
 await newSlide('12',{area:'Tools and extensibility',header:true,color:C.pink});
 excerpt('MCP configuration', '`config.toml`\n\n`[mcp_servers.<name>]`\n\nA server entry connects the agent\nto tools and their descriptions.',48,164,420,226,{size:20});
@@ -184,12 +199,22 @@ text("Tool-description refinements improved\nClaude Sonnet 3.5 on SWE-bench Veri
 text("Anthropic's five-server example: about 55,000 tokens\nbefore the first message. Tool search reduced\ndefinition overhead by 85%.",48,304,864,108,24,{start:1});
 text("The protocol's floor: no token passthrough · minimal scopes · consent before local commands\n· sandboxed execution",48,448,864,44,16,{start:2,color:C.secondary});
 await newSlide('13',{area:'Tools and extensibility',map:'tools',color:C.pink,title:'You write the contract.\nYou build the gate.'});
-pills(['The descriptions, and their evals','The verbosity','The action categories','The gate'],48,192,864,{start:1,end:3});
-[['Scoped reads','Enforce access policy'],['Reversible changes','Validate and\nsupport recovery'],['Consequential actions','Require policy\nauthorization or approval']].forEach(([a,b],i)=>card(48+i*296,238,272,148,a,b,{start:2,end:3,tint:C.pinkTint,stroke:C.pink,titleSize:20,titleH:50,bodyY:66,bodySize:20}));
-text('Authorization applies to every category. Enforce it outside the model.',48,400,864,30,20,{start:2,end:3});
-text("A model's approval recommendation does not establish permission.",48,438,864,25,16,{start:2,end:3,color:C.secondary});
-card(48,192,864,140,'CamoLeak, October 2025.','Researcher-demonstrated vulnerability: hidden pull-request instructions\nexfiltrated private repository data through image URLs. CVSS 9.6.',{start:3,titleSize:20,bodyY:42});
-card(48,348,864,108,'ClawHub, February 2026.','Koi audit via The Hacker News: 341 of 2,857 skills were malicious.\nSecondary report.',{start:3,titleSize:20,bodyY:42});band(pitfalls[2],C.pink,{start:4});
+attr('Illustrative FRB tool contract',48,192,864,{start:1,end:3});
+text('Background: parse and index PDF reports, Word minutes,\nand PowerPoint briefings.',48,220,864,50,20,{start:1,end:3});
+evidenceTable([
+ ['Agent tool','Input','Returns'],
+ ['Search','ID, date, category','Authorized record IDs'],
+ ['Retrieve','ID, revision, location','Exact source passages'],
+ ['Export records','Selected IDs + revisions','Records + manifest'],
+ ['Export cited brief','Checked draft + citations','Brief + export receipt'],
+],[216,284,364],284,[32,36,36,36,54],{color:C.pink,start:2,end:3});
+attr('Illustrative FRB result contract',48,192,864,{start:3});
+for(const [label,body,y] of [
+ ['Evidence','Stable IDs, revisions, source locations.\nParsing failures and incomplete results are explicit.',228],
+ ['Export','Selected records or the checked brief,\nwith citations and uncertainty intact.',304],
+ ['Gate','Enforce access and allowed destinations outside the model,\nfor reads and exports.',380],
+]){text(label,48,y,124,30,20,{color:C.pink,bold:true,start:3});text(body,196,y,716,60,20,{start:3});}
+band(pitfalls[2],C.pink,{start:4});
 // Orchestration.
 await newSlide('14',{area:'Orchestration',header:true,color:C.pink});
 pills(['`/plan`','subagents','hooks','`/compact`','`/resume`','`/fork`'],48,164,864);
@@ -207,13 +232,21 @@ text('Separate token comparison:\nmulti-agent systems used about **15x chat toke
 text('Poor fit when agents need shared context.',48,410,864,36,24,{start:3});
 attr('Anthropic, June 13, 2025',48,458,864,{start:3});
 await newSlide('15',{area:'Orchestration',map:'orchestration',color:C.pink,title:'Start with the workflow. Own the loop.'});
-twoTable(['Workflows','Agents'],[['LLMs and tools on predefined code paths.','LLMs that direct their own process.']],192,[40,68],{color:C.pink,start:1,end:2});
-pills(['Chaining','Routing','Parallelization','Orchestrator and workers','Evaluator and optimizer'],48,326,864,{start:1,end:2});
-text('The loop · Stopping conditions · State and resume · Retries\nEscalation as a tool call · Planner-to-worker routing\nThe compaction trigger · Budgets: tokens, actions, latency',48,192,864,94,20,{start:2,end:3});
-text('Own your prompts. Own your context window.\nOwn your control flow. Contact humans with tool calls.',48,308,864,60,20,{start:2,end:3});attr('12-Factor Agents, Dex Horthy',48,370,864,{start:2,end:3});
-text('A human is waiting. Latency is a product requirement.\n**An unbounded loop is an outage.**',48,192,864,68,24,{start:3});
+attr('Illustrative FRB workflow',48,192,864,{start:1,end:2});
+['Retrieve the target packet.','Inspect evidence.','Compare cases.','Reconcile findings.','Verify the brief.','Export.'].forEach((label,i)=>{
+ const x=i<3?48:492,y=228+(i%3)*72;
+ text(String(i+1),x,y,32,50,24,{color:C.secondary,start:1,end:2});text(label,x+48,y,372,50,24,{start:1,end:2});
+});
+attr('Illustrative extension after measuring the workflow',48,192,864,{start:2,end:3});
+text('Optional workers: compare FRB-017 and FRB-031 independently.',48,224,864,50,24,{start:2,end:3,bold:true});
+text('Return evidence and uncertainty to the main analyst.\nAuthorized internal FRB corpus and attachments only.',48,282,864,64,20,{start:2,end:3});
+text('Bound retries. Save steps and revisions for resume.\nRecheck freshness, access, and export receipts.',48,370,864,60,20,{start:2,end:3});
+attr('Illustrative operating limits',48,192,864,{start:3});
+text('Conflicting findings: inspect sources\nor leave the result unresolved.',48,224,864,64,24,{start:3,bold:true});
+text('Incomplete indexing must be explicit.',48,304,864,50,24,{start:3});
+text('Bound actions, tokens, and end-to-end latency.',48,374,864,50,20,{start:3});
 band(pitfalls[3],C.pink,{start:4,h:96,sentenceY:452,sentenceH:28});
-text('Gartner forecast, June 2025: over 40% canceled by end of 2027.\nCited risks: cost, unclear value, inadequate controls.',196,486,716,42,16,{start:4,color:C.secondary});
+text('A bounded result can be an explicit limitation or a human handoff.',196,486,716,42,16,{start:4,color:C.secondary});
 // Evals.
 await newSlide('16',{area:'Verification and evals',header:true,color:C.green});
 ['write','run','read the failure','retry'].forEach((v,i)=>text(v,48+i*222,185,198,32,20,{align:'center'}));[0,1,2].forEach(i=>arrow(215+i*222,229,61,0));
@@ -224,20 +257,33 @@ text("Two complementary uses of checks. This talk's organizing model:",48,192,86
 twoTable(['Verification','Evaluation'],[['Check an action before accepting it','Measure behavior across\nrepresentative cases'],['Inside the loop','Outside the loop'],['Rules, state checks, visual checks','Tasks, trials, graders, suites']],230,[36,65,38,55],{color:C.green,end:1});
 text('Graders: code · model, with expert calibration · human',48,442,864,50,20,{end:1});
 text('Check the result. Inspect the trace.',48,192,864,44,32,{start:1,end:2,bold:true});
-text('Illustrative flight-booking grader',48,248,864,22,16,{start:1,end:2,color:C.secondary});
-text('Claim: "Your flight has been booked."',48,282,864,36,24,{start:1,end:2});
-text('Result check: matching reservation for the requested\ntraveler and itinerary?',48,330,864,52,20,{start:1,end:2});
-text('No matching reservation: FAIL',48,392,864,27,20,{start:1,end:2,bold:true});
-text('Trace check: required approvals and access constraints satisfied?',48,442,864,50,20,{start:1,end:2});
+attr('Illustrative FRB-042 grader',48,244,864,{start:1,end:2});
+attr('FRB-042-BRF r1 · slide 6',48,278,420,{start:1,end:2});
+text('“Bearing wear is a possible cause.”',48,306,420,54,20,{start:1,end:2});
+attr('FRB-042-MIN r2 · §3, paragraph 2',48,368,420,{start:1,end:2});
+text('“Cause remains unresolved.\nInspect the bearing before\nassigning a cause.”',48,396,420,90,20,{start:1,end:2});
+text('Observed answer',492,278,420,28,20,{start:1,end:2,bold:true});
+text('“The board confirmed\nbearing wear.”',492,310,420,64,24,{start:1,end:2});
+text('FAIL: hypothesis reported\nas a finding.',492,384,420,50,20,{start:1,end:2,bold:true});
+text('Expected: unresolved cause.\nInspect before assigning a cause.',492,442,420,50,20,{start:1,end:2});
 text('pass@k',48,192,240,56,44,{font:'Consolas',color:C.blue,start:2,end:3});text('at least one of k trials succeeds.',320,202,592,50,24,{start:2,end:3});
 text('pass^k',48,302,240,56,44,{font:'Consolas',color:C.blue,start:2,end:3});text('all k trials succeed.',320,312,592,50,24,{start:2,end:3});text('Identical at k = 1. Opposite stories at k = 10.',48,407,864,35,24,{start:2,end:3});
 list(['Start with **20 to 50 tasks** drawn from real failures.','Read failures and refine the criteria.','Review grader disagreements.'],48,192,864,32,{start:3,step:98,lineH:90});
 await newSlide('17',{area:'Verification and evals',map:'evals',color:C.green,title:'Verify one. Evaluate many.\nKeep evaluating.'});
-text('You must define the checks your domain needs.',48,192,864,84,32,{start:1,end:2,bold:true});text('Refund limits · Account ownership · Ledger state\nFaithfulness may need expert judgment.',48,295,864,90,24,{start:1,end:2});
-[['Build the verifier.','Schema check · business rule\ndatabase state · calibrated\nrubric · human'],['Build the eval suite.','Representative cases and repeated trials.'],['Keep running it.','Regression checks and sampled production traffic.']].forEach(([head,body],i)=>{
- card(48+i*296,192,272,220,'','',{start:2});text(String(i+1),64+i*296,204,64,57,44,{color:C.secondary,start:2});text(head,64+i*296,268,240,63,24,{bold:true,start:2});text(body,64+i*296,330,240,71,16,{color:C.secondary,start:2});
- });
-text('Your eval suite gives evidence for a migration decision.',48,428,864,30,24,{start:3});band(pitfalls[4],C.green,{start:4,sentenceY:480,sentenceH:52});
+attr('Illustrative FRB checks',48,192,864,{start:1,end:2});
+twoTable(['Direct checks','Expert judgment'],[
+ ['IDs and revisions match','Faithfulness to the evidence'],
+ ['Permissions and locations valid','Useful synthesis across cases'],
+ ['Exports match selected content','Warranted uncertainty'],
+ ['Citation exists','Citation supports the claim'],
+],230,[36,52,52,52,52],{color:C.green,start:1,end:2});
+attr('Illustrative FRB failure',48,192,864,{start:2});
+[
+ ['Inspect the failure and trace.','Find the responsible component.'],
+ ['Change that component.','Rerun the suite with repeated trials.'],
+ ['Monitor production samples.','Add new failures to regression cases.'],
+].forEach(([head,body],i)=>{const y=224+i*76;text(String(i+1),48,y,32,32,24,{color:C.secondary,start:2});text(head,96,y,816,30,24,{bold:true,start:2});text(body,96,y+30,816,28,20,{start:2});});
+text('Your eval suite gives evidence for a migration decision.',48,442,864,28,20,{start:3});band(pitfalls[4],C.green,{start:4,sentenceY:480,sentenceH:52});
 // Operating it.
 await newSlide('18',{area:'Operating it',header:true,color:C.amber});
 pills(['`/usage`','the OpenTelemetry exporter','the sandbox','the OAuth login'],48,196,864);text('And a trust and safety team you have never met.',48,302,864,80,32);
@@ -251,7 +297,13 @@ text('Private data',210,238,132,20,16,{start:2,end:3});text('Untrusted content',
 text('Together: exfiltration risk.\nBreak or constrain the path.',492,290,420,80,24,{start:2,end:3});attr('Simon Willison, June 2025',492,390,420,{start:2,end:3});
 list(['**EchoLeak, June 2025.** Researcher-demonstrated vulnerability.\nNo evidence of exploitation reported.','**Replit, July 2025.** Reported production database deletion\nduring a code freeze. Fortune / AI Incident Database.','**Moffatt v. Air Canada, February 2024.** Reported liability\nfor misleading chatbot information.\nMcCarthy Tétrault, secondary commentary.'],48,192,864,20,{start:5,step:90,lineH:100});
 await newSlide('19',{area:'Operating it',map:'operating',color:C.amber,title:'You own the approval process.'});
-twoTable(['In the coding agent','In your deployment'],[['The approval prompt','Human approval, async workflow,\nor enforced policy'],['The sandbox','Your infrastructure'],['The audit log','An accountability record'],["A vendor's disclosure",'EU AI Act Article 50: disclosure duties\nfor covered direct AI interactions']],192,[36,55,32,32,78],{color:C.amber});
+twoTable(['Coding-agent control','Illustrative FRB system'],[
+ ['Sandbox and login','Enforce FRB access'],
+ ['Approval prompt','Allowed exports. Human conclusions.'],
+ ['Audit log','An accountable FRB trace'],
+],192,[36,32,32,44],{color:C.amber});
+text('Trace: request · FRB-042-MIN r2 · workers · synthesis · export',48,342,864,30,20);
+text('Monitor freshness, parsing/tool and quality failures.\nCost per completed brief. End-to-end latency.',48,380,864,50,20);
 band(pitfalls[5],C.amber,{start:1,h:96,sentenceY:457,sentenceW:390,sentenceH:76});
 line(712,466,80,24,{start:1});line(792,490,-156,0,{start:1});line(636,490,76,-24,{start:1});
 text('Private data',664,444,145,20,16,{start:1});text('Untrusted content',556,506,156,20,16,{start:1});text('External communication',716,506,196,20,16,{start:1});
@@ -270,9 +322,15 @@ competencies.forEach((v,i)=>text(v,48,192+i*42,864,30,20,{end:1}));
 text('"Getting comfortable with evaluations\nand iterating on non-deterministic\noutputs is the biggest challenge\nmost devs have."',48,192,864,212,44,{start:1});attr('Ross McNairn, Wordsmith, via The Pragmatic Engineer, March 2025',48,428,864,{start:1});
 await newSlide('23',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
 ['Models','Context','Tools','Orchestration','Evals','Operating'].forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=[100,163,226,289,352,435][i],h=i===4?76:56;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);text(name,48,y+(h-32)/2,208,32,20,{bold:true,color:i===0?C.text:C.bg,middle:true});text(pitfalls[i],296,y+3,616,h-6,20,{middle:true});});
-await newSlide('24',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'Sublines are spoken. The adoption arc replaces the four roadmap rows.'});
+await newSlide('24',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'Sublines are spoken. The first assignment replaces the four roadmap rows; hold for the protected story slot.'});
 ['Look before you build.','Start constrained.','Own the harness.','Add autonomy as your evals earn it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','',{end:1});text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary,end:1});text(v,136,202+i*67,756,42,32,{bold:true,end:1});});
-text('chat · reproduce manual work · background agents\ndelegate what you trust · build verification tools · continuous operation',48,240,864,100,24,{start:1});attr('Mitchell Hashimoto, "My AI Adoption Journey," February 2026',48,400,864,{start:1});
+text('Review 20 to 50 outputs.',48,192,864,45,32,{start:1,bold:true});
+text('Record the input, observed behavior,\nexpected behavior, and check.',48,256,864,60,24,{start:1});
+attr('Illustrative FRB callback. Use your own system’s outputs.',48,342,864,{start:1});
+evidenceTable([
+ ['Input','Observed','Expected','Check'],
+ ['FRB-042\nsummary','Bearing wear\nconfirmed','Cause remains\nunresolved','Does the source\nsupport the claim?'],
+],[216,216,216,216],374,[32,76],{color:C.green,start:1});
 await newSlide('25',{title:'Resources',variant:'resources'});
 const resources=[['Chip Huyen, AI Engineering: Building Applications with Foundation Models.','O\'Reilly, 2025.'],['Anthropic engineering: "Building effective agents" (December 2024).','"Effective context engineering for AI agents" (September 2025).','"Demystifying evals for AI agents" (January 2026).'],['OpenAI, "A practical guide to building agents" (2025).'],['Hamel Husain, "AI Evals: Everything You Need to Know," hamel.dev.','Shreya Shankar and Hamel Husain, Evals for AI Engineers.','O\'Reilly, October 2026.'],['OWASP Top 10 for LLM Applications (2025)','and for Agentic Applications (2026).'],['OpenTelemetry GenAI semantic conventions.']];
 let ry=146;for(const lines of resources){for(const lineText of lines){text(lineText,48,ry,864,25,20);ry+=25;}ry+=8;}
