@@ -62,7 +62,27 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Benchmarks as weak evidence.** All specifics UNVERIFIED (secondary sources): identical weights can score ten to twenty points apart depending on the eval harness; on one SWE-bench Verified leaderboard as of June 2026 only one of a hundred results was independently verified; the same model produces sharply different numbers on SWE-bench Verified self-reported vs SWE-bench Pro on a vendor scaffold vs Scale's SEAL harness; memorization of widely circulated repository issues. Contamination-resistant alternative: SWE-bench-Live, https://swe-bench-live.github.io/ . The defensible claim needs no citation: a public benchmark measures a population you did not choose, on a harness you do not control, reported by a party with an interest in the result. Your eval suite measures your traffic.
 
-**Coding-agent anchor.** Claude Code `/model` opens a picker, https://code.claude.com/docs/en/model-config . The `opusplan` alias runs an Opus-tier model in plan mode and Sonnet for execution: routing as a one-word setting. Cursor and Copilot expose a dropdown. What the picker hides: the vendor chose the default, tuned prompts and tool descriptions per model, handles failover, absorbs price changes, and migrated every user off every retired model. GitHub Copilot retired Claude Opus 4.5 and 4.6, Sonnet 4.5 and 4.6, and Gemini 3.1 Pro on September 1, 2026 (UNVERIFIED, secondary).
+**Coding-agent anchor, Codex CLI.** OpenAI docs, checked in a browser September 14, 2026 [primary]. Slash commands: https://learn.chatgpt.com/docs/cli/slash-commands . Config reference: https://learn.chatgpt.com/docs/config-file/config-reference . CLI overview: https://learn.chatgpt.com/docs/codex/cli .
+
+- `/model`: "Choose the active model (and reasoning effort, when available)." `/fast`: toggles a Fast service tier when the model catalog exposes one.
+- `model_reasoning_effort`: minimal, low, medium, high, xhigh. `plan_mode_reasoning_effort`: a separate override for plan mode, including none. `agents.default_subagent_model` and `agents.default_subagent_reasoning_effort`: a different model and effort for spawned agents. Routing by phase and by role, as config keys.
+
+**Coding-agent anchor, Devin CLI.** Cognition docs, checked in a browser September 14, 2026 [primary]. Commands and flags: https://docs.devin.ai/cli/reference/commands . Config file: https://docs.devin.ai/cli/reference/configuration/config-file . Essential commands: https://docs.devin.ai/cli/essential-commands . Launch post, "Devin CLI: Start Local, Hand Off to the Cloud," April 27, 2026: https://cognition.com/blog/devin-for-terminal .
+
+- `/model [name]`: "Show or change the current model." `/fast`: switch to SWE-1.6 Fast. `--model` flag. `devin models list`: "List available models, organized by model family." Default `agent.model` is `swe-1-6-fast`.
+- Launch post: "Choose between any frontier model, including Opus 4.7, GPT-5.5, and our own SWE-1.6." "Devin for Terminal is the first CLI agent with its own dedicated virtual machine." Hand-off: "hand the session to a cloud agent with its own computer."
+- Fusion, a lead-and-sidekick multi-model harness, reached Devin CLI on September 11, 2026 ("Introducing Fusion in Devin Desktop & CLI," https://cognition.com/blog/local-fusion): "Pick a frontier model for planning and review (the 'lead'), and a cost-effective model for execution (the 'sidekick')." Not used on stage: too new for the room. Kept for Q&A on routing.
+
+**Coding-agent anchor, Devin Desktop.** The IDE, formerly Windsurf. Devin Desktop changelog, https://docs.devin.ai/desktop/changelog [primary], checked September 14, 2026: v3.0.12, June 2, 2026, "Windsurf is now Devin Desktop." Cascade plugin changelog, https://docs.devin.ai/windsurf/plugins/changelog [primary]: v2.12.13, February 26, 2026, "Added support for GPT-5.3-Codex with four reasoning efforts (low, medium, high, and xhigh)"; v2.12.14, March 11, 2026, GPT-5.4 billed from "No Reasoning: 1x credits" through "Extra High Reasoning: 8x credits"; v2.12.20, April 6, 2026, "The model picker now shows token pricing information directly, so you can see the exact rate extra usage is billed at." The picker opens as a pop-out window with a slider for reasoning level: presenter's first-hand observation, not in the docs text; the slide 8 screenshot is the evidence. Devin Desktop is used on slide 8 because the slider is the visual. Devin CLI carries every other Devin anchor.
+
+What the picker hides: the vendor chose the default, tuned prompts and tool descriptions per model, handles failover, absorbs price changes, and migrated every user off every retired model. On stage the example is Anthropic's cadence above: seven models retired in 2026, the latest Opus 4.1 on August 5.
+
+**GitHub Changelog, "Selected GitHub Copilot models deprecated," August 31, 2026** [primary]. Not used on stage since the September 14 revision; the talk names only Codex CLI and Devin CLI. Kept for Q&A. https://github.blog/changelog/2026-08-31-selected-github-copilot-models-deprecated/ Checked in a browser September 14, 2026.
+
+- "As of today, September 1, 2026, we have deprecated the following models across most GitHub Copilot experiences": Gemini 3.1 Pro, Claude Opus 4.5, Claude Opus 4.6, Claude Sonnet 4.5, Claude Sonnet 4.6, Raptor Mini. Six models, not the five in earlier secondary coverage.
+- Suggested replacements: Gemini 3.7 Flash; Claude Opus 4.7, 4.8, or 5; Claude Sonnet 5; MAI-Code-1.1-Flash.
+- Surfaces: Copilot Chat, inline edits, ask and agent modes, code completions. Claude Sonnet 4.6 stays available to individual subscribers on annual plans.
+- A later entry, "Upcoming deprecation of selected GitHub Copilot models," September 3, 2026, announces a further wave. Contents UNVERIFIED; title only.
 
 **When it's your agent.** Six selection axes: capability on your tasks, cost per completed task, latency at p95, context window, tool-use reliability, data residency. Routing and fallback. Pinning: a dated snapshot buys reproducibility and an expiry; an alias buys silent upgrades and silent drift. Data residency can override every other axis for enterprise. Fallback composition reported for 2026 (UNVERIFIED): retry primary, rotate provider on exhaustion, serve semantic cache hit, degrade UI.
 
@@ -112,7 +132,16 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - "models do not use their context uniformly; instead, their performance grows increasingly unreliable as input length grows"
 - 18 models including GPT-4.1, Claude 4, Gemini 2.5, Qwen3.
 
-**Coding-agent anchor.** Instructions files: CLAUDE.md (Claude Code), .cursorrules (Cursor), .github/copilot-instructions.md (Copilot), AGENTS.md as the cross-tool standard, https://agents.md/ (formalized August 2025, 60,000-plus projects, donated to the Linux Foundation's Agentic AI Foundation December 2025; adoption and donation UNVERIFIED beyond the site). Auto-compaction that dropped something. Claude Code exposes a PreCompact hook and keeps subagent transcripts out of the parent context (UNVERIFIED, secondary).
+**Cognition, "Introducing SWE-grep and SWE-grep-mini: RL for Multi-Turn, Fast Context Retrieval," October 16, 2025** [primary]. https://cognition.com/blog/swe-grep Checked in a browser September 14, 2026.
+
+- "fast agentic models specialized in highly parallel context retrieval" that "match the retrieval capabilities of frontier coding models, while taking an order of magnitude less time."
+- Retrieval is tool calls, "grep, read, glob," in "4 serial turns" of "8 parallel tool calls."
+- On embeddings: "The embeddings can even be counterproductive, as the agent can give too much weight to irrelevant information."
+- Shipped as Fast Context in Windsurf, now Devin Desktop, with Devin and DeepWiki to follow. Docs: https://docs.windsurf.com/context-awareness/fast-context . The claim that agent trajectories spent more than 60% of the first turn retrieving context is from a secondary summary of those docs; UNVERIFIED wording.
+- SWE-grep-mini serves at 2,800 tokens per second; SWE-grep at 650.
+- Use on stage: the retrieval strategy inside the audience's own tool is engineered agentic search, not a vector index. Codex does the same through the shell. RAG is one technique, not the discipline.
+
+**Coding-agent anchor.** Both tools read AGENTS.md, the cross-tool standard, https://agents.md/ (formalized August 2025, 60,000-plus projects, donated to the Linux Foundation's Agentic AI Foundation December 2025; adoption and donation UNVERIFIED beyond the site). Codex: `/init` will "Generate an `AGENTS.md` scaffold in the current directory"; `/compact` will "Summarize the visible chat to free tokens"; `model_auto_compact_token_limit` sets the threshold for automatic compaction and `compact_prompt` overrides the summary prompt; `/memories` toggles memory injection and generation. Devin CLI: AGENTS.md in the user config directory for global rules and in the project; `/compact` forces compaction; `/context` shows context window usage. Docs in §1 [primary].
 
 **When it's your agent.** The vendor chose the context budget, compaction policy, memory convention, and retrieval strategy. You own all four. What goes in: instructions, examples, retrieved knowledge, session state, memory, tool results, each with relevance, freshness, provenance, size. Customer-facing: the context holds another person's data; a compaction that drops a constraint is a wrong answer to a customer; memory that crosses sessions is a breach.
 
@@ -145,15 +174,32 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - "If an MCP client supports one-click local MCP server configuration, it MUST implement proper consent mechanisms prior to executing commands." Clients SHOULD "Execute MCP server commands in a sandboxed environment with minimal default privileges."
 - Scope mistakes, verbatim: "Publishing all possible scopes in scopes_supported," "Using wildcard or omnibus scopes (*, all, full-access)," "Bundling unrelated privileges to preempt future prompts."
 
-**Coding-agent anchor.** Installed MCP servers; the permission prompt before a write or shell command. Claude Code allowlist syntax such as `Bash(npm run *)`. Reads pass silently, edits get a checkpoint, a destructive command gets a stop: read-only vs reversible vs consequential, rendered as UI.
+**Coding-agent anchor.** Installed MCP servers in both tools: `/mcp` in Codex; `devin mcp add`, `devin mcp list`, and `devin mcp login` for OAuth in Devin CLI. Then the permission prompt.
+
+- Codex (config reference, §1): `sandbox_mode` is read-only, workspace-write, or danger-full-access. `approval_policy` is on-request or never, or a table of per-category booleans. Each MCP server has `default_tools_approval_mode` of auto, prompt, writes, or approve. `/permissions` will "Set what Codex can do without asking first."
+- Devin CLI permissions page, https://docs.devin.ai/cli/reference/permissions [primary]: five modes. Normal: reads auto-approve, writes and shell prompt. Accept Edits: workspace edits auto-approve. Smart: for shell, fetch, MCP, and external writes, "a fast model judges whether the action is safe to run unattended," and never auto-approves package installs, mutating git operations, rm or sudo, destructive cloud CLI commands, or anything touching dotenv files or credentials. Bypass: everything auto-approves. Autonomous: pairs with `--sandbox`; shell and fetch auto-approve "because the sandbox enforces what they can read, write, and reach over the network," while direct edits still prompt. Organization deny and ask rules override user settings in every mode.
+
+Read-only vs reversible vs consequential, rendered as UI. In Smart mode, rendered as a model.
 
 **When it's your agent.** The vendor wrote descriptions, chose granularity, shaped payloads, built the approval UI. You write descriptions as prompt engineering and eval them; you decide verbosity because it is your token bill; you classify every action and build the gate. Customer-facing: no developer to click approve, so the gate is an async human step or an automated policy.
 
-**Incidents.** CamoLeak, GitHub Copilot Chat, 2025: invisible Markdown comments carried the injection, pre-generated Camo URLs bypassed the content security policy, private repository contents exfiltrated through image requests. UNVERIFIED as to date and severity. Malicious skills at scale, 2026: 341 of 2,857 skills in the OpenClaw marketplace (about 12%) reported malicious. UNVERIFIED, https://getsliq.com/blog/openclaw-security-incidents-timeline .
+**Incidents.**
+
+**Omer Mayraz, Legit Security, "CamoLeak: Critical GitHub Copilot Vulnerability Leaks Private Source Code," October 8, 2025** [primary]. https://www.legitsecurity.com/blog/camoleak-critical-github-copilot-vulnerability-leaks-private-source-code Checked in a browser September 14, 2026.
+
+- "CVSS 9.6." Instructions hidden in a pull request description inside `<!-- -->` comments, invisible in the web UI, processed by Copilot Chat for every user who viewed the page.
+- GitHub's Camo image proxy rewrites external image URLs to signed proxy URLs. The researcher pre-generated Camo URLs for every letter and symbol and had Copilot render leaked data "as ASCII art composed entirely of images," which passed the content security policy because the URLs were GitHub-signed.
+- The demo exfiltrated "the description of a zero-day vulnerability inside an issue of a private project" and AWS credentials.
+- Reported through HackerOne in June 2025. Fixed by August 14, 2025, by "disabling image rendering in Copilot Chat completely."
+
+**Koi Security's ClawHub audit, reported by The Hacker News, February 2, 2026** [primary for the report; Koi's post is the underlying source]. https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html Checked September 14, 2026.
+
+- "A security audit of 2,857 skills on ClawHub has found 341 malicious skills across multiple campaigns." Campaign named ClawHavoc. "335 skills use fake pre-requisites to install an Apple macOS stealer named Atomic Stealer (AMOS)." 341 of 2,857 is 11.9%, roughly one in eight.
+- Unit 42, "OpenClaw's Skill Marketplace and the Emerging AI Supply Chain Threat," June 23, 2026 [primary]. https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/ Bitdefender Labs found "approximately 17% of OpenClaw skills they analyzed in the first few weeks of the platform's release carried malicious payloads." For a skill, "installation results in complete control over the agent's identity." Use the Koi figure on stage; the Bitdefender figure is a different sample.
 
 **Pitfall.** Exposing the API surface as tools, one endpoint per tool. Counter: consolidation and namespacing. Consequence: BFCL degradation with tool count and wrong-tool selection under similar names.
 
-## 4. Harness and orchestration
+## 4. Orchestration: the loop
 
 **Anthropic, "Building effective agents," Erik Schluntz and Barry Zhang, December 19, 2024** [primary]. https://www.anthropic.com/engineering/building-effective-agents
 
@@ -186,9 +232,13 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **OpenAI, "Harness engineering: leveraging Codex in an agent-first world," February 2026.** https://openai.com/index/harness-engineering/ UNVERIFIED (site blocks fetching). Secondary coverage: about one million lines of production code in five months with none typed by hand; "The agent doesn't need more instructions. It needs a world where the right thing to do is obvious and the wrong thing is hard." Companion: https://openai.com/index/shipping-sora-for-android-with-codex/ . Confirm in a browser before quoting.
 
-**Gartner, June 25, 2025.** Over 40% of agentic AI projects canceled by end of 2027 on escalating costs, unclear business value, inadequate risk controls. https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027 Wording UNVERIFIED (403); attribute and date.
+**Gartner, "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027," press release, Sydney, June 25, 2025** [primary]. https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027 Read in a browser September 14, 2026; the page refuses automated fetching.
 
-**Coding-agent anchor.** Plan mode, the todo list, subagents, hooks, `/compact`, checkpoints, resume. Loop: gather context, take action, verify, repeat. A PostToolUse hook runs the formatter or tests regardless of what the model believes it did.
+- "Over 40% of agentic AI projects will be canceled by the end of 2027, due to escalating costs, unclear business value or inadequate risk controls, according to Gartner, Inc."
+- Anushree Verma, Senior Director Analyst: "Most agentic AI projects right now are early stage experiments or proof of concepts that are mostly driven by hype and are often misapplied. This can blind organizations to the real cost and complexity of deploying AI agents at scale, stalling projects from moving into production."
+- Basis: a January 2025 poll of 3,412 webinar attendees, per the syndicated copy at Machine Learning Times.
+
+**Coding-agent anchor.** Both tools: `/plan`, subagents, hooks, `/compact`, `/resume`, `/fork`. Codex: `/plan` will "Switch to plan mode and optionally send a prompt"; `agents.enabled` and `agents.max_concurrent_threads_per_session`; `hooks.<Event>` for PreToolUse, PostToolUse, SessionStart, SessionEnd, gated by `features.hooks`, which defaults to off; `/hooks` to "View and manage lifecycle hooks." Devin CLI: `/plan` and `/mode plan` for read-only planning; `subagents_enabled`, default true; `/hooks` lists loaded hooks with event types and sources; `/resume`, `/continue`, `/fork`; hand-off to a cloud agent with its own machine. Neither tool documents a todo list; the visible artifact is the plan. Loop: gather context, take action, verify, repeat. A PostToolUse hook runs the formatter or tests regardless of what the model believes it did. Docs in §1 and §3 [primary].
 
 **When it's your agent.** You own the loop, stopping conditions, state and resume, retries, escalation, planner-to-worker routing, the compaction trigger, and the budgets for tokens, actions, and latency. Customer-facing: a human is waiting; latency is a product requirement; an unbounded loop is an outage.
 
@@ -222,7 +272,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Martin Fowler, August 28, 2025** [primary]: "I find LLMs are quite happy to say 'all tests green', yet when I run them, there are failures."
 
-**Coding-agent anchor.** The test suite is the coding agent's verifier: write, run, read the failure, retry. It works because the repo already contains ground truth. Failure mode: the agent declares success without running anything; the fix is a hook or startup routine that runs the check.
+**Coding-agent anchor.** The test suite is the coding agent's verifier: write, run, read the failure, retry. It works because the repo already contains ground truth. Codex adds `/review`, "Ask for a working tree review," and an auto reviewer that can deny a command, with `/approve` to "Approve one retry of a recent auto review denial." Failure mode: the agent declares success without running anything; the fix is a hook or startup routine that runs the check. Docs in §1 [primary].
 
 **When it's your agent.** No test suite for "was this refund correct." Build the verifier (schema check, business-rule assertion, database state check, rubric-driven second model, human), then the eval suite, then online evals on sampled production traffic. Payoff: eval-gated model adoption, a one-day yes or no when a new model ships.
 
@@ -230,7 +280,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 ## 6. Operating it: observability, guardrails, security, identity, governance
 
-**Observability.** OpenTelemetry GenAI semantic conventions: spans, attributes, metrics, events for model calls, tool executions, agent runs, retrieval, memory. Marked "Development," not "Stable," as of 2026; UNVERIFIED, check https://opentelemetry.io/docs/specs/semconv/gen-ai/ . Blog: https://opentelemetry.io/blog/2026/genai-observability/ . Platforms to name generically: Langfuse, LangSmith, Braintrust, Arize Phoenix. Metrics a builder tracks: latency p50/p95/p99, time to first token, tokens per request, cost per request and per completed task, cache hit rate, tool call and failure counts, loop iterations per task, error and rate-limit counts. Agentic moves: cost per completed task; watch p95 and p99 tokens because tails concentrate cost. Coding-agent anchor: Claude Code native OpenTelemetry via CLAUDE_CODE_ENABLE_TELEMETRY=1, https://code.claude.com/docs/en/monitoring-usage , plus `/cost`.
+**Observability.** OpenTelemetry GenAI semantic conventions: spans, attributes, metrics, events for model calls, tool executions, agent runs, retrieval, memory. Now maintained in their own repository, https://github.com/open-telemetry/semantic-conventions-genai [primary], checked in a browser September 14, 2026; the spans document carries "Status: Development" and "Warning: Semantic conventions are subject to change." The old page at https://opentelemetry.io/docs/specs/semconv/gen-ai/ now only redirects. Secondary coverage (July 2026) reports no stable release or tag yet, so instrument against a pinned snapshot and expect attribute names to move. Blog: https://opentelemetry.io/blog/2026/genai-observability/ . Platforms to name generically: Langfuse, LangSmith, Braintrust, Arize Phoenix. Metrics a builder tracks: latency p50/p95/p99, time to first token, tokens per request, cost per request and per completed task, cache hit rate, tool call and failure counts, loop iterations per task, error and rate-limit counts. Agentic moves: cost per completed task; watch p95 and p99 tokens because tails concentrate cost. Coding-agent anchor: Codex `/status` will "Display session configuration and token usage" and `/usage` will "View account token usage"; `otel.exporter`, `otel.trace_exporter`, and `otel.metrics_exporter` accept otlp-http or otlp-grpc, with metrics defaulting to statsig. Devin CLI `/usage` will "Show estimated credit/ACU usage for the session," `/session-stats` shows consumption by dimension, `/context` shows window usage; `--sandbox` with `sandbox.allowed_domains`, `sandbox.denied_domains`, and `sandbox.network_mode` of full or limited; `devin mcp login` for OAuth. Docs in §1 and §3 [primary].
 
 **Datadog, "State of AI Engineering," July 2026.** https://www.datadoghq.com/state-of-ai-engineering/ "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe." "Model, prompt, or retrieval changes can move latency, spend, and failure rates without an obvious code change."
 
@@ -242,13 +292,13 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **OWASP Top 10 for LLM Applications 2025.** https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf LLM01 prompt injection; LLM06 excessive agency (too much functionality, permissions, or autonomy); new in 2025: LLM07 system prompt leakage, LLM08 vector and embedding weaknesses, LLM10 unbounded consumption.
 
-**OWASP Top 10 for Agentic Applications 2026, released December 9, 2025.** https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ ASI01 Agent Goal Hijack, ASI02 Tool Misuse and Exploitation, ASI03 Identity and Privilege Abuse, ASI04 Agentic Supply Chain Compromise, ASI05 Unexpected Code Execution, ASI06 Memory and Context Poisoning, ASI07 Insecure Inter-Agent Communication, ASI08 Cascading Agent Failures, ASI09 Human-Agent Trust Exploitation, ASI10 Rogue Agents. Category wording UNVERIFIED; confirm against the PDF.
+**OWASP Top 10 for Agentic Applications 2026, released December 9, 2025** [primary]. Announcement: https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/ Resource page: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ Checked in a browser September 14, 2026. Names as written on the announcement: ASI01 Agent Goal Hijack, ASI02 Tool Misuse, ASI03 Identity & Privilege Abuse, ASI04 Agentic Supply Chain Vulnerabilities, ASI05 Unexpected Code Execution, ASI06 Memory & Context Poisoning, ASI07 Insecure Inter-Agent Communication, ASI08 Cascading Failures, ASI09 Human-Agent Trust Exploitation, ASI10 Rogue Agents. The announcement names EchoLeak as its ASI01 example and the Replit incident as its ASI10 example, which ties both slide 18 incidents to the list. The PDF's full titles may add a word or two; the six names spoken on stage match the announcement.
 
 **Guardrail patterns (practitioner consensus, secondary).** Defense in depth at every boundary: input classification, provenance tagging on retrieved content, sandboxed tool execution, output validation, post-hoc trace review. For agents that change production state: circuit breakers on token and action counts, approval gates on consequential actions, least-privilege tool scopes.
 
 **Identity and access.** MCP rules above. 2026 direction (UNVERIFIED, vendor and analyst blogs): agent gets its own standing identity separate from the user, with short-lived per-invocation delegation tokens; SPIFFE/WIMSE for workload identity; OAuth 2.1 via the MCP authorization spec; IETF Identity Assertion Authorization Grant for enterprise brokering. Present as direction, not standard.
 
-**Governance.** EU AI Act Article 50 transparency obligations apply from August 2, 2026; providers of AI systems that interact with people must tell them they are interacting with an AI. Machine-readable marking of synthetic output extended to December 2, 2026 for systems already on market via the May 2026 AI Omnibus; high-risk obligations moved to December 2, 2027 and August 2, 2028. UNVERIFIED, from https://artificialintelligenceact.eu/transparency-rules-article-50/ and law-firm commentary. Verify; this timeline has moved once.
+**Governance.** EU AI Act Article 50, per the EU AI Act tracker, https://artificialintelligenceact.eu/transparency-rules-article-50/ [primary for the tracker], checked in a browser September 14, 2026. Transparency obligations apply from "2 August 2026." Providers of systems that interact with people must ensure "users are informed they are interacting with an AI," "at the latest at the time of the first interaction or exposure." The May 2026 AI Omnibus provisional agreement gives generative systems deployed before August 2, 2026 "until 2 December 2026 to meet the machine-readable marking requirement under Article 50(2)." The obligation used on stage is the interaction disclosure, which is not extended. High-risk obligations reportedly moved to December 2, 2027 and August 2, 2028 per law-firm commentary; UNVERIFIED and not used on stage.
 
 **Incidents.**
 
@@ -257,7 +307,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - Moffatt v. Air Canada, BC Civil Resolution Tribunal, February 2024. The airline argued its chatbot was a separate legal entity responsible for its own actions. Rejected; negligent misrepresentation; C$812.02 awarded. https://www.mccarthy.ca/en/insights/blogs/techlex/moffatt-v-air-canada-misrepresentation-ai-chatbot
 - GTG-1002, disclosed by Anthropic November 14, 2025. AI-orchestrated espionage using Claude Code and MCP tools against about thirty targets; the model executed 80 to 90 percent of the operation. https://www-cdn.anthropic.com/d7dd50dd1185f59be051b307150d877f2b82bd2c.pdf and https://attack.mitre.org/campaigns/C0062/ Stakes only, not fear.
 
-**When it's your agent.** All of this was rendered for you as a permission prompt, a sandbox, an OAuth flow, `/cost`, and a vendor trust and safety team. In your deployment there is no prompt to click. The gate becomes an async workflow or policy; the sandbox becomes your infrastructure; the audit trail becomes a compliance artifact; Article 50 requires disclosure.
+**When it's your agent.** All of this was rendered for you as a permission prompt, a sandbox, an OAuth flow, `/usage`, and a vendor trust and safety team. In your deployment there is no prompt to click. The gate becomes an async workflow or policy; the sandbox becomes your infrastructure; the audit trail becomes a compliance artifact; Article 50 requires disclosure.
 
 **Pitfall.** Assembling the lethal trifecta by accident, one useful integration at a time: a retriever, then web fetch, then an email sender.
 
@@ -266,8 +316,9 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - **MCP revision 2026-07-28**, the largest since launch. Stateless at the protocol layer; Multi Round-Trip Requests replace server-initiated sampling and elicitation; formal deprecation policy with a twelve-month minimum window; HTTP+SSE transport deprecated; new rule "MCP servers MUST NOT treat possession of a state handle as authentication." https://blog.modelcontextprotocol.io/posts/2026-07-28/ Release-note specifics UNVERIFIED beyond spec pages.
 - **"Harness engineering" became the standard phrase.** OpenAI February 2026; Osmani April 2026; OpenAI August 2026 definition. Loop engineering and graph engineering are blog-level coinages.
 - **Routing evidence got concrete.** LangChain August 11, 2026 (area 1).
-- **A deprecation wave landed inside the window.** OpenAI twenty-plus shutdowns October to December; Anthropic retired Opus 4.1 August 5; Copilot retired five models September 1 (UNVERIFIED).
-- **OpenClaw.** Open-source autonomous agent past 135,000 GitHub stars; CVE-2026-25253, one-click remote code execution via an unvalidated WebSocket origin; web UI on port 8080 with auth disabled by default; about 12% of its skill marketplace malicious; a related agent social network exposed 1.5 million API tokens. ALL UNVERIFIED; start at https://en.wikipedia.org/wiki/OpenClaw . If confirmed, the strongest recent "the harness is the attack surface" example.
+- **A deprecation wave landed inside the window.** OpenAI twenty-plus shutdowns October to December; Anthropic retired Opus 4.1 August 5; Copilot retired six models September 1 (verified, §1).
+- **OpenClaw.** Open-source autonomous agent past 135,000 GitHub stars; CVE-2026-25253, one-click remote code execution via an unvalidated WebSocket origin; web UI on port 8080 with auth disabled by default; about 12% of its skill marketplace malicious (verified in §3: 341 of 2,857, Koi Security, February 2026); a related agent social network exposed 1.5 million API tokens. The CVE, the star count, and the token exposure remain UNVERIFIED; start at https://en.wikipedia.org/wiki/OpenClaw . If confirmed, the strongest recent "the harness is the attack surface" example.
+- **The audience's tools.** Devin CLI launched April 27, 2026, with a dedicated virtual machine and cloud hand-off; Fusion reached it September 11 (not used on stage). Codex CLI docs now live at learn.chatgpt.com. Both read AGENTS.md, both have `/plan`, `/compact`, `/resume`, `/fork`, subagents, hooks, MCP, a sandbox, and a usage command. Anchors in §1 through §6 [primary].
 - **Anthropic's evals post, January 9, 2026**, is the newest canonical text in area 5; pass@k vs pass^k is new vocabulary for most engineers.
 - **Enterprise standardization.** Salesforce on Claude Code June 4, 2026; Zalando, "Agentic Engineering at Zalando: a snapshot," August 2026, https://engineering.zalando.com/posts/2026/08/agentic-engineering-at-zalando-a-snapshot.html . UNVERIFIED.
 - **Models in the room.** Claude Sonnet 5 (June 30), Opus 5 (July 24, updated August 12), Fable 5.1 and Mythos 5.1 (September 1, reportedly with breaking API changes), GLM-5.2 open-weight (June 15). Dates UNVERIFIED. Useful only for "a capable model shipped two weeks ago; how would you decide whether to switch?"
@@ -276,12 +327,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 - OpenAI "Harness engineering" post: every quote and number is secondhand. Open both URLs in a browser.
 - OpenAI "A practical guide to building agents": confirm quotes against the PDF.
-- OWASP Agentic Top 10 category names: confirm against the PDF.
-- EU AI Act Article 50 date and scope: confirm; the timeline has been amended once.
-- Gartner 40% wording: confirm on the press release.
-- Copilot September 1, 2026 model retirements: confirm.
-- CamoLeak date and severity; OpenClaw figures; malicious-skill percentage: confirm or drop.
+- OpenClaw CVE, star count, and token exposure: confirm or drop. CamoLeak and the malicious-skill count are verified in §3.
 - Benchmark-criticism percentages: the general claim is safe; the numbers are not.
-- OpenTelemetry GenAI conventions stability status: check the spec page.
 - Chen, Zaharia, Zou exact quote wording: confirm against the paper; the 84/51 figures are safe.
 - AGENTS.md adoption and Linux Foundation donation: confirm or say "cross-tool standard" without numbers.

@@ -36,7 +36,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 | AI Engineer rank, LinkedIn Jobs on the Rise 2026 (US) | #1 | Dice coverage, January 14, 2026 | Verified via secondary |
 | Salary premium for AI skills | 28%, about $18k | Lightcast, July 23, 2025 | Verified via Lightcast release |
 
-- Dice names the fastest-growing skill cluster as Responsible AI, AI Agents, Agentic AI, and AI Infrastructure, each above 200% year over year. LinkedIn lists AI Engineer skills as LangChain, retrieval-augmented generation, and PyTorch.
+- Verbatim from the report page, checked in a browser September 14, 2026 [primary]: "AI and machine learning tech postings grew 101% year-over-year (August 2026 vs. August 2025), more than five times the 18% growth rate for tech postings overall." The page also names "Responsible AI, AI Agents, Agentic AI, and Artificial Intelligence Infrastructure" as a cluster "tracking the shift from assistive AI tools toward more autonomous systems." The "each above 200%" figure for that cluster was not on the page as fetched; do not use it. LinkedIn lists AI Engineer skills as LangChain, retrieval-augmented generation, and PyTorch.
 - Sources: https://www.dice.com/hiring/recruitment/reports/dice-tech-job-report ; https://www.dice.com/career-advice/ai-related-jobs-top-linkedins-fastest-growing-roles-list-for-2026 ; https://lightcast.io/resources/blog/beyond-the-buzz-press-release-2025-07-23
 - UNVERIFIED: "143% year-over-year growth in AI Engineer postings" appears only in aggregator and SEO content. Same for all specific salary bands. Do not put on a slide without a primary citation.
 
@@ -60,7 +60,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Security.** OWASP Top 10 for LLM Applications, 2025. Prompt injection LLM01; Excessive Agency LLM06; new for 2025: System Prompt Leakage (LLM07), Vector and Embedding Weaknesses (LLM08), Unbounded Consumption (LLM10). The attack surface is the model's reasoning, retrieved context, and tool access, so least privilege now applies to tools. https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf
 
-**Observability.** OpenTelemetry GenAI semantic conventions, run by the GenAI SIG since April 2024, standardize spans for model calls, token usage, tool calls, and agent steps. Version 1.40.0 cut February 2026; most conventions still experimental as of March 2026, core attributes stable since 1.37.0. https://opentelemetry.io/blog/2026/genai-observability/ The "your instincts transfer, the schema is new" beat.
+**Observability.** OpenTelemetry GenAI semantic conventions, run by the GenAI SIG since April 2024, standardize spans for model calls, token usage, tool calls, and agent steps. As of September 14, 2026 the conventions live in their own repository and are marked "Status: Development" with a warning that they are subject to change; verified entry in `research/section-2.md` §6. The earlier claim here that core attributes were stable since 1.37.0 was secondary and is superseded. The "your instincts transfer, the schema is new" beat.
 
 **No source explicitly ranks the new competencies.** The ladder plus Husain's 60 to 80% time allocation is the nearest defensible priority ordering.
 
@@ -111,13 +111,12 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Gergely Orosz, "The impact of AI on software engineers in 2026: key trends, Part 1," April 14, 2026** [primary]. https://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026 900-plus survey responses. AI amplifies existing tendencies, splitting "builders" who absorb more AI slop from "shippers" who gain speed and accrue debt. Roughly 30% of respondents had hit tool usage limits. Best evidence that the audience is already AI-enabled but has not crossed into AI engineering.
 
-**Role distinction.** "AI-enabled software engineer vs AI engineer" is not a term of art in any primary source. The closest anchor is swyx's three-way split: engineers using AI, engineers building AI products, AI systems doing engineering work.
+**Role distinction.** "AI-enabled software engineer vs AI engineer" is not a term of art in any primary source. The closest anchor is swyx's three-way split, now verified in `research/section-1.md` §1: the "AI enhanced engineer" who uses AI coding tools, the software engineer building AI products, and the non-human software engineer. His first tier is this talk's first term under another name.
 
 **UNVERIFIED for this window:** the 6,000-attendee figure and the "42% of committed code is AI-generated" closing-keynote claim, both from a DEV Community recap.
 
 ## Verify before stage
 
-- Dice August 2026 figures: verified on the publisher page, but confirm the exact wording of "up 101%" before quoting in Q&A answer 8.
 - LinkedIn Jobs on the Rise 2026: primary document not reached; ranking corroborated by Dice and CNBC.
 - Anthropic context-engineering sentence in §2: re-verify against the post before using verbatim.
 - OpenAI guide page numbers: confirm against the PDF.

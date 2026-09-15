@@ -19,6 +19,21 @@ The outline and the three research files form a two-layer system:
 
 Every source entry in research has the same shape: a bold line with author, title, venue, and date, a verification marker, the URL, then bullet quotes. Each research file ends with a `## Verify before stage` list and a `**Do not use:**` line.
 
+## The slides layer
+
+`slides/section-N/NN-descriptive-name.md` holds one file per slide, numbered to match the outline (`01` through `25`). Each file is a tool-agnostic spec with five sections: on-slide text build by build, layout and visual notes, a near-script talk track with `[m:ss]` marks and bold must-say lines, short-form sources pointing to research sections, and open items.
+
+Slide files render the outline. They do not restate its reasoning and they never introduce a claim. A new claim goes into the research file and the outline first, then onto the slide. The `[verify]`, `[you write]`, and `[your story]` markers mean the same thing in slide files as in the outline.
+
+Conventions the slide files follow:
+
+- **Time splits.** A two-slide beat splits its time between the two files, stated in each header, and the two must sum to the beat. Section sums must match the outline's checks blocks.
+- **Kickers.** Every Section 2 area slide has a small top-left label, area name then beat: "Models · What you touched," "Models · When it's your agent." Section 3 slides use "The transition · " plus the beat name.
+- **Pitfall bands.** Every "when it's your agent" slide ends with a strip across the bottom labeled "Pitfall:" whose text matches slide 22 word for word.
+- **Takeaways are spoken, not shown.** Titles on "when it's your agent" slides state the responsibility instead.
+- **Cut order.** Each talk track names what to cut first if the section runs long and what may never be cut.
+- **Diagram.** Slide 7 uses `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 19 uses the `-yours.svg` variant generated from it. Regenerate the variant if the base changes.
+
 ## Markers
 
 Research files use two markers:
@@ -37,6 +52,7 @@ A claim graduates from `UNVERIFIED` to `[primary]` only after being checked in a
 ## Invariants when editing the outline
 
 - **Scope is fixed.** The talk description in the README was published to attendees. Every outline version must cover every topic it names. Only the weighting changes.
+- **Two named tools.** The coding agents named on stage are Codex CLI and Devin. Devin's CLI carries the command anchors; Devin Desktop, the IDE, appears on slide 8 for its model picker. No other tool is named as a "what you touched" example. Other products appear only as incident evidence, such as EchoLeak in Microsoft 365 Copilot. Tool facts come from the vendors' own docs and are marked `[primary]` in research with the date they were checked.
 - **Time and slide counts must reconcile.** Presentation is 35:00 across 25 slides: Section 1 is 5:00 and 6 slides, Section 2 is 25:00 and 13 slides, Section 3 is 5:00 and 6 slides. Each section ends with a "checks" block that sums its beat times and lists which beats cover which description topics. Changing a beat's time or slide count means updating that block and the "Structure and time budget" table.
 - **Every Section 2 area follows the same three beats** (what you touched, what someone engineered, when it's your agent) and names one pitfall. The six pitfalls are collected again on slide 22 in 3.3, so a pitfall change lands in two places.
 - **Beat format is fixed.** Time, slide, say, takeaway line, sources. It is a talk track, not a script.

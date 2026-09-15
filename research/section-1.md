@@ -13,7 +13,16 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 - "When it comes to shipping AI products, you want engineers, not researchers."
 - Quoting Karpathy on the role: "One can be quite successful in this role without ever training anything."
 - The essay never gives a single declarative definition; the role is built up descriptively. That gap is an opening for the talk to plant its own framing.
-- swyx's later three-tier split, reported from an AI Engineer Summit (exact wording UNVERIFIED): engineers using AI; engineers building AI products; AI systems doing engineering work. The middle tier is this talk.
+- The three-tier split, verified in two places (checked in a browser September 14, 2026).
+
+**swyx on the Scrimba Podcast, "The Making of an Industry: The Rise of AI Engineering," January 24, 2024** [primary]. https://podcast.scrimba.com/146/transcript
+
+- "Most people start off as AI enhanced engineers, they use AI products to improve their own productivity. Then they progress towards AI products engineers, where they work on AI products, where they wield AI APIs to expose them to end users. And then finally you have the AI agents, where you effectively delegate your work to an agent to execute."
+
+**swyx in "A RedMonk Conversation: How Shawn (swyx) Wang Defines the AI Engineer," RedMonk, July 23, 2025** [primary]. https://redmonk.com/blog/2025/07/23/shawn-swyx-wang-ai-engineer/
+
+- "there's a kind of three types of AI Engineers. This is the first keynote that I did for the AI Engineer Summit. it's a software engineer that is enhanced by AI, so they use AI coding tools. The second one is a software engineer building AI products. And the third is a non-human software engineer that is completely AI."
+- He dates the framing to his first AI Engineer Summit keynote. The middle tier is this talk. His first tier, the "AI enhanced engineer," is the talk's "AI-enabled software engineer" under another name, which makes the thesis a restatement of an existing split rather than a coinage.
 
 **Chip Huyen, "AI Engineering: Building Applications with Foundation Models," O'Reilly, 2025.** Repo: https://github.com/chiphuyen/aie-book [primary for the repo]
 
@@ -109,7 +118,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 - "No measurable P&L impact" is a different finding from "the pilot failed" and largely reflects absent baselines. No evidence the report was withdrawn.
 - Recommended use: as the stat the room has heard and should not trust.
 
-**Gartner, June 25, 2025.** "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027," citing escalating costs, unclear business value, inadequate risk controls. https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027 Page returns 403 to fetching; wording is from summaries. Attributed to Anushree Verma: "Most agentic AI projects right now are early stage experiments or proof of concepts that are mostly driven by hype and are often misapplied." UNVERIFIED wording; attribute and date it if used.
+**Gartner, June 25, 2025.** "Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027," citing escalating costs, unclear business value, inadequate risk controls. https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027 Read in a browser September 14, 2026 [primary]; the page refuses automated fetching. Verbatim: "Over 40% of agentic AI projects will be canceled by the end of 2027, due to escalating costs, unclear business value or inadequate risk controls, according to Gartner, Inc." Anushree Verma: "Most agentic AI projects right now are early stage experiments or proof of concepts that are mostly driven by hype and are often misapplied." Full entry in `research/section-2.md` §4.
 
 **McKinsey, "The state of AI," late 2025.** https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai Fetch timed out; figures are from secondary summaries and UNVERIFIED: about 39% report enterprise-level EBIT impact; about 6% are high performers; 62% at least experimenting with agents; 23% scaling agents somewhere; in no function have more than 10% scaled agents.
 
@@ -175,7 +184,6 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 ## Verify before stage
 
 - OpenAI "A practical guide to building agents" quotes: confirm against the PDF.
-- Gartner June 2025 wording: confirm on the press release in a browser.
 - Loop-engineering timeline and the "it was a joke" framing: confirm before using opener 4.
 - Chip Huyen chapter 1 wording: check the book before attributing a definition sentence.
 - LinkedIn Jobs on the Rise 2026: primary document not reached; the ranking is corroborated by Dice and CNBC.

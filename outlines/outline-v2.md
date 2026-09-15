@@ -32,7 +32,7 @@ AI engineering is a distinct discipline built on a foundation of software engine
 | 2.1 Models | 3.5 | 2 |
 | 2.2 Context and knowledge | 3.5 | 2 |
 | 2.3 Tools and extensibility | 3 | 2 |
-| 2.4 Harness and orchestration | 3.5 | 2 |
+| 2.4 Orchestration | 3.5 | 2 |
 | 2.5 Verification and evals | 5 | 2 |
 | 2.6 Operating it | 4.5 | 2 |
 | 3. Making the transition | 5 | 6 |
@@ -42,7 +42,7 @@ AI engineering is a distinct discipline built on a foundation of software engine
 
 Every one of the six areas has the same three beats:
 
-1. **What you touched.** The feature of the coding agent the audience has already used, described generically with named instances (Claude Code, Cursor, Copilot, Codex).
+1. **What you touched.** The feature of the coding agent the audience has already used, described generically with two named products, Codex CLI and Devin. Devin's CLI carries the command anchors; Devin Desktop, the IDE, appears on slide 8 for its model picker. No other tool is named as an example.
 2. **What someone engineered.** What had to be built for that feature to work.
 3. **When it's your agent.** What the vendor built that you now own, how a customer-facing or enterprise deployment raises the stakes, and the most common pitfall in that area.
 
@@ -102,7 +102,7 @@ Every one of the six areas has the same three beats:
 - Slide: three takeaways on the left, agenda on the right.
 - Say:
   - Three things to leave with: a conceptual map of the discipline, an honest sense of how much there is, and a roadmap for making the transition.
-  - The agenda: the map, two minutes. Six areas, twenty-three minutes: models, context and knowledge, tools, the harness, verification and evals, and operating it. The transition, five minutes. Then fifteen minutes for your questions.
+  - The agenda: the map, two minutes. Six areas, twenty-three minutes: models, context and knowledge, tools, orchestration, verification and evals, and operating it. The transition, five minutes. Then fifteen minutes for your questions.
   - The pattern for each area, so you know what is coming: what you touched in your coding agent, what someone engineered to make it work, and what changes when it is your agent.
 - Source: the session description in the README.
 
@@ -137,10 +137,10 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 ### 2.1 Models (3:30). Slides 8 and 9
 
-**Slide 8, what you touched.** A model picker: `/model`, the `opusplan` alias, a dropdown.
+**Slide 8, what you touched.** A model picker: the pop-out window in Devin Desktop with its reasoning slider, and `/model` in Codex.
 
-- Say: You have used the model picker. In Claude Code it is `/model`, and there is an alias called opusplan that runs a bigger model in plan mode and a cheaper one for execution. That is model routing, shipped as a one-word setting. Cursor and Copilot give you the same thing as a dropdown. Most of you have used routing without ever calling it that.
-- Say, what someone engineered: behind the picker, the vendor chose the default, tuned prompts and tool descriptions per model, handles failover when a model is overloaded, absorbs price changes, and silently migrated you off every model that got retired. This month Copilot retired five models **[verify]** and most users noticed only that the dropdown changed.
+- Say: You have used the model picker. In Devin Desktop it pops out a window, and there is a slider for reasoning effort, with the price per level next to it. In Codex it is `/model`, and it sets the reasoning effort along with the model. That slider is a cost and latency dial. One layer down, Codex's config lets plan mode run at a different effort and subagents run on a different model. That is model routing, shipped as a setting. Most of you have used routing without ever calling it that.
+- Say, what someone engineered: behind the picker, the vendor chose the default, tuned prompts and tool descriptions per model, handles failover when a model is overloaded, absorbs price changes, and silently migrated you off every model that got retired. Anthropic retired seven models this year, the latest on August 5. Every one of those migrations happened behind a picker, and if you were on one of them you noticed only that the list changed.
 
 **Slide 9, when it's your agent.** Title: "The model is a component you select, measure, and replace." Six axes, two pinning options, the pitfall.
 
@@ -148,20 +148,20 @@ The map, then six areas. Each area has the three beats: what you touched, what s
   - Select. Six axes: capability on your tasks, not on a leaderboard. Cost per completed task, not per token. Latency at p95. Context window. Tool-use reliability. Data residency, which in an enterprise can override all the others.
   - Measure. A public benchmark measures a population you did not choose, on a harness you do not control, reported by a party with an interest in the result. Your eval suite measures your traffic. Hold that thought for 2.5.
   - Replace. Models expire. Anthropic promises sixty days' notice; the windows observed this year were 61 and 62 days. OpenAI has twenty-plus models shutting down between October and December. So you pin, and there are exactly two ways: **a dated snapshot buys reproducibility and an expiry date; an alias buys silent upgrades and silent drift**. The canonical drift paper: **GPT-4's accuracy on a prime-number task fell from 84% to 51% between March and June 2023, on the same questions**.
-  - Route. LangChain measured this in August: across 145 multi-step agent tasks, **only 7% of calls needed the frontier model**. Routing cut cost per task by roughly two thirds at a six-point accuracy cost. And there is a break-even rule: routing only pays when the price gap between models exceeds the router's own cost.
+  - Route. LangChain measured this in August: across 145 multi-step agent tasks, **only 7% of calls needed the frontier model**. Routing cut cost per task by about 70 percent at a six-point accuracy cost. And there is a break-even rule: routing only pays when the price gap between models exceeds the router's own cost.
 - Pitfall: treating the model as a fixed dependency. A hardcoded model ID with no eval suite behind it. When the sixty-day email arrives you have a replacement you have never measured and no way to tell whether it is better or worse on your traffic. The fix is in 2.5.
 - Takeaway line: "The model is a versioned, expiring dependency. Treat it like one."
-- Sources: Anthropic and OpenAI deprecation pages; Chen, Zaharia, Zou, 2023; LangChain, August 11, 2026; Claude Code model docs. Research §1.
+- Sources: Anthropic and OpenAI deprecation pages; Chen, Zaharia, Zou, 2023; LangChain, August 11, 2026; Codex CLI and Devin CLI docs. Research §1.
 
 ### 2.2 Context and knowledge (3:30). Slides 10 and 11
 
 **Slide 10, what you touched.** An instructions file and a compaction notice, side by side.
 
-- Say: Two things you have touched. First, the instructions file. Every tool has one: CLAUDE.md, .cursorrules, copilot-instructions.md, and AGENTS.md as the cross-tool standard. Second, the moment your session auto-compacted and dropped something that mattered. You have already felt context engineering fail.
+- Say: Two things you have touched. First, the instructions file. Codex and Devin CLI both read AGENTS.md, the cross-tool standard, and Codex's `/init` writes one for you. Second, the moment your session compacted and dropped something that mattered. Both tools have `/compact`, and Codex compacts on its own past a token limit. You have already felt context engineering fail.
 - Say, what someone engineered:
   - Karpathy's definition from last summer: context engineering is "the delicate art and science of filling the context window with just the right information for the next step." Anthropic's version: context is **"a finite resource with diminishing marginal returns."** Models have an attention budget.
   - Chroma tested eighteen models: **performance degrades as input grows, on simple tasks, well before the window is full**. Breunig named four ways it fails. Poisoning: an error gets in and keeps getting referenced. Distraction: the model over-focuses on the context and forgets what it knows. Confusion: superfluous content shapes the answer. Clash: new information conflicts with old. One measurable: on the Berkeley function-calling leaderboard, every model got worse with more tools.
-  - So the vendor engineered a system prompt at the right altitude, "specific enough to guide behavior, flexible enough to provide strong heuristics." A compaction policy. A memory convention. And a retrieval strategy for your repo that is not embedding search: it is just-in-time loading by identifier, grep and file reads. That is a design choice, and it is the one that shows retrieval-augmented generation is one technique, not the discipline.
+  - So the vendor engineered a system prompt at the right altitude, "specific enough to guide behavior effectively, yet flexible enough to provide the model with strong heuristics." A compaction policy. A memory convention. And a retrieval strategy for your repo that is not embedding search: just-in-time loading, grep and file reads. In Codex that is the shell. Cognition went further and trained a model, SWE-grep, to do that search in parallel, because they found embeddings "can even be counterproductive." **That is a design choice, and it is the one that shows retrieval-augmented generation is one technique, not the discipline.**
   - And a cache-aware layout. Manus, running a production agent, called the KV-cache hit rate **"the single most important metric for a production-stage AI agent."** Input-to-output ratio around 100 to 1. Cached input tokens ten times cheaper. So you never mutate the front of the prompt, and you do not add or remove tools mid-run. That is cost and latency engineering, and it is a context decision.
 
 **Slide 11, when it's your agent.** What goes in the window and the four things you now own.
@@ -169,34 +169,36 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 - Say: The vendor chose your context budget, your compaction policy, your memory convention, and your retrieval strategy. You own all four now. What goes in the window: instructions, examples, retrieved knowledge, session state, memory, tool results. Each has a relevance, a freshness, a provenance, and a size. Customer-facing raises the stakes because the context now holds another person's data. A compaction that drops a constraint is a wrong answer to a customer. A memory that crosses sessions is a breach.
 - Pitfall: adding context instead of curating it. A big window is not permission to fill it.
 - Takeaway line: "Context is a budget, not a bucket."
-- Sources: Karpathy, June 2025; Anthropic, September 2025; Chroma, July 2025; Breunig, June 2025; Manus, July 2025. Research §2.
+- Sources: Karpathy, June 2025; Anthropic, September 2025; Chroma, July 2025; Breunig, June 2025; Manus, July 2025; Cognition, October 2025; Codex CLI and Devin CLI docs. Research §2.
 
 ### 2.3 Tools and extensibility (3:00). Slides 12 and 13
 
 **Slide 12, what you touched.** An MCP server entry and the permission prompt.
 
-- Say: You have installed MCP servers. And you have seen the permission prompt: reads pass silently, edits get a checkpoint, a destructive command gets a stop. That prompt is a design decision rendered as UI. Read-only, reversible, consequential.
+- Say: You have installed MCP servers, in both tools. And you have seen the permission prompt. Codex has three sandbox modes: read-only, workspace-write, full access. Devin CLI has five permission modes, from Normal, where reads pass and writes ask, to Autonomous, where the sandbox decides what a command can touch. In Smart mode a fast model judges whether each action is safe to run unattended. That prompt is a design decision rendered as UI. Read-only, reversible, consequential.
 - Say, what someone engineered:
   - Anthropic's reframe: **a tool is a contract between deterministic code and a non-deterministic caller, and you design it for the caller**. Consolidate: one schedule_event tool, not list_users plus list_events plus create_event. Namespace: even prefix versus suffix had measurable effects on tool-use evals. Return names, not UUIDs: resolving identifiers to meaningful names "significantly improves precision." Let the agent choose concise or detailed: 72 tokens versus 206 for the same Slack result.
-  - Descriptions are prompt engineering you can measure. **Precise refinements to tool descriptions took Claude Sonnet 3.5 to state of the art on SWE-bench Verified.** Nothing else changed.
+  - Descriptions are prompt engineering you can measure. **Precise refinements to tool descriptions took Claude Sonnet 3.5 to state of the art on SWE-bench Verified.** In Anthropic's words, "even small refinements to tool descriptions can yield dramatic improvements."
   - Context cost is real: **five MCP servers cost about 55,000 tokens before the first message**. Deferred loading with tool search cut that by 85%. And wrong tool selection is the top failure when names are similar.
   - Under it all, the protocol's own security floor: no token passthrough, scope minimization, consent before a local server's commands run, sandboxed execution.
 
 **Slide 13, when it's your agent.** The tool contract and the action classes.
 
 - Say: The vendor wrote the descriptions, chose the granularity, shaped the payloads, and built the approval UI. Now you write descriptions and eval them. You decide verbosity, because it is your token bill and your context budget. You classify every action, and you build the gate. Customer-facing: nobody is sitting there to click approve. The gate becomes an async human step or an automated policy, and both are things you engineer.
-- Example **[verify]**: CamoLeak, where injected content in Copilot Chat exfiltrated private repository data through image requests. And a 2026 agent marketplace where roughly one skill in eight was malicious.
+- Example: CamoLeak, October 2025, where a comment hidden in a pull request made Copilot Chat exfiltrate private repository data through image URLs. CVSS 9.6. And ClawHub, February 2026, where an audit of 2,857 agent skills found 341 malicious, roughly one in eight.
 - Pitfall: one endpoint per tool. Your API surface is not a tool set.
 - Takeaway line: "Design tools for a caller that reads the description every time and can still get it wrong."
-- Sources: Anthropic, September 2025 and November 2025; MCP security best practices, July 2026. Research §3.
+- Sources: Anthropic, September 2025 and November 2025; MCP security best practices, July 2026; Legit Security, October 2025; Koi Security via The Hacker News, February 2026; Codex CLI and Devin CLI docs. Research §3.
 
-### 2.4 Harness and orchestration (3:30). Slides 14 and 15
+### 2.4 Orchestration (3:30). Slides 14 and 15
 
-**Slide 14, what you touched.** Plan mode, the todo list, subagents, hooks, `/compact`, resume. Under them the loop: gather context, act, verify, repeat.
+On the map this is the "Orchestration" box inside the harness: the loop, hooks, workflows. The other five harness boxes have their own areas.
 
-- Say: Plan mode. The todo list. Subagents. Hooks. Compaction. Checkpoints and resume. Underneath all of it is one loop: gather context, take action, verify, repeat. Hooks are the deterministic escape hatch: a post-tool hook runs the formatter or the tests whether or not the model believes it did.
+**Slide 14, what you touched.** `/plan`, subagents, hooks, `/compact`, `/resume`, `/fork`. Under them the loop: gather context, act, verify, repeat.
+
+- Say: Plan mode. Subagents. Hooks. Compaction. Resume and fork. Both tools have every one of them. Underneath all of it is one loop: gather context, take action, verify, repeat. Hooks are the deterministic escape hatch: a PostToolUse hook runs the formatter or the tests whether or not the model believes it did. Codex ships hooks turned off; you turn them on.
 - Say, what someone engineered:
-  - Everything that is not the model. Prompts and instruction files, tools and their descriptions, the sandbox and filesystem, orchestration of subagents and handoffs and routing, hooks, observability. Osmani's line: **"A decent model with a great harness beats a great model with a bad harness."** Evidence from OpenAI last month: retained reasoning plus context compaction took one model's score on a reasoning benchmark from 13% to 38% with six times fewer output tokens. Same model.
+  - The loop's decisions. When to stop. What carries between turns. When to compact. When to spawn a subagent, and what to hand it. Where a hook fires. The other harness boxes on the map get their own areas; this is the one that runs them. Osmani's line applies most sharply here: **"A decent model with a great harness beats a great model with a bad harness."** Evidence from OpenAI last month, and it is loop-level evidence: retained reasoning across turns plus a compaction trigger took one model's score on a reasoning benchmark from 13% to 38% with six times fewer output tokens. Same model.
   - Anthropic found two failure modes in long-running agents. **Over-ambition: try to one-shot the whole app. Premature completion: a later instance sees progress and declares the job done.** The fix was engineering, not prompting: an initializer writes a feature list and a progress file, each session does one feature with a fixed startup routine, and there is a hard rule that tests are never edited to pass.
   - Multi-agent, honestly. **A lead plus subagents beat a single agent by 90% on a research eval. It also used fifteen times the tokens of a chat**, and it is a poor fit for work where agents need shared context or have dependencies. Anthropic names coding as the example.
 
@@ -206,9 +208,9 @@ The map, then six areas. Each area has the three beats: what you touched, what s
   - Workflows are LLMs on predefined code paths. Agents direct their own. Start with the workflow. Five patterns cover most of it: chaining, routing, parallelization, orchestrator and workers, evaluator and optimizer.
   - You own: the loop. Stopping conditions, starting with a maximum number of iterations. State and resume. Retries. Escalation to a human as a tool call. Routing between a planner and cheap workers. The compaction trigger. And the budgets: tokens, actions, latency. Twelve-factor agents says it in four lines: own your prompts, own your context window, own your control flow, contact humans with tool calls.
   - Customer-facing: a human is waiting. Latency is a product requirement. An unbounded loop is an outage.
-- Pitfall: multi-agent orchestration before a workflow was tried. Gartner said in June 2025 **[verify wording]** that over 40% of agentic AI projects would be canceled by the end of 2027 on cost, unclear value, or inadequate risk controls.
-- Takeaway line: "The harness is where autonomy gets its limits. Start with the workflow."
-- Sources: Anthropic, December 2024, June 2025, November 2025; OpenAI, August 2026; Osmani, April 2026; 12-Factor Agents; Gartner, June 2025. Research §4.
+- Pitfall: multi-agent orchestration before a workflow was tried. Gartner said in June 2025 that over 40% of agentic AI projects will be canceled by the end of 2027, "due to escalating costs, unclear business value or inadequate risk controls."
+- Takeaway line: "The loop is where autonomy gets its limits. Start with the workflow."
+- Sources: Anthropic, December 2024, June 2025, November 2025; OpenAI, August 2026; Osmani, April 2026; 12-Factor Agents; Gartner, June 2025; Codex CLI and Devin CLI docs. Research §4.
 
 ### 2.5 Verification and evals (5:00). Slides 16 and 17
 
@@ -234,15 +236,15 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 ### 2.6 Operating it (4:30). Slides 18 and 19
 
-**Slide 18, what you touched.** `/cost`, the telemetry flag, the sandbox, the OAuth flow. Then three incidents.
+**Slide 18, what you touched.** `/usage`, the OpenTelemetry exporter, the sandbox, the OAuth login. Then three incidents.
 
-- Say: `/cost`. The telemetry flag. The sandbox. The OAuth flow when you connected a server. And a trust and safety team you have never met.
+- Say: `/usage`, in both tools. The OpenTelemetry exporter in Codex's config. The sandbox, and in Devin CLI the domain allowlist that goes with it. The OAuth login when you connected an MCP server. And a trust and safety team you have never met.
 - Say, what someone engineered:
-  - Observability: traces per model call, tool call, and agent step. OpenTelemetry has GenAI conventions for exactly this **[verify status]**. The metrics that matter: **cost per completed task, not per request**. p95 and p99 tokens, because long conversations and bad retrieval concentrate cost in the tail. Cache hit rate. Loop iterations per task. Tool failure rate. Datadog's line from July: "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe."
+  - Observability: traces per model call, tool call, and agent step. OpenTelemetry has GenAI conventions for exactly this, still marked Development, so pin a snapshot and expect names to move. The metrics that matter: **cost per completed task, not per request**. p95 and p99 tokens, because long conversations and bad retrieval concentrate cost in the tail. Cache hit rate. Loop iterations per task. Tool failure rate. Datadog's line from July: "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe."
   - Guardrails: defense in depth at every boundary. Input classification. Provenance tags on retrieved content. Sandboxed tool execution. Output validation. Circuit breakers on tokens and actions. Approval gates on consequential actions. Least-privilege scopes.
-  - Security: Willison's lethal trifecta. **Private data, untrusted content, external communication. Any two is safe.** All three is an exfiltration path, because "LLMs are unable to reliably distinguish the importance of instructions based on where they came from." Nobody knows how to stop injection completely, and a filter that catches 95% is not a security control. OWASP's LLM Top 10 has prompt injection at number one and excessive agency at number six, and OWASP shipped an agentic top ten for 2026 **[verify names]**: goal hijack, tool misuse, identity and privilege abuse, memory poisoning, cascading failures, rogue agents.
+  - Security: Willison's lethal trifecta. **Private data, untrusted content, external communication. Any two is safe.** All three is an exfiltration path, because "LLMs are unable to reliably distinguish the importance of instructions based on where they came from." Nobody knows how to stop injection completely, and a filter that catches 95% is not a security control. OWASP's LLM Top 10 has prompt injection at number one and excessive agency at number six, and OWASP shipped an agentic top ten for 2026: goal hijack, tool misuse, identity and privilege abuse, memory and context poisoning, cascading failures, rogue agents.
   - Identity: the agent gets its own identity, plus short-lived delegated authority from the user. No token passthrough, no omnibus scopes.
-  - Governance: audit trails and approvals. And since August 2 **[verify]**, **EU AI Act Article 50: if your system interacts with people, you tell them it is an AI.**
+  - Governance: audit trails and approvals. And since August 2, **EU AI Act Article 50: if your system interacts with people, you tell them it is an AI.**
 - Three incidents, fast:
   - EchoLeak, CVE-2025-32711. A zero-click injection in Microsoft 365 Copilot. One crafted email, and data from OneDrive, SharePoint, and Teams left through a trusted domain. The trifecta in a shipped product.
   - Replit, July 2025. An agent deleted a production database during a code freeze. The fixes shipped afterward: dev and prod separation, a planning-only mode, one-click restore. Those fixes are the guardrails box on the diagram.
@@ -250,19 +252,19 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 **Slide 19, when it's your agent.** The four translations.
 
-- Say: All of this was built for you and rendered as a permission prompt, a sandbox, an OAuth flow, and a `/cost` command. In your deployment there is no prompt to click, because the user is a customer and often is not present. The approval gate becomes an async workflow or a policy. The sandbox becomes your infrastructure. The audit trail becomes a compliance artifact. And the law says you disclose.
+- Say: All of this was built for you and rendered as a permission prompt, a sandbox, an OAuth flow, and a `/usage` command. In your deployment there is no prompt to click, because the user is a customer and often is not present. The approval gate becomes an async workflow or a policy. The sandbox becomes your infrastructure. The audit trail becomes a compliance artifact. And the law says you disclose.
 - Pitfall: assembling the lethal trifecta by accident, one reasonable integration at a time. A retriever, then a web fetch tool, then an email sender. Nobody decides to build an exfiltration path.
 - Takeaway line: "When it's your agent, its answer is your answer."
 - Section wrap, build on Slide 19: the diagram again, every box now labeled "yours." Say: "That is the map. Every box on it is something you can engineer, because most of it is engineering you already know how to do."
-- Sources: Willison, June 2025; OWASP 2025 and 2026; OpenTelemetry; Datadog, July 2026; EchoLeak analysis; Fortune and the AI Incident Database on Replit; McCarthy Tétrault on Air Canada; EU AI Act Article 50. Research §6.
+- Sources: Willison, June 2025; OWASP 2025 and 2026; OpenTelemetry; Datadog, July 2026; EchoLeak analysis; Fortune and the AI Incident Database on Replit; McCarthy Tétrault on Air Canada; EU AI Act Article 50; Codex CLI and Devin CLI docs. Research §6.
 
 ### Section 2 checks
 
 - Time: 2:00 + 3:30 + 3:30 + 3:00 + 3:30 + 5:00 + 4:30 = 25:00.
 - Slides: 7 through 19, thirteen slides.
-- Description scope, with beat numbers: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design and orchestration (2.4); evaluations and verification (2.5); observability (2.6); guardrails (2.6); security (2.3, 2.6); cost and latency (2.1, 2.2, 2.4, 2.6). Claims: prototype is not production (2.5, 2.6 incidents); tests necessary but not sufficient (2.5); evals continue after deployment (2.5).
+- Description scope, with beat numbers: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability (2.6); guardrails (2.6); security (2.3, 2.6); cost and latency (2.1, 2.2, 2.4, 2.6). Claims: prototype is not production (2.5, 2.6 incidents); tests necessary but not sufficient (2.5); evals continue after deployment (2.5).
 - Structure: each area has what you touched, what someone engineered, when it's your agent, and a named pitfall.
-- Verify before stage, flagged inline: Copilot retirements (2.1); CamoLeak and marketplace figures (2.3); Gartner wording (2.4); OpenTelemetry status, OWASP agentic names, Article 50 date (2.6). Full list in `research/section-2.md`.
+- Verify before stage: none. Every Section 2 flag was checked in a browser and cleared on September 14, 2026. Remaining unverified items in `research/section-2.md` are not used on stage.
 
 ---
 
@@ -293,13 +295,13 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 - Takeaway line: "The new skill is not prompting. It is being comfortable measuring a system you cannot fully specify."
 - Sources: Anthropic, September 2025; Husain, evals FAQ, 2026; Orosz, March 2025. Research §2.
 
-### 3.3 The pitfalls, on one slide (0:45). Slide 22
+### 3.3 The pitfalls, on one slide (0:35). Slide 22
 
 - Slide: six lines, one per area, no other text.
   1. Models: a hardcoded model ID with no eval suite behind it.
   2. Context: adding instead of curating.
   3. Tools: one endpoint per tool.
-  4. Harness: multi-agent before a workflow was tried.
+  4. Orchestration: multi-agent before a workflow was tried.
   5. Evals: a generic judge instead of error analysis. Grading the transcript instead of the outcome.
   6. Operating: the lethal trifecta, assembled one integration at a time.
 - Say:
@@ -308,7 +310,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 - Takeaway line: "Every pitfall on this list is a demo mistaken for a product."
 - Sources: Section 2; Anthropic, December 2024. Research §3.
 
-### 3.4 The roadmap (1:15). Slide 23
+### 3.4 The roadmap (1:25). Slide 23
 
 - Slide: four steps.
   1. Look before you build.
@@ -345,10 +347,10 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 ### Section 3 checks
 
-- Time: 1:15 + 1:15 + 0:45 + 1:15 + 0:30 = 5:00.
+- Time: 1:15 + 1:15 + 0:35 + 1:25 + 0:30 = 5:00.
 - Slides: 20 through 25. Total deck: 25 slides.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
-- Verify before stage: none flagged. The Dice hiring figure is reserved for Q&A and flagged there.
+- Verify before stage: none flagged. The Dice hiring figure is reserved for Q&A and was verified there.
 
 ---
 
@@ -363,7 +365,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 5. **Single agent or multi-agent?** Single agent with tools until it demonstrably fails. Multi-agent pays for parallel, breadth-first work at roughly fifteen times the tokens, and it is a poor fit for work that needs shared context.
 6. **What about cost at scale?** Measure cost per completed task. Lay out prompts for cache hits, route the calls that do not need the frontier model, and set token and action budgets per run.
 7. **Will better models absorb the harness and make this obsolete?** The harness moves up, not away. Compaction and verification loops were harness work two years ago; parts moved into the model, and the remaining harness got bigger. The vocabulary churned three times this summer. The responsibilities did not.
-8. **How do I get hired as an AI engineer?** Ship one model-dependent system with an eval suite you can show. Demand is real: AI engineer is the top role on LinkedIn's 2026 list, and Dice reported AI and ML postings up about 101% year over year in August **[verify]**. The ranking says demand; the eval suite says you can do the job.
+8. **How do I get hired as an AI engineer?** Ship one model-dependent system with an eval suite you can show. Demand is real: AI engineer is the top role on LinkedIn's 2026 list, and Dice reported AI and machine learning postings up 101% year over year in August 2026, more than five times the 18% for tech postings overall. The ranking says demand; the eval suite says you can do the job.
 
 ### Seeded discussion prompts, if the room is quiet
 
@@ -374,7 +376,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 ### Section 4 checks
 
 - Every answer traces to a Section 2 beat or a research entry.
-- Verify before stage: the Dice figure in answer 8. Full list in `research/section-3.md`.
+- Verify before stage: none. The Dice figure in answer 8 was confirmed on the publisher page September 14, 2026.
 
 ---
 
@@ -384,7 +386,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 - Time: Section 1, 5:00. Section 2, 25:00. Section 3, 5:00. Total 35:00, plus 15:00 for questions.
 - Deck: 25 slides. Six in Section 1, thirteen in Section 2, six in Section 3.
-- Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design and orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.4, 2.5, 3.3); why tests are necessary but not sufficient (1.4, 2.5); why evals continue after deployment (1.4, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
+- Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.4, 2.5, 3.3); why tests are necessary but not sufficient (1.4, 2.5); why evals continue after deployment (1.4, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
 
 ### What only you can supply
 
@@ -395,19 +397,7 @@ The map, then six areas. Each area has the three beats: what you touched, what s
 
 ### Verify in a browser before the slide is final
 
-Each is a secondhand-sourced date, name, or figure. None is load-bearing; drop any one that does not check out.
-
-| Beat | Claim | Where to check |
-|---|---|---|
-| 2.1 | GitHub Copilot retired five models on September 1, 2026 | GitHub changelog |
-| 2.3 | CamoLeak details; the roughly one-in-eight malicious skills figure | Original disclosure; the marketplace report |
-| 2.4 | Gartner's June 2025 wording on 40% of agentic projects canceled | Gartner press release |
-| 2.6 | OpenTelemetry GenAI conventions stability status | opentelemetry.io semconv gen-ai page |
-| 2.6 | OWASP Agentic Top 10 (2026) category names | OWASP PDF |
-| 2.6 | EU AI Act Article 50 in force from August 2, 2026 | artificialintelligenceact.eu; the AI Omnibus text |
-| Q&A 8 | Dice: AI and ML postings up about 101% year over year, August 2026 | Dice Tech Job Report page |
-
-Full per-section lists, including quotes that are safe as written, are in `research/section-1.md`, `research/section-2.md`, and `research/section-3.md`.
+All seven flagged claims were checked in a browser on September 14, 2026 and confirmed or corrected: the Copilot retirements (six models, not five, and no longer used on stage), CamoLeak and the ClawHub count, Gartner's wording, the OpenTelemetry status, the OWASP agentic names, Article 50's date, and the Dice figure. No `[verify]` flags remain in this outline. Items still marked `UNVERIFIED` in the research files are not used on stage; the per-section lists are in `research/section-1.md`, `research/section-2.md`, and `research/section-3.md`.
 
 ### Do not use on stage
 
