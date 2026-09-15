@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Preparation materials for a 50-minute conference talk on September 17, 2026. Everything is Markdown plus one PNG diagram, its two SVG variants, a photo, and the `style/` folder that holds the palette and the design brief. There is no code, no build, no lint, and no test suite. Do not look for package manifests or try to run anything. Context7 is disabled in the local Claude settings because there are no libraries to look up.
+Preparation materials for a 50-minute conference talk on September 17, 2026. Everything is Markdown plus the diagram sources and renders under `internal/`, a photo, and the `style/` folder that holds the palette and the design brief. The one script in the repo is `internal/build-diagrams.mjs`, which regenerates every diagram variant and render from the base SVG; it needs Node and Google Chrome and no packages. There is no other code, no build, no lint, and no test suite. Do not look for package manifests. Context7 is disabled in the local Claude settings because there are no libraries to look up.
 
 The README holds the session details, the published talk description, and the repo layout. Read it first.
 
@@ -28,12 +28,12 @@ Slide files render the outline. They do not restate its reasoning and they never
 Conventions the slide files follow:
 
 - **Time splits.** A two-slide beat splits its time between the two files, stated in each header, and the two must sum to the beat. Section sums must match the outline's checks blocks.
-- **Kickers.** Every Section 2 area slide has a small top-left label, area name then beat: "Models · What you touched," "Models · When it's your agent." Section 3 slides use "The transition · " plus the beat name.
-- **Pitfall bands.** Every "when it's your agent" slide ends with a strip across the bottom labeled "Pitfall:" whose text matches slide 22 word for word.
+- **Kickers.** Every Section 2 area slide has a top-left label, area name then beat: "Models · What you touched," "Models · When it's your agent." The area name is Bold in the area's color. On the first state of a "what you touched" slide the kicker is the area header, a full-bleed color strip with the area name large, which shrinks into the kicker when the images shrink to the strip. Section 3 slides use "The transition · " plus the beat name. A mini-map of the anatomy diagram sits top right on every slide with a kicker except 22, with the current area's boxes lit.
+- **Pitfall bands.** Every "when it's your agent" slide ends with a strip across the bottom: a solid block in the area color holding the word "Pitfall," then the sentence, whose text matches slide 22 word for word. Slide 22 stacks six of the same bands with the area names in the blocks.
 - **Takeaways are spoken, not shown.** Titles on "when it's your agent" slides state the responsibility instead.
 - **Cut order.** Each talk track names what to cut first if the section runs long and what may never be cut.
-- **Diagram.** Slide 7 uses `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 19 uses the `-yours.svg` variant generated from it. Regenerate the variant if the base changes.
-- **Visual values.** `style/design-brief.md` holds the type scale, grid, color roles, component specs, build rules, and diagram theme. Slide files describe intent in words like "small" or "strip" and defer to the brief for every size, color, and position. A visual change goes into the brief, not into slide files.
+- **Diagram.** Slide 7 uses the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 19 uses the render of the `-yours.svg` variant generated from it; the mini-maps are generated from it too. Run `node internal/build-diagrams.mjs` if the base changes.
+- **Visual values.** `style/design-brief.md` holds the type scale, grid, color roles, area colors, component specs, build rules, and diagram theme. Slide files describe intent in words like "small" or "strip" and defer to the brief for every size, color, and position. A visual change goes into the brief, not into slide files.
 
 ## Markers
 
