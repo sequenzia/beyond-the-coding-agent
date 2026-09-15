@@ -28,6 +28,9 @@ A model's approval recommendation does not establish permission.
 
 ## Layout and visual
 
+- Display narrative number 13 throughout, using the shared component in the design brief.
+- Playback: Two physical slides. The contract items and cards remain internal reveals. The evidence begins the second slide with a hard cut, followed by the pitfall reveal.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Keep three area cards in the existing grid. Allow two-line headings and enough body height for the policy text.

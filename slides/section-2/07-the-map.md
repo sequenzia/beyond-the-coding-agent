@@ -1,12 +1,12 @@
 # Slide 7: The map
 
-Beat 2.0 The map. Section 2. Time 2:00. Builds: 4 highlights, optional.
+Beat 2.0 The map. Section 2. Time 2:00. Builds: 4 highlights and a return to full brightness across six physical slides.
 
 ## On the slide
 
-The anatomy diagram, full screen. No other text. Use the landscape version, `internal/anatomy-of-an-agentic-ai-system-landscape.svg`, which is the portrait PNG re-laid for 16:9 with the same boxes, labels, and colors.
+The anatomy diagram, full screen, with the shared narrative number. Use the landscape version, `internal/anatomy-of-an-agentic-ai-system-landscape.svg`, which is the portrait PNG re-laid for 16:9 with the same boxes, labels, and colors.
 
-Optional highlight builds, one per layer in the talk track. Each dims everything except the region named:
+Highlight states, one per layer in the talk track. Each dims everything except the region named:
 
 1. Model.
 2. Harness: instructions, context and memory, tools, orchestration, guardrails, verification.
@@ -17,7 +17,10 @@ After build 4, everything returns to full brightness for the close.
 
 ## Layout and visual
 
-- The diagram is the only thing on the slide. Its own title, "Anatomy of an Agentic AI System," serves as the slide title.
+- Display narrative number 7 throughout, using the shared component in the design brief.
+- Playback: Six consecutive physical slides: full diagram, four highlights, then full brightness. Each advance is a hard cut.
+
+- The diagram and narrative number are the only elements on each physical slide. Its own title, "Anatomy of an Agentic AI System," serves as the slide title.
 - Aspect ratio. The original PNG is portrait, about 5:6, and its subtitles would not have been legible past the front rows on a 16:9 slide. The landscape SVG puts per-run services across the top, the run with model and harness in the middle band, and across-run services along the bottom. At 1920 by 1080 the box titles are 24 to 28 point and the subtitles 18 to 20 point, which reads from a room. The SVG is plain text, so any box can be relabeled for slide 19.
 - Highlight builds are recommended. Two minutes on one static image is a long time, and the talk track walks four regions in sequence. A pointer works if builds are not possible, but builds are more reliable from a stage.
 - Slide 19 shows this diagram again with every box labeled "yours." Keep the diagram's source editable so that variant can be made from the same file.
@@ -56,5 +59,5 @@ Cuttable if short on time: none of the bold. The OpenAI definition can be shorte
 
 ## Open items
 
-- Whether the deck tool can do the four highlight builds on this image. If it imports SVG, each region can be dimmed by adjusting opacity on its group.
+- The four highlight states and return to full brightness use the generated renders on consecutive physical slides.
 - Review the landscape SVG's colors and type against the deck template once one is chosen.

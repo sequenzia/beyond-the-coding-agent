@@ -29,6 +29,9 @@ Pitfall: adding instead of curating.
 
 ## Layout and visual
 
+- Display narrative number 11 throughout, using the shared component in the design brief.
+- Playback: Two physical slides. The window and policy items remain internal reveals. The risk sentences begin the second slide with a hard cut, followed by the pitfall reveal.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Build 1 is the picture of this area: the window as a container with six named things inside it. Draw the frame so it reads as a fixed-size box, because the whole point is that it does not stretch.

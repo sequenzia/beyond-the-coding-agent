@@ -10,6 +10,8 @@ Beat 1.6 Transition. Section 1. Time 0:15. Builds: 0.
 
 ## Layout and visual
 
+- Display narrative number 6 throughout, using the shared component in the design brief.
+
 - Dark typographic section divider. Match slide 20's composition and title position.
 - No mini-map or internal builds. Hard cut into this slide and from it to slide 7.
 - Visual values are in the design brief.

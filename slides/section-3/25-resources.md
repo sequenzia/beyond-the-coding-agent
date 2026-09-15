@@ -15,6 +15,8 @@ Beat 3.5 Resources and close, first half. Section 3. Time 0:08 of the beat's 0:3
 
 ## Layout and visual
 
+- Display narrative number 25 throughout, using the shared component in the design brief.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Six entries, plain, readable from a phone camera. This slide exists to be photographed, so no builds, no images, and nothing below the fold.

@@ -4,6 +4,8 @@ import { Presentation, PresentationFile } from '@oai/artifact-tool';
 import { createCanvas, GlobalFonts } from '@napi-rs/canvas';
 import sharp from 'sharp';
 import { ROOT, BUILD, registerFonts } from './runtime.mjs';
+import assert from 'node:assert/strict';
+import { expandStates, EXPECTED_COUNTS } from './expand.mjs';
 
 registerFonts(GlobalFonts);
 const ctx=createCanvas(8,8).getContext('2d');
@@ -257,8 +259,8 @@ list(['**EchoLeak, June 2025.** Researcher-demonstrated vulnerability.\nNo evide
 await newSlide('19',{area:'Operating it',map:'operating',color:C.amber,title:'You own the approval process.'});
 twoTable(['In the coding agent','In your deployment'],[['The approval prompt','Human approval, async workflow,\nor enforced policy'],['The sandbox','Your infrastructure'],['The audit log','An accountability record'],["A vendor's disclosure",'EU AI Act Article 50: disclosure duties\nfor covered direct AI interactions']],192,[36,55,32,32,78],{color:C.amber});
 band(pitfalls[5],C.amber,{start:1,h:96,sentenceY:457,sentenceW:390,sentenceH:76});
-line(744,466,80,24,{start:1});line(824,490,-156,0,{start:1});line(668,490,76,-24,{start:1});
-text('Private data',696,444,145,20,16,{start:1});text('Untrusted content',588,506,156,20,16,{start:1});text('External communication',748,506,196,20,16,{start:1});
+line(712,466,80,24,{start:1});line(792,490,-156,0,{start:1});line(636,490,76,-24,{start:1});
+text('Private data',664,444,145,20,16,{start:1});text('Untrusted content',556,506,156,20,16,{start:1});text('External communication',716,506,196,20,16,{start:1});
 await newSlide('19b',{note:'Source slide 19, build 3. Hard cut to the section wrap at 0:50.'});await img('internal/renders/map-yours.png',0,0,960,540,{alt:'Anatomy of an Agentic AI System, with yours badges'});
 // Section 3.
 await newSlide('20');sectionDivider(3,'Making the transition');
@@ -282,8 +284,20 @@ const resources=[['Chip Huyen, AI Engineering: Building Applications with Founda
 let ry=146;for(const lines of resources){for(const lineText of lines){text(lineText,48,ry,864,25,20);ry+=25;}ry+=8;}
 await newSlide('26');thesis(true);
 
-// Keep the authoring model and build map for every revealed state.
+// Add the editable narrative number last, above full-screen images and bands.
+for (let i = 0; i < meta.length; i++) {
+ cur = meta[i]; slide = deck.slides.items[i];
+ text(String(cur.source),928,512,20,16,12,{name:'narrative-number',color:C.secondary,align:'right'});
+}
+
+// Preserve the authored compositions, then compile replacements before PPTX export.
+const authored = deck.toProto();
 await fs.writeFile(path.join(BUILD,'build-map.json'),JSON.stringify(meta,null,2));
-await fs.writeFile(path.join(BUILD,'model.json'),JSON.stringify(deck.toProto()));
-await (await PresentationFile.exportPptx(deck)).save(path.join(BUILD,'authored.pptx'));
-console.log(`Created ${meta.length} PowerPoint slides from ${sourceFiles.length} source files.`);
+await fs.writeFile(path.join(BUILD,'model.json'),JSON.stringify(authored));
+const expanded = expandStates(authored, meta);
+assert.deepEqual(expanded.counts, EXPECTED_COUNTS, 'Deck build counts changed');
+await fs.writeFile(path.join(BUILD,'expanded-build-map.json'),JSON.stringify(expanded.map,null,2));
+await fs.writeFile(path.join(BUILD,'expanded-model.json'),JSON.stringify(expanded.proto));
+await fs.writeFile(path.join(BUILD,'expansion-validation.json'),JSON.stringify({counts:expanded.counts,allStatesEquivalent:true},null,2));
+await (await PresentationFile.exportPptx(Presentation.load(expanded.proto))).save(path.join(BUILD,'authored.pptx'));
+console.log(JSON.stringify(expanded.counts));

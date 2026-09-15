@@ -13,6 +13,9 @@ The two thesis sentences, exactly as on slide 3.
 
 ## Layout and visual
 
+- Display narrative number 26 throughout, using the shared component in the design brief.
+- Playback: One physical slide. Questions remains an internal reveal.
+
 - Reuse slide 3 unchanged, then add the build. The audience saw this screen thirty minutes ago; the recognition is the close.
 - "Questions" sits beneath the two sentences in the same type, smaller. No contact details, no handles, no logos; those belong on slide 2 or slide 25 if anywhere.
 - This slide stays up for the full fifteen minutes, so it has to be calm. Nothing on it should compete with the room.

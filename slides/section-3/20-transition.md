@@ -10,6 +10,8 @@ Beat 3.0 Transition. Section 3. Time 0:10. Builds: 0.
 
 ## Layout and visual
 
+- Display narrative number 20 throughout, using the shared component in the design brief.
+
 - Dark typographic section divider. Match slide 6's composition and title position.
 - No mini-map or internal builds. Hard cut from the yours anatomy diagram and into slide 21.
 - Visual values are in the design brief.

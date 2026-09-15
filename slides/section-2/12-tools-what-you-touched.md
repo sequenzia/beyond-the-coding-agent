@@ -27,6 +27,9 @@ Anthropic's five-server example: about 55,000 tokens before the first message. T
 
 ## Layout and visual
 
+- Display narrative number 12 throughout, using the shared component in the design brief.
+- Playback: Three physical slides. Preserve the Morph into the design-list strip. The evidence begins a new slide with a hard cut. The protocol floor remains an internal reveal.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Keep the existing full-size and strip placeholder geometry and Morph pairs.

@@ -31,6 +31,9 @@ Ross McNairn, Wordsmith, via The Pragmatic Engineer, March 2025.
 
 ## Layout and visual
 
+- Display narrative number 22 throughout, using the shared component in the design brief.
+- Playback: Three physical slides. Preserve the Morph into the competencies. The quote follows on a hard cut.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Build 1 is a literal ladder or staircase, three treads, rising to the right. The years sit under each tread. It is the only chart-like element in Section 3; keep it plain.

@@ -43,6 +43,9 @@ Anthropic, June 13, 2025. Internal research eval: 90.2% improvement over its sin
 
 ## Layout and visual
 
+- Display narrative number 14 throughout, using the shared component in the design brief.
+- Playback: Five physical slides. Preserve the Morph into the loop decisions. The quote, failure modes, and multi-agent comparisons each begin a new slide with a hard cut.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Build 1 is the "When you are the user" moment for the area. The six chips are the features; the ring beneath them is the claim that they are all one thing. Draw the ring simply, three nodes and three arrows, no icons. It is the picture the audience should hold for the rest of the talk, and it returns on slide 24 as "learn the loop."

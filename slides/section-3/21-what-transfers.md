@@ -27,6 +27,9 @@ Small, quoted: "For experienced engineers who know how to break problems down, A
 
 ## Layout and visual
 
+- Display narrative number 21 throughout, using the shared component in the design brief.
+- Playback: Two consecutive physical slides. The comparison table cuts to the evidence and quote.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - The table is the slide. Six rows, two columns, no rules between rows. The left column should look like a job description the audience recognizes; the right column should look like Section 2's kickers, because it is. Rows 1 to 3 are the transformations; rows 4 to 6 are near-identities, and the wording "the same" on the right makes that visible.

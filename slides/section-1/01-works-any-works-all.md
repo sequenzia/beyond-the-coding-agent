@@ -22,8 +22,11 @@ product = works.all()
 
 ## Layout and visual
 
+- Display narrative number 1 throughout, using the shared component in the design brief.
+- Playback: Two consecutive physical slides. The title cuts to the code metaphor on the same advance as before.
+
 - Title state: title centered, subtitle beneath it, name line small at the bottom. Nothing else.
-- Build 1: the title exits. The two lines sit centered, in a monospace face, large enough to read from the back of the room. Align the equals signs so the eye reads the two right-hand sides as a pair. The attribution is the only other text.
+- Build 1: the title exits. The two lines sit centered, in a monospace face, large enough to read from the back of the room. Align the equals signs so the eye reads the two right-hand sides as a pair. The attribution and narrative number are the only other text.
 - Keep the two lines up for the whole minute. They are the first content the audience sees and the line the talk returns to on slides 4, 17, and 22.
 - Alternative: split into two builds, one line each, if you want a beat between works.any() and works.all(). It costs nothing in time.
 

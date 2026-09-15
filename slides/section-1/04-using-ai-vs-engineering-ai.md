@@ -21,6 +21,9 @@ Beat 1.4 Using AI vs engineering AI, and why it is a different discipline. Secti
 
 ## Layout and visual
 
+- Display narrative number 4 throughout, using the shared component in the design brief.
+- Playback: Two consecutive physical slides. The comparison table cuts to the commitments.
+
 - Use the existing editable two-column table style. Three matched rows with enough room for the longer headers. Values and spacing live in the design brief.
 - The commitments replace the entire table on one click. They remain the spine of the talk.
 

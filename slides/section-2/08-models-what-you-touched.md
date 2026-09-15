@@ -20,6 +20,9 @@ Beat 2.1 Models, first half. Section 2. Time 1:00 of the beat's 3:30; slide 9 ta
 
 ## Layout and visual
 
+- Display narrative number 8 throughout, using the shared component in the design brief.
+- Playback: Two physical slides retain the existing Morph into the strip. The final callout remains an internal reveal.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Preserve both full-size placeholders and their compact Morph states. Keep their source keys.

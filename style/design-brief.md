@@ -9,7 +9,7 @@ Visual and typographic decisions for the deck. Companion to `style/colors.md`, w
 - Where a slide file and this brief disagree on a visual value, the brief wins.
 - Where the brief cannot satisfy a slide file, the slide file's own fallback wording applies. Slide specs may name a fallback. Section 14 records the current layout decisions.
 - A visual change goes into this brief. It does not go into a slide file.
-- Two orientation devices: the kicker and the mini-map. No slide numbers, footer, logo, progress bar, employer name, contact details, or takeaway lines on screen.
+- Three orientation devices: the kicker, the mini-map, and the narrative slide number. No other footer, logo, progress bar, employer name, contact details, or takeaway lines on screen.
 - The brief carries no talk content. It names slides by number only.
 
 **The concept.** The anatomy diagram is the talk's spine. Slide 7 introduces it, Section 2 walks six boxes on it, slide 19 returns to it with "yours" on every box. Every slide lives inside that map. A mini-map at top right says where you are. Each area borrows its color from where it sits on the map. Each area enters through a colored header. Helvetica carries the narrative and numbering. Monospace marks commands, filenames, formulas, and the opening code metaphor.
@@ -60,7 +60,7 @@ No other weight of either face. No italics anywhere. No Helvetica Light, no Helv
 
 ### Scale
 
-Eight sizes. Seven on the deck and one that appears only inside the diagram renders.
+Eight sizes. The smallest serves diagram details and the narrative slide number.
 
 | Role | Size | Face and weight | Color | Line spacing | Used on |
 |---|---|---|---|---|---|
@@ -71,13 +71,13 @@ Eight sizes. Seven on the deck and one that appears only inside the diagram rend
 | Heading and body | 24 | Bold for build headings and table headers, Regular for body | primary. Table headers in the slide's color | 1.25 | build headings, numbered and plain lists, table headers, the slide 8 callout, card titles on 13 |
 | Chip and compact | 20 | Regular. Bold for the kicker's area name, band labels, row labels, and the right cells on 21. Consolas Regular for commands | primary. Area color where section 6 names it. Blue for Consolas runs | 1.25 | kicker, pills, band text, table cells, row labels, card text, sublines, the beat line in an area header, the six entries on 25 |
 | Small | 16 | Regular | secondary | 1.25. Exactly 20 on any line that carries a Consolas run | captions, stat lines, footer lines, attributions, quote attributions, ladder years, chip strips, the small line inside a card |
-| Diagram fine | 12 | Regular. Badge text Bold | secondary. Badge text `#14161c` | render only | diagram subtitles; "yours" badges. Never on the deck outside a diagram render |
+| Diagram fine and narrative number | 12 | Helvetica Regular. Badge text Bold | secondary. Badge text `#14161c` | 1.25 for the number; render spacing for diagram details | diagram subtitles; "yours" badges; narrative slide numbers |
 
 ### Floors
 
 - **Reading floor, 20.** Anything the audience is expected to read from the back of the room is 20 or larger.
 - **Present floor, 16.** Elements that exist to be on screen when spoken, or to orient. Captions, stat lines, footers, attributions.
-- **Render floor, 12.** Diagram subtitles and badges only. The diagram is a map. The presenter names each region as it highlights, so its job is recognition, not reading, and 16 Bold titles on near-black recognize.
+- **Orientation floor, 12.** Diagram subtitles, badges, and narrative slide numbers only. The diagram is a map. The presenter names each region as it highlights, so its job is recognition, not reading, and 16 Bold titles on near-black recognize.
 
 ### Spacing and alignment
 
@@ -241,6 +241,8 @@ Slides 3, 6, 20, 25, and 26 carry no color. Slide 26 stays up for 15:00 and must
 
 Each entry gives size, weight, color, position, and build behavior.
 
+**Narrative slide number.** Editable text on every physical slide, including titles, dividers, and full-bleed diagrams. Plain 1 through 26, without leading zeros, suffixes, or a total. Every continuation carries the same narrative number. Helvetica Regular 12, secondary `#adaca9`, right aligned, 1.25 line spacing. Box x 928, y 512, width 20, height 16. Zero internal margins. Add after all content so images and bands cannot cover it. Visible from the first state, with no entrance or exit animation. This component sits outside the content safe area.
+
 **Kicker.** 20. Area name Bold in the area color, beat Regular secondary, a middle dot with a space on each side between them. x 48, y 36. Width 716 where a mini-map is present. On slides 8 through 19 and 21 through 24; on Section 3 slides the area name is "The transition" in green. Absent on full-bleed diagram states and on the header state of a "When you are the user" slide, where the area header is the kicker at large scale. Static, present from the slide's first state otherwise. The area name is the part that carries color because the beat is the part that changes within an area, and the color and weight together make the area visible from the back.
 
 **Mini-map.** A PNG at x 752, y 36, 160 by 90, from `internal/renders/`. The current area's box or boxes filled in the area color, every other box an outline. On the area content states of slides 8 through 19, and on slides 21, 22, and 24. `mini-all`, every area lit in its own color, on 21, 22, and 24. Absent on slide 7, on slide 16's blank state, on slide 19 build 3, on slide 23, and on the header state of each "When you are the user" slide, where it appears with the shrink. Swapped by placing a different PNG at the same numeric position on each slide, never Morphed: Morph is a slide transition and would cross-fade the title and kicker on every area boundary. Same x and y on every slide, entered in the Format pane, so it does not jump.
@@ -296,7 +298,7 @@ Each entry gives size, weight, color, position, and build behavior.
 - Window frame, slide 11: a 2 rectangle in the area color with radius 6. The frame label 16 secondary straddling the top-left edge. Inner boxes are cards. Draw it so it reads as a fixed-size box. The frame is the slide's one content element in color.
 - Ring, slide 14: three labels on a circle, three arrows.
 - Loop, slide 16: four labels in a row, three arrows.
-- Triangle, slides 18 and 19: 96 tall on 18 with corner labels at 16 and its sentence at 20 beside it. 64 tall on 19 inside the band, on its surface part.
+- Triangle, slides 18 and 19: 96 tall on 18 with corner labels at 16 and its sentence at 20 beside it. 64 tall on 19 inside the band, on its surface part. Slide 19's triangle and all three labels move 32 left from the section 13 coordinates, preserving their arrangement and clearing the narrative number.
 - Ladder, slides 22 and 24: treads as 2 horizontal lines rising to the right, secondary. Label 20 above each tread, year 16 secondary below. On 24 six treads of one column each, or one line of six words at 20 if the treads do not fit.
 
 **Blank slide, slide 16.** Background only. No kicker, no mini-map. Transition None.
@@ -311,15 +313,15 @@ Each entry gives size, weight, color, position, and build behavior.
 | Build, default, text | Appear, On Click, 0 s |
 | Build, images, cards, pills | Fade, On Click, 0.2 s |
 | Build, the pitfall band | Fade, On Click, 0.3 s |
-| Exit | Disappear, On Click, 0 s |
-| "Replace, do not overlay" | The outgoing group Disappear On Click. The incoming group Appear With Previous. One click, no overlap |
+| Exit | Boundary between consecutive physical slides. The outgoing objects are absent from the next slide |
+| "Replace, do not overlay" | Consecutive physical slides with transition None. Objects visible at the boundary appear immediately. Later non-overlapping reveals retain their click order and effects |
 | "Shrink to a strip" | Duplicate the slide. On the copy, resize the objects into the strip zone, turn the area header into the kicker, and add the mini-map. Set the copy's transition to Morph, 0.5 s. Name the copy with a "b" suffix in its notes so the slide file's build count still maps. Fallback if Morph misbehaves on Windows: Disappear plus Appear of the strip version |
-| "Dim" the diagram, slide 7 | Five stacked PNGs. The base is visible. Each highlight state Fade in, 0.3 s, On Click, with the previous state Disappear After Previous. Final click: the last state Fade out, 0.3 s, revealing the base. Fallback: Appear and Disappear, which reads as a cut |
+| "Dim" the diagram, slide 7 | Six consecutive physical slides, one PNG each: full brightness, Model, Harness, per-run, across-runs, full brightness. Hard cuts throughout |
 | Slide 19 build 3 | A separate slide with transition None, holding the "yours" render. A full-bleed image replacing everything is more robust as a slide than as a build with many exits |
 
 Words cut, pictures fade. A card and its text are one group so the text does not appear before its card. No other effects. No Fly, Wipe, Zoom, Push, Split, Bounce, or sound. Nothing over 0.5 s. Morph nowhere except the shrink-to-strip copies, because Morph is a transition between slides and cross-fades every unmatched object, which would blur the hard cuts the deck relies on.
 
-The slide count in PowerPoint is 34 for 26 narrative slides because of the Morph copies and the slide 19 render slide. The slide files' numbering is preserved in the notes of each slide.
+The deck has 26 narrative slides, 34 authored compositions, and 64 physical PowerPoint slides. The compiler splits each composition at every finite object exit. The first segment keeps the authoring key; later segments append the original boundary, for example `12b-c1`. Morph applies only to the first segment of each of the seven existing destinations. There are 83 presentation states, 19 internal clicks, and 82 advances. Narrative numbers, original keys, state intervals, and physical indices are recorded in build maps and speaker notes. The 35:00 timing stays unchanged.
 
 ## 8. Diagram re-theme
 
@@ -379,7 +381,7 @@ All on the Windows machine that will present, with the PowerPoint build it will 
 5. No font embedding warning on open.
 6. Every image displays. The slide 2 photo is PNG, not WebP. No SVG remains in the file.
 7. The six diagram renders and the seven mini-maps are sharp at full screen and were not recompressed on save. The mini-map sits at the same position on every slide that carries it.
-8. Slide 7: five clicks produce four highlight states and a return to full brightness, in order, with no flash of the base between states.
+8. Slide 7: five advances traverse six physical slides, showing four highlight states and a return to full brightness in order, with hard cuts and no flash of the base between states.
 9. Morph plays on the shrink-to-strip slides (8, 10, 12, 14, 16, 18, 22), and on 8 through 18 it carries the area header into the kicker. If it plays as Fade, accept it or switch to the replace fallback.
 10. Slides 6 and 20 show matching typographic section dividers, with hard cuts into and out of each and no internal builds.
 11. Every transition outside the seven shrink-to-strip copies is None. Advance through the whole deck with the clicker to be used on stage.
@@ -387,6 +389,7 @@ All on the Windows machine that will present, with the PowerPoint build it will 
 13. No table opened with pink banding. No shape opened with a pink fill it should not have.
 14. Presenter view shows notes on the laptop and slides on the output.
 15. Export a PDF from the Windows machine as the emergency copy. Carry the .pptx on a USB drive and a cloud link.
+16. Every physical slide shows its narrative number. Continuations repeat it. Slide 19's triangle clears the number. Editing mode shows only one replacement segment at a time.
 
 ## 10. Vocabulary map
 
@@ -423,7 +426,7 @@ Slide files use these words. This table resolves them so slide files never need 
 | "monospace face" | Consolas at the surrounding size |
 | "monospace face with the caret visible" | formulas, 44 blue |
 | "hard cut," "no transition effect" | transition None |
-| "replace, do not overlay" | Disappear plus Appear With Previous |
+| "replace, do not overlay" | consecutive physical slides with a hard cut |
 | "dim" | the 0.3 opacity state in a render |
 | "full brightness" | the `map-full` render |
 | "the diagram," "the landscape SVG" | a PNG from `internal/renders/` generated from the SVG |
@@ -483,7 +486,7 @@ This is the earlier evidence-layout revision. Section 14 supersedes its geometry
 
 ## 14. Header spacing and section transitions, September 15, 2026
 
-This section supersedes earlier vertical budgets. The deck has 26 narrative slides and 34 PowerPoint slides. The support keys are 08b, 10b, 12b, 14b, 16b, 18b, 19b, and 22b. Timing stays 35:00: Section 1 5:00, Section 2 25:00, Section 3 5:00.
+This section supersedes earlier vertical budgets. The deck has 26 narrative slides and 34 authored compositions, expanded to 64 physical slides by section 7. The support keys are 08b, 10b, 12b, 14b, 16b, 18b, 19b, and 22b. Timing stays 35:00: Section 1 5:00, Section 2 25:00, Section 3 5:00.
 
 ### Shared header
 
@@ -523,4 +526,4 @@ Use the shared header on every Section 2 and 3 content state. Full-screen anatom
 
 ### Typography and transitions
 
-Attributions carry no decorative `//` prefix. Numbering is Helvetica. Actual commands, filenames, formulas, and the `works.any()` / `works.all()` metaphor remain Consolas. Slides 6 and 20 use the identical section-divider component specified in section 6. Both boundaries use hard cuts. The seven existing Morph copies and the content animation effects remain, with replacement clicks where recorded in the slide specs.
+Attributions carry no decorative `//` prefix. Numbering is Helvetica. Actual commands, filenames, formulas, and the `works.any()` / `works.all()` metaphor remain Consolas. Slides 6 and 20 use the identical section-divider component specified in section 6. Both boundaries use hard cuts. The seven existing Morph destinations remain. Replacement states use consecutive physical slides under section 7; non-overlapping additive reveals retain their existing effects.

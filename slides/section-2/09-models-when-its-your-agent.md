@@ -43,9 +43,12 @@ Which configuration meets your product's quality requirement?
 
 ## Layout and visual
 
+- Display narrative number 9 throughout, using the shared component in the design brief.
+- Playback: Four physical slides. Select and Measure remain internal reveals on the first. Replace, Route, and the quality question with pitfall each start a new slide with a hard cut.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
-- Keep the existing five clicks. Select and Measure accumulate, then Replace clears them, then Route clears Replace. The final click replaces the routing comparison with the quality question and pitfall band.
+- Keep the existing five advances. Select and Measure accumulate, then Replace clears them, then Route clears Replace. The final advance replaces the routing comparison with the quality question and pitfall band.
 - Keep the comparison table editable. Place scope, date, denominators, and run variation beside the routing values. Use the existing type scale and grid, as recorded in the design brief.
 - Pitfall wording must match slide 23. The takeaway is spoken.
 

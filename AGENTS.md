@@ -4,7 +4,7 @@ This file provides guidance to coding agents when working in this repository.
 
 ## What this is
 
-Preparation materials for a 50-minute conference talk on September 17, 2026. The Markdown sources are accompanied by diagram assets, a photo, the `style/` design brief, and reusable PowerPoint build code. `internal/build-diagrams.mjs` regenerates diagram variants and renders from the base SVG; it needs Node and Google Chrome and no packages. `internal/deck/build.mjs` builds, renders, and validates the PowerPoint deck with Codex's bundled runtimes and the Presentations plugin. Read `internal/deck/README.md` before changing the builder. There is no lint or test suite and no package install step. Context7 is disabled in the local Claude settings.
+Preparation materials for a 50-minute conference talk on September 17, 2026. The Markdown sources are accompanied by diagram assets, a photo, the `style/` design brief, and reusable PowerPoint build code. `internal/build-diagrams.mjs` regenerates diagram variants and renders from the base SVG; it needs Node and Google Chrome and no packages. `internal/deck/build.mjs` builds, renders, and validates the PowerPoint deck with Codex's bundled runtimes and the Presentations plugin. Read `internal/deck/README.md` before changing the builder. There is no lint or package install step. Run `node --test internal/deck/expand.test.mjs` for the state-expansion compiler checks. Context7 is disabled in the local Claude settings.
 
 The README holds the session details, the published talk description, and the repo layout. Read it first.
 
@@ -13,6 +13,8 @@ The README holds the session details, the published talk description, and the re
 Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/`; never make `.deck-build/` the only copy of authoring code. The latter is ignored scratch space. The builder creates a new output filename each run. Keep only the current deck directly in `output/`; preserve every older deck in `output/archive/`. After a successful build into `output/`, the builder archives the previous decks automatically. Follow the same rule for decks created or revised outside the builder. Never delete or overwrite archived decks, and keep links to moved decks accurate.
 
 Speaker notes and research links reload from Markdown. Visible text, layouts, and click assignments are authored in `internal/deck/author.mjs`; update those blocks alongside the corresponding slide specs. Rebuild from the saved code instead of reconstructing the deck. Inspect rendered states after changes and validate native PowerPoint playback before presenting.
+
+The 26 narrative slides use 34 authored compositions. `internal/deck/expand.mjs` splits compositions at finite object exits into 64 physical slides, retaining 19 internal clicks and seven Morph transitions. Every physical slide displays its narrative number. The presentation has 83 states and 82 advances. Preserve both authored and expanded build maps, and inspect full editing views as well as presentation states.
 
 ## Source of truth and the evidence layer
 

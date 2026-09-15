@@ -26,6 +26,9 @@ Mitchell Hashimoto, "My AI Adoption Journey," February 2026.
 
 ## Layout and visual
 
+- Display narrative number 24 throughout, using the shared component in the design brief.
+- Playback: Two consecutive physical slides. The roadmap cuts to the adoption arc. Hold the latter for story #3.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Build 1 is the deliverable of the talk. Four lines, numbered, large enough that a phone photo from the back row is legible. The sublines are small and can be dropped from the slide if they crowd it; they are all in the talk track.

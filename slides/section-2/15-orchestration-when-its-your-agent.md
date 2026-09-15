@@ -35,6 +35,9 @@ Beneath, small: Gartner forecast, June 2025: over 40% canceled by end of 2027. C
 
 ## Layout and visual
 
+- Display narrative number 15 throughout, using the shared component in the design brief.
+- Playback: Three physical slides. Definitions remain an internal reveal. Ownership, then customer-facing sentences, begin new slides with hard cuts. The pitfall and forecast remain one internal reveal.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Build 1 is the definitions pair from slide 4, now with the five pattern names under it. The pair should look like the columns on slide 4 so the audience recognizes the distinction.

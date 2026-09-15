@@ -25,6 +25,9 @@ Beside it: capability triangle labeled Private data · Untrusted content · Exte
 
 ## Layout and visual
 
+- Display narrative number 19 throughout, using the shared component in the design brief.
+- Playback: Two physical slides. The pitfall and triangle remain an internal reveal with the table. Preserve the hard cut to the full-screen yours diagram. Move the triangle and its labels together to clear the narrative number, as specified in the design brief.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Keep the editable translation table. Allow the approval and disclosure cells to wrap.

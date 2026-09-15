@@ -35,6 +35,9 @@ Manus, July 2025: reported 100:1 input/output; $0.30 cached vs $3 uncached per m
 
 ## Layout and visual
 
+- Display narrative number 10 throughout, using the shared component in the design brief.
+- Playback: Four physical slides. Preserve the Morph into the failure-vocabulary strip. Prompt and retrieval, then cache policy, each follow on a hard cut.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Preserve the screenshot pair and Morph strip. Build 3 replaces the failure vocabulary with prompt and retrieval content. Build 4 replaces that content with cache policy and its qualified example.

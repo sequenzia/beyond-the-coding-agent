@@ -41,6 +41,9 @@ Hold this state for story #2.
 
 ## Layout and visual
 
+- Display narrative number 16 throughout, using the shared component in the design brief.
+- Playback: Five physical slides. Preserve the Morph into the definitions table. The grader, formulas, and final guidance each begin a new slide with a hard cut. Hold the final slide for story #2.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Keep the test-loop entry and Morph strip. The definitions table remains editable.

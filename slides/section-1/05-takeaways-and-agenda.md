@@ -24,6 +24,8 @@ When you are the user · What someone engineered · When you are the owner
 
 ## Layout and visual
 
+- Display narrative number 5 throughout, using the shared component in the design brief.
+
 - Two columns of roughly equal width. Left is three numbered lines. Right is the agenda with the minutes right-aligned so they read as a column.
 - The six area names sit as one indented line under "Six areas," separated by periods or thin dots, not as six bullets. Six bullets would make the agenda look longer than the takeaways and unbalance the slide.
 - The footer line is the pattern the audience will see repeated twelve times in Section 2. Keep it visible but small. It is a promise, not a headline.

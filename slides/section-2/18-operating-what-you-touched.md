@@ -24,6 +24,9 @@ Beat 2.6 Operating it, first half. Section 2. Time 3:15 of the beat's 4:30; slid
 
 ## Layout and visual
 
+- Display narrative number 18 throughout, using the shared component in the design brief.
+- Playback: Five physical slides. Preserve the Morph into Observability, followed by the Guardrails reveal. Security, Identity, and the incidents each begin new slides with hard cuts. Governance remains an internal reveal with Identity.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Build 2 shows Observability. Build 3 adds Guardrails. Build 4 replaces both with the Security diagram. Build 5 replaces Security with Identity. Build 6 adds Governance. Build 7 replaces those rows with the three incidents.

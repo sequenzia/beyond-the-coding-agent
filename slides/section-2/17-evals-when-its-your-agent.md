@@ -25,9 +25,12 @@ Faithfulness may need expert judgment.
 
 ## Layout and visual
 
+- Display narrative number 17 throughout, using the shared component in the design brief.
+- Playback: Two physical slides. The domain checks remain an internal reveal. The cards begin the second slide with a hard cut. The migration line and pitfall remain internal reveals.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
-- Preserve the three-step cards and existing clicks. Replace build 1 on the second click.
+- Preserve the three-step cards and existing advance order. Replace build 1 with a hard cut on the second advance.
 - The migration line fits below the cards, above the final pitfall band. The band matches slide 23 word for word.
 - Speak the takeaway; do not show it.
 

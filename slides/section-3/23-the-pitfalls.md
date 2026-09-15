@@ -17,6 +17,8 @@ Six lines. No title, no other text.
 
 ## Layout and visual
 
+- Display narrative number 23 throughout, using the shared component in the design brief.
+
 - Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Six lines, all at once, no build. The audience has seen each one as a band at the bottom of a Section 2 slide, so the recognition is the effect. Use the same visual treatment as the bands: same label style, same weight, stacked.
