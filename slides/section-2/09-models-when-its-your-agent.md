@@ -35,15 +35,19 @@ Run variation: about 2.7 points. Routed gain over small-only: 2.3 points.
 Frontier selection: 4.1% to 9.1% across five runs.
 About 72% lower cost per completed task; article: 74% lower total cost.
 
+**Build 5.** Replace the route table and qualifications with the product-quality question above the pitfall band.
+
 Which configuration meets your product's quality requirement?
 
-**Build 5. Pitfall:** a hardcoded model ID with no eval suite behind it.
+**Pitfall:** a hardcoded model ID with no eval suite behind it.
 
 ## Layout and visual
 
-- Keep the existing five clicks. Select and Measure accumulate, then Replace clears them, then Route clears Replace. The final pitfall appears under the routing comparison.
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
+- Keep the existing five clicks. Select and Measure accumulate, then Replace clears them, then Route clears Replace. The final click replaces the routing comparison with the quality question and pitfall band.
 - Keep the comparison table editable. Place scope, date, denominators, and run variation beside the routing values. Use the existing type scale and grid, as recorded in the design brief.
-- Pitfall wording must match slide 22. The takeaway is spoken.
+- Pitfall wording must match slide 23. The takeaway is spoken.
 
 ## Talk track
 

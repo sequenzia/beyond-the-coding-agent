@@ -13,7 +13,7 @@ Two sentences. Nothing else.
 
 - The two sentences stacked, centered, with generous space between them. Large type. The second sentence carries slightly more weight, or the words "AI engineer" do, so the eye lands on the claim.
 - No title, no attribution, no takeaway line. The takeaway is spoken.
-- The slide stays up for the full 0:45 and returns unchanged as slide 25. Build it once and reuse it.
+- The slide stays up for the full 0:45 and returns unchanged as slide 26. Build it once and reuse it.
 
 ## Talk track
 

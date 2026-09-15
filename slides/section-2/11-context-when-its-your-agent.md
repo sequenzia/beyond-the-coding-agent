@@ -18,7 +18,7 @@ Beneath the frame, one line: Each has a relevance, a freshness, a provenance, an
 
 The context budget · The compaction policy · The memory convention · The retrieval strategy
 
-**Build 3. Customer-facing.** Two lines.
+**Build 3. Customer-facing.** Replace the window, note, and policy items with two lines.
 
 - A compaction that drops a constraint can produce a wrong answer.
 - Memory exposed to the wrong user or tenant is a breach.
@@ -29,10 +29,12 @@ Pitfall: adding instead of curating.
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Build 1 is the picture of this area: the window as a container with six named things inside it. Draw the frame so it reads as a fixed-size box, because the whole point is that it does not stretch.
 - Build 2 sits directly under the frame. The four items are the ones slide 10 said the vendor chose, in the same order, so the hand-off is visible.
-- Build 3 is two sentences, set as sentences, not bullets. They are the sharpest lines on the slide.
-- The pitfall band matches the treatment on slide 9: a strip across the bottom, one sentence, labeled "Pitfall." Its wording, "adding instead of curating," matches line 2 of slide 22 exactly. The fuller sentence is spoken.
+- Build 3 replaces the earlier body content with two sentences, set as sentences, not bullets. They are the sharpest lines on the slide.
+- The pitfall band matches the treatment on slide 9: a strip across the bottom, one sentence, labeled "Pitfall." Its wording, "adding instead of curating," matches line 2 of slide 23 exactly. The fuller sentence is spoken.
 - The takeaway is spoken, not shown.
 
 ## Talk track

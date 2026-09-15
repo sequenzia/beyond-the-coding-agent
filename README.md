@@ -4,7 +4,8 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 
 ## Session
 
-- **Length:** 50 minutes, roughly 35 of presentation and 15 of questions and discussion
+- **Length:** 50 minutes: 35:00 of presentation and 15:00 of questions and discussion
+- **Deck:** 26 narrative slides across sections of 6, 13, and 7 slides; 34 PowerPoint slides including animation support
 - **Audience:** software engineers who want to move into AI engineering, most of whom have used a coding agent but few of whom have shipped a system whose behavior depends on a model
 - **Focus:** agentic AI, taught by taking apart the coding agents the room already uses, Codex CLI and Devin, area by area. Each area closes with a "When you are the owner" beat: what the vendor engineered that you now own, how a customer-facing or enterprise deployment raises the stakes, and that area's most common pitfall
 - **When:** September 17, 2026

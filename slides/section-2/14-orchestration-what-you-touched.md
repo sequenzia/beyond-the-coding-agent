@@ -43,7 +43,9 @@ Anthropic, June 13, 2025. Internal research eval: 90.2% improvement over its sin
 
 ## Layout and visual
 
-- Build 1 is the "When you are the user" moment for the area. The six chips are the features; the ring beneath them is the claim that they are all one thing. Draw the ring simply, three nodes and three arrows, no icons. It is the picture the audience should hold for the rest of the talk, and it returns on slide 23 as "learn the loop."
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
+- Build 1 is the "When you are the user" moment for the area. The six chips are the features; the ring beneath them is the claim that they are all one thing. Draw the ring simply, three nodes and three arrows, no icons. It is the picture the audience should hold for the rest of the talk, and it returns on slide 24 as "learn the loop."
 - Build 2 is five short lines. They are the same shape as the "you now own" list on slide 15, which is the point: what someone engineered here is what you will engineer there.
 - Build 3 is the only large quote in Section 2. Set it big, attribute it small: Addy Osmani, April 2026. The OpenAI figure sits beneath as evidence.
 - Build 4 is two labeled failure modes. The labels are the vocabulary; keep them bold. The fix line is smaller, one sentence.

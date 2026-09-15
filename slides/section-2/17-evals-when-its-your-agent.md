@@ -25,8 +25,10 @@ Faithfulness may need expert judgment.
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Preserve the three-step cards and existing clicks. Replace build 1 on the second click.
-- The migration line fits below the cards, above the final pitfall band. The band matches slide 22 word for word.
+- The migration line fits below the cards, above the final pitfall band. The band matches slide 23 word for word.
 - Speak the takeaway; do not show it.
 
 ## Talk track

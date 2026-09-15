@@ -67,7 +67,7 @@ The six screenshot slots are labeled editable shapes created by `excerpt()` in `
 
 ### Builds and slide numbering
 
-There are 25 source slides and 33 PowerPoint slides. The additional slides are `08b`, `10b`, `12b`, `14b`, `16b`, `18b`, `19b`, and `21b`. Source keys are preserved in speaker notes and the build maps.
+There are 26 source slides and 34 PowerPoint slides. The additional slides are `08b`, `10b`, `12b`, `14b`, `16b`, `18b`, `19b`, and `22b`. Source keys are preserved in speaker notes and the build maps.
 
 Each object's options define when it appears:
 
@@ -78,7 +78,7 @@ text('Visible after click 1, replaced at click 2.', 48, 180, 864, 60, 24,
 
 `start: 0` is initially visible. `end: 99` means it remains visible. Objects entering or leaving at the same click are synchronized. The default effect is Appear for text and Fade for cards/images; `effect` and `duration` can override it. `morph: true` on `newSlide()` adds the native Morph transition. Keep shared `!!` names stable across the paired slides. Geometry and text sizes in the authoring helpers are points, converted to the Artifact Tool's CSS pixels internally.
 
-If the source slide count changes, update the authoring blocks and the explicit expected total in `finalize.mjs`. Do not silently change the 25-slide narrative or the timing invariants.
+If the source slide count changes, update the authoring blocks and the explicit expected total in `finalize.mjs`. Do not silently change the 26-slide narrative or the timing invariants.
 
 ## Files and build stages
 
@@ -88,7 +88,7 @@ If the source slide count changes, update the authoring blocks and the explicit 
 | `author.mjs` | Theme, components, visible copy, layout, source notes, and object build metadata |
 | `package.py` | Adds native click animation XML, Morph, font policy, line spacing, and border corrections |
 | `render.mjs` | Imports the candidate PPTX and renders every visibility state; reports likely text-fit problems |
-| `finalize.mjs` | Checks 33 slides, native tables, geometry, fonts, package integrity, and Artifact Tool import; writes a new final PPTX |
+| `finalize.mjs` | Checks 34 slides, native tables, geometry, fonts, package integrity, and Artifact Tool import; writes a new final PPTX |
 | `runtime.mjs` | Shared runtime paths and font registration |
 
 Each run records `build-manifest.json`, stage logs, `build-map.json`, `native-build-map.json`, `fit-warnings.json`, PNG previews, and `validation.json`. The manifest hashes inputs and the final PPTX so a future update can be compared with a known build. It also records the runtime locations; keep this generated file private in `.deck-build/`.
@@ -98,4 +98,11 @@ The native XML patcher includes two PowerPoint compatibility fixes: each text bo
 
 ## September 15 essential-corrections pass
 
-The paired Section 2 labels are “When you are the user” and “When you are the owner”. The user slide contains the “What someone engineered” bridge. Source keys and historical filenames remain stable. This pass preserves all six screenshot placeholders, story #2 as a 60-second personal-story slot, and all resource content and destination/QR decisions. See design brief section 11 for revised evidence layouts.
+The paired Section 2 labels are “When you are the user” and “When you are the owner”. The user slide contains the “What someone engineered” bridge. Source keys and historical filenames remain stable. This pass preserves all six screenshot placeholders, story #2 as a 60-second personal-story slot, and all resource content and destination/QR decisions. See design brief section 13 for that pass's evidence layouts.
+
+
+## Header-spacing and section-transition pass
+
+`slideHeader()` centralizes the divider and reserved header area; its four variants are recorded in design brief section 14. `sectionDivider()` builds matching source slides 6 and 20. Both boundaries use hard cuts. Section 3 now runs from 20 through 26; What transfers takes 1:05 and the new divider takes 0:10. The total remains 35:00.
+
+Context, context ownership, orchestration ownership, Operating it, and the roadmap use replacement states to preserve readable type. The six screenshot object names remain paired for Morph. Resources stay on one state. Typography uses Helvetica for numbering and plain attributions, retaining Consolas for code.

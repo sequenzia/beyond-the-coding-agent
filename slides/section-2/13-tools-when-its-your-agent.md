@@ -28,9 +28,11 @@ A model's approval recommendation does not establish permission.
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Keep three area cards in the existing grid. Allow two-line headings and enough body height for the policy text.
 - The authorization line spans all three cards. The model-recommendation qualification is separate from the cards.
-- The evidence replaces the cards, keeping demonstration and secondary-report labels visible. The pitfall matches slide 22.
+- The evidence replaces the cards, keeping demonstration and secondary-report labels visible. The pitfall matches slide 23.
 
 ## Talk track
 

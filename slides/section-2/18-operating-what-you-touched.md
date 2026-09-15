@@ -8,7 +8,7 @@ Beat 2.6 Operating it, first half. Section 2. Time 3:15 of the beat's 4:30; slid
 
 **Build 1.** Preserve the command chips and trust-and-safety line.
 
-**Builds 2 to 6.** Shrink to the command strip. Five labeled bands:
+**Builds 2 to 6.** Shrink to the command strip. Show operational responsibilities in successive states:
 
 - Observability: cost per completed task · p95 and p99 tokens · cache hit rate · loop iterations · tool failures
 - Guardrails: classification · provenance · sandboxing · validation · circuit breakers · approvals · least privilege
@@ -24,7 +24,10 @@ Beat 2.6 Operating it, first half. Section 2. Time 3:15 of the beat's 4:30; slid
 
 ## Layout and visual
 
-- Keep the existing operating bands and replacement state. Allow purposeful wrapping within each row's budget.
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
+- Build 2 shows Observability. Build 3 adds Guardrails. Build 4 replaces both with the Security diagram. Build 5 replaces Security with Identity. Build 6 adds Governance. Build 7 replaces those rows with the three incidents.
+- Keep the command strip, kicker, divider, and mini-map throughout. Allow purposeful wrapping within each row's budget.
 - The capability triangle stays plain. Its risk statement stays adjacent and the Willison attribution stays visible.
 - Label the evidence types on screen. Paraphrase Air Canada without quotation marks.
 - Values and the revised capability-triangle geometry are in the design brief.

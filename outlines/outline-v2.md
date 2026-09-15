@@ -35,8 +35,8 @@ AI engineering builds on a foundation of software engineering. This talk focuses
 | 2.4 Orchestration | 3:30 | 2 |
 | 2.5 Verification and evals | 5:00 | 2 |
 | 2.6 Operating it | 4:30 | 2 |
-| 3. Making the transition | 5:00 | 6 |
-| 4. Questions and discussion | 15:00 | none, slide 25 stays up |
+| 3. Making the transition | 5:00 | 7 |
+| 4. Questions and discussion | 15:00 | none, slide 26 stays up |
 
 ### The Section 2 pattern
 
@@ -113,9 +113,12 @@ Approved bio from slide 2, September 14, 2026. Stephen Sequenzia, Senior Staff A
   - The pattern for each area: **When you are the user**, including what someone engineered, then **When you are the owner**.
 - Source: the session description in the README.
 
-### 1.6 Transition (0:15). Build on Slide 5, or Slide 6
+### 1.6 Transition (0:15). Slide 6
 
-- Say: "Let's open up the tool you used this morning."
+- Slide: Section 2. What AI engineers actually engineer.
+- Say: **"Let's open up the tool you used this morning."**
+- Takeaway line: "Let's open up the tool you used this morning."
+- Sources: none.
 
 ### Section 1 checks
 
@@ -273,13 +276,19 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 
 ---
 
-## Section 3. Making the transition (5:00, 6 slides)
+## Section 3. Making the transition (5:00, 7 slides)
 
-### 3.1 What transfers (1:15). Slide 20
+### 3.0 Transition (0:10). Slide 20
+
+- Slide: Section 3. Making the transition. Matching typographic divider after the yours anatomy diagram.
+- Say: Everything in the last twenty-five minutes was engineering. **Most of it is engineering you already do.**
+- Takeaway line: "Most of it is engineering you already do."
+- Sources: the Section 2 synthesis and the mapping in 3.1. Research §1.
+
+### 3.1 What transfers (1:05). Slide 21
 
 - Slide: two columns. Left, the software engineering skill. Right, what it becomes.
 - Say:
-  - Everything in the last twenty-five minutes was engineering. Most of it is engineering you already do.
   - **Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem.
   - **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed.
   - **Testing discipline extends to evals.** The habit of checking before accepting a result transfers. Ordinary tests remain part of the machinery.
@@ -290,7 +299,7 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 - Takeaway line: "You are not starting over. You are adding a layer."
 - Sources: Orosz, "AI Engineering in the real world," March 2025; OpenTelemetry; OWASP. Research §1.
 
-### 3.2 What is new (1:15). Slide 21
+### 3.2 What is new (1:15). Slide 22
 
 - Slide: the ladder, prompt engineering, then context engineering, then harness engineering. Below it, the new competencies as an unranked list.
 - Say:
@@ -300,7 +309,7 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 - Takeaway line: "The new skill is not prompting. It is being comfortable measuring a system you cannot fully specify."
 - Sources: Anthropic, September 2025; Husain, evals FAQ, 2026; Orosz, March 2025. Research §2.
 
-### 3.3 The pitfalls, on one slide (0:35). Slide 22
+### 3.3 The pitfalls, on one slide (0:35). Slide 23
 
 - Slide: six lines, one per area, no other text.
   1. Models: a hardcoded model ID with no eval suite behind it.
@@ -315,7 +324,7 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 - Takeaway line: "Every pitfall on this list is a demo mistaken for a product."
 - Sources: Section 2; Anthropic, December 2024. Research §3.
 
-### 3.4 The roadmap (1:25). Slide 23
+### 3.4 The roadmap (1:25). Slide 24
 
 - Slide: four steps.
   1. Look before you build.
@@ -334,9 +343,9 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 - Takeaway line: "Autonomy is earned by evals, one step at a time."
 - Sources: Husain, evals FAQ; Anthropic, December 2024; OpenAI, "A practical guide to building agents"; Hashimoto, February 2026. Research §4.
 
-### 3.5 Resources and close (0:30). Slides 24 and 25
+### 3.5 Resources and close (0:30). Slides 25 and 26
 
-**Slide 24, resources.** Shown, not discussed.
+**Slide 25, resources.** Shown, not discussed.
 
 - Chip Huyen, *AI Engineering: Building Applications with Foundation Models*, O'Reilly, 2025.
 - Anthropic engineering: "Building effective agents" (December 2024), "Effective context engineering for AI agents" (September 2025), "Demystifying evals for AI agents" (January 2026).
@@ -345,21 +354,21 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 - OWASP Top 10 for LLM Applications (2025) and for Agentic Applications (2026).
 - OpenTelemetry GenAI semantic conventions.
 
-**Slide 25, close.** The two thesis sentences, then "Questions."
+**Slide 26, close.** The two thesis sentences, then "Questions."
 
 - Say: Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer. The difference is not the tools. It is what you are responsible for. We have fifteen minutes for your questions.
 - Sources: research §4.
 
 ### Section 3 checks
 
-- Time: 1:15 + 1:15 + 0:35 + 1:25 + 0:30 = 5:00.
-- Slides: 20 through 25. Total deck: 25 slides.
+- Time: 0:10 + 1:05 + 1:15 + 0:35 + 1:25 + 0:30 = 5:00.
+- Slides: 20 through 26. Total deck: 26 narrative slides, 34 PowerPoint slides.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
 - Evidence status: competencies are unranked. The ladder is a teaching frame. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
 
 ---
 
-## Section 4. Questions and discussion (15:00, Slide 25 stays up)
+## Section 4. Questions and discussion (15:00, Slide 26 stays up)
 
 ### Anticipated questions, with two-line answers
 
@@ -394,7 +403,7 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 ### Whole-talk checks
 
 - Time: Section 1, 5:00. Section 2, 25:00. Section 3, 5:00. Total 35:00, plus 15:00 for questions.
-- Deck: 25 slides. Six in Section 1, thirteen in Section 2, six in Section 3.
+- Deck: 26 narrative slides. Six in Section 1, thirteen in Section 2, seven in Section 3. Eight animation support slides bring the PowerPoint total to 34.
 - Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.4, 2.5, 3.3); why tests are necessary but not sufficient (1.4, 2.5); why evals continue after deployment (1.4, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
 
 ### What only you can supply

@@ -1,4 +1,4 @@
-# Slide 21: What is new
+# Slide 22: What is new
 
 Beat 3.2 What is new. Section 3. Time 1:15. Builds: 3.
 
@@ -31,9 +31,11 @@ Ross McNairn, Wordsmith, via The Pragmatic Engineer, March 2025.
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Build 1 is a literal ladder or staircase, three treads, rising to the right. The years sit under each tread. It is the only chart-like element in Section 3; keep it plain.
 - Build 2 is unranked and has no gutter numerals. Preserve display order, with equal text weight. The ladder shrinks to its existing strip.
-- Build 3 replaces the list or sits beneath it, depending on room. It is the second and last large quote in the deck after Osmani's on slide 14. Same treatment: quote large, attribution small.
+- Build 3 replaces the list. It is the second and last large quote in the deck after Osmani's on slide 14. Same treatment: quote large, attribution small.
 - The takeaway is spoken, not shown.
 
 ## Talk track
@@ -52,7 +54,7 @@ The one most engineers find hardest, from Ross McNairn at Wordsmith: **"Getting 
 
 [0:54] **The new skill is not prompting. It is being comfortable measuring a system you cannot fully specify.**
 
-[1:15] Advance to slide 22.
+[1:15] Advance to slide 23.
 
 The track runs about 1:02. The slack belongs to the quote and the takeaway. Cuttable if Section 3 runs long: the sublines on items 1, 3, and 6, spoken as the bare competency names. Do not cut the ladder sentence, the unranked competencies, the McNairn quote, or the takeaway.
 

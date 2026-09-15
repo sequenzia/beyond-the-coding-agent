@@ -41,6 +41,8 @@ Hold this state for story #2.
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Keep the test-loop entry and Morph strip. The definitions table remains editable.
 - The grader is a compact illustration. Separate the result check from the trace check. It has its own visible illustration label and does not stand in for the personal story.
 - Keep existing probability typography. The final build contains no allocation or zero-pass statistic.

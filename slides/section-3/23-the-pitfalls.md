@@ -1,4 +1,4 @@
-# Slide 22: The pitfalls, on one slide
+# Slide 23: The pitfalls, on one slide
 
 Beat 3.3 The pitfalls, on one slide. Section 3. Time 0:35. Builds: 1.
 
@@ -16,6 +16,8 @@ Six lines. No title, no other text.
 6. Operating: the lethal trifecta, assembled one integration at a time.
 
 ## Layout and visual
+
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
 
 - Six lines, all at once, no build. The audience has seen each one as a band at the bottom of a Section 2 slide, so the recognition is the effect. Use the same visual treatment as the bands: same label style, same weight, stacked.
 - The area names on the left match the kickers from Section 2 in order: Models, Context, Tools, Orchestration, Evals, Operating.
@@ -35,9 +37,9 @@ You have seen all six.
 
 [0:29] **Every pitfall on this list is a demo mistaken for a product.**
 
-[0:35] Advance to slide 23.
+[0:35] Advance to slide 24.
 
-The track runs about 0:34. The five seconds of silence at the top are deliberate; the audience needs them to recognize the six lines. Cuttable if Section 3 runs long: the framework paragraph, which returns on slide 23 as "own the harness." Do not cut the two bold lines.
+The track runs about 0:34. The five seconds of silence at the top are deliberate; the audience needs them to recognize the six lines. Cuttable if Section 3 runs long: the framework paragraph, which returns on slide 24 as "own the harness." Do not cut the two bold lines.
 
 ## Sources
 

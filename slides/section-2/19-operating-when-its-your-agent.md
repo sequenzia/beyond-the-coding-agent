@@ -25,6 +25,8 @@ Beside it: capability triangle labeled Private data · Untrusted content · Exte
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Keep the editable translation table. Allow the approval and disclosure cells to wrap.
 - The pitfall and the capability triangle share the bottom band. Both triangles use capabilities, not integration names. Geometry lives in the design brief.
 - Preserve the separate 19b physical slide and existing diagram badges.
@@ -39,7 +41,7 @@ Beside it: capability triangle labeled Private data · Untrusted content · Exte
 
 [0:50] Build 3. **That is the map. Every box on it is something you can engineer, because most of it is engineering you already know how to do.**
 
-[1:15] Advance to slide 20.
+[1:15] Advance to slide 20, the Section 3 divider.
 
 Legal backup: use the Commission's provider/deployer distinctions, applicable EU scope, and obvious-interaction exception from slide 18. The table summarizes covered direct AI interactions, not every deployment.
 

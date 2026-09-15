@@ -20,6 +20,8 @@ Beat 2.1 Models, first half. Section 2. Time 1:00 of the beat's 3:30; slide 9 ta
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Preserve both full-size placeholders and their compact Morph states. Keep their source keys.
 - Use the existing header, compact kicker, five-line list, and final callout style. The bridge stays within this user slide.
 

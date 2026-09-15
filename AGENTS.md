@@ -27,15 +27,16 @@ Every source entry in research has the same shape: a bold line with author, titl
 
 ## The slides layer
 
-`slides/section-N/NN-descriptive-name.md` holds one file per slide, numbered to match the outline (`01` through `25`). Each file is a tool-agnostic spec with five sections: on-slide text build by build, layout and visual notes, a near-script talk track with `[m:ss]` marks and bold must-say lines, short-form sources pointing to research sections, and open items.
+`slides/section-N/NN-descriptive-name.md` holds one file per slide, numbered to match the outline (`01` through `26`). Each file is a tool-agnostic spec with five sections: on-slide text build by build, layout and visual notes, a near-script talk track with `[m:ss]` marks and bold must-say lines, short-form sources pointing to research sections, and open items.
 
 Slide files render the outline. They do not restate its reasoning and they never introduce a claim. A new claim goes into the research file and the outline first, then onto the slide. The `[verify]`, `[you write]`, and `[your story]` markers mean the same thing in slide files as in the outline.
 
 Conventions the slide files follow:
 
 - **Time splits.** A two-slide beat splits its time between the two files, stated in each header, and the two must sum to the beat. Section sums must match the outline's checks blocks.
-- **Kickers.** Every Section 2 area slide has a top-left label, area name then beat: "Models · When you are the user," "Models · When you are the owner." The area name is Bold in the area's color. On the first state of a "When you are the user" slide the kicker is the area header, a full-bleed color strip with the area name large, which shrinks into the kicker when the images shrink to the strip. Section 3 slides use "The transition · " plus the beat name. A mini-map of the anatomy diagram sits top right on every slide with a kicker except 22, with the current area's boxes lit.
-- **Pitfall bands.** Every "When you are the owner" slide ends with a strip across the bottom: a solid block in the area color holding the word "Pitfall," then the sentence, whose text matches slide 22 word for word. Slide 22 stacks six of the same bands with the area names in the blocks.
+- **Section dividers.** Slides 6 and 20 are matching typographic dividers with hard cuts and no internal builds. Slide 6 takes 0:15 in Section 1; slide 20 takes 0:10 in Section 3.
+- **Kickers.** Every Section 2 area slide has a top-left label, area name then beat: "Models · When you are the user," "Models · When you are the owner." The area name is Bold in the area's color. On the first state of a "When you are the user" slide the kicker is the area header, a full-bleed color strip with the area name large, which shrinks into the kicker when the images shrink to the strip. Section 3 slides use "The transition · " plus the beat name. A mini-map of the anatomy diagram sits top right on every slide with a kicker except 23, with the current area's boxes lit.
+- **Pitfall bands.** Every "When you are the owner" slide ends with a strip across the bottom: a solid block in the area color holding the word "Pitfall," then the sentence, whose text matches slide 23 word for word. Slide 23 stacks six of the same bands with the area names in the blocks.
 - **Takeaways are spoken, not shown.** Titles on "When you are the owner" slides state the responsibility instead.
 - **Cut order.** Each talk track names what to cut first if the section runs long and what may never be cut.
 - **Diagram.** Slide 7 uses the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 19 uses the render of the `-yours.svg` variant generated from it; the mini-maps are generated from it too. Run `node internal/build-diagrams.mjs` if the base changes.
@@ -60,8 +61,8 @@ A claim graduates from `UNVERIFIED` to `[primary]` only after being checked in a
 
 - **Scope is fixed.** The talk description in the README was published to attendees. Every outline version must cover every topic it names. Only the weighting changes.
 - **Two named tools.** The coding agents named on stage are Codex CLI and Devin. Devin's CLI carries the command anchors; Devin Desktop, the IDE, appears on slide 8 for its model picker. No other tool is named as a "When you are the user" example. Other products appear only as incident evidence, such as EchoLeak in Microsoft 365 Copilot. Tool facts come from the vendors' own docs and are marked `[primary]` in research with the date they were checked.
-- **Time and slide counts must reconcile.** Presentation is 35:00 across 25 slides: Section 1 is 5:00 and 6 slides, Section 2 is 25:00 and 13 slides, Section 3 is 5:00 and 6 slides. Each section ends with a "checks" block that sums its beat times and lists which beats cover which description topics. Changing a beat's time or slide count means updating that block and the "Structure and time budget" table.
-- **Every Section 2 area follows the same three beats** (When you are the user, what someone engineered, When you are the owner) and names one pitfall. The six pitfalls are collected again on slide 22 in 3.3, so a pitfall change lands in two places.
+- **Time and slide counts must reconcile.** Presentation is 35:00 across 26 slides: Section 1 is 5:00 and 6 slides, Section 2 is 25:00 and 13 slides, Section 3 is 5:00 and 7 slides. Each section ends with a "checks" block that sums its beat times and lists which beats cover which description topics. Changing a beat's time or slide count means updating that block and the "Structure and time budget" table.
+- **Every Section 2 area follows the same three beats** (When you are the user, what someone engineered, When you are the owner) and names one pitfall. The six pitfalls are collected again on slide 23 in 3.3, so a pitfall change lands in two places.
 - **Beat format is fixed.** Time, slide, say, takeaway line, sources. It is a talk track, not a script.
 
 ## Adding or changing a claim

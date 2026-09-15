@@ -1,6 +1,6 @@
-# Slide 25: Close
+# Slide 26: Close
 
-Beat 3.5 Resources and close, second half. Section 3. Time 0:22 of the beat's 0:30; slide 24 took 0:08. Builds: 1. Stays up for the fifteen minutes of questions.
+Beat 3.5 Resources and close, second half. Section 3. Time 0:22 of the beat's 0:30; slide 25 took 0:08. Builds: 1. Stays up for the fifteen minutes of questions.
 
 ## On the slide
 
@@ -14,7 +14,7 @@ The two thesis sentences, exactly as on slide 3.
 ## Layout and visual
 
 - Reuse slide 3 unchanged, then add the build. The audience saw this screen thirty minutes ago; the recognition is the close.
-- "Questions" sits beneath the two sentences in the same type, smaller. No contact details, no handles, no logos; those belong on slide 2 or slide 24 if anywhere.
+- "Questions" sits beneath the two sentences in the same type, smaller. No contact details, no handles, no logos; those belong on slide 2 or slide 25 if anywhere.
 - This slide stays up for the full fifteen minutes, so it has to be calm. Nothing on it should compete with the room.
 
 ## Talk track

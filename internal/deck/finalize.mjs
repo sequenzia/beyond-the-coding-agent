@@ -13,7 +13,7 @@ const result=await finalizePresentation({
  pythonExecutable:PYTHON,
  integrityValidatorPath:path.join(skill,'inspect_presentation_package_integrity.py'),
  layoutValidatorPath:path.join(skill,'inspect_presentation_layout_geometry.py'),
- explicitTotalSlideCount:33,
+ explicitTotalSlideCount:34,
  requiredNativeTableOwnerSlides:tableOwners,
  requiredNativeChartOwnerSlides:[],
  layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...tableOwners.flatMap(n=>['--require-native-table-slide',String(n)])],

@@ -23,7 +23,7 @@ Escalation as a tool call · Planner-to-worker routing · The compaction trigger
 
 Own your prompts. Own your context window. Own your control flow. Contact humans with tool calls.
 
-**Build 3. Customer-facing.** Three short sentences on one line.
+**Build 3. Customer-facing.** Replace the ownership list and quotation with three short sentences.
 
 A human is waiting. Latency is a product requirement. An unbounded loop is an outage.
 
@@ -35,10 +35,12 @@ Beneath, small: Gartner forecast, June 2025: over 40% canceled by end of 2027. C
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Build 1 is the definitions pair from slide 4, now with the five pattern names under it. The pair should look like the columns on slide 4 so the audience recognizes the distinction.
 - Build 2 is the longest "you now own" list in Section 2, so it runs as chips in two rows rather than bullets. The four 12-factor lines sit beneath as a quote block, attributed small: 12-Factor Agents, Dex Horthy.
-- Build 3 is one line, three sentences, with the third carrying the weight.
-- The pitfall band matches slides 9, 11, and 13. Its wording, "multi-agent before a workflow was tried," matches line 4 of slide 22 exactly. The Gartner line sits under it, small, quoted, dated.
+- Build 3 replaces the preceding body state with three sentences, with the third carrying the weight.
+- The pitfall band matches slides 9, 11, and 13. Its wording, "multi-agent before a workflow was tried," matches line 4 of slide 23 exactly. The Gartner line sits under it, small, quoted, dated.
 - The takeaway is spoken, not shown.
 
 ## Talk track

@@ -27,6 +27,8 @@ Anthropic's five-server example: about 55,000 tokens before the first message. T
 
 ## Layout and visual
 
+- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
+
 - Keep the existing full-size and strip placeholder geometry and Morph pairs.
 - Use the design list and evidence as replacement states. The five-server scope must stay attached to the token figure.
 
