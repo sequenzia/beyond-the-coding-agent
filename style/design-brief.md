@@ -906,27 +906,33 @@ The comparison replaces duplicate failure prose. Exact checked content remains v
 
 The accepted sequence is quote, workflow and agent-loop foundations, execution decisions, pitfalls, and uncertain-export recovery. Preserve narrative slides 26 through 30, static entry, hard cuts, Orchestration pink, mini-maps, and native numbering. The area remains 3:55 and Section 2 remains 28:30. Keep the current anatomy assets.
 
-### Slide 27: workflow with an expanded agent loop
+### Slides 27 through 29: approved refinement, September 16, 2026
 
-Use a native editable six-stage workflow and one expanded inspection loop. The workflow and loop remain distinct while showing how they combine. Keep code-enforced verification outside the loop's discretionary next-action choice.
+This refinement supersedes the earlier six-stage application workflow and state/recovery decision layout on these three slides. Use the approved general comparison, execution-choice questions, and Value/Control/Recovery pitfalls. The scripts are locked in the slide specs at 1:00, 1:00, and 0:25. Slide 30's layout and script remain unchanged.
 
-- Workflow label at x 48, y 192, width 180, height 30, Helvetica Bold 20 in area pink. Definition at x 244, y 192, width 668, height 30, Regular 20.
-- Illustrative FRB workflow caption at x 48, y 232, width 864, height 20, Regular 16 in secondary text.
-- Six stage labels begin at x 48, 196, 344, 492, 640, and 788, y 260, width 112, height 30, Bold 20, centered. Inspect uses area pink; the other stages use primary text. Horizontal arrows start at x 168, 316, 464, 612, and 760, y 274, width 20, using the shared secondary 2-point style.
-- A pink 2-point outline around Inspect uses x 190, y 250, width 124, height 50, no fill and square corners. Connect its center at x 252 down from y 300 to the expanded loop at y 316.
-- Expanded-loop boundary at x 48, y 316, width 864, height 134, no fill, 2-point pink outline. Agent loop label at x 64, y 330, width 148, height 26, Bold 20 in pink. Explanation at x 232, y 330, width 656, height 26, Regular 20.
-- Loop stages start at x 64, 286, 508, and 730, y 368, width 164, height 50, Regular 20, centered, each on two lines: Observe result, Choose action, Call tool, Update state. Forward arrows at y 393 start at x 240, 462, and 684, width 32. A return path drops from x 812, y 426 to y 436, points left to x 146, and returns upward to y 426. This leaves clearance beneath the lower text lines. Use the shared secondary connector style.
-- Required gate label at x 48, y 466, width 180, height 25, Bold 20 in pink. Body at x 244, y 466, width 668, height 25, Regular 20: exact draft passes verification before export.
+### Slide 27: workflow and agent-loop comparison
 
-### Slide 28: execution state and recovery decisions
+The cleanup retains one definition per approach above one wide workflow diagram. A bounded agent loop is drawn directly inside Stage 2. Remove the second definition row, detached loop expansion, and footer. Their supporting content remains in the approved script. This supersedes the earlier crowded comparison composition without changing the script or timing.
 
-Use compact aligned rows with a checkpoint definition beneath them. Labels at x 48, width 216, height 30, Helvetica Bold 20 in pink. Bodies at x 292, width 620, height 54, Regular 20. Three rows begin at y 192, 272, and 352 for Explicit state, Recovery, and Stopping conditions. Each explanation uses two lines.
+- Column headings at x 48 and 492, y 192, width 420, height 32, Helvetica Bold 24 in area pink.
+- Definitions at the same x positions, y 236, width 420, height 60, Regular 24. Left: Code defines stages and permitted transitions. Right: The model chooses the next action from observed results. Use two lines each.
+- The workflow diagram spans the body width below the definitions. Stage 1 is at x 48, y 406, width 132, height 60, Regular 24. Required check is at x 764, y 406, width 148, height 60, Regular 24, on two lines. Center both labels horizontally and vertically. Forward arrows at x 196 and 704, y 436, width 28, use the shared secondary 2-point style.
+- Stage 2 is a single native editable rectangle at x 248, y 348, width 432, height 150, no fill and a 2-point pink outline. Label it Stage 2 · bounded agent loop at x 268, y 362, width 392, height 30, Bold 20 in pink. The rectangle is a workflow stage, not a separate panel connected to another diagram.
+- Inside the stage, place Choose action at x 268, y 406, width 116, height 60; Act at x 430, y 406, width 56, height 60; Observe result at x 538, y 406, width 122, height 60. Use Regular 20, centered horizontally and vertically. Forward arrows at x 396 and 508, y 436, widths 22 and 18.
+- The loop return path begins at x 599, y 474, drops to y 486, points left to x 326, and returns upward to y 474 with an arrowhead. Use the shared secondary 2-point style and keep every connector clear of text.
+- Keep the space between definitions and diagram empty. The script carries the explanation of model calls, permissions, stopping limits, and the optional combination. No footer is added.
 
-The Checkpoint label is at x 48, y 450, width 216, height 30, Bold 20 in pink. Its definition is at x 292, y 450, width 620, height 30, Regular 20. Durability, delegation, and the detailed resource-limit inventory stay spoken.
+### Slide 28: choosing the execution approach
 
-### Slide 29: pitfalls
+Use three aligned decision-question and guidance rows. Questions are Helvetica Bold 20 in area pink at x 48, width 312. Guidance is Regular 20 at x 392, width 520. Rows begin at y 192, 286, and 390 with heights 75, 100, and 75. Keep the exact approved question and guidance wording from the slide spec; use deliberate line breaks rather than smaller type.
 
-Retain the current visible Gates, Progress, and Recovery rows, their geometry, and the exact headline pitfall shared with slide 45. Only the talk track changes.
+The execution-controls line is at x 48, y 480, width 864, height 25, Regular 20, with Execution controls in Bold. Its text is Saved state, required checks, stopping limits, and recovery. The checkpoint definition stays spoken; saved state does not establish an external action's outcome. The takeaway also stays spoken.
+
+### Slide 29: execution pitfalls
+
+Retain the existing row and headline geometry. Replace Gates, Progress, and Recovery with the approved Value, Control, and Recovery copy. Labels use x 48, width 216, height 30, Helvetica Bold 20 in area pink. Bodies use x 292, width 620, height 54, Regular 20. Rows begin at y 192, 254, and 316. Allow the Control body to wrap across two lines.
+
+The Pitfall label remains at x 48, y 426, width 124, height 30, Bold 20 in pink. The exact headline shared with slide 45 remains at x 196, y 426, width 716, height 64, Bold 24: Adding multiple agents before trying a workflow.
 
 ### Slide 30: uncertain export sequence
 

@@ -1,4 +1,4 @@
-# Slide 28: State, recovery, and stopping
+# Slide 28: Choosing the execution approach
 
 Beat 2.4. Section 2. Rehearsal reference 1:00 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
@@ -6,54 +6,46 @@ Beat 2.4. Section 2. Rehearsal reference 1:00 of the area's 3:55. Section 2 rema
 
 **Kicker:** Orchestration · Decisions
 
-**Title:** State, recovery, and stopping
+**Title:** Choosing the execution approach
 
-**Explicit state**
+| Decision | Guidance |
+|---|---|
+| **Is intelligence needed for this task?** | Start with scripts and explicit rules. Add model judgment where it provides value. |
+| **Does the model need to choose the next action?** | Use a predefined workflow for known paths. Consider a bounded agent loop when observations must guide the next step. |
+| **Does added autonomy justify its cost?** | Compare task quality, completion time, and total cost against the simpler approach. |
 
-Pending work, completed stages, check results, and operation status.
-
-**Recovery**
-
-Resume saved state and reconcile external actions before retrying.
-
-**Stopping conditions**
-
-Completion, waiting, failure, cancellation, and budget exhaustion.
-
-**Checkpoint**
-
-Saved execution state for resumption.
+**Execution controls:** Saved state, required checks, stopping limits, and recovery.
 
 ## Layout and visual
 
 - Display narrative number 28, the area kicker, and `mini-orchestration` throughout.
-- Use the compact execution-decision rows and checkpoint definition in design brief §30. All visual values are defined there.
-- Distinguish dispatched requests from confirmed effects. The checkpoint definition describes saved execution state, not proof of an external action.
-- Keep restart durability, delegation, and detailed resource-limit inventory in the talk track.
-- Keep text editable. Show the complete content on entry with hard cuts and no internal builds.
+- Use the aligned decision-question and guidance rows in design brief §30. All visual values are defined there.
+- Give the questions enough width to read as complete decisions. Place the compact execution-controls line beneath the rows.
+- Keep the checkpoint definition and external-outcome distinction in the script. Do not imply that saved state proves an external action completed or that an in-memory checkpoint survives a process restart.
+- Keep the takeaway spoken. Keep text editable. Show the complete content on entry with hard cuts and no internal builds.
 
 ## Talk track
 
-[0:00] **EXECUTION DECISIONS**
+[0:00] **CHOOSING THE EXECUTION APPROACH**
 
-[0:00] Record pending work, completed stages, check results, and operation status. **A checkpoint is saved execution state from which work can resume.** Use durable storage when it must survive a process restart.
+[0:00] **Is intelligence needed for this task?** If explicit rules can produce an acceptable result, start with a script or workflow. A task being possible for an agent does not make an agent the best choice.
 
-[0:15] Resuming computation does not establish what an external service did. Reconcile dispatched actions with their actual outcomes before deciding whether to repeat them. Recheck source freshness and access on resume.
+[0:15] If model judgment helps, ask a second question: does the model need to choose what happens next? Summarizing logs can be a fixed workflow step. Investigating an unfamiliar failure may benefit from choosing actions as evidence arrives.
 
-[0:30] Define completion and distinguish it from waiting, failure, cancellation, or exhausted budget. Bound actions, tokens, retries, and elapsed time. Repeated work without progress needs a stop or handoff.
+[0:30] **Autonomy must earn its place.** Compare it with the simpler approach on representative tasks. Does it improve results enough to justify the time, cost, and operational complexity? Include retries and human review.
 
-[0:45] Delegation is another design choice. Independent case comparisons may benefit from workers, but assignments and returned evidence need clear ownership. Add them only when measured benefit justifies the handoff and reconciliation work.
+[0:45] Define the execution controls too. A checkpoint saves state for resumption. Required checks and stopping limits belong in code. Before retrying an external action, establish what happened. If its outcome remains unknown, pause or hand off.
 
 [1:00] Advance to slide 29.
 
-Cut first: the delegation example beyond its brief conditional role. Never cut explicit state, checkpoint durability, external reconciliation, or meaningful stopping conditions. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the repeated summarizing-versus-investigating examples. Never cut the intelligence question, the need to justify autonomy against a simpler baseline, enforced checks and limits, or the uncertain-outcome handoff. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Anthropic, December 2024, June and November 2025; LangChain checkpoint documentation and Featonby, Amazon Builders' Library, checked September 2026. Research §4 in `research/section-2.md`.
-- Illustrative workflow and recovery contract: Research §0, §3, and §4, and `internal/frb-running-example.md`. The permitted-export timeout is a separate teaching scenario from Tools' rejection case.
-- Accepted integration: `outlines/section-2-integration/04-orchestration.md`. No framework choice, measured recovery result, or universal retry guarantee is claimed.
+- Anthropic, December 2024 and June 2025: workflow/agent distinction, combined patterns, simplicity, and measured benefit. Research §4 in `research/section-2.md`.
+- LangChain checkpoint documentation and Featonby, Amazon Builders' Library, checked September 2026: saved execution state, external outcomes, and safe retries. Research §4 in `research/section-2.md`.
+- Approved content and script: Research §4, "Orchestration slides 27 through 29 refinement, September 16, 2026." Software examples are illustrative; no measured performance result is claimed.
 
 ## Open items
 
-- Rehearse the retained 3:55 allocation on the actual presentation machine. The foundations slide gains 0:15 and the focused recovery application gives up 0:15. Preserve the workflow gate and safe recovery distinction when trimming.
+- Script editorially approved. Rehearse this slide and the combined 2:25 across slides 27 through 29. Preserve the area's 3:55 and Section 2's 28:30 references.

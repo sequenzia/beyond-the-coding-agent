@@ -330,39 +330,41 @@ const section2Areas = [
     "titles": [
       "Orchestration, opening quote",
       "Workflows and agent loops",
-      "State, recovery, and stopping",
+      "Choosing the execution approach",
       "Execution pitfalls",
       "Recovery after an uncertain export"
     ],
-    "workflow": ["Retrieve", "Inspect", "Compare", "Reconcile", "Verify", "Export"],
-    "agentLoop": ["Observe\nresult", "Choose\naction", "Call\ntool", "Update\nstate"],
+    "executionComparison": [
+      ["Workflow", "Code defines stages and\npermitted transitions."],
+      ["Agent loop", "The model chooses the next action\nfrom observed results."]
+    ],
     "decisions": [
       [
-        "Explicit state",
-        "Pending work, completed stages,\ncheck results, and operation status."
+        "Is intelligence needed\nfor this task?",
+        "Start with scripts and explicit rules. Add model\njudgment where it provides value."
       ],
       [
-        "Recovery",
-        "Resume saved state and reconcile\nexternal actions before retrying."
+        "Does the model need to\nchoose the next action?",
+        "Use a predefined workflow for known paths.\nConsider a bounded agent loop when\nobservations must guide the next step."
       ],
       [
-        "Stopping conditions",
-        "Completion, waiting, failure,\ncancellation, and budget exhaustion."
+        "Does added autonomy\njustify its cost?",
+        "Compare task quality, completion time, and\ntotal cost against the simpler approach."
       ]
     ],
     "pitfall": "Adding multiple agents before trying a workflow.",
     "cues": [
       [
-        "Gates",
-        "A proposed plan does not enforce prerequisites."
+        "Value",
+        "Adding autonomy without demonstrating a benefit."
       ],
       [
-        "Progress",
-        "Repeated work can exhaust the budget."
+        "Control",
+        "Skipping required checks or repeating work\nwithout progress."
       ],
       [
         "Recovery",
-        "A timeout does not establish failure."
+        "Retrying an action before establishing its outcome."
       ]
     ],
     "quoteWrapped": "“we recommend finding the\nsimplest solution possible,\nand only increasing\ncomplexity when needed.”",
@@ -523,21 +525,21 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   text('Model Context Protocol (MCP)',48,434,864,30,20,{bold:true,color});
   text('A standard interface for connecting AI applications to external tools and context.',48,466,864,30,20);
  }else if(areaIndex===3){
-  text('Workflow',48,192,180,30,20,{bold:true,color});
-  text('Code defines the stages and permitted transitions.',244,192,668,30,20);
-  attr('Illustrative FRB workflow',48,232,864);
-  a.workflow.forEach((label,i)=>text(label,48+i*148,260,112,30,20,{bold:true,align:'center',color:i===1?color:C.text}));
-  [168,316,464,612,760].forEach(x=>arrow(x,274,20));
-  shape(190,250,124,50,'none',color,0,{strokeWidth:2,name:'inspect-stage'});
-  line(252,300,0,16);
-  shape(48,316,864,134,'none',color,0,{strokeWidth:2,name:'bounded-agent-loop'});
-  text('Agent loop',64,330,148,26,20,{bold:true,color});
-  text('Model chooses the next action within limits.',232,330,656,26,20);
-  a.agentLoop.forEach((label,i)=>text(label,64+i*222,368,164,50,20,{align:'center'}));
-  [240,462,684].forEach(x=>arrow(x,393,32));
-  line(812,426,0,10);arrow(812,436,-666);line(146,436,0,-10);
-  text('Required gate',48,466,180,25,20,{bold:true,color});
-  text('Exact draft passes verification before export.',244,466,668,25,20);
+  a.executionComparison.forEach(([label,definition],i)=>{
+   const x=48+i*444;
+   text(label,x,192,420,32,24,{bold:true,color});
+   text(definition,x,236,420,60,24);
+  });
+  text('Stage 1',48,406,132,60,24,{align:'center',middle:true});
+  text('Required\ncheck',764,406,148,60,24,{align:'center',middle:true});
+  arrow(196,436,28);arrow(704,436,28);
+  shape(248,348,432,150,'none',color,0,{strokeWidth:2,name:'bounded-agent-loop-stage'});
+  text('Stage 2 · bounded agent loop',268,362,392,30,20,{bold:true,color});
+  text('Choose\naction',268,406,116,60,20,{align:'center',middle:true});
+  text('Act',430,406,56,60,20,{align:'center',middle:true});
+  text('Observe\nresult',538,406,122,60,20,{align:'center',middle:true});
+  arrow(396,436,22);arrow(508,436,18);
+  line(599,474,0,12);line(599,486,-273,0);arrow(326,486,0,-12);
  }else if(areaIndex===4){
   a.evalScales.forEach(([label,body],i)=>{
    text(label,48+i*444,192,420,30,20,{bold:true,color});
@@ -575,11 +577,11 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   text('**Execution controls apply to every approach:**\npermissions, input checks, and limits on execution.',48,450,864,50,20);
  }else if(areaIndex===3){
   a.decisions.forEach(([label,body],i)=>{
-   text(label,48,192+i*80,216,30,20,{bold:true,color});
-   text(body,292,192+i*80,620,54,20);
+   const y=[192,286,390][i],h=[75,100,75][i];
+   text(label,48,y,312,h,20,{bold:true,color});
+   text(body,392,y,520,h,20);
   });
-  text('Checkpoint',48,450,216,30,20,{bold:true,color});
-  text('Saved execution state for resumption.',292,450,620,30,20);
+  text('**Execution controls:** Saved state, required checks, stopping limits, and recovery.',48,480,864,25,20);
  }else if(areaIndex===4){
   attr('Illustrative evaluation cases.',48,192,864);
   evidenceTable([['Case','Expected behavior','Checks'],...a.evalCases],[216,360,288],224,[32,64,64,64],{color});

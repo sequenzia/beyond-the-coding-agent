@@ -8,16 +8,16 @@ Beat 2.4. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 rema
 
 **Title:** Execution pitfalls
 
-- **Gates:** A proposed plan does not enforce prerequisites.
-- **Progress:** Repeated work can exhaust the budget.
-- **Recovery:** A timeout does not establish failure.
+- **Value:** Adding autonomy without demonstrating a benefit.
+- **Control:** Skipping required checks or repeating work without progress.
+- **Recovery:** Retrying an action before establishing its outcome.
 
 **Pitfall:** Adding multiple agents before trying a workflow.
 
 ## Layout and visual
 
 - Display narrative number 29, the area kicker, and `mini-orchestration` throughout.
-- Retain the current pitfalls composition and visible wording, as specified in design brief §§23 and 30. All visual values are defined there.
+- Retain the current pitfalls composition with the approved Value, Control, and Recovery rows, as specified in design brief §§23 and 30. All visual values are defined there.
 - The headline pitfall stays in the body and matches slide 45 word for word.
 - Keep text editable. Show the complete content on entry with hard cuts and no internal builds.
 
@@ -25,18 +25,22 @@ Beat 2.4. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 rema
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] **Adding multiple agents before trying a workflow** is the headline pitfall. Extra workers add handoffs and reconciliation. Also watch for skipped gates, repeated work without progress, and early completion claims. **A timeout does not establish that an action failed.** Inspect what happened before repeating it.
+[0:00] **Adding multiple agents before trying a workflow** is the headline pitfall. The same mistake can start with one unnecessary agent. **Added autonomy needs demonstrated value.**
+
+[0:11] A proposed plan does not enforce required checks. Repeated activity does not establish progress.
+
+[0:18] **A timeout does not establish failure.** Check the action’s outcome before retrying. If it remains unknown, pause or hand off.
 
 [0:25] Advance to slide 30.
 
-Cut first: the handoff elaboration. Never cut the exact headline pitfall and timeout distinction. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the single-agent elaboration. Never cut the exact headline pitfall, demonstrated value, or the timeout and uncertain-outcome distinction. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Anthropic, December 2024, June and November 2025; LangChain checkpoint documentation and Featonby, Amazon Builders' Library, checked September 2026. Research §4 in `research/section-2.md`.
-- Illustrative workflow and recovery contract: Research §0, §3, and §4, and `internal/frb-running-example.md`. The permitted-export timeout is a separate teaching scenario from Tools' rejection case.
-- Accepted integration: `outlines/section-2-integration/04-orchestration.md`. No framework choice, measured recovery result, or universal retry guarantee is claimed.
+- Anthropic, December 2024 and June 2025: workflow/agent distinction, combined patterns, simplicity, and measured benefit. Research §4 in `research/section-2.md`.
+- LangChain checkpoint documentation and Featonby, Amazon Builders' Library, checked September 2026: saved execution state, external outcomes, and safe retries. Research §4 in `research/section-2.md`.
+- Approved content and script: Research §4, "Orchestration slides 27 through 29 refinement, September 16, 2026." Software examples are illustrative; no measured performance result is claimed.
 
 ## Open items
 
-- Rehearse the retained 3:55 allocation on the actual presentation machine. The foundations slide gains 0:15 and the focused recovery application gives up 0:15. Preserve the workflow gate and safe recovery distinction when trimming.
+- Script editorially approved. Rehearse this slide and the combined 2:25 across slides 27 through 29. Preserve the area's 3:55 and Section 2's 28:30 references.

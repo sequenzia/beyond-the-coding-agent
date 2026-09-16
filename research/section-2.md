@@ -550,6 +550,20 @@ The proposed execution design records a stable reference for the intended export
 
 Checkpointing and idempotency receive brief definitions. Detailed storage, locking, transaction, and retry implementations remain backup. Delegation stays a short conditional option for independent case comparisons, with clear assignments, evidence, reconciliation, and measured whole-task benefit.
 
+### Orchestration slides 27 through 29 refinement, September 16, 2026
+
+The presenter approved the visible copy and scripts for a general workflow/agent-loop comparison, execution-approach decisions, and execution pitfalls. This supersedes the earlier foundations and decisions treatment on slides 27 through 29. Slides 26, 30, and 45 remain unchanged. The prior reference in slide 30's authoring notes to a six-stage workflow on slide 27 belongs to the earlier composition; it does not describe this revision.
+
+The foundations distinguish model judgment from model control of execution. Code defines workflow stages and permitted transitions; a stage may use scripts, rules, or a model call. In an agent loop, the model selects actions from observed results, within enforced permissions and limits. A bounded loop can operate inside a workflow stage. Collecting failed test logs, summarizing them with a model, and checking the output illustrates a predefined sequence. Choosing which file to inspect or test to run illustrates an adaptive investigation. These are generic teaching examples, not measured performance claims. Anthropic's workflow/agent distinction and combination of patterns above support this treatment.
+
+The decisions begin with "Is intelligence needed for this task?" Use scripts or workflows when explicit rules can produce an acceptable result. Needing model judgment does not establish a need for model-selected execution. "Autonomy must earn its place" is the presenter's teaching principle, not a quotation from a source: compare representative task quality, completion time, total cost, retries, human review, and operational complexity against the simpler approach. This develops the existing Anthropic simplicity and cost/latency guidance. It does not claim that simpler systems always outperform agents or that autonomy must improve every measure simultaneously.
+
+Saved state, required checks, stopping limits, and recovery remain execution responsibilities. The approved script defines checkpoints as saved state for resumption and keeps external outcomes distinct from saved computation. Durable storage remains necessary when resumption must survive a process restart, as supported by the checkpoint documentation above. Required checks and stopping limits are enforced in code. An unknown action outcome prompts inspection and, if unresolved, pause or handoff before another attempt.
+
+The pitfalls are added autonomy without demonstrated benefit, skipped checks or repeated work without progress, and retrying before establishing the action's outcome. Preserve "Adding multiple agents before trying a workflow." exactly, including on slide 45. The script extends that principle to an unnecessary single agent and retains "A timeout does not establish failure."
+
+The three slide specs and scripts contain no direct FRB reference. Their 1:00, 1:00, and 0:25 allocations preserve the area's 3:55 and Section 2's 28:30 references. Scripts are editorially approved; presenter rehearsal remains necessary. No new external source or statistic is introduced.
+
 ## 5. Verification & Evals
 
 **Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, May 28, 2025, updated September 13, 2026** [primary]. https://hamel.dev/blog/posts/evals-faq/ Checked in a browser September 15, 2026. The page's displayed modification date is September 13; this corrects the earlier September 1 date in this entry.
@@ -753,6 +767,8 @@ The proposed operator pauses the rollout, compares affected task categories and 
 - **Models in the room.** Claude Sonnet 5 (June 30), Opus 5 (July 24, updated August 12), Fable 5.1 and Mythos 5.1 (September 1, reportedly with breaking API changes), GLM-5.2 open-weight (June 15). Dates UNVERIFIED. Historical research leads only. Do not use these model names or dates on stage without primary verification. The migration lesson does not depend on them.
 
 ## Verify before stage
+
+- Slides 27 through 29: approved copy and scripts are integrated at 1:00, 1:00, and 0:25. Rehearse their combined 2:25. Preserve the distinction between needing model judgment and needing model control of execution, the simpler baseline, enforced checks and limits, and uncertainty before retrying. The exact headline still matches slide 45. Slides 26, 30, and 45 remain unchanged.
 
 - Slides 22 through 24: approved copy and scripts are integrated at 1:00, 1:05, and 0:40. Rehearse their combined 2:45. MCP is the connection interface; CLI access uses an execution tool; code mode writes code that calls tools and can use MCP. The new Anthropic code-execution and bash-tool sources were checked September 16, 2026. Preserve permission boundaries and explicit uncertainty. The exact headline still matches slide 45. Slides 21 and 25 remain unchanged.
 
