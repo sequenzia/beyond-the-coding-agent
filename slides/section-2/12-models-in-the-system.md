@@ -1,6 +1,6 @@
 # Slide 12: The model invocation
 
-Beat 2.1. Section 2. Rehearsal reference 1:20 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
+Beat 2.1. Section 2. Rehearsal reference 1:05 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -12,44 +12,45 @@ Beat 2.1. Section 2. Rehearsal reference 1:20 of the area's 4:30. Section 2 rema
 |---|---|---|
 | Instructions, request, evidence, tool definitions | Run a trained model with selected settings | Response or proposed tool call |
 
-- **Tokens:** Units of content the model processes and generates.
-- **Context limit:** Capacity for input and generated tokens.
-- **Reasoning settings:** Control reasoning effort where supported.
+- **Tokens:** Units the model processes and generates. Used to track usage.
+- **Context limit:** Capacity for supplied input and generated output.
+- **Reasoning settings:** Effort controls, where supported. Evaluate their effect on the task.
 
-Choose a configuration suited to the task and approved for the data.
+Choose a model version and settings suited to the task and approved for the data.
 
 ## Layout and visual
 
 - Display narrative number 12, the area kicker, and `mini-models` throughout.
 - Use the native model-invocation diagram and annotation rows in design brief §27. All visual values are defined there.
 - Connect supplied input, inference, and generated output. Keep context capacity associated with the whole call. A proposed tool call is not shown as an executed action.
-- Keep the configuration responsibility visible below the annotations. The coding-agent connection stays spoken.
+- Keep the configuration responsibility visible below the annotations. Connect each foundation to a configuration choice or constraint in the talk track.
 - Show the complete content on entry. Use hard cuts and no internal builds. Keep all labels editable.
 
 ## Talk track
 
 [0:00] **MODEL INVOCATION**
 
-[0:00] Your application supplies instructions, a request, relevant evidence, and available tools. **Inference is running an already trained model on that input to obtain an output.** That output can be a response or a proposed tool call. The application handles execution.
+[0:00] Model selection includes choosing a model version and its settings. Let's look at what happens when your application calls it.
 
-[0:21] Tokens are units the model processes and generates. For text, they can be pieces of words. They help us understand usage and capacity.
+[0:10] The application supplies instructions, a request, evidence, and tool definitions. **Inference means running a trained model on that input to obtain an output.** It can return a response or propose a tool call. The application handles execution.
 
-[0:32] The context window limits the tokens available for a call. Leave room for generated output and, where applicable, reasoning tokens. The precise limits depend on the model.
+[0:26] Tokens are units the model processes and generates. For text, they can be pieces of words. They help us track usage.
 
-[0:47] Some models expose reasoning settings. **Treat effort as part of the configuration you evaluate.** Measure whether it improves the task enough to justify its cost and delay. Choosing a model and effort for a coding task is a familiar version of this decision.
+[0:36] The context limit constrains capacity for input and output. Leave room for the answer and, where applicable, reasoning tokens. Exact limits depend on the model.
 
-[1:08] Our responsibility is to choose and maintain a configuration that fits the task and is approved for the data. Next, compare the eligible options.
+[0:48] Some models also expose reasoning settings. **Treat reasoning effort as part of the configuration you evaluate.** Measure whether it improves the task enough to justify the cost and delay.
 
-[1:20] Advance to slide 13.
+[1:00] Next, compare the eligible configurations on representative work.
 
-Cut first: the coding-task elaboration. Never cut the four foundation definitions, model-specific qualification, or selection responsibility. Cue times are rehearsal guides, not automatic playback timing.
+[1:05] Advance to slide 13.
+
+Cut first: the pieces-of-words example. Never cut the four foundation definitions, application execution boundary, model-specific qualification, or evaluated configuration responsibility. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- OpenAI concepts, context, reasoning, and selection guidance, checked September 2026; Osmani, April 2026; data eligibility and lifecycle sources; presenter audience context. Research §0 and §1 in `research/section-2.md`.
-- Illustrative packet and contracts: `internal/frb-running-example.md`. Failure investigation: Research §5. No model scores or winning configuration are claimed.
-- Accepted content integration: `outlines/section-2-integration/01-model-selection.md`.
+- OpenAI concepts, context, reasoning, and selection guidance, checked September 2026. Research §1 in `research/section-2.md`.
+- Accepted technical foundations: `outlines/section-2-integration/01-model-selection.md`. Current copy and script refined with the presenter September 16, 2026.
 
 ## Open items
 
-- Rehearse the 4:30 area on the actual presentation machine. The four primer concepts precede decisions. Preserve the FRB decision and headline pitfall when trimming.
+- Copy and script agreed with the presenter. Rehearse the 1:05 allocation on the actual presentation machine. Slides 12 through 14 total 2:40, with the area remaining 4:30.

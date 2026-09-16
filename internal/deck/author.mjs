@@ -171,38 +171,38 @@ const section2Areas = [
       ["Generated output", "Response or\nproposed tool call"]
     ],
     "foundations": [
-      ["Tokens", "Units of content the model processes and generates."],
-      ["Context limit", "Capacity for input and generated tokens."],
-      ["Reasoning settings", "Control reasoning effort where supported."]
+      ["Tokens", "Units the model processes and generates. Used to track usage."],
+      ["Context limit", "Capacity for supplied input and generated output."],
+      ["Reasoning settings", "Effort controls, where supported. Evaluate their effect on the task."]
     ],
-    "responsibility": "Choose a configuration suited to the task and approved for the data.",
+    "responsibility": "Choose a model version and settings suited to the task and approved for the data.",
     "decisions": [
       [
-        "Eligible options",
-        "Approved for the data, environment, and intended use."
+        "Eligible configurations",
+        "Approval for the data and intended use.\nRequired capabilities and hard operating limits."
       ],
       [
-        "Required quality",
-        "Representative tasks, with clear acceptance criteria."
+        "Acceptable quality",
+        "Results on representative tasks,\njudged against defined acceptance criteria."
       ],
       [
-        "Task efficiency",
-        "Completion time and cost per successful task,\nincluding retries and review."
+        "Time and total cost",
+        "Completion time and cost per successful task,\nincluding failed attempts and review."
       ]
     ],
     "pitfall": "Selecting or changing models without testing them on your task.",
     "cues": [
       [
-        "Capacity",
-        "Evidence fits, but the result still needs checking."
+        "Context capacity",
+        "The evidence fits. That does not establish answer quality."
       ],
       [
-        "Effort",
-        "A higher setting still needs task evidence."
+        "Reasoning effort",
+        "A higher setting still needs a measured benefit on your task."
       ],
       [
-        "Cost",
-        "Token price omits retries and review."
+        "Token price",
+        "The price omits tool calls, retries, verification, and review."
       ]
     ],
     "quoteWrapped": "“A decent model with a\ngreat harness beats a\ngreat model with a\nbad harness.”",

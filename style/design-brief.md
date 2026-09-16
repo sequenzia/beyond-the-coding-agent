@@ -796,18 +796,20 @@ The accepted sequence is quote, shared technical primer, decisions, pitfalls, an
 
 This replaces the two-column definition composition for Model Selection only. Use one native editable invocation diagram with three connected text groups, followed by three annotation rows and a responsibility line. Keep the background clear of cards and decorative borders.
 
+Presenter-approved refinement, September 16: slides 12, 13, and 14 now take 1:05, 1:05, and 0:30 respectively. Their combined 2:40 and the area's 4:30 remain unchanged. The current Section 2 rehearsal reference remains 28:30. Retain the geometry below and the approved wording in the slide specs.
+
 - Columns start at x 48, 356, and 664, each width 248. Labels at y 192, height 30, Helvetica Bold 20 in area blue. Bodies at y 230, height 64, Helvetica Regular 20. Deliberately wrap input after "request," and output after "or". Inference reads "Run a trained model" then "with selected settings."
 - Native horizontal arrows connect the groups at y 255, from x 308 to 340 and from x 616 to 648. Use the shared secondary 2-point connector style. The arrows describe input and output flow, not execution authority.
-- Annotation rows begin at y 320, 360, and 400. Labels at x 48, width 216, height 30, Bold 20 in area blue. Explanations at x 292, width 620, height 30, Regular 20. Rows define tokens, context capacity, and reasoning settings. Context accounting applies to the whole call, not only supplied input.
-- The selection responsibility uses x 48, y 458, width 864, height 30, Regular 20. Keep it to one line. The fuller choose-and-maintain definition remains spoken.
+- Annotation rows begin at y 320, 360, and 400. Labels at x 48, width 216, height 30, Bold 20 in area blue. Explanations at x 292, width 620, height 30, Regular 20. Rows connect tokens to usage, context capacity to supplied input and generated output, and reasoning settings to evaluated task benefit. Context accounting applies to the whole call, not only supplied input.
+- The selection responsibility uses x 48, y 458, width 864, height 30, Regular 20. Keep "Choose a model version and settings suited to the task and approved for the data." on one line.
 
 ### Slide 13: selection decisions
 
-Use the existing three-row decisions composition at y 192, 292, and 392. Labels at x 48, width 272, height 82, Helvetica Bold 24. Explanations at x 344, width 568, height 82, Regular 20. The sequence is eligible options, required quality, and task efficiency. Routing and model changes remain spoken.
+Use the existing three-row decisions composition at y 192, 292, and 392. Labels at x 48, width 272, height 82, Helvetica Bold 24. Explanations at x 344, width 568, height 82, Regular 20. The labels are Eligible configurations, Acceptable quality, and Time and total cost. Deliberately break the first explanation after "intended use.", the second after "tasks,", and the third after "task,". Keep the comparison method, routing, and model changes spoken.
 
 ### Slide 14: pitfalls
 
-Keep the existing three-row geometry and headline-pitfall placement. The cue labels are Capacity, Effort, and Cost. Preserve the exact headline sentence and its existing line break. Slide 45 remains unchanged.
+Keep the existing three-row geometry and headline-pitfall placement. The cue labels are Context capacity, Reasoning effort, and Token price. Pair each with what it does not establish alone, using the approved sentences in the slide spec. Preserve the exact headline sentence and its existing line break. Slide 45 remains unchanged.
 
 ### Slide 15: FRB design and scorecard
 

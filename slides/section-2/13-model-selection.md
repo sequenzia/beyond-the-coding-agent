@@ -1,6 +1,6 @@
 # Slide 13: Selecting a model configuration
 
-Beat 2.1. Section 2. Rehearsal reference 1:00 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
+Beat 2.1. Section 2. Rehearsal reference 1:05 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -8,42 +8,43 @@ Beat 2.1. Section 2. Rehearsal reference 1:00 of the area's 4:30. Section 2 rema
 
 **Title:** Selecting a model configuration
 
-| Decision | Requirement |
+| Decision | Evidence needed |
 |---|---|
-| Eligible options | Approved for the data, environment, and intended use. |
-| Required quality | Representative tasks, with clear acceptance criteria. |
-| Task efficiency | Completion time and cost per successful task, including retries and review. |
+| Eligible configurations | Approval for the data and intended use. Required capabilities and hard operating limits. |
+| Acceptable quality | Results on representative tasks, judged against defined acceptance criteria. |
+| Time and total cost | Completion time and cost per successful task, including failed attempts and review. |
 
 ## Layout and visual
 
 - Display narrative number 13, the area kicker, and `mini-models` throughout.
 - Use the three-row decisions composition in design brief §27. All visual values are defined there.
-- Present the rows in decision order. Eligibility and hard product limits constrain the options. Establish acceptable quality before optimizing efficiency.
-- Keep routing and model lifecycle choices in the talk track.
+- Present the rows in decision order. Eligibility, required capabilities, and hard operating limits constrain the options. Measure task outcomes, evaluate them against acceptance criteria, and compare time and cost among acceptable configurations.
+- Keep the comparison method, routing, and model lifecycle choices in the talk track. The later evaluation area develops how to construct and trust the evaluation itself.
 - Show the complete content on entry. Use hard cuts and no internal builds. Keep text editable.
 
 ## Talk track
 
 [0:00] **SELECTION DECISIONS**
 
-[0:00] **First establish which configurations are eligible for the data and intended use.** For this audience, CUI and export-controlled information make that a familiar constraint. Hard cost or response-time limits can also exclude options.
+[0:00] First, identify which configurations are eligible for your data and intended use. Required capabilities and hard cost or response-time limits can also rule options out.
 
-[0:15] Define an acceptable result and compare configurations on representative work. Keep the intended context, tools, and workflow in the comparison. Record the model version and reasoning settings.
+[0:12] Then define what an acceptable result looks like. **Compare candidates on the same representative tasks, using the context, tools, and workflow you intend to deploy.** Record the model version and settings.
 
-[0:28] Among configurations that meet the requirements, compare time to a completed outcome and cost per successful task. Include retrieval, tool calls, retries, verification, and human review. Account for failed attempts too.
+[0:27] Measure how often results meet your criteria, how long completion takes, and the total cost. Include tool calls, retries, verification, and human review. Failed attempts count toward the cost of successful work.
 
-[0:45] Start with one configuration. Add routing when measurements justify it. **Pinned versions need a migration plan. Moving aliases need regression monitoring.** Both choices need ongoing task checks.
+[0:43] **Choose among configurations that meet the quality requirement.** Compare their time and cost against your product's priorities. Start with one configuration. Add routing when measurements justify the complexity.
 
-[1:00] Advance to slide 14.
+[0:56] Selection continues after deployment. Pinned versions need a migration plan. Moving aliases need regression monitoring. Both need ongoing task checks.
 
-Cut first: routing elaboration. Never cut eligibility, acceptable task quality, total-task comparison, or lifecycle responsibility. Cue times are rehearsal guides, not automatic playback timing.
+[1:05] Advance to slide 14.
+
+Cut first: routing elaboration. Never cut eligibility, representative task comparison, acceptance criteria, total-task accounting, or lifecycle responsibility. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- OpenAI concepts, context, reasoning, and selection guidance, checked September 2026; Osmani, April 2026; data eligibility and lifecycle sources; presenter audience context. Research §0 and §1 in `research/section-2.md`.
-- Illustrative packet and contracts: `internal/frb-running-example.md`. Failure investigation: Research §5. No model scores or winning configuration are claimed.
-- Accepted content integration: `outlines/section-2-integration/01-model-selection.md`.
+- OpenAI selection guidance, checked September 2026; Osmani, April 2026; data eligibility and model lifecycle sources. Research §1 in `research/section-2.md`.
+- Accepted selection principles: `outlines/section-2-integration/01-model-selection.md`. Current copy and script refined with the presenter September 16, 2026.
 
 ## Open items
 
-- Rehearse the 4:30 area on the actual presentation machine. The four primer concepts precede decisions. Preserve the FRB decision and headline pitfall when trimming.
+- Copy and script agreed with the presenter. Rehearse the 1:05 allocation on the actual presentation machine. Slides 12 through 14 total 2:40, with the area remaining 4:30.
