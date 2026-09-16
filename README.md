@@ -4,25 +4,27 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 
 ## Session
 
-- **Length:** 50 minutes: 35:00 of presentation and 15:00 of questions and discussion
-- **Deck:** 26 narrative slides across sections of 6, 13, and 7 slides; 28 authored compositions expand to 56 PowerPoint slides, with one internal click and 57 presentation states
+- **Length:** 50 minutes. Section 2 stays at 25:00 to 29:00, with a 27:00 rehearsal reference. Sections 1 and 3 retain 5:00 references for now and may be trimmed later. The final presentation/discussion split remains open.
+- **Deck:** 45 narrative slides across sections of 6, 32, and 7 slides. The 46 authored compositions expand to 56 physical slides and 57 presentation states, with one internal click and one Morph transition.
 - **Audience:** software engineers who want to move into AI engineering, most of whom have used a coding agent but few of whom have shipped a system whose behavior depends on a model
-- **Focus:** agentic AI, taught by taking apart the coding agents the room already uses, Codex CLI and Devin, area by area. Each area closes with a "When you are the owner" beat: what the vendor engineered that you now own, how a customer-facing or enterprise deployment raises the stakes, and that area's most common pitfall
+- **Focus:** agentic AI, connected briefly to familiar coding agents, Codex CLI and Devin. Each area opens with a quote, explains what it is and why it matters, develops decisions and trade-offs, examines pitfalls, and applies the ideas to one illustrative FRB system.
 - **When:** September 17, 2026
 
 ## Repo Layout
 
 - `outlines/outline-v2.md` is the current outline: slide-level beats with timings, talk track, evidence, and sources. `outlines/outline-v1.md` is the earlier exploratory draft, kept for history.
 - `research/section-1.md`, `research/section-2.md`, and `research/section-3.md` hold the sourced notes behind each section: quotes, dates, URLs, verification markers, and a "verify before stage" list.
-- `internal/anatomy-of-an-agentic-ai-system.png` is the original portrait system diagram. `internal/anatomy-of-an-agentic-ai-system-landscape.svg` is the same diagram re-laid for a 16:9 slide in the deck's dark theme, editable, and the source of every other diagram file. `internal/anatomy-of-an-agentic-ai-system-landscape-yours.svg` is the slide 19 variant with a "yours" badge on every box except Goal. `internal/generated/` holds the four highlight states and seven mini-map variants, `internal/renders/` the PNGs the deck uses, and `internal/build-diagrams.mjs` regenerates all of them from the base. `internal/profile-320.webp` is the presenter photo for slide 2.
+- `internal/anatomy-of-an-agentic-ai-system.png` is the original portrait system diagram. `internal/anatomy-of-an-agentic-ai-system-landscape.svg` is the same diagram re-laid for a 16:9 slide in the deck's dark theme, editable, and the source of every other diagram file. `internal/anatomy-of-an-agentic-ai-system-landscape-yours.svg` is the slide 38 variant with responsibility badges, previously used on slide 19. `internal/generated/` holds the four highlight states and seven mini-map variants, `internal/renders/` the PNGs the deck uses, and `internal/build-diagrams.mjs` regenerates all of them from the base. `internal/profile-320.webp` is the presenter photo for slide 2.
 - `slides/section-1/`, `slides/section-2/`, and `slides/section-3/` hold one Markdown file per slide: on-slide text build by build, layout notes, a near-script talk track, sources, and open items. Written from `outlines/outline-v2.md` one slide at a time.
 - `style/colors.md` holds the palette. `style/design-brief.md` fixes the deck's typography, grid, color roles, component specs, build rules, and diagram theme. It is the source of truth for every visual value, and slide files defer to it.
-- `internal/frb-running-example.md` fixes the illustrative Failure Review Board packet, document IDs and revisions, expected brief, and tool/workflow contracts used across the six owner beats.
+- `internal/frb-running-example.md` fixes the illustrative Failure Review Board packet, document IDs and revisions, expected brief, and contracts used across the six areas.
 - `internal/illustrations/` holds quote-screen images and their generation prompts.
 - `internal/deck/` holds the reusable PowerPoint authoring, animation, rendering, and validation scripts. See [the build guide](internal/deck/README.md) for dependencies and update instructions.
 - `output/` holds the current PowerPoint deck. `output/archive/` preserves older decks. `.deck-build/` holds ignored intermediate files and previews.
 
-All six Section 2 areas now use five screens: user example, quote with a conceptual illustration, general decisions, maintenance and pitfalls, and a separate FRB application. Operating it then returns to the yours anatomy diagram. Evals preserves its 1:00 personal-story slot over the general maintenance screen. The total remains 35:00.
+All six Section 2 areas now use five separately numbered static slides: quote, combined definition and importance, decisions, challenges and pitfalls, and FRB application. Production operations is the final area, followed by the responsibility map. The standalone user screens, paired user/owner labels, and evals personal story are removed from the authoring target.
+
+The [Section 2 content rework](outlines/section-2-rework/README.md) has been integrated into the current outline and slide specs. Its [section review](outlines/section-2-rework/section-review.md), [spoken pass](outlines/section-2-rework/spoken-pass.md), [slide map](outlines/section-2-rework/slide-map.md), and [numbering map](outlines/section-2-rework/numbering-map.json) remain supporting authoring records. Section 2 is slides 7 through 38; Section 3 is 39 through 45. The reusable builder now implements the same numbered content and preserves its authored and expanded build maps. Render and native-playback review accompany each delivered build.
 
 ## Rebuild the PowerPoint deck
 

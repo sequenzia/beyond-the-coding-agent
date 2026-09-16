@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { randomUUID, randomInt } from 'node:crypto';
 
 export const EXPECTED_COUNTS = Object.freeze({
-  narrativeSlides: 26, authoredCompositions: 28, physicalSlides: 56,
+  narrativeSlides: 45, authoredCompositions: 46, physicalSlides: 56,
   presentationStates: 57, internalClicks: 1, morphTransitions: 1, advances: 56,
 });
 

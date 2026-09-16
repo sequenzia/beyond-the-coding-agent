@@ -15,7 +15,7 @@ Two sentences. Nothing else.
 
 - The two sentences stacked, centered, with generous space between them. Large type. The second sentence carries slightly more weight, or the words "AI engineer" do, so the eye lands on the claim.
 - No title, no attribution, no takeaway line. The takeaway is spoken.
-- The slide stays up for the full 0:45 and returns unchanged as slide 26. Build it once and reuse it.
+- The slide stays up for the full 0:45 and returns unchanged as slide 45. Build it once and reuse it.
 
 ## Talk track
 
@@ -25,11 +25,11 @@ Two sentences. Nothing else.
 
 [0:22] ML engineers typically focus on models and the pipelines that produce them. AI engineers typically focus on products around models. The roles overlap, including adaptation and fine-tuning.
 
-[0:34] **Owner means the engineer or team accountable for the delivered product's behavior and operating limits.**
+[0:34] **The engineer or team is accountable for the delivered product's behavior and operating limits.**
 
 [0:45] Advance to slide 4.
 
-Cut first: the adaptation and fine-tuning example. Never cut the thesis, the overlap qualification, or the owner definition.
+Cut first: the adaptation and fine-tuning example. Never cut the thesis, the overlap qualification, or the accountability statement.
 
 ## Sources
 

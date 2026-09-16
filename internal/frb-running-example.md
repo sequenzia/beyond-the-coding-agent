@@ -8,6 +8,16 @@ The system helps engineers research Failure Review Boards (FRBs), understand dis
 
 Capabilities: search by number, date, or category; export authorized records; analyze an individual FRB; summarize its discussion and decisions; compare recurring issues across FRBs. Research workers use only the authorized internal FRB corpus and its attachments. No open-web research or additional access is implied.
 
+## Data sensitivity and available models
+
+Content-rework assumption, September 15, 2026: **the FRB corpus includes CUI and export-controlled information (ECI).** The system must use model services and environments approved for the applicable data and intended use. This is an assumption about the illustrative deployment. The invented excerpts remain teaching material and carry no real designation or sensitive content.
+
+For this example, assume the approved model choices are older and less capable for the intended FRB synthesis than newer alternatives outside the approved environment. This reflects a constraint the presenter identifies in the audience's work. No model names, scores, approval status, or universal claim about restricted environments is implied.
+
+The design question is whether the available approved models can support a useful brief at the required quality. Compare them on the FRB task. If checks reveal a capability gap, evaluate a narrower scope or more structured workflow with focused evidence and human review. Those measures must demonstrate acceptable behavior. If the intended capability still falls short, limit or defer it until the requirements can be met. Preserve the distinction between possible causes and established findings throughout.
+
+Routing, fallbacks, model-based graders, and replacement models that receive restricted records must remain within the applicable approved scope. A capability gap does not authorize sending those records to a stronger unapproved service. Revisit the design when suitable approved options become available.
+
 ## Recurring request
 
 “Review FRB-042 about a pump shutdown. Summarize its discussion and decisions, compare similar FRBs from the past year, and export a cited brief distinguishing possible causes from established findings.”
@@ -31,7 +41,7 @@ FRB-042-MIN r2 is the later minutes revision. FRB-042-BRF r1 is a different, pre
 ## Central failure and expected distinction
 
 - **Observed answer, deliberately wrong:** “The board confirmed bearing wear.”
-- **Citation on that illustrative answer:** FRB-042-MIN r2 §3, paragraph 2. The reference exists, but the cited minutes do not support confirmation. This supplies the direct-reference PASS and source-support FAIL on slide 17.
+- **Citation on that illustrative answer:** FRB-042-MIN r2 §3, paragraph 2. The reference exists, but the cited minutes do not support confirmation. This supplies the direct-reference PASS and source-support FAIL on slide 32.
 - **Expected:** FRB-042's cause remains unresolved. Bearing wear was a possible cause in the preliminary briefing. The later minutes record a decision to inspect the bearing before assigning a cause.
 - **Failed check:** a hypothesis was promoted to an established finding. A citation may exist and still fail to support the sentence.
 - **Trace investigation:** did parsing lose the qualification, retrieval omit the later minutes, compaction drop the constraint, a worker overstate a finding, or synthesis ignore evidence it received? Inspect the actual trace before choosing a repair.
@@ -46,6 +56,14 @@ FRB-042-MIN r2 is the later minutes revision. FRB-042-BRF r1 is a different, pre
 5. **Citations:** every material statement retains document ID, revision, and source location. Test citation existence and semantic support separately.
 6. **Unresolved questions and limitations:** the packet contains no completed bearing inspection or established cause for FRB-042. State missing, unreadable, conflicting, incomplete, or unauthorized evidence explicitly, without revealing restricted record details.
 
+## Context preparation
+
+Proposed design for the content rework: retrieve the evidence needed for the current step with its document ID, revision, date, and source location. The preliminary briefing and later minutes remain separate sources. Retain the unresolved cause and outstanding inspection in any working summary. Bring in comparison-case evidence for the comparison step, keeping each case's findings distinct.
+
+Apply the corpus's CUI/ECI requirements to the services and environments used for parsing, retrieval, and any embedding or summarization of restricted records, as well as to the answering model. User access and service eligibility are separate checks. A user's permission to read a record does not establish permission to send it to every model service.
+
+Check source freshness and access again before finalizing or resuming a brief. Missing passages, unreadable documents, incomplete indexing, or access restrictions produce explicit limitations without revealing restricted record details. Focused context is a design to evaluate with the available approved model. It does not establish that the model can perform the full task or that the older options have smaller context windows.
+
 ## Tool and workflow contract
 
 Background services parse and index PDF reports, Word minutes, and PowerPoint briefings. They retain format-specific source locations, revisions, parse status, and index freshness. Parsing and indexing are not agent-facing tool calls in this illustration.
@@ -57,30 +75,75 @@ Background services parse and index PDF reports, Word minutes, and PowerPoint br
 | Export records | Selected IDs and revisions, destination | Authorized selected records and manifest. Enforce scope and destination outside the model. |
 | Export cited brief | Checked draft, citations, destination | Export receipt and content matching the checked draft, including uncertainty and limitations. Recheck authorization at export. |
 
+For Export cited brief, verification status must refer to the exact content being exported. The service checks that status; a model-supplied assertion that a draft was checked does not establish it. Changed content requires renewed verification. Code enforces access and the permitted export destination under the scenario's CUI/ECI requirements. The operation preserves citations, unresolved findings, and limitations rather than generating a fresh summary during export.
+
+The result contract distinguishes confirmed completion with a receipt, known failure, and an unknown outcome when completion cannot be confirmed. Do not treat an unconfirmed result as either proof of success or permission to repeat the side effect. Orchestration determines the next step using that result and the saved execution state.
+
 The bounded workflow retrieves the target packet, inspects evidence, compares cases, reconciles findings, verifies the brief, and exports. Optional workers perform independent comparisons only after the simpler workflow has been measured. They return evidence, IDs, revisions, source locations, and uncertainty to the main analyst. They cannot approve official conclusions or export records independently.
 
 Persist step completion and exact revisions for resume. Recheck freshness and access on resume. Bound retries, actions, tokens, and end-to-end latency. Avoid duplicate exports by checking the prior export receipt before retrying. Incomplete indexing, exhausted budgets, or unresolved contradictions produce an explicit limitation or human handoff. Inspect conflicting sources before synthesizing a claim.
 
+### Execution and recovery rules for the content rework
+
+Keep the six-stage workflow as the proposed baseline. Model judgment can interpret evidence within a stage; code enforces the prerequisites for moving to verification and export. Save stage completion, exact source revisions, the working draft, and the relevant verification and export outcomes. A changed draft must pass verification again. If a resumed run finds changed evidence, return the affected work to inspection and reconciliation before verifying another draft.
+
+| Observed export state | Proposed execution response |
+|---|---|
+| A matching receipt confirms the checked draft was exported | Record completion and return the existing receipt. |
+| A confirmed failure establishes that the export did not complete | Address the cause, recheck prerequisites, and retry only within policy and the remaining budget. |
+| The outcome is unknown | Inspect the export state before deciding whether to retry. If it remains unknown, preserve the uncertainty and hand off. |
+
+At an action, token, retry, or end-to-end latency limit, stop further automated work and state what is incomplete. A limit does not mean the requested brief was completed. Any export of a limited brief must still pass its applicable checks and authorization. Official causes and board decisions remain with people.
+
+If evaluation justifies delegation, comparison workers receive a case assignment, permitted evidence sources, an expected result, and a work limit. They return findings with source IDs, revisions, locations, and uncertainty. The main analyst reconciles them before verification. Every worker and handoff stays within the CUI/ECI processing boundaries. No more capable unapproved service enters the workflow as a fallback.
+
 ## Measurement and operating responsibilities
 
-- Compare candidate models and versions on extraction, discussion summaries, and qualified synthesis. No scores or winning model are assumed. Worker evals emphasize evidence fidelity and retrieval coverage. Main-analyst evals emphasize faithful summaries, reconciliation, and warranted uncertainty.
+- Establish which model services and environments are eligible for the corpus's CUI/ECI constraints, then compare candidate models and versions on extraction, discussion summaries, and qualified synthesis. No scores or winning model are assumed. Worker evals emphasize evidence fidelity and retrieval coverage. Main-analyst evals emphasize faithful summaries, reconciliation, and warranted uncertainty. If the approved options cannot support the full task, evaluate a reduced scope without weakening the evidence requirements.
 - Measure quality with cost per completed brief and p95 latency, including workers, retries, and verification. Route by measured task fit, rather than assuming a smaller model is suitable for workers.
 - Direct checks cover IDs, revisions, permissions, source locations, export selection, and agreement between the checked draft and exported content. Experts judge semantic support, useful synthesis, and warranted uncertainty. Calibrate model graders to expert decisions.
 - Inspect a failure and its trace, identify the responsible component, change it, rerun a representative suite with repeated trials, and monitor production samples. Include this hypothesis-as-fact case, duplicate documents, fresh revisions, inaccessible evidence, and parse failures.
 - Trace the request through retrieved revisions, optional worker findings, synthesis, checks, and export. Restrict trace access too. Monitor freshness, parsing and tool failures, quality failures, cost per completed brief, and end-to-end latency.
+
+### Verification and evaluation design for the content rework
+
+The source-support check uses the deliberately wrong answer already specified above. Its reference to FRB-042-MIN r2 §3 paragraph 2 exists, but the minutes do not support confirmation of bearing wear. The expected result preserves the unresolved cause and inspection requirement. Failing that check prevents export of that draft. Corrected content requires renewed verification before export.
+
+Direct checks cover resolvable citations and recorded constraints such as access, source revisions, and agreement between checked and exported content. Authorized domain experts assess whether the cited evidence supports a finding and whether uncertainty is warranted. A model grader can assist only after its judgments have been evaluated against expert decisions for the intended task. The services, traces, and reviewers used in evaluation remain within the applicable CUI/ECI scope. Do not assume the available answering model is also a reliable grader, or use an ineligible stronger service to grade restricted records.
+
+Retain this failure as one regression case within a broader suite covering the shared packet's risks: duplicate documents, revised sources, inaccessible evidence, parsing failures, cross-case confusion, and export behavior. Repeat trials to examine consistency. Compare system changes using the same relevant cases and record the task, criteria, source revisions, and configuration needed to interpret the results. Inspect the trace before assigning a failure to a component, and review the grader itself when a result appears inconsistent with the evidence.
+
+The presenter removed the separate evals personal story and its 1:00 reservation in the content rework. This invented check is the area's worked example. It does not represent personal experience.
+
+### Production operations agreement for the content rework
+
+This is a proposed operating agreement for the illustrative system. Production operations is the presenter-selected name for the final Section 2 area.
+
+| Responsibility | Proposed agreement |
+|---|---|
+| Access and processing scope | Enforce authorized records, eligible model and supporting services, and permitted export destinations under the corpus's CUI/ECI requirements. Apply the boundary to derived context, traces, and evaluation artifacts too. |
+| Evidence of behavior | Connect each request to exact source revisions, observable tool actions, check results, exported content, and the receipt or unresolved export state. Restrict access to the evidence. |
+| Operating signals | Monitor quality, source freshness, parsing and tool failures, handoffs, cost per completed brief, and end-to-end latency. Include retries and verification when reviewing resource use. |
+| Limits and handoff | Stop or return a limitation under the established execution rules. Route failed checks, missing evidence, exhausted budgets, and unknown export outcomes to an assigned authorized responder. Supply the context needed to investigate. |
+| Changes and incidents | Assign an accountable operator and a review process for model, prompt, retrieval, tool, permission, and configuration changes. Keep a way to disable a capability or revert a problematic configuration. Inspect any already completed actions separately. |
+| Official decisions | People retain responsibility for official causes, decisions, and board records. An exported research brief does not replace that authority. |
+
+Review the combined capabilities when integrations change. An internal attachment can contain untrusted instructions. The system's source access must not create unrestricted outbound communication. Break or constrain that path while retaining the broader security review. New or stronger model services remain subject to the same eligibility constraints.
+
+Use failures to identify a response and a subsequent improvement. For example, investigate a source-support failure using the saved revisions and trace, repair the responsible component, rerun the relevant evaluation cases, and monitor after the change. No response times, cost limits, quality thresholds, or real organizational owners are invented here.
 
 ## Slide map
 
 | Slide | Responsibility taught |
 |---|---|
 | 7 | System purpose and human ownership of official records |
-| 9 | Select, measure, replace, and route models for FRB work |
-| 11 | Curate relevant, fresh evidence with provenance and constraints |
-| 13 | Define the agent's tool contract and enforce authorization |
-| 15 | Bound workflow, workers, retries, and resume |
-| 16 | Detect the hypothesis-as-fact failure |
-| 17 | Separate direct checks from expert judgment and improve the system |
-| 19 | Enforce access, trace decisions, and monitor operation |
-| 24 | Review 20 to 50 outputs and record input, observed behavior, expected behavior, and check |
+| 12 | Select, measure, replace, and route eligible models for FRB work |
+| 17 | Curate relevant, fresh evidence with provenance and constraints |
+| 22 | Define the agent's tool contract and enforce authorization |
+| 27 | Bound workflow, workers, retries, and resume |
+| 32 | Separate citation existence from source support and retain the failure as a regression case |
+| 37 | Enforce access, trace decisions, and monitor accountable operation |
+| 38 | Connect the six responsibilities |
+| 43 | Review 20 to 50 outputs and record input, observed behavior, expected behavior, and check |
 
-The FRB failure is separate from both protected personal-story slots. No live demonstration or FRB application is part of this revision.
+The FRB failure is illustrative. No live demonstration of an FRB application is planned for this revision.

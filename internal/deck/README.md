@@ -2,6 +2,8 @@
 
 This directory is the editable source for the PowerPoint deck. Keep these files in Git. `.deck-build/` contains disposable build snapshots, intermediate PPTX files, renders, and validation reports. The builder never reads from an older build directory.
 
+**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 45 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The accepted numbering is in `outlines/section-2-rework/numbering-map.json`; layout rules are in design brief §23. The compiler and notes tests cover the new numbering.
+
 ## Rebuild
 
 From the repository root:
@@ -21,7 +23,7 @@ node internal/deck/build.mjs --output output/beyond-the-coding-agent-v2.pptx
 For a faster layout iteration, limit the PNG previews to selected source slide keys. The PPTX and package validation still cover the whole deck:
 
 ```sh
-node internal/deck/build.mjs --output output/models-revision.pptx --slides 08,09
+node internal/deck/build.mjs --output output/models-revision.pptx --slides 08,09,10,11,12
 ```
 
 Run the default command before delivery to render every state. Use `--help` for command syntax. Paths supplied to `--output` are relative to the repository root, even if the command is run from another working directory.
@@ -59,17 +61,17 @@ The launcher itself needs Node on `PATH`. If it is unavailable, invoke `build.mj
 4. Rebuild. Inspect the PNG states named `key-click.png` in the printed `renders/` directory, plus every complete physical slide in `physical-renders/`. Continuation keys include the original state boundary, such as `15-c1`. Fix overlaps and awkward wrapping in `author.mjs`, then rebuild to a new output filename.
 5. Open the final PPTX in PowerPoint and rehearse the clicks and transitions. Rendered images and automated checks cannot validate playback on the presentation machine.
 
-**Markdown synchronization:** speaker notes reload the talk track from Markdown on each build. The export removes timestamps, puts build cues in bold uppercase paragraphs with blank lines around them, and ends after the advance instruction. Slide 26 ends at the Q&A handoff. Metadata, authoring notes, cut guidance after the advance, backup sections, sources, research links, and open items stay out of exported notes. Timing and evidence remain in the source Markdown. Visible slide copy, geometry, and click assignments are deliberately authored in JavaScript. Editing on-slide text in Markdown alone does not change the visible slide. Keep both layers in sync. Manual PowerPoint edits also need to be transferred into the builder before the next rebuild.
+**Markdown synchronization:** speaker notes reload the talk track from Markdown on each build. The export removes timestamps, puts build cues in bold uppercase paragraphs with blank lines around them, and ends after the advance instruction. Slide 45 ends at the Q&A handoff. Metadata, authoring notes, cut guidance after the advance, backup sections, sources, research links, and open items stay out of exported notes. Timing and evidence remain in the source Markdown. Visible slide copy, geometry, and click assignments are deliberately authored in JavaScript. Editing on-slide text in Markdown alone does not change the visible slide. Keep both layers in sync. Manual PowerPoint edits also need to be transferred into the builder before the next rebuild.
 
-### Screenshot placeholders
+### Section 2 content and assets
 
-The six screenshot slots are labeled editable shapes created by `excerpt()` in `author.mjs`. Models has one Devin Desktop placeholder beside two short explanations. Context has one AGENTS.md placeholder with the same arrangement. Tools has one MCP configuration placeholder beside two explanations. Orchestration has one plan-mode placeholder with the same arrangement. Evals has one test-run placeholder. Operating it has a Devin CLI session-usage placeholder. To make an inserted screenshot survive rebuilds, save the PNG under `internal/`, replace the corresponding `excerpt()` calls with the `img()` helper, and retain the matching `!!screenshot-...` object name. All six user screens have no compact continuation or screenshot Morph. Match the current coordinates and build options. Inserting a screenshot only in PowerPoint will not update the source code.
+The six standalone user screens and screenshot placeholders are removed. Each area now has an opening quote, a combined definition-and-importance screen, decisions, pitfalls, and an FRB application. The six quote illustrations and anatomy renders remain in `internal/`. Quote text, definitions, decisions, pitfalls, and application evidence remain editable native objects. Visible copy is explicit in `section2Areas` and the associated compositions in `author.mjs`; speaker notes load from the numbered specs.
 
 ### Builds and slide numbering
 
-There are 26 narrative slides, 28 authored compositions, and 56 physical PowerPoint slides. The additional authored keys are `19b` and `22b`. The compiler creates another 28 slides at replacement boundaries. There are 57 presentation states, one internal click, one Morph transition, and 56 advances. The talk remains 35:00.
+There are 45 narrative slides, 46 authored compositions, and 56 physical PowerPoint slides. The additional authored key is `41b`. The compiler creates another 10 slides at replacement boundaries. There are 57 presentation states, one internal click, one Morph transition, and 56 advances. Section 2 remains 25:00 to 29:00, with a 27:00 rehearsal reference; the full-talk timing is still open for the presenter’s later trims to Sections 1 and 3.
 
-Every physical slide has an editable narrative number from 1 through 26. Continuations repeat their narrative number. The number is added last so images and bands cannot cover it. Its geometry and typography live in design brief section 6.
+Every physical slide has an editable narrative number from 1 through 45. Continuations repeat their narrative number. The number is added last so images and bands cannot cover it. Its geometry and typography live in design brief section 6.
 
 Each object's options define when it appears:
 
@@ -84,7 +86,7 @@ text('Visible after click 1, replaced at click 2.', 48, 180, 864, 60, 24,
 
 `--slides 12,13` renders every segment generated from those original keys. `render-map.json` connects each preview to its original state. Slide 7 produces six physical slides: full brightness, four highlights, then full brightness.
 
-Expected counts live in `expand.mjs`; packaging also asserts the native slide, click, and transition counts, notes cutoff, and bold build cues. The compiler checks every state's content, geometry, object order, and notes before export. Run the compiler and notes tests with `node --test internal/deck/expand.test.mjs internal/deck/notes.test.mjs`. Do not silently change the 26-slide narrative or the timing invariants.
+Expected counts live in `expand.mjs`; packaging also asserts the native slide, click, and transition counts, notes cutoff, and bold build cues. The compiler checks every state's content, geometry, object order, and notes before export. Run the compiler and notes tests with `node --test internal/deck/expand.test.mjs internal/deck/notes.test.mjs`. Keep the 45-slide narrative and the selected Section 2 timing range synchronized with the outline and specs.
 
 ## Files and build stages
 
@@ -108,7 +110,7 @@ The native XML patcher includes two PowerPoint compatibility fixes: each text bo
 
 ## Revision history
 
-The following pass notes record earlier iterations. Later sections supersede earlier details. Current counts and screenshot behavior are specified above.
+The following pass notes record earlier iterations. Later sections supersede earlier details. Current counts and composition behavior are specified above. The following historical source keys refer to earlier numbering.
 
 ### September 15 essential-corrections pass
 

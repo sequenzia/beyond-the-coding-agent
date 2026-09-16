@@ -1,57 +1,57 @@
 # Slide 7: The map
 
-Beat 2.0 The map. Section 2. Time 2:00. Builds: 4 highlights and a return to full brightness across six physical slides.
+Beat 2.0. Section 2. Rehearsal reference 1:50. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. Six map states; five hard-cut advances.
 
 ## On the slide
 
-The anatomy diagram, full screen, with the shared narrative number. Use the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`.
-
-Four highlights, then the return to full brightness:
-
-1. Model.
-2. Harness: instructions, context and memory, tools, orchestration, guardrails, verification.
-3. Per-run services: identity and access, security, data and knowledge.
-4. Across runs: observability, evaluations, governance.
-
-Introduce the illustrative FRB case while the final full-brightness state remains on screen. No added text or advance.
+The existing anatomy diagram, with its six states. No added text beyond the narrative number.
 
 ## Layout and visual
 
-- Preserve all six diagram states and narrative number 7. Five advances, each a hard cut.
-- The diagram is the only visual beside the number. Its title serves as the slide title.
-- Use the design brief for all values. Preserve the source SVG and every render.
-- The matching yours diagram returns on slide 19.
+- Preserve the six existing anatomy states and full-screen composition. Display narrative number 7 throughout.
+- State order: full brightness, Model, Harness, per-run services, across-run services, full brightness.
+- The final full-brightness state holds the FRB introduction. No added text over the diagram.
+- Diagram theme, map geometry, and numbering follow design brief §23 and the base diagram rules.
 
 ## Talk track
 
-[0:00] Here is the whole discipline on one slide. We will walk it from the inside out.
+[0:00] **FULL MAP**
 
-[0:08] Build 1, the model. An agent is a model plus a harness. **“If you're not the model, you're the harness.”**
+An agent is a model plus the execution system around it, the harness.
 
-[0:20] Build 2, the harness. A harness is the execution system around the model. It maintains context, calls tools, handles failures, enforces controls, and returns a useful result. That paraphrases OpenAI's August definition.
+[0:08] **MODEL**
 
-[0:40] **Four layers.** The model. The harness around it: instructions, context and memory, tools, orchestration, guardrails, verification.
+The model interprets the task and proposes responses or actions.
 
-[0:55] Build 3, per-run services. Every run draws on identity, security, data and knowledge.
+[0:18] **HARNESS**
 
-[1:05] Build 4, across runs. Observability, evaluations, and governance let you learn from and control many runs.
+The harness maintains context, calls tools, handles failures, enforces controls, and carries the work toward a result.
 
-[1:16] Full brightness. Every box exists inside the coding agent you use. Someone built each one. For each area, start with a familiar action, then examine the decisions and responsibilities behind it.
+[0:36] **PER-RUN SERVICES**
 
-[1:32] **Agent equals model plus harness. Everything that is not the model is what you engineer.**
+Every run uses services such as identity and data access.
 
-[1:40] **We'll carry one example through these areas: a system that helps engineers research Failure Review Boards, understand their decisions, and compare recurring issues.** It is illustrative research and drafting support. **People own official causes, decisions, and board records.**
+[0:49] **ACROSS-RUN SERVICES**
 
-[2:00] Advance to slide 8.
+Observability, evaluations, and governance let the team learn from and control many runs.
 
-Cut first: the harness verb list and repeated layer names. Never cut the FRB purpose, illustrative label, or human decision boundary.
+[1:02] **FULL MAP**
+
+You encounter these components in coding agents such as Codex CLI and Devin. Each area begins with a quote, then what it is and why it matters, the decisions, pitfalls, and an applied example.
+
+[1:20] **We will carry one invented example throughout: a system that researches Failure Review Boards, compares related cases, and exports a cited brief.** The request is to summarize FRB-042, compare similar shutdowns, and distinguish possible causes from established findings. **People remain responsible for official causes, decisions, and board records.**
+
+[1:42] **Agent equals model plus harness. Everything around the model is engineering work.**
+
+[1:50] Advance to slide 8.
+
+Cut first: the layer inventory. Never cut the model-plus-harness definition, illustrative FRB purpose, and human decision boundary. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Osmani, April 2026, quoting Viv Trivedy. Research §0 in `research/section-2.md`. The line is Trivedy's; Osmani spread it.
-- OpenAI, “Codex as a platform,” August 2026. Research §0. Harness definition paraphrased.
-- Illustrative FRB case and rationale, Research §0. Authoring reference: `internal/frb-running-example.md`. Invented, not primary evidence.
+- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
+- Osmani, April 2026; OpenAI, August 2026; illustrative FRB packet. Research §0 in `research/section-2.md`.
 
 ## Open items
 
-- Native playback and the separate Windows presentation-machine check remain required after a rebuild.
+- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.

@@ -1,6 +1,6 @@
 # Design brief
 
-Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 17 through 22 define the current Section 2 layouts. Section 22 records current deck counts and the synchronized agenda treatment.
+Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Section 23 defines the current 45-slide authoring target, integrated into Markdown September 16. Sections 17 through 22 describe the earlier Section 2 layouts and exported deck. The builder now implements the new target; final rendering and native playback are reviewed with each exported revision.
 
 ## 1. Scope and precedence
 
@@ -12,7 +12,7 @@ Visual and typographic decisions for the deck. Companion to `style/colors.md`, w
 - Three orientation devices: the kicker, the mini-map, and the narrative slide number. No other footer, logo, progress bar, employer name, contact details, or takeaway lines on screen.
 - The brief carries no talk content. It names slides by number only.
 
-**The concept.** The anatomy diagram is the talk's spine. Slide 7 introduces it, Section 2 walks six boxes on it, slide 19 returns to it with "yours" on every box. Every slide lives inside that map. A mini-map at top right says where you are. Each area borrows its color from where it sits on the map. Each area enters through a colored header. Helvetica carries the narrative and numbering. Monospace marks commands, filenames, formulas, and the opening code metaphor.
+**The concept.** The anatomy diagram is the talk's spine. Slide 7 introduces it, Section 2 walks six areas on it, and slide 38 returns to it with responsibility badges. A mini-map at top right says where you are. Each area borrows its color from where it sits on the map and opens with a quote and colored kicker. Helvetica carries the narrative and numbering. Monospace marks commands, filenames, formulas, and the opening code metaphor.
 
 ## 2. Page and PowerPoint setup
 
@@ -187,14 +187,14 @@ Tints fill area cards only. They never carry meaning alone, because 12% vanishes
 
 | Talk area | Slides | Color | Map home |
 |---|---|---|---|
-| Models | 8, 9 | blue | Model |
-| Context and knowledge | 10, 11 | pink | Context and memory, Instructions, Data and knowledge |
-| Tools and extensibility | 12, 13 | pink | Tools |
-| Orchestration | 14, 15 | pink | Orchestration |
-| Verification and evals | 16, 17 | green | Verification, Evaluations |
-| Operating it | 18, 19 | amber | Identity and access, Security, Guardrails, Observability, Governance |
+| Models | 8 through 12 | blue | Model |
+| Context and knowledge | 13 through 17 | pink | Context and memory, Instructions, Data and knowledge |
+| Tools and extensibility | 18 through 22 | pink | Tools |
+| Orchestration | 23 through 27 | pink | Orchestration |
+| Verification and evals | 28 through 32 | green | Verification, Evaluations |
+| Production operations | 33 through 37 | amber | Identity and access, Security, Guardrails, Observability, Governance |
 | Section 1 | 1 to 6 | pink for a landing word; slide 1 carries amber and green; slide 5 carries all four | |
-| Section 3 content | 21 to 24 | green; slide 21 and 23 carry all four | |
+| Section 3 content | 40 through 43 | green; slides 40 and 42 carry all four | |
 
 Four colors for six areas because the three harness areas share the Harness region. Identity within the harness comes from which box the mini-map lights, not from a fifth and sixth hue.
 
@@ -651,3 +651,75 @@ All six areas now use the five-screen pattern. Operating it adds the existing yo
 - **Agenda synchronization.** Slide 5's existing pattern line stays at x 48, y 472, width 864, height 20, size 16 secondary. Its copy now names the five-screen pattern. No geometry changes. Slide 7's pattern narration changes only in the notes; its diagram states remain unchanged.
 
 The six quotation images use a shared conceptual style and each appears only in its own area. Every user screen has one screenshot placeholder and two short explanations. All Section 2 area content is static. Slide 23 retains the six recap bands and exact headline-pitfall wording. All body text remains at least 20 and content ends by 492.
+
+## 23. Quote-first Section 2 authoring target, September 16, 2026
+
+This section supersedes the Section 2 composition, numbering, and story rules in sections 13 through 22. Earlier numbered examples elsewhere in the brief refer to the prior deck unless retargeted here. The theme, page, grid, font scale, and reading floors remain unchanged. The Markdown specs and builder are integrated. Rendering and native playback review validate each exported revision.
+
+### Numbering and playback
+
+- Narrative slides: 45. Section 1 is 1 through 6, Section 2 is 7 through 38, and Section 3 is 39 through 45.
+- Section 2 uses one narrative identity for every composition. Slide 7 retains six map states. Slides 8 through 37 are six groups of five static slides. Slide 38 is the standalone responsibility map.
+- The five-screen sequence is quote, combined definition and importance, decisions, pitfalls, and FRB application. Hard cuts throughout. No standalone user screen, screenshot placeholder, compact continuation, or user/owner kicker.
+- The authoring target is 46 compositions, including the Section 3 support composition corresponding to narrative 41. Preserving the existing expansion outside Section 2 projects 56 physical slides, 57 states, one internal click, one Morph transition, and 56 advances. The builder validates these counts and records them in its build receipt.
+- Section 2 remains 25:00 to 29:00. The 27:00 reference in the specs only guides rehearsal cues. There is no automatic slide timing.
+- Slides 6 and 39 are the matching typographic dividers. Slide 42 retains the six recap bands, with the final area labeled Production operations. Slide 45 retains the Questions reveal.
+
+### Shared header and orientation
+
+Reuse `slideHeader()` and the existing reserved header/body separation. The kicker's area name remains Bold in its area color and is followed by the neutral beat label. Use the current 20-point kicker role. The mini-map retains its existing position and geometry on slides 8 through 37. No additional title appears on a quote slide.
+
+Content-slide titles use x 48, y 68, width 692, height 76, Helvetica Bold 32. Body content begins at y 192 and ends by y 492. Display the new narrative number using the existing shared numbering component. Slides 7 and 38 retain standalone full-screen compositions without a kicker or mini-map.
+
+### Quote compositions
+
+Retarget the existing exact quote layouts and images to slides 8, 13, 18, 23, 28, and 33. Models, Context, and Orchestration use the four-line layout in section 17. Tools and Evals use their three-line layouts in sections 19 and 21. Production operations uses the longer quote layout from section 22, including attribution below the smaller image. Keep quotation and attribution native and editable.
+
+Reuse the six existing illustrations in their original areas. Do not bake text into the images or generate replacement artwork merely for renumbering. The final area keeps the technical asset name `operating-observability.png`; its displayed area name is Production operations.
+
+### Definition and importance
+
+Slides 9, 14, 19, 24, 29, and 34 use two flat text columns. The left column defines the subject, and the right explains its importance. The coding-agent connection stays spoken; there is no screenshot or user-example panel.
+
+- Left column x 48, right column x 492, each width 420.
+- Block labels at y 192, height 30, Helvetica Bold 20 in the area color.
+- Body starts at y 234, height 200, Helvetica Regular 24, with the shared 1.25 spacing and paragraph spacing.
+- Keep definitions concise. RAG, MCP, and the verification/evaluation distinction use separate paragraphs within the same body region when needed.
+- No cards, icons, decorative borders, or added takeaways. Revise visible copy if it does not fit; do not shrink below the reading floor.
+
+### Decision compositions
+
+Slides 20, 25, and 30 retain the three aligned rows from section 17: y 192, 292, and 392; question column x 48, width 272, height 82, Bold 24; explanation column x 344, width 568, height 82, Regular 20.
+
+Slides 10, 15, and 35 use four rows at y 192, 264, 336, and 408. Label column x 48, width 272; explanation column x 344, width 568; each height 62. Both use 20-point text, with labels Bold. Keep each explanation to two deliberate lines where possible. The compact authored sentences in the specs, rather than the detailed research tables, define the visible text.
+
+Use aligned native text without decorative boxes or table rules. Supporting retrieval, grader, and coordination comparisons remain in notes; do not place a second table beside these rows.
+
+### Pitfalls compositions
+
+Slides 11, 16, 21, 26, 31, and 36 reuse the three labeled rows at y 192, 254, and 316. Labels: x 48, width 216, height 30, Bold 20 in the area color. Body: x 292, width 620, height 54, Regular 20. An authored qualifying line, when present, uses x 48, y 386, width 864, height 30, Regular 20.
+
+The pitfall label uses x 48, y 426, width 124, height 30, Bold 20. The exact sentence uses x 196, y 426, width 716, height 64, Bold 24. Preserve deliberate line breaks, especially between the two Evals sentences. The pitfall is in the body, not a footer band. Slide 31 has no story hold, placeholder, or extra advance.
+
+Slide 36 uses its three rows for the combined-risk capabilities. Its final label can wrap to two lines and uses height 54 at the same y 316 position. It does not add a separate triangle diagram. Preserve the threat-model qualification in the notes. Slide 21 keeps its takeaway in the notes and does not repeat it in the optional qualifying-line position.
+
+### FRB application compositions
+
+All six application slides keep a visible 16-point illustrative caption at x 48, y 192, width 864. Body copy is at least 20. Tables use the existing flat native style, with no banding or visible borders. Keep dates, document IDs, revisions, locations, uncertainty, and outcome labels editable.
+
+- **Slide 12:** native two-column table at x 48, y 228, width 864, columns 224 and 640. Header and cells 20, header Bold in the area color. Row heights 36, 76, 64, and 76, ending at y 480. No additional bottom sentence. The first data row carries the scenario constraint.
+- **Slide 17:** retain the two-column source-and-annotation arrangement from section 18. To fit the full dates with clear separation, use left source captions at y 224 and 344, each height 40 at 16 with exact 20-point spacing. Source quotations begin at y 262 and 400, heights 60 and 90 at 24. The right annotations keep y 224, 316, and 408 labels and their body positions from section 18. Preserve the two distinct document identities.
+- **Slide 22:** use the section 19 two-column contract geometry. Row heights 36, 44, 64, 64, and 56, ending at y 492. Keep the exact-content condition and unknown-outcome distinction in the visible text.
+- **Slide 27:** reuse the six-step editable workflow from section 20. Keep the verification gate and one concise recovery rule below it. Detailed response branches remain in speaker notes.
+- **Slide 32:** reuse the editable source-support check from section 21. Preserve the exact source and wrong answer. PASS and FAIL remain explicit words. The regression instruction remains at the bottom. There is no personal-story cue before this slide.
+- **Slide 37:** native two-column agreement at x 48, y 228, width 864, columns 224 and 640. Header and cells 20. Row heights 36, 52, 52, 52, and 52, ending at y 472. Four compact responsibility rows carry the accepted six-row agreement through grouping; the full explanation stays spoken.
+
+### Maps and Section 3 retargeting
+
+Preserve the base diagram and all generated variants. Slide 7 remains the opening map. The former responsibility-map composition becomes slide 38 and keeps `internal/renders/map-yours.png` and the Model selection badge.
+
+Section 3 content and compositions are unchanged apart from necessary labels, cross-references, and numbering: old 20 through 26 become 39 through 45. The support composition associated with old narrative 22 becomes associated with 41. Keep its Morph and the close's internal reveal. Update slide 42's Production operations label while retaining the six-band structure and exact pitfall sentences.
+
+For slide 42's final area label, retain the existing colored block and x 48. Use width 224, height 32 at 20 Bold, centered vertically within the 56-point band, to keep the full new area name on one line. Other recap labels retain their existing width 208 and geometry.
+
+The agenda on slide 5 names the new five-screen pattern and Section 2's working range. It does not promise a fixed discussion length while the presenter may still trim Sections 1 and 3. Preserve its two-column composition. In the right column, place the Section 2 entry at x 492, y 137, width 420, height 34 at 24; its range at y 177, height 30 at 20 secondary. The six-area list uses x 512, y 224, width 400, height 100 at 16. Transition and questions entries use y 350 and 412 at 24. Preserve the footer's existing x 48, y 472, width 864, height 20 at 16.

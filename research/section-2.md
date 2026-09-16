@@ -2,6 +2,8 @@
 
 Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetched and quoted directly. **UNVERIFIED** means from a search snippet or secondary coverage; confirm before it goes on a slide. Organized by the six areas in the outline, plus the map, the June to September 2026 window, and a closing "verify before stage" list.
 
+Current authoring placement, integrated September 16: map 7; Models 8 through 12; Context 13 through 17; Tools 18 through 22; Orchestration 23 through 27; Verification and evals 28 through 32; Production operations 33 through 37; closing map 38. Dated earlier revision notes and former coding-agent screenshot anchors below retain historical slide numbers. The content-rework subsections describe the active design. Full source records and evidence status remain unchanged by renumbering.
+
 ## 0. The map: agent = model + harness
 
 **Addy Osmani, "Agent Harness Engineering," April 19, 2026** [primary]. https://addyosmani.com/blog/agent-harness-engineering/
@@ -33,8 +35,9 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - Synthetic evidence: FRB-042-BRF r1, slide 6, August 19, 2026: “Bearing wear is a possible cause.” FRB-042-MIN r2, §3 paragraph 2, August 22, 2026: “Cause remains unresolved. Inspect the bearing before assigning a cause.” These are different documents, not two revisions of one file.
 - Deliberately wrong answer: “The board confirmed bearing wear.” The expected distinction preserves the preliminary hypothesis, unresolved cause, and inspection decision.
 - FRB-017 has a sensor fault. FRB-031 has confirmed bearing wear. Similar symptoms justify comparison, not proof of a common cause. Duplicate records do not create independent cases.
-- Teaching rationale: one request connects six distinct owner responsibilities. It makes evidence fidelity and uncertainty visible without implying a deployed system, model benchmark, or personal experience. The failure is separate from both protected personal-story slots.
+- Teaching rationale: one request connects six distinct engineering responsibilities. It makes evidence fidelity and uncertainty visible without implying a deployed system, model benchmark, or personal experience. The FRB failure is an invented teaching check.
 - The design confines research workers to authorized internal FRB records and attachments. Missing, unreadable, conflicting, incomplete, or unauthorized evidence produces an explicit limitation. Citation existence and semantic support are separate checks.
+- Content-rework assumption, added September 15, 2026: the FRB corpus includes CUI and export-controlled information (ECI). Model calls that handle those records use services and environments approved for the applicable data and use. For this example, assume the approved model choices are older and less capable for the intended synthesis than newer alternatives outside the approved environment. This is an illustrative deployment constraint informed by presenter-supplied audience context, not measured model evidence or a formal designation of the invented excerpts.
 
 ## 1. Models: a component you select, measure, and replace
 
@@ -107,13 +110,36 @@ Provider responsibilities behind the picker: defaults, model-specific prompt and
 
 **When you are the owner.** Six selection axes: capability on your tasks, cost per completed task, latency at p95, context window, tool-use reliability, data residency. Routing and fallback. Pinned version: controlled migration and lifecycle management. Moving alias: automatic updates and regression monitoring. A snapshot controls one source of variation. Prompts, tools, retrieval, and the environment also affect behavior. Data residency can override every other axis for enterprise. Fallback composition reported for 2026 (UNVERIFIED): retry primary, rotate provider on exhaustion, serve semantic cache hit, degrade UI.
 
+### Data sensitivities and model eligibility
+
+**National Archives and Records Administration, "Controlled Unclassified Information (CUI)," National Archives, reviewed August 12, 2025** [primary]. https://www.archives.gov/cui Checked in a browser September 15, 2026.
+
+- "agency personnel and contractors should first consult their agency's CUI implementing policies and program management for guidance."
+- The CUI program addresses unclassified information that requires safeguarding or dissemination controls under applicable authorities. Use the relevant agency and organizational guidance when deciding how the audience's data may be handled.
+
+**National Archives and Records Administration, "CUI Category: Export Controlled," CUI Registry, reviewed May 8, 2025** [primary]. https://www.archives.gov/cui/registry/category-detail/export-control.html Checked in a browser September 15, 2026.
+
+- "Unclassified information concerning certain items, commodities, technology, software, or other information".
+- The registry includes an Export Controlled category with safeguarding and dissemination authorities. CUI and export-controlled information are not mutually exclusive categories. The talk uses CUI and ECI as familiar audience examples without teaching a classification or export-authorization procedure.
+
+**Ron Ross and Victoria Pillitteri, "Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations," NIST SP 800-171 Rev. 3, May 14, 2024** [primary]. https://csrc.nist.gov/pubs/sp/800/171/r3/final Checked the publication page and abstract in a browser September 15, 2026.
+
+- "The requirements apply to components of nonfederal systems that process, store, or transmit CUI or that provide protection for such components."
+- The abstract describes requirements intended for use in federal contracts or other agreements with nonfederal organizations. This source supports attention to the processing environment. It does not establish a particular organization's applicable revision, approvals, or permitted model services.
+
+Presenter-supplied audience context, September 15, 2026: data sensitivity is a routine model-selection constraint for this audience. Their available model choices for sensitive work such as CUI and ECI depend on compliance and security requirements. The presenter reports that these approved choices tend to be older and less capable in the audience's environment. This is audience context, not a public claim that any named model or service is approved, a benchmark comparison, or a universal property of approved deployments. The NARA and NIST sources above do not establish this capability comparison.
+
+Teaching inference from that context and the sources above: identify eligible model services and deployment environments for the data before comparing task quality, cost, and latency. Apply the same eligibility constraint to routing, fallbacks, and replacements. Availability in a model picker does not itself establish authorization for a particular dataset. Approval depends on the intended service, environment, use, and applicable organizational requirements. Data residency is one consideration, not a complete statement of those requirements.
+
+Keep this explanation conceptual. Do not add a hypothetical comparison of model configurations, a list of certified models, or a hosted-versus-self-hosted discussion. In the content rework, model eligibility precedes task fit, routing, and model changes. Context later addresses which information enters the model, while Operating it addresses enforcement across the system.
+
 **Open weights vs hosted API.** UNVERIFIED, practitioner blogs: self-hosting is priced as GPU rental but decided by operations, redundancy, and an eval harness proving a quantized model kept quality; hosted APIs scale to zero and GPUs do not; self-hosting earns its keep at sustained high utilization or when privacy, latency, or fine-tuning control forces it; open-weight models trail closed by a few points on the benchmarks that matter.
 
 **Pitfall.** Choosing and changing models without testing them on your task. Without representative cases, you cannot establish whether a replacement still meets the product's quality requirement. A pinned version needs controlled migration; a moving alias needs regression monitoring. Rerun the same cases and compare quality, cost, and latency. This sets up area 5.
 
 ### FRB application and displaced evidence
 
-Illustrative application of §0, not a measured result: select a model for the FRB brief using cases that test faithful summaries and supported findings. A possible cause must remain distinct from an established finding. Begin with one model configuration for the brief. Use a pinned version where available with a migration plan. Revisit this proposed design when measured quality, cost, latency, or lifecycle requirements justify a change. No model scores or winning model are supplied.
+Illustrative application of §0, not a measured result: the FRB corpus includes CUI and ECI, so begin with eligible model services and environments. For this example, assume the approved choices are older and less capable for the intended synthesis than newer alternatives outside that environment. Compare the approved options on faithful summaries and supported findings. A possible cause must remain distinct from an established finding. Begin with one eligible model configuration for the brief and a pinned version where available with a migration plan. If evaluation exposes a capability gap, test a narrower scope or more structured workflow with stronger checks and human review. These changes are proposed responses, not guarantees that the gap can be overcome. If acceptable behavior cannot be established, limit or defer that capability. Do not route restricted records to an unapproved model as a fallback. Revisit when a suitable approved option becomes available or requirements and measured performance change. No model scores or winning model are supplied.
 
 Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with a short explanation of its controls. Slide 9 has four static screens: quote, general decisions, maintenance and pitfalls, and FRB application. General decisions address task fit, one model versus routing, and control of model changes. Routing returns here as a model-selection decision; Orchestration owns task decomposition and coordination. Compare candidates on representative tasks and start with one configuration unless measurements justify routing. Maintain coverage as intended use and routes change. A snapshot does not freeze prompts, retrieval, tools, or the environment. The detailed worker/analyst requirements remain in `internal/frb-running-example.md`. The Chen prime/composite result and LangChain routing experiment above remain backup evidence with their original limitations.
 
@@ -133,6 +159,12 @@ Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with 
 - Tools: "tools should be self-contained, robust to error, and extremely clear with respect to their intended use." "One of the most common failure modes we see is bloated tool sets."
 - Long-horizon techniques: compaction ("summarizing its contents, and reinitiating a new context window with the summary"); note-taking ("the agent regularly writes notes persisted to memory outside of the context window"); sub-agents ("specialized sub-agents can handle focused tasks with clean context windows"); just-in-time retrieval ("maintain lightweight identifiers... and use these references to dynamically load data into context at runtime").
 - Talk definition: retrieval-augmented generation (RAG) retrieves relevant external information and supplies it to the model. Grep, file reads, embeddings, and hybrid retrieval are methods chosen for the data and task. Just-in-time file retrieval can be part of RAG.
+
+**Daniel Ford, "Introducing Contextual Retrieval," Anthropic Engineering, September 19, 2024** [primary]. https://www.anthropic.com/engineering/contextual-retrieval Checked in a browser September 15, 2026.
+
+- On embeddings: "they can miss crucial exact matches."
+- On document chunks: "individual chunks lack sufficient context."
+- Supports a brief distinction between lexical matching, semantic similarity, and combined retrieval. The content draft uses no reported performance percentages, model ranking, fixed chunk count, or claim that hybrid retrieval always wins. Preserve enough source context to interpret a retrieved passage.
 
 **Yichao "Peak" Ji, Manus, "Context Engineering for AI Agents: Lessons from Building Manus," July 18, 2025** [primary]. https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
 
@@ -186,6 +218,16 @@ Maintenance covers stale passages, compaction that loses constraints, accumulate
 
 Illustrative application of §0: retrieve the preliminary FRB-042-BRF r1 slide 6 and later FRB-042-MIN r2 §3 paragraph 2 as distinct relevant passages, each retaining its identity and source location. Retain the unresolved cause and inspection requirement in the working context and any summary. Refresh source versions and recheck access before finalizing a brief. Access is enforced outside the model. Missing, unreadable, conflicting, or unauthorized evidence remains an explicit limitation. This is a proposed starting design, not a deployed system or measured retrieval result. Comparison case details remain available in `internal/frb-running-example.md` and later evaluation material.
 
+### Context content rework
+
+The Markdown-first revision separates the definition, why context matters, decisions and trade-offs, common challenges, and the FRB application. The existing Anthropic quotation opens the area. Prompt engineering addresses instructions; context engineering covers the information available for a model step and how it is selected and maintained. Retrieval supplies knowledge external to the model, including authorized internal records. It does not imply open-web access. Compaction summarizes the current conversation, while persistent memory can retain selected information across sessions. These distinctions develop the existing Anthropic, Manus, and coding-agent material above.
+
+The draft's four decisions are what to include for the next step, how to retrieve it, what to retain or refresh, and how to preserve source identity and access scope. Teaching guidance: begin with task-relevant information and a retrieval approach appropriate to the corpus. Investigate missing evidence, lost qualifications, stale versions, and access errors before adding context or changing the model. Persisted summaries and useful cache prefixes still need freshness and access checks. These are proposed engineering practices, not measured guarantees.
+
+The FRB application inherits the CUI/ECI corpus and approved-model constraints in §0 and §1. Context preparation must stay within the applicable approved scope, including any services that process the restricted records for parsing, retrieval, embedding, or summarization. This extends the illustrative deployment boundary, not a new claim about a particular provider's approval. Supply focused, traceable evidence to the available approved model and evaluate the result. Do not infer that an older model necessarily has a smaller context window or that retrieval overcomes every capability limit.
+
+Keep both FRB-042-BRF r1 slide 6 and FRB-042-MIN r2 §3 paragraph 2 with their distinct identities, dates, and locations. A working summary preserves the preliminary hypothesis, unresolved cause, and outstanding inspection. Comparison cases remain separate from the target case. Refresh source versions and recheck access before finalizing the brief. No-match, incomplete-index, and unreadable-source outcomes produce appropriately scoped limitations. The shared packet remains the authoring reference. Detailed output grading stays in Verification and evals.
+
 ## 3. Tools and extensibility
 
 **Anthropic, "Writing effective tools for agents, with agents," Ken Aizawa, September 11, 2025** [primary]. https://www.anthropic.com/engineering/writing-tools-for-agents Checked in a browser September 15, 2026.
@@ -208,6 +250,16 @@ Illustrative application of §0: retrieve the preliminary FRB-042-BRF r1 slide 6
 - Deferred loading with tool search: "an 85% reduction in token usage while maintaining access to your full tool library." MCP evals: "Opus 4 improved from 49% to 74%, and Opus 4.5 improved from 79.5% to 88.1%."
 - Programmatic tool calling: "Average usage dropped from 43,588 to 27,297 tokens, a 37% reduction on complex research tasks."
 - Tool use examples: "improved accuracy from 72% to 90% on complex parameter handling."
+
+**Model Context Protocol contributors, "What is the Model Context Protocol (MCP)?", MCP documentation, revision July 28, 2026** [primary]. https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro Checked in a browser September 15, 2026.
+
+- "an open-source standard for connecting AI applications to external systems."
+- Use for a brief explanation of MCP as a common integration interface. The main talk names no additional coding-agent products from the page's examples.
+
+**Model Context Protocol contributors, "Understanding MCP servers," MCP documentation, revision July 28, 2026** [primary]. https://modelcontextprotocol.io/docs/2026-07-28/learn/server-concepts Checked in a browser September 15, 2026.
+
+- "The model requests tool execution based on context."
+- MCP servers expose capabilities through protocol interfaces. Tool discovery returns definitions and schemas; a tool call returns an execution result. Resources and prompt templates are also available in the protocol. The talk focuses on tools without implying that tools are MCP's only feature.
 
 **MCP Security Best Practices, spec revision 2026-07-28** [primary]. https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices
 
@@ -257,12 +309,23 @@ Maintenance covers description/schema/behavior drift, overlapping tool sets, and
 
 **Illustrative Export cited brief contract.** Background services parse and index PDF, Word, and PowerPoint files. Search and retrieval supply the evidence; this focused example is the agent-facing export operation from the §0 contract. It accepts a checked draft, citations, and destination. Code enforces access and permitted destinations, and requires source IDs, revisions, and locations. It returns a brief matching the checked draft, with citations and uncertainty intact, plus an export receipt. Failure or incomplete results are explicit; an unconfirmed export is not reported as complete. This is an illustrative design, not a deployed API. People continue to own official causes, decisions, and board records.
 
-The full four-tool inventory remains in `internal/frb-running-example.md`. CamoLeak and the ClawHub audit remain backup evidence with their demonstration and secondary-source limitations. Operating security principles remain on slide 19; incident details stay in research backup.
+The full four-tool inventory remains in `internal/frb-running-example.md`. CamoLeak and the ClawHub audit remain backup evidence with their demonstration and secondary-source limitations. Production security principles appear on slides 35 and 36 in the current authoring target; incident details stay in research backup.
+
+### Tools content rework
+
+The Markdown-first revision opens with the existing Anthropic quote, then explains the tool as an operation exposed through a contract to a model caller. Software executes the requested operation and returns an observable result. Extensibility adds capabilities through such interfaces. The presenter chose a brief explanation of MCP's connection role. Keep protocol mechanics, product setup, benchmark figures, and incident inventories in backup.
+
+Develop three decisions: which capabilities and granularity fit the task, how to specify a usable contract, and which actions may execute under which rules. Cover discovery within capability selection. Descriptions guide selection and use. Schemas define structure, while code validates inputs and enforces authorization. Return evidence of success, failure, or an unknown outcome. A valid input shape does not establish that an action is allowed or that it succeeded. This framing develops the existing Anthropic, MCP, and OWASP material above.
+
+The illustrative FRB application retains the existing four-tool inventory and focuses on Export cited brief. The service exports the exact draft that passed verification, with citations and uncertainty intact, to a permitted destination. Verification status must refer to that content; an assertion supplied by the model caller is insufficient. Changed content needs renewed checks. This is an authored contract requirement, not a claim that a particular API or protocol supplies such a guarantee. Code enforces access and permitted destinations for the CUI/ECI scenario. Parsing and indexing remain background services. The shared authoring reference holds the complete contract.
+
+The tool returns a receipt when completion is confirmed, an explicit failure when known, or an unknown outcome when completion cannot be confirmed. Orchestration uses that evidence to decide whether to inspect, retry, or hand off. Tool design supplies the result contract, while orchestration owns the recovery policy. Evaluate use of the tool set with the available approved models; clear contracts do not guarantee that their capability limits disappear.
 
 ## 4. Orchestration: the loop
 
 **Anthropic, "Building effective agents," Erik Schluntz and Barry Zhang, December 19, 2024** [primary]. https://www.anthropic.com/engineering/building-effective-agents
 
+- Rechecked the workflow/agent distinction, simplicity recommendation, and execution-limit discussion in a browser September 15, 2026. The content rework uses these concepts, not the page's changing framework or model examples.
 - Workflows: "systems where LLMs and tools are orchestrated through predefined code paths." Agents: "systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks."
 - "we recommend finding the simplest solution possible, and only increasing complexity when needed." Selected for the Orchestration quote screen. Exact wording checked in a browser September 15, 2026. This replaces the Osmani quote in the revised area. The Osmani quotation remains on the Models quote screen.
 - "Agentic systems often trade latency and cost for better task performance, and you should consider when this tradeoff makes sense."
@@ -272,6 +335,7 @@ The full four-tool inventory remains in `internal/frb-running-example.md`. CamoL
 
 **Anthropic, "How we built our multi-agent research system," June 13, 2025** [primary]. https://www.anthropic.com/engineering/multi-agent-research-system
 
+- Rechecked the task-decomposition, handoff, and coordination discussion in a browser September 15, 2026. The historical experiment figures remain backup and do not predict the FRB system's performance.
 - Lead Opus 4 with Sonnet 4 subagents "outperformed single-agent Claude Opus 4 by 90.2%" on an internal research eval.
 - "multi-agent systems use about 15x more tokens than chats"; agents generally "use about 4x more tokens than chat interactions."
 - "token usage by itself explains 80% of the variance" on BrowseComp.
@@ -320,9 +384,21 @@ The OpenAI reasoning-benchmark result, Anthropic quality and token comparisons, 
 
 Illustrative application of §0: retrieve the target packet, inspect evidence, compare cases, reconcile findings, verify, export. Begin with this bounded workflow. Measure it before adding workers for independent comparisons of FRB-017 and FRB-031. Workers return evidence and uncertainty to the main analyst, within the authorized internal corpus and attachments. Conflicting findings prompt source inspection or an unresolved result. Persist completed steps and revisions for resume, recheck freshness and access, bound retries, and check export receipts before repeating an export. Incomplete indexing and action/token/latency limits produce explicit limitations. Deliver the sequence directly, without an audience pause. The pattern inventory, 12-Factor ownership list, and Gartner forecast remain background or backup, not slide 15 content. Slide 9 introduces the choice between one model and task-based routing. This area covers how work is decomposed and coordinated; it does not repeat model selection.
 
+### Orchestration content rework
+
+The Markdown-first revision keeps the existing quote and develops orchestration as the execution design for selecting, sequencing, and coordinating work. The coding-agent connection is the action/check/retry loop. Define what code fixes in advance and where model judgment selects the next action. A planned sequence alone does not enforce permissions, verification, or stopping rules. The three teaching decisions remain control of the next step, delegation, and stopping/recovery.
+
+Use the simplest execution design that meets the task. The FRB starting point is a bounded workflow with model interpretation inside defined stages. It is a teaching proposal, not a claim that all agent systems must use the same architecture. Keep tool contracts in §3, context selection in §2, and model eligibility/selection in §1. Verification and evals defines acceptable results; orchestration enforces where those checks affect execution.
+
+The FRB example's six stages remain retrieve, inspect, compare, reconcile, verify, and export. Save the exact source revisions, working draft, stage completion, and relevant check and export outcomes. A changed draft requires renewed verification before export. A resumed run rechecks freshness and access; changed evidence returns the affected work to inspection and reconciliation before another verification. These are authored execution rules for the illustrative system, not guarantees supplied by a particular framework.
+
+Use the tool contract's confirmed, failed, and unknown outcomes to choose the recovery path. A matching export receipt can establish completion. A confirmed failure may be retried within policy and the remaining budget after its cause is addressed. For an unknown outcome, inspect the export state before deciding to retry. If completion cannot be established, preserve that uncertainty and hand off rather than repeat the side effect blindly. Limits produce an explicit limitation or handoff, not an automatic success status.
+
+Optional workers compare independent FRB cases only within the authorized corpus and approved processing scope. They return evidence and uncertainty to the main analyst and cannot export or approve official findings. Keep delegation conditional on measured benefit with the available approved models. Additional workers do not establish that a capability gap is solved. Compare whole-task quality, cost, and latency, including reconciliation and verification. The presenter chose a brief multi-agent contrast with the bounded workflow; detailed patterns remain backup. The full contract remains in `internal/frb-running-example.md`.
+
 ## 5. Verification and evaluation
 
-**Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, May 28, 2025, updated September 1, 2026** [primary]. https://hamel.dev/blog/posts/evals-faq/ Checked in a browser September 15, 2026.
+**Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, May 28, 2025, updated September 13, 2026** [primary]. https://hamel.dev/blog/posts/evals-faq/ Checked in a browser September 15, 2026. The page's displayed modification date is September 13; this corrects the earlier September 1 date in this entry.
 
 - "Error analysis is the most important activity in evals."
 - Selected for the Evals quote screen. Attribute the jointly authored guide to both authors. The guide presents practitioner opinions, not universal rules.
@@ -331,6 +407,7 @@ Illustrative application of §0: retrieve the target packet, inspect evidence, c
 
 **Anthropic, "Demystifying evals for AI agents," Mikaela Grace, Jeremy Hadfield, Rodrigo Olivares, Jiri De Jonghe, January 9, 2026** [primary]. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
 
+- Rechecked in a browser September 15, 2026 for grader types, outcome versus transcript, repeated trials, expert calibration, the initial 20-to-50-task recommendation, and ongoing evaluation. No new benchmark figures are promoted into the content draft.
 - "The capabilities that make agents useful also make them difficult to evaluate." "Agents use tools across many turns, modifying state in the environment and adapting as they go, which means mistakes can propagate and compound."
 - Vocabulary: task, trial, agent harness, eval harness, transcript, outcome, grader, suite.
 - "A flight-booking agent might say 'Your flight has been booked' at the end of the transcript, but the outcome is whether a reservation exists in the environment's SQL database."
@@ -342,10 +419,10 @@ Illustrative application of §0: retrieve the target packet, inspect evidence, c
 - "A good task is one where two domain experts would independently reach the same pass/fail verdict."
 - "You won't know if your graders are working well unless you read the transcripts and grades from many trials."
 - Capability suites probe limits. Regression suites should keep established cases passing. A 100% regression pass rate is desirable.
-- Illustrative grader adapted for this talk: a success sentence fails when no matching reservation exists. Check the requested traveler and itinerary against reservation state, then inspect required approvals and access constraints separately. This is an illustration, not story #2.
+- Illustrative grader adapted for this talk: a success sentence fails when no matching reservation exists. Check the requested traveler and itinerary against reservation state, then inspect required approvals and access constraints separately. This is a backup illustration, not personal experience.
 - "One-sided evals create one-sided optimization."
 
-**Hamel Husain, "Your AI Product Needs Evals," March 29, 2024** [primary]. https://hamel.dev/blog/posts/evals/ Quotes in research/section-1.md §3. Also "AI Evals: Everything You Need to Know," updated September 1, 2026, https://hamel.dev/blog/posts/evals-faq/ : "Error analysis is the most important activity in evals." "We've spent 60-80% of our development time on error analysis and evaluation." Backup only: this describes projects his teams worked on, not an industry allocation rule or competency ranking. His challenge-the-suite advice applies to probing capability; established regression cases should continue to pass. LLM-as-judge guide: https://hamel.dev/blog/posts/llm-judge/ (the "a judge is a hack to make you look at your data" line is UNVERIFIED as to wording).
+**Hamel Husain, "Your AI Product Needs Evals," March 29, 2024** [primary]. https://hamel.dev/blog/posts/evals/ Quotes in research/section-1.md §3. Also Husain and Shankar, "AI Evals: Everything You Need to Know," updated September 13, 2026, https://hamel.dev/blog/posts/evals-faq/ : "Error analysis is the most important activity in evals." "We've spent 60-80% of our development time on error analysis and evaluation." Backup only: this describes projects his teams worked on, not an industry allocation rule or competency ranking. Their challenge-the-suite advice applies to probing capability; established regression cases should continue to pass. LLM-as-judge guide: https://hamel.dev/blog/posts/llm-judge/ (the "a judge is a hack to make you look at your data" line is UNVERIFIED as to wording).
 
 **Shankar et al., "Who Validates the Validators?" UIST 2024.** https://arxiv.org/abs/2404.12272 Criteria drift; quotes in research/section-1.md §3.
 
@@ -363,30 +440,43 @@ Illustrative application of §0: retrieve the target packet, inspect evidence, c
 
 ### Evaluation decisions, maintenance, and the FRB check
 
-Verification and Evals revision, September 15, 2026: one coding-agent test-run example, the selected Husain/Shankar quote, general decisions, maintenance with pitfalls and the protected personal story, and a worked FRB check. The quote graphic depicts inspection and comparison; it is not a measured result.
+Earlier deck revision, September 15, 2026: one coding-agent test-run example, the selected Husain/Shankar quote, general decisions, maintenance with pitfalls, and a worked FRB check. The quote graphic depicts inspection and comparison; it is not a measured result. The Markdown-first rework below replaces that screen sequence and removes the previously reserved personal story.
 
 The three decisions are what counts as success, which checks can establish it, and which cases and trials provide evidence. Define the outcome, required constraints, and serious failures with domain experts. Use direct checks where possible and expert judgment for meaning and usefulness. Calibrate model graders against expert decisions. Start with 20 to 50 cases drawn from real failures, then cover common tasks and important edge cases. This is a starting recommendation from Anthropic above, not a universal sample-size requirement. Repeat trials to examine consistency.
 
 Verification before accepting a result and evaluation across representative cases remain complementary uses of checks. Evals are tests of an AI system. The probability distinction remains spoken: at least one success across attempts and success across every attempt answer different questions. pass@k and pass^k notation moves to research backup. Traditional tests still run as part of the system's checks. Keep both verification and evaluation running as the system changes.
 
-Maintenance covers criteria that evolve when outputs expose missing requirements, graders that disagree with experts, and suites that miss new failures. Review disagreements, rerun representative cases after model or harness changes, and add production failures to regression cases. Inspect the actual result and trace before choosing a repair. Preserve the existing headline pitfall. Story #2 remains a separate 1:00 presenter-authored slot over the general maintenance screen, before the FRB application. Do not invent the story or use the hypothetical FRB case as personal experience.
+Maintenance covers criteria that evolve when outputs expose missing requirements, graders that disagree with experts, and suites that miss new failures. Review disagreements, rerun representative cases after model or harness changes, and add production failures to regression cases. Inspect the actual result and trace before choosing a repair. Preserve the existing headline pitfall. The presenter removed story #2 and its 1:00 reservation during the content rework. The FRB check remains illustrative and must not be presented as personal experience.
 
 **Illustrative source-support check.** The deliberately wrong answer, “The board confirmed bearing wear,” cites FRB-042-MIN r2 §3, paragraph 2. The record and location exist in the invented packet, so the direct reference check passes. The exact passage says the cause remains unresolved and calls for inspection, so the source-support check fails. Expected: unresolved cause; inspection required. Reference existence does not establish semantic support. Keep this failure as a regression case and rerun it after changes, alongside the representative suite and repeated trials. This is a designed teaching check, not a result from a deployed model. The packet in `internal/frb-running-example.md` now records the cited reference on the wrong answer explicitly.
 
 The preliminary briefing remains part of the packet and the Context example. The focused Evals screen needs only the cited minutes to demonstrate the unsupported claim. Inspect parsing, retrieval, compaction, worker output, and synthesis in the actual trace before assigning a cause or selecting a repair. The broader direct-check/expert-judgment inventory, probability notation, flight-booking/refund illustrations, and team-specific allocation figures remain backup with their original qualifications.
 
-## 6. Operating it: observability, guardrails, security, identity, governance
+### Verification and evals content rework
+
+The Markdown-first revision opens with the existing Husain/Shankar quote, then defines verification and evaluation as complementary uses of checks. Verification informs acceptance of a particular result or action. Evaluation measures system behavior over representative cases and repeated trials. Code checks, model graders, and expert review can contribute to either. Evals are tests of an AI system; ordinary software tests remain necessary. The talk's inside/outside distinction is an organizing frame, not a universal technical taxonomy.
+
+Develop three decisions: what counts as success, which checks can establish it, and which cases and repeated trials provide useful evidence. Define outcomes, required constraints, serious failures, and acceptable limitations with domain experts. Measure important failure categories as well as overall results. Required approvals and access boundaries matter, while arbitrary tool sequences should not become the definition of correctness. Begin with a manageable initial suite; Anthropic's 20-to-50-task recommendation is a starting point, not statistical proof of readiness or a universal sample-size rule.
+
+Keep error analysis connected to engineering changes: inspect the outcome and trace, identify the failure and its source, repair the relevant component, and rerun representative cases. Check tasks and graders too. Preserve established regression cases and add production failures as the system changes. Capability probes and regression checks have different purposes. A green suite supports claims only within the behaviors it covers. Ongoing evaluation remains part of deployment.
+
+The FRB case keeps the existing invented minutes, deliberately unsupported answer, direct-reference PASS, source-support FAIL, and expected unresolved cause. A reference resolving correctly does not establish support for the claim. Failed source-support checks prevent export of that draft under the shared contract. The corrected content needs verification again. The presenter chose a brief comparison of code checks, model graders, and expert review. Remove the personal story and its 1:00 reservation from the revised content; the FRB check is the worked example. Final timing remains open for the pacing pass.
+
+Model graders, evaluation services, stored traces, and human reviewers that receive the CUI/ECI records remain within the applicable approved access and processing scope. This follows the illustrative deployment boundary in §0 and §1. An approved answering model is not automatically a suitable grader. Evaluate grader agreement with expert decisions; if suitable model grading is unavailable, use authorized expert review for the semantic judgments or limit the automated scope. These are authored design choices, not a claim that any named grader or service is approved.
+
+## 6. Production operations: observability, guardrails, security, identity, governance
 
 **Observability.** OpenTelemetry GenAI semantic conventions: spans, attributes, metrics, events for model calls, tool executions, agent runs, retrieval, memory. Now maintained in their own repository, https://github.com/open-telemetry/semantic-conventions-genai [primary], checked in a browser September 14, 2026; the spans document carries "Status: Development" and "Warning: Semantic conventions are subject to change." The old page at https://opentelemetry.io/docs/specs/semconv/gen-ai/ now only redirects. Secondary coverage (July 2026) reports no stable release or tag yet, so instrument against a pinned snapshot and expect attribute names to move. Blog: https://opentelemetry.io/blog/2026/genai-observability/ . Platforms to name generically: Langfuse, LangSmith, Braintrust, Arize Phoenix. Metrics a builder tracks: latency p50/p95/p99, time to first token, tokens per request, cost per request and per completed task, cache hit rate, tool call and failure counts, loop iterations per task, error and rate-limit counts. Agentic moves: cost per completed task; watch p95 and p99 tokens because tails concentrate cost. Coding-agent anchor: Codex `/status` will "Display session configuration and token usage" and `/usage` will "View account token usage"; `otel.exporter`, `otel.trace_exporter`, and `otel.metrics_exporter` accept otlp-http or otlp-grpc, with metrics defaulting to statsig. Devin CLI `/usage` will "Show estimated credit/ACU usage for the session," `/session-stats` shows consumption by dimension, `/context` shows window usage; `--sandbox` with `sandbox.allowed_domains`, `sandbox.denied_domains`, and `sandbox.network_mode` of full or limited; `devin mcp login` for OAuth. Docs in §1 and §3 [primary].
 
 **Guillermo Rauch, quoted in "State of AI Engineering," Datadog, 2026** [primary]. https://www.datadoghq.com/state-of-ai-engineering/ Checked in a browser September 15, 2026.
 
 - "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe."
-- Selected excerpt for the Operating it quote screen. The report attributes the quotation to Guillermo Rauch of Vercel. Datadog is the publisher, not the speaker. The retrieved page does not establish a publication day.
+- Selected excerpt for the Production operations quote screen, formerly Operating it. The report attributes the quotation to Guillermo Rauch of Vercel. Datadog is the publisher, not the speaker. The retrieved page does not establish a publication day. Wording and attribution rechecked in a browser September 15, 2026.
 
 
 **Simon Willison, "The lethal trifecta for AI agents," June 16, 2025** [primary]. https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/
 
+- Rechecked in a browser September 15, 2026 for the combined capability risk and the scope of the prompt-injection discussion. The content rework retains the conditional exfiltration-path framing and does not claim comprehensive protection.
 - The three: "Access to your private data," "Exposure to untrusted content," "The ability to externally communicate." These capabilities can combine into an exfiltration path. Break or constrain the path. This does not certify safety against other threats.
 - "LLMs are unable to reliably distinguish the importance of instructions based on where they came from."
 - "we still don't know how to 100% reliably prevent this from happening." A probabilistic filter is insufficient as the sole security boundary. Filtering can contribute to defense in depth. A web fetch can communicate externally, and one integration can supply multiple capabilities.
@@ -420,7 +510,7 @@ The preliminary briefing remains part of the packet and the Context example. The
 
 ### Operating decisions and the FRB agreement
 
-Operating it revision, September 15, 2026: one session-usage example, the selected Guillermo Rauch quote, four general operating decisions, maintenance with the security pitfall, an illustrative FRB operating agreement, and the existing full-screen yours diagram. The quote graphic depicts visibility into an execution path, not a measured trace. The user example is Devin CLI `/usage`, which reports estimated credit/ACU usage for the session, as recorded in the vendor anchor above.
+Earlier deck revision under the name Operating it, September 15, 2026: one session-usage example, the selected Guillermo Rauch quote, four general operating decisions, maintenance with the security pitfall, an illustrative FRB operating agreement, and the existing full-screen yours diagram. The quote graphic depicts visibility into an execution path, not a measured trace. The user example is Devin CLI `/usage`, which reports estimated credit/ACU usage for the session, as recorded in the vendor anchor above. The content rework below uses the presenter-selected name Production operations.
 
 The four decisions concern access and authority, observability, stop/handoff rules, and ownership of approvals and incidents. Enforce identity, scope, and destinations outside the model. Begin with least privilege and explicit approval requirements. Trace model calls, tools, and outcomes; track quality, cost per completed task, and latency. Set enforceable budgets, failure responses, recovery paths, and human handoff. Assign an accountable operator and review process, with audit trails and rollback. Identity design specifics remain illustrative patterns, not universal requirements.
 
@@ -429,6 +519,18 @@ Maintenance covers integrations that join private data, untrusted content, and e
 **Illustrative FRB operating agreement.** Restrict access to authorized internal records and permitted export destinations, enforced outside the model. Trace exact revisions, decisions, checks, and exports. Monitor quality, freshness, parsing/tool failures, cost per completed brief, and end-to-end latency. Restrict trace access. Failed checks, missing evidence, or exhausted budgets produce an explicit limitation or human handoff. People retain responsibility for official causes, decisions, and board records. The agreement is a teaching design, not a deployed control system or legal agreement. New integrations must be assessed for the combined capability risk, including instructions embedded in internal attachments.
 
 EchoLeak, Replit, Air Canada, and the other incidents remain research backup with their original evidence limitations. Detailed OpenTelemetry convention status, identity patterns, protocol security requirements, and Article 50 treatment also remain backup. No universal disclosure or compliance claim is made on the active slides. The full-screen yours anatomy diagram closes Section 2 after the FRB agreement.
+
+### Production operations content rework
+
+The presenter selected Production operations as the replacement for Operating it. The area covers keeping the deployed system observable, controlled, and accountable under changing tasks, dependencies, and requirements. Retain the Rauch quotation first, then the definition, why it matters, decisions and trade-offs, challenges and pitfalls, and the FRB application. Preserve the closing anatomy diagram as a section wrap after the application. No slide layout or timing is assigned in this pass.
+
+The four decisions remain authority, observation, stopping/handoff, and accountable ownership of approvals, changes, and incidents. Distinguish product-level operating policies and response responsibilities from the per-run execution rules in Orchestration. Observability connects observable requests, model/tool activity, source revisions, checks, outcomes, and resource use. Evaluation supplies quality criteria; production operations ensures failures reach a responsible team and feed back into the evaluation suite. OWASP authorization and monitoring guidance in §3 was rechecked in a browser September 15, 2026 for this treatment.
+
+Keep the security lesson focused on the combined system. Private data, untrusted content, and outbound communication can form an exfiltration path. An attachment in an internal corpus can contain instructions the model should not treat as authority; this is an illustrative application of the threat model. Review new integrations for their combined capabilities. Enforce access and destinations outside the model. Probabilistic filters can contribute to controls, but do not establish an authorization boundary by themselves. The trifecta is one threat model, not a complete safety assessment.
+
+The FRB agreement extends the existing access, monitoring, handoff, and human-ownership rules. Apply the CUI/ECI processing boundary to source records, derived context, traces, and evaluation artifacts. Monitor freshness and parsing/tool failures as well as quality, cost per completed brief, and end-to-end latency. Identify who receives a failed check, missing evidence, exhausted budget, or unknown export outcome. Retain evidence for authorized investigation. Assign responsibility for approving changes and disabling or reverting a problematic configuration. A configuration rollback does not automatically undo an earlier export or other completed action.
+
+These are proposed operating responsibilities for the invented FRB system, not a deployed control design, organizational role assignment, or compliance certification. Keep specific incident accounts, legal duties, telemetry schema details, and statistics in backup with their existing qualifications. The main narrative stays on the engineering decisions and their observable consequences.
 
 ## 7. June to September 2026: what the audience lived through
 
@@ -445,6 +547,7 @@ EchoLeak, Replit, Air Canada, and the other incidents remain research backup wit
 ## Verify before stage
 
 - FRB material is illustrative. Check IDs, revisions, source locations, uncertainty, and human ownership against `internal/frb-running-example.md`; do not seek or imply real-world verification of invented cases.
+- Data sensitivities: NARA and the NIST publication abstract checked September 15, 2026. Keep organization-specific eligibility and the observation about older, less capable approved options attributed to presenter-supplied context. The FRB corpus's CUI/ECI constraint and capability gap are illustrative assumptions. No named model, provider, environment, or FRB record has been established as approved or formally designated by these sources.
 
 - OpenAI "Harness engineering" research lead: verify its secondhand material before use. This is distinct from the directly fetched August 19 "Codex as a platform" source in §0 used on slides 7 and 14.
 - OpenAI "A practical guide to building agents": confirm quotes against the PDF.

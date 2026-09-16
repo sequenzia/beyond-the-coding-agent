@@ -1,0 +1,284 @@
+{
+  "status": "Built and validated; presentation-machine rehearsal pending",
+  "section2_range": [
+    "25:00",
+    "29:00"
+  ],
+  "rehearsal_reference": "27:00",
+  "section2": [
+    {
+      "number": 7,
+      "key": "S2-MAP",
+      "title": "The map",
+      "beat": "2.0",
+      "seconds": 110,
+      "file": "slides/section-2/07-the-map.md"
+    },
+    {
+      "number": 8,
+      "key": "S2-M-1",
+      "title": "Models, opening quote",
+      "beat": "2.1",
+      "seconds": 25,
+      "file": "slides/section-2/08-models-opening-quote.md"
+    },
+    {
+      "number": 9,
+      "key": "S2-M-2",
+      "title": "Models in the system",
+      "beat": "2.1",
+      "seconds": 45,
+      "file": "slides/section-2/09-models-in-the-system.md"
+    },
+    {
+      "number": 10,
+      "key": "S2-M-3",
+      "title": "Model selection",
+      "beat": "2.1",
+      "seconds": 60,
+      "file": "slides/section-2/10-model-selection.md"
+    },
+    {
+      "number": 11,
+      "key": "S2-M-4",
+      "title": "Model-selection pitfalls",
+      "beat": "2.1",
+      "seconds": 20,
+      "file": "slides/section-2/11-model-selection-pitfalls.md"
+    },
+    {
+      "number": 12,
+      "key": "S2-M-5",
+      "title": "Models for the FRB brief",
+      "beat": "2.1",
+      "seconds": 85,
+      "file": "slides/section-2/12-models-for-the-frb-brief.md"
+    },
+    {
+      "number": 13,
+      "key": "S2-C-1",
+      "title": "Context and knowledge, opening quote",
+      "beat": "2.2",
+      "seconds": 20,
+      "file": "slides/section-2/13-context-and-knowledge-opening-quote.md"
+    },
+    {
+      "number": 14,
+      "key": "S2-C-2",
+      "title": "Context for the next step",
+      "beat": "2.2",
+      "seconds": 45,
+      "file": "slides/section-2/14-context-for-the-next-step.md"
+    },
+    {
+      "number": 15,
+      "key": "S2-C-3",
+      "title": "Context decisions",
+      "beat": "2.2",
+      "seconds": 85,
+      "file": "slides/section-2/15-context-decisions.md"
+    },
+    {
+      "number": 16,
+      "key": "S2-C-4",
+      "title": "Context pitfalls",
+      "beat": "2.2",
+      "seconds": 20,
+      "file": "slides/section-2/16-context-pitfalls.md"
+    },
+    {
+      "number": 17,
+      "key": "S2-C-5",
+      "title": "Evidence for the FRB brief",
+      "beat": "2.2",
+      "seconds": 75,
+      "file": "slides/section-2/17-evidence-for-the-frb-brief.md"
+    },
+    {
+      "number": 18,
+      "key": "S2-T-1",
+      "title": "Tools and extensibility, opening quote",
+      "beat": "2.3",
+      "seconds": 20,
+      "file": "slides/section-2/18-tools-and-extensibility-opening-quote.md"
+    },
+    {
+      "number": 19,
+      "key": "S2-T-2",
+      "title": "Tools and connections",
+      "beat": "2.3",
+      "seconds": 60,
+      "file": "slides/section-2/19-tools-and-connections.md"
+    },
+    {
+      "number": 20,
+      "key": "S2-T-3",
+      "title": "Tool-design decisions",
+      "beat": "2.3",
+      "seconds": 60,
+      "file": "slides/section-2/20-tool-design-decisions.md"
+    },
+    {
+      "number": 21,
+      "key": "S2-T-4",
+      "title": "Tool-design pitfalls",
+      "beat": "2.3",
+      "seconds": 20,
+      "file": "slides/section-2/21-tool-design-pitfalls.md"
+    },
+    {
+      "number": 22,
+      "key": "S2-T-5",
+      "title": "Export cited brief",
+      "beat": "2.3",
+      "seconds": 60,
+      "file": "slides/section-2/22-export-cited-brief.md"
+    },
+    {
+      "number": 23,
+      "key": "S2-O-1",
+      "title": "Orchestration, opening quote",
+      "beat": "2.4",
+      "seconds": 20,
+      "file": "slides/section-2/23-orchestration-opening-quote.md"
+    },
+    {
+      "number": 24,
+      "key": "S2-O-2",
+      "title": "Execution control",
+      "beat": "2.4",
+      "seconds": 45,
+      "file": "slides/section-2/24-execution-control.md"
+    },
+    {
+      "number": 25,
+      "key": "S2-O-3",
+      "title": "Orchestration decisions",
+      "beat": "2.4",
+      "seconds": 60,
+      "file": "slides/section-2/25-orchestration-decisions.md"
+    },
+    {
+      "number": 26,
+      "key": "S2-O-4",
+      "title": "Execution pitfalls",
+      "beat": "2.4",
+      "seconds": 25,
+      "file": "slides/section-2/26-execution-pitfalls.md"
+    },
+    {
+      "number": 27,
+      "key": "S2-O-5",
+      "title": "Workflow for the FRB brief",
+      "beat": "2.4",
+      "seconds": 85,
+      "file": "slides/section-2/27-workflow-for-the-frb-brief.md"
+    },
+    {
+      "number": 28,
+      "key": "S2-E-1",
+      "title": "Verification and evals, opening quote",
+      "beat": "2.5",
+      "seconds": 20,
+      "file": "slides/section-2/28-verification-and-evals-opening-quote.md"
+    },
+    {
+      "number": 29,
+      "key": "S2-E-2",
+      "title": "Verification and evaluation",
+      "beat": "2.5",
+      "seconds": 50,
+      "file": "slides/section-2/29-verification-and-evaluation.md"
+    },
+    {
+      "number": 30,
+      "key": "S2-E-3",
+      "title": "Evaluation decisions",
+      "beat": "2.5",
+      "seconds": 90,
+      "file": "slides/section-2/30-evaluation-decisions.md"
+    },
+    {
+      "number": 31,
+      "key": "S2-E-4",
+      "title": "Evaluation pitfalls",
+      "beat": "2.5",
+      "seconds": 25,
+      "file": "slides/section-2/31-evaluation-pitfalls.md"
+    },
+    {
+      "number": 32,
+      "key": "S2-E-5",
+      "title": "Does the source support the claim?",
+      "beat": "2.5",
+      "seconds": 90,
+      "file": "slides/section-2/32-does-the-source-support-the-claim.md"
+    },
+    {
+      "number": 33,
+      "key": "S2-P-1",
+      "title": "Production operations, opening quote",
+      "beat": "2.6",
+      "seconds": 25,
+      "file": "slides/section-2/33-production-operations-opening-quote.md"
+    },
+    {
+      "number": 34,
+      "key": "S2-P-2",
+      "title": "Production operations",
+      "beat": "2.6",
+      "seconds": 40,
+      "file": "slides/section-2/34-production-operations.md"
+    },
+    {
+      "number": 35,
+      "key": "S2-P-3",
+      "title": "Production decisions",
+      "beat": "2.6",
+      "seconds": 80,
+      "file": "slides/section-2/35-production-decisions.md"
+    },
+    {
+      "number": 36,
+      "key": "S2-P-4",
+      "title": "Risks across integrations",
+      "beat": "2.6",
+      "seconds": 45,
+      "file": "slides/section-2/36-risks-across-integrations.md"
+    },
+    {
+      "number": 37,
+      "key": "S2-P-5",
+      "title": "FRB operating agreement",
+      "beat": "2.6",
+      "seconds": 60,
+      "file": "slides/section-2/37-frb-operating-agreement.md"
+    },
+    {
+      "number": 38,
+      "key": "S2-WRAP",
+      "title": "The system responsibilities",
+      "beat": "2.7",
+      "seconds": 50,
+      "file": "slides/section-2/38-the-system-responsibilities.md"
+    }
+  ],
+  "section3_old_to_new": {
+    "20": 39,
+    "21": 40,
+    "22": 41,
+    "23": 42,
+    "24": 43,
+    "25": 44,
+    "26": 45
+  },
+  "counts": {
+    "narrative": 45,
+    "authored": 46,
+    "physical": 56,
+    "states": 57,
+    "advances": 56
+  },
+  "integrated_date": "2026-09-16",
+  "delivered_file": "output/beyond-the-coding-agent-2026-09-16-section2-revised.pptx"
+}

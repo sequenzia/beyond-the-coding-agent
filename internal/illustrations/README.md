@@ -1,10 +1,10 @@
 # Quote illustrations
 
-## Operating it: make the execution path visible
+## Production operations: make the execution path visible
 
 - File: `operating-observability.png`.
 - Created September 15, 2026 with the built-in imagegen tool.
-- Use: Operating it quote screen. Conceptual observability metaphor, not a measured trace or real device.
+- Use: Production operations quote screen, now slide 33. Conceptual observability metaphor, not a measured trace or real device. The technical filename remains unchanged.
 - Keep the quotation and attribution as editable slide text.
 
 ### Generation prompt

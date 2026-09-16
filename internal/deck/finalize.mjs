@@ -22,7 +22,7 @@ const result=await finalizePresentation({
  requiredNativeTableOwnerSlides:tableOwners,
  requiredNativeChartOwnerSlides:[],
  layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...tableOwners.flatMap(n=>['--require-native-table-slide',String(n)])],
- fontPolicy:{basis:'user_request',families:['Helvetica','Consolas']},
+ fontPolicy:{basis:'design',families:['Helvetica','Consolas']},
  verifyArtifactToolImport:true,
  receiptPath:path.join(build,'validation.json')
 });

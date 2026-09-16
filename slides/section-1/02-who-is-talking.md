@@ -36,7 +36,7 @@ Backup, not spoken: eight to ten concurrent AI and ML efforts; an 85% reduction 
 
 **[your story #1, optional].** The moment a demo you built turned out not to be the product. It must show one concrete failure where a working path was not a working system. Thirty seconds.
 
-Timing note: this beat is budgeted at 0:30 for the bio alone. Telling the story here needs another 0:30 from somewhere in Section 1, and no Section 1 beat has that much backup material. The story fits inside 2.5 as the evals example, either as story #2 or in place of it. Recommendation: hold it for slide 16 unless the bio can be delivered in ten seconds.
+Timing note: this beat is budgeted at 0:30 for the bio alone. Telling the optional story here needs another 0:30 from elsewhere in Section 1. Decide that during the presenter's later trimming pass. The evals story slot has been removed; do not move this story into Section 2.
 
 ## Sources
 
@@ -44,5 +44,5 @@ Timing note: this beat is budgeted at 0:30 for the bio alone. Telling the story 
 
 ## Open items
 
-- Story #1: here, on slide 16, or dropped.
+- Story #1: optional here, subject to the later Section 1 timing pass.
 - Larger photo if the template wants it above 320 pixels.

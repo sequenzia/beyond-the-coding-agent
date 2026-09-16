@@ -12,21 +12,20 @@ Beat 1.5 What you will leave with, and the agenda. Section 1. Time 0:45. Builds:
 
 **Right column. Heading: Agenda**
 
-- The map. 2 min
-- Six areas. 23 min
-  Models. Context and knowledge. Tools. Orchestration. Verification and evals. Operating it.
-- The transition. 5 min
-- Your questions. 15 min
+- The map and six areas. 25:00 to 29:00
+  Models. Context and knowledge. Tools. Orchestration. Verification and evals. Production operations.
+- Making the transition
+- Your questions
 
 **Footer line, full width, smaller:**
 
-User example · Quote · Decisions · Maintenance · Worked example
+Quote · What and why · Decisions · Pitfalls · FRB example
 
 ## Layout and visual
 
 - Display narrative number 5 throughout, using the shared component in the design brief.
 
-- Two columns of roughly equal width. Left is three numbered lines. Right is the agenda with the minutes right-aligned so they read as a column.
+- Two columns of roughly equal width. Left is three numbered lines. Right is the agenda with the Section 2 range alongside its entry.
 - The six area names sit as one indented line under "Six areas," separated by periods or thin dots, not as six bullets. Six bullets would make the agenda look longer than the takeaways and unbalance the slide.
 - The footer line is the pattern the audience will see in each of the six Section 2 areas. Keep it visible but small. It is a promise, not a headline.
 - No times shown for the intro. The audience is in it.
@@ -35,9 +34,9 @@ User example · Quote · Decisions · Maintenance · Worked example
 
 [0:00] Three things to leave with. **A conceptual map of the discipline. An honest sense of how much there is. And a roadmap for making the transition.**
 
-[0:10] The agenda. The map, two minutes. Six areas, twenty-three minutes: models, context and knowledge, tools, orchestration, verification and evals, and operating it. The transition, five minutes. Then fifteen minutes for your questions.
+[0:10] The agenda. The map and six areas take twenty-five to twenty-nine minutes: models, context and knowledge, tools, orchestration, verification and evals, and production operations. Then making the transition, followed by your questions.
 
-[0:26] **For each area: a familiar action, a quote, the decisions you own, how they change over time, and a worked example.**
+[0:26] **For each area: a quote, what it is and why it matters, decisions and trade-offs, challenges and pitfalls, and the FRB application.**
 
 [0:45] Advance to slide 6.
 

@@ -22,7 +22,7 @@ area colors:
     - Models: blue
     - Context, Tools, Orchestration: pink
     - Evals: green
-    - Operating: amber
+    - Production operations: amber
     - Section 1: pink as the landing color; slide 1 carries amber and green
     - Section 3: green
 
