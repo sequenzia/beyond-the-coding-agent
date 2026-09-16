@@ -285,34 +285,35 @@ const section2Areas = [
     "publication": "Writing effective tools for agents, with agents, September 2025",
     "titles": [
       "Tools & Extensibility, opening quote",
-      "Tool calls and execution",
-      "Capabilities and extension mechanisms",
+      "Tools and agent capabilities",
+      "Choosing and exposing capabilities",
       "Tool-design pitfalls",
       "Export cited brief"
     ],
+    "definition": "Tools expose operations for retrieving information, running computations,\nand acting on systems.",
     "toolCall": [
-      ["Proposal", "The model selects an\noperation and supplies\narguments."],
-      ["Execution", "Application code validates,\nauthorizes, and executes\npermitted requests."],
-      ["Observation", "The result informs\nthe next model step."]
+      ["Request", "The model selects a tool\nand supplies arguments."],
+      ["Execution", "Software checks\npermissions and inputs,\nthen performs the\npermitted operation."],
+      ["Result", "The tool returns information\nthat informs the next\nmodel step."]
     ],
-    "mechanisms": [
-      ["MCP", "Connect applications to tools and context."],
-      ["Skills", "Reusable task instructions and supporting resources."],
-      ["Plugins", "Package capabilities for installation and distribution."]
+    "decisions": [
+      ["Capability size", "Small operations offer flexibility.\nTask-oriented tools handle more work internally."],
+      ["System access", "MCP provides standard tool discovery and calls.\nCLIs provide access through existing commands."],
+      ["Tool composition", "Individual calls return results step by step.\nCode mode combines calls and processes results in code."]
     ],
     "pitfall": "Copying APIs without evaluating task fit.",
     "cues": [
       [
-        "Contract",
-        "Description, schema, and behavior can drift."
+        "Tool selection",
+        "Overlapping tools and unclear descriptions make\nthe right operation harder to choose."
       ],
       [
         "Authority",
-        "Valid arguments still require permission checks."
+        "Broad shell or code access can grant more power\nthan the task requires."
       ],
       [
         "Outcomes",
-        "Success, failure, and uncertainty need distinct results."
+        "An unclear result leaves the agent unsure whether\nan action completed."
       ]
     ],
     "quoteWrapped": "“Agents are only as effective\nas the tools we give them.”",
@@ -513,15 +514,14 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
    text(body,x,y+56,186,54,20);
   });
  }else if(areaIndex===2){
+  text(a.definition,48,192,864,54,20);
   a.toolCall.forEach(([label,body],i)=>{
-   text(label,48+i*308,192,248,30,20,{bold:true,color});
-   text(body,48+i*308,230,248,96,20);
+   text(label,48+i*308,272,248,30,20,{bold:true,color});
+   text(body,48+i*308,310,248,100,20);
   });
-  arrow(308,267,32);arrow(616,267,32);
-  attr('Illustrative application call',48,340,864);
-  text('export_cited_brief(draft, citations, destination)',48,372,864,30,20,{font:'Consolas'});
-  text('Application checks',48,438,216,30,20,{bold:true,color});
-  text('Authenticated identity. Exact checked content.\nPermitted destination.',292,438,620,54,20);
+  arrow(308,355,32);arrow(616,355,32);
+  text('Model Context Protocol (MCP)',48,434,864,30,20,{bold:true,color});
+  text('A standard interface for connecting AI applications to external tools and context.',48,466,864,30,20);
  }else if(areaIndex===3){
   text('Workflow',48,192,180,30,20,{bold:true,color});
   text('Code defines the stages and permitted transitions.',244,192,668,30,20);
@@ -570,11 +570,9 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   });
   text('Preserve source identity and enforce access before inclusion.',48,466,864,30,20,{bold:true});
  }else if(areaIndex===2){
-  text('Capability size',48,192,216,30,20,{bold:true,color});
-  text('Flexible primitives or task-oriented operations.\nEvaluate the boundary on real work.',292,192,620,54,20);
-  evidenceTable([['Mechanism','Role'],...a.mechanisms],[180,684],270,[32,40,40,40],{color});
-  text('Operational contract',48,438,216,30,20,{bold:true,color});
-  text('Maintain descriptions, inputs, results, and failure behavior.\nEnforce permissions in code.',292,438,620,54,20);
+  const choices=evidenceTable([['Decision','Options and trade-offs'],...a.decisions],[244,620],192,[36,72,72,72],{color});
+  for(let r=1;r<=a.decisions.length;r++)choices.getCell(r,0).text.style={typeface:'Helvetica',fontSize:20*P,color:C.text,bold:true,autoFit:'none',lineSpacing:1.25};
+  text('**Execution controls apply to every approach:**\npermissions, input checks, and limits on execution.',48,450,864,50,20);
  }else if(areaIndex===3){
   a.decisions.forEach(([label,body],i)=>{
    text(label,48,192+i*80,216,30,20,{bold:true,color});

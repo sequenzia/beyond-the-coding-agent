@@ -1,59 +1,51 @@
-# Slide 23: Capabilities and extension mechanisms
+# Slide 23: Choosing and exposing capabilities
 
-Beat 2.3. Section 2. Rehearsal reference 1:15 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
+Beat 2.3. Section 2. Rehearsal reference 1:05 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds. Copy and script approved September 16, 2026.
 
 ## On the slide
 
 **Kicker:** Tools & Extensibility · Decisions
 
-**Title:** Capabilities and extension mechanisms
+**Title:** Choosing and exposing capabilities
 
-**Capability size**
-
-Flexible primitives or task-oriented operations. Evaluate the boundary on real work.
-
-| Mechanism | Role |
+| Decision | Options and trade-offs |
 |---|---|
-| MCP | Connect applications to tools and context. |
-| Skills | Reusable task instructions and supporting resources. |
-| Plugins | Package capabilities for installation and distribution. |
+| **Capability size** | Small operations offer flexibility. Task-oriented tools handle more work internally. |
+| **System access** | MCP provides standard tool discovery and calls. CLIs provide access through existing commands. |
+| **Tool composition** | Individual calls return results step by step. Code mode combines calls and processes results in code. |
 
-**Operational contract**
-
-Maintain descriptions, inputs, results, and failure behavior. Enforce permissions in code.
+**Execution controls apply to every approach:** permissions, input checks, and limits on execution.
 
 ## Layout and visual
 
 - Display narrative number 23, the area kicker, and `mini-tools` throughout.
-- Use the capability decision, native mechanism table, and contract statement in design brief §29. All visual values are defined there.
-- Explain the role each mechanism serves. They can be combined and are not three competing tool types or mandatory layers.
-- Keep A2A in Markdown backup. The stage explanation covers MCP, skills, and plugins without installation or protocol walkthroughs.
+- Use the native decision table and execution-controls statement in design brief §29. All visual values are defined there.
+- Distinguish system access from tool composition. Code mode can call MCP tools; the approaches can work together.
 - Keep the table and text editable. Show the complete content on entry with hard cuts and no internal builds.
 
 ## Talk track
 
-[0:00] **DESIGN AND EXTENSION DECISIONS**
+[0:00] **CHOOSING AND EXPOSING CAPABILITIES**
 
-[0:00] First choose the capability boundary. Small operations give the caller more combinations and more steps to coordinate. A task-oriented operation can handle more work in code, while embedding assumptions about the task. Evaluate that trade-off.
+[0:00] **Start with the task the agent needs to perform.** Small tools give it flexible building blocks, but require more calls to coordinate. A task-oriented tool handles more work internally, while embedding more assumptions.
 
-[0:19] Then choose how to extend the system. **MCP, the Model Context Protocol, connects applications to providers of tools and context.** The application can discover operations and call them through a common interface.
+[0:15] Then choose how to connect. MCP provides a standard way to discover and call tools. An existing CLI can also expose useful capabilities through a shell or execution tool. Consider its available commands and how reliably the agent can interpret their output.
 
-[0:35] **A skill supplies reusable instructions and supporting resources for a task.** It can include scripts or examples. **A plugin packages capabilities for installation and distribution**, such as a skill together with an MCP integration. Exact packaging depends on the host.
+[0:34] **Code mode means the agent writes code that calls tools.** That code can call MCP tools, loop over results, and filter data before returning selected information to the model.
 
-[0:55] These mechanisms can work together. None replaces the execution checks we just saw. Someone still owns the descriptions, schemas, implementation, permissions, and failure behavior. Keep those pieces aligned as the capability changes, and check that the model can find and use the appropriate operation.
+[0:47] This can reduce repeated model round trips and intermediate data in context. It also requires a controlled execution environment. Whichever approach you choose, enforce permissions and validate inputs in software.
 
-[1:15] Advance to slide 24.
+[1:00] Evaluate these choices on real tasks. The next slide covers common failures.
 
-Cut first: plugin packaging examples and discovery elaboration. Never cut capability granularity, the three mechanism roles, or application-owned enforcement. Cue times are rehearsal guides, not automatic playback timing.
+[1:05] Advance to slide 24.
 
-Backup, not spoken: A2A supports communication between agents. Keep its protocol details and independent-agent discussion in the supporting integration file and Research §3.
+Cut first: the CLI output-format elaboration. Never cut capability granularity, MCP and CLI access, code mode's composition role, or execution controls. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Anthropic, September and November 2025; MCP documentation, July 2026, rechecked September 2026; Agent Skills and OpenAI plugin documentation, checked September 2026; OWASP, 2025. Research §3 in `research/section-2.md`.
-- Illustrative export contract: Research §0 and §3, and `internal/frb-running-example.md`. The unapproved-destination case is an expected contract test, not a measured result.
-- Accepted content integration: `outlines/section-2-integration/03-tools-and-extensibility.md`. A2A remains in supporting Markdown.
+- Anthropic, tool design, September 2025, code execution with MCP, November 2025, and bash-tool documentation checked September 2026; MCP documentation, July 2026, rechecked September 2026; OWASP, 2025. Research §3 in `research/section-2.md`.
+- Approved capabilities refinement, September 2026, in Research §3. Efficiency benefits depend on the task and implementation; no numerical savings are claimed.
 
 ## Open items
 
-- Rehearse the 4:10 area on the actual presentation machine. Preserve the execution boundary and the unapproved-destination example when trimming.
+- Rehearse the approved 1:05 script. Preserve the distinction between system access and tool composition, including code mode's ability to call MCP tools.

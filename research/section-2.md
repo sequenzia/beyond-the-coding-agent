@@ -404,9 +404,9 @@ The illustrative FRB application retains the existing four-tool inventory and fo
 
 The tool returns a receipt when completion is confirmed, an explicit failure when known, or an unknown outcome when completion cannot be confirmed. Orchestration uses that evidence to decide whether to inspect, retry, or hand off. Tool design supplies the result contract, while orchestration owns the recovery policy. Evaluate use of the tool set with the available approved models; clear contracts do not guarantee that their capability limits disappear.
 
-### Tools integration, September 16, 2026
+### Tools integration, September 16, 2026 (earlier revision)
 
-The presenter selected MCP, skills, and plugins for the main explanation, with A2A as backup. The approved failure choice is a proposed FRB export to an unapproved destination that the tool rejects. The accepted content is recorded in `outlines/section-2-integration/03-tools-and-extensibility.md` and integrated into outline beat 2.3, slides 21 through 25, and the reusable deck builder. Tools & Extensibility has a 4:10 rehearsal reference.
+The presenter initially selected MCP, skills, and plugins for the main explanation, with A2A as backup. The later slides 22 through 24 refinement below supersedes that teaching choice. The approved failure choice is a proposed FRB export to an unapproved destination that the tool rejects. The earlier accepted content is recorded in `outlines/section-2-integration/03-tools-and-extensibility.md`. Tools & Extensibility has a 4:10 rehearsal reference.
 
 The MCP introduction and server-concepts records above were fetched and read again September 16, 2026. Use their connection, tool discovery, typed-input, and execution-result concepts for a proposal, execution, and observation diagram. Schema validity and permission are separate requirements. The existing OWASP source and FRB contract support enforcing authorization outside the model. No new protocol-version claim or provider-specific structured-output guarantee is needed.
 
@@ -428,6 +428,28 @@ The MCP introduction and server-concepts records above were fetched and read aga
 Illustrative application of the existing export contract: the model proposes an export with well-formed draft, citation, and destination arguments. The destination is outside the application's permitted scope. Code rejects the request before transfer. This is an expected test outcome, not a measured system result. Check the rejection reason and absence of an export at that destination; an error message alone does not establish absence of effects. No real destination, document, credential, approval, or sensitive data is introduced.
 
 Preserve the other contract requirements: the exact exported content must have passed verification, citations and uncertainty remain intact, and allowed completion returns a receipt. Keep rejected execution distinct from an unknown outcome after a possible action. Tools supplies the contract and result; Orchestration owns subsequent recovery or continuation.
+
+### Slides 22 through 24 refinement, September 16, 2026
+
+The presenter approved the visible copy and timestamped scripts for Tools and agent capabilities (1:00), Choosing and exposing capabilities (1:05), and Tool-design pitfalls (0:40). Tools are the primary way to extend the agent beyond generating a response. The foundation retains the model request, software-controlled execution, and returned result, then introduces MCP's connection role. The issue-tracker example is hypothetical and names no product or deployed integration.
+
+The decisions are capability size, system access, and tool composition. Smaller operations offer flexibility but require more coordination. Task-oriented operations contain more task assumptions. MCP supplies discovery and calls through a standard interface. Existing CLIs can be invoked through a shell or execution tool. Code mode means generated code calls tools, including MCP tools, and processes intermediate results. These roles can combine. Potential savings in model round trips and context depend on the task and implementation; no numerical benefit or universal improvement is claimed.
+
+The pitfalls are confusing tool selection, excessive authority, and unclear outcomes. Description drift remains spoken. Permissions and input checks belong in software, including for shell and code access. Confirmed completion, known failure, and unknown completion remain distinct; a timeout alone may leave the external action's outcome unknown. This extends the existing tool-contract and OWASP guidance. Recovery policy remains in Orchestration.
+
+The three slide specs and scripts contain no direct FRB reference. Skills and plugins leave their teaching content. The earlier evidence records remain historical backup. Slides 21 and 25 are unchanged. The exact headline remains "Copying APIs without evaluating task fit." as on slide 45. The combined 2:45 preserves the area's 4:10 and Section 2's 28:30 references. Scripts are editorially approved; presenter rehearsal remains necessary.
+
+**Adam Jones and Conor Kelly, "Code execution with MCP: Building more efficient agents," Anthropic Engineering, November 4, 2025** [primary]. https://www.anthropic.com/engineering/code-execution-with-mcp Checked in a browser September 16, 2026.
+
+- "The agent can then write code to interact with MCP servers."
+- Generated code can combine calls, use loops and conditions, and filter returned data before sending selected information to the model. This supports the talk's code-mode definition and its qualified efficiency benefit.
+- The execution environment needs isolation plus "resource limits, and monitoring." Additional infrastructure and operational work accompany code execution. The talk uses no benchmark or percentage from this article.
+
+**Anthropic, "Bash tool," Claude Platform documentation, publication date not stated, checked September 16, 2026** [primary]. https://platform.claude.com/docs/en/agents-and-tools/tool-use/bash-tool Fetched and read directly in a browser.
+
+- "Let Claude request shell commands that your application runs in a persistent bash session and returns as tool results."
+- This documents the generic execution path behind CLI access. The application supplies the shell, handles outputs and errors, and owns execution limits. It supports using existing commands without teaching a provider-specific API or adding another named coding agent on stage.
+- "Treat every command as untrusted input." The documented controls include isolation, least privilege, validation, resource limits, and output handling. A command's availability does not grant permission to execute it.
 
 ## 4. Orchestration
 
@@ -732,13 +754,15 @@ The proposed operator pauses the rollout, compares affected task categories and 
 
 ## Verify before stage
 
+- Slides 22 through 24: approved copy and scripts are integrated at 1:00, 1:05, and 0:40. Rehearse their combined 2:45. MCP is the connection interface; CLI access uses an execution tool; code mode writes code that calls tools and can use MCP. The new Anthropic code-execution and bash-tool sources were checked September 16, 2026. Preserve permission boundaries and explicit uncertainty. The exact headline still matches slide 45. Slides 21 and 25 remain unchanged.
+
 - Slides 17 through 19: approved copy and scripts are integrated. Rehearse their combined 2:55. Chroma's rot and distraction evidence was rechecked September 16, 2026. Preserve the distinction between context rot and stale information, the qualified placement warning, and the exact headline shared with slide 45.
 - Slide 18 decisions refinement: Liu et al.'s placement evidence and Anthropic's compaction and sub-agent guidance were checked September 16, 2026. Keep the placement recommendation task- and model-specific. Preserve source references and access enforcement. Rehearse the approved 1:10 script and its transition to the reserved 0:45 pitfalls slide.
 - Slide 17 foundations refinement: the approved eight-category diagram develops the existing context-engineering sources. Preserve its distinction between stored information and selected input, and rehearse the 1:00 script. The category layout implies neither processing order nor equal token budgets.
 - AgentOps integration: trace definitions, evolving GenAI conventions, and Google SRE release/objective guidance were checked September 16, 2026. Keep SLOs and error budgets in backup. The approved-update incident is illustrative and preserves the export gate, authorized processing, and human authority. Correlation motivates investigation rather than proving cause. The accepted copy and 4:10 reference are integrated; spoken pacing remains to be rehearsed.
 - Verification & Evals integration: the Anthropic definitions and OpenAI evaluation-method guidance were checked September 16, 2026. Keep pass@k and pass^k in backup. The suite matrix contains illustrative case designs and expected checks, not measured outcomes. Preserve the exact FRB source-support failure and distinguish fixture-specific completion from unresolved status. The accepted copy and timing redistribution are integrated; spoken pacing remains to be rehearsed.
 - Orchestration integration: checkpoint and idempotency sources were checked September 16, 2026. Keep durable saved state distinct from external completion evidence, and qualify retry behavior by the service contract. The permitted-export timeout is a separate illustrative case from Tools' rejected destination. The accepted content and timing redistribution are integrated; spoken pacing remains to be rehearsed.
-- Tools & Extensibility integration: MCP roles, Agent Skills, and the OpenAI plugin-packaging example were checked September 16, 2026. Keep A2A in backup. The unapproved-destination rejection is an illustrative contract test, not a measured result. The accepted content and 4:10 reference are integrated; rehearsal remains necessary.
+- Tools & Extensibility integration: MCP roles were checked September 16, 2026. Agent Skills and the OpenAI plugin-packaging example remain historical research, superseded on slides 22 through 24 by the approved capabilities, CLI, and code-mode refinement. Keep A2A in backup. The unapproved-destination rejection on slide 25 is an illustrative contract test, not a measured result. The 4:10 reference remains unchanged; rehearsal remains necessary.
 - Context Engineering integration: the conceptual retrieval and memory passages were rechecked September 16, 2026. Retain the distinction between source availability, retrieval, and assembled input. The selected missing-minutes failure is illustrative; do not imply a measured retrieval failure or merge the briefing and minutes into one revision sequence. The accepted content and 4:30 reference are integrated; rehearsal remains necessary.
 - Model Selection integration primer: the four OpenAI documentation records in §1 were checked September 16, 2026. Preserve model-specific qualifications for context accounting and reasoning settings. The accepted primer is integrated into slide 12. Rehearse the new 4:30 Model Selection reference before stage.
 - FRB material is illustrative. Check IDs, revisions, source locations, uncertainty, and human ownership against `internal/frb-running-example.md`; do not seek or imply real-world verification of invented cases.

@@ -867,29 +867,28 @@ Retain the existing left-column excerpts, dates, source IDs, revisions, and loca
 
 ## 29. Tools & Extensibility integration, September 16, 2026
 
-The accepted sequence is quote, tool-call foundations, capability and extension decisions, pitfalls, and the unapproved-destination FRB contract test. Keep narrative slides 21 through 25, static entry, hard cuts, the area pink, mini-map, and native numbering. Tools & Extensibility has a 4:10 reference and Section 2 totals 28:30. Preserve existing anatomy assets. A2A stays in Markdown backup.
+The accepted sequence is quote, tools and agent capabilities, capability decisions, pitfalls, and the unapproved-destination FRB contract test. The approved refinement of slides 22 through 24 uses 1:00, 1:05, and 0:40. Keep narrative slides 21 through 25, static entry, hard cuts, the area pink, mini-map, and native numbering. Tools & Extensibility has a 4:10 reference and Section 2 totals 28:30. Preserve existing anatomy assets. A2A stays in Markdown backup.
 
-### Slide 22: tool-call foundations
+### Slide 22: tools and agent capabilities
 
-Use one native editable flow matching the Model Selection invocation, with an illustrative application call and the execution checks below it. All text remains editable.
+Use one native editable flow matching the Model Selection invocation, with a capability definition above and the MCP definition below. All text remains editable.
 
-- Three columns start at x 48, 356, and 664, each width 248. Proposal, Execution, and Observation labels use y 192, height 30, Helvetica Bold 20 in area pink. Bodies start at y 230, height 96, Regular 20. Use deliberate line breaks to fit each explanation in three lines.
-- Native horizontal arrows run from x 308 to 340 and from x 616 to 648, at y 267. Use the shared secondary 2-point connector style. The labels and bodies make the model/application distinction explicit.
-- The caption "Illustrative application call" uses x 48, y 340, width 864, height 20, Helvetica Regular 16 in secondary text.
-- The `export_cited_brief(draft, citations, destination)` signature uses x 48, y 372, width 864, height 30, Consolas Regular 20 in primary text. It is conceptual pseudocode, not a provider API or a complete schema.
-- Application checks label at x 48, y 438, width 216, height 30, Helvetica Bold 20 in area pink. Body at x 292, y 438, width 620, height 54, Regular 20: authenticated identity and exact checked content on the first line, permitted destination on the second.
+- Capability definition at x 48, y 192, width 864, height 54, Helvetica Regular 20. Break after "computations,".
+- Three columns start at x 48, 356, and 664, each width 248. Request, Execution, and Result labels use y 272, height 30, Helvetica Bold 20 in area pink. Bodies start at y 310, height 100, Regular 20. Use deliberate line breaks, allowing four lines for execution.
+- Native horizontal arrows run from x 308 to 340 and from x 616 to 648, at y 355. Use the shared secondary 2-point connector style. The labels and bodies make the model/application distinction explicit.
+- Model Context Protocol (MCP) label at x 48, y 434, width 864, height 30, Helvetica Bold 20 in area pink. Definition at x 48, y 466, width 864, height 30, Regular 20. Client/server roles and the hypothetical issue-tracker example remain spoken.
 
-### Slide 23: capabilities and extension mechanisms
+### Slide 23: choosing and exposing capabilities
 
-Use one compact native terminology table between capability-size and contract decisions. Avoid decorative cards or a competing second table.
+Use one native two-column decision table followed by an execution-controls statement. Avoid decorative cards or a competing second table.
 
-- Capability size label at x 48, y 192, width 216, height 30, Helvetica Bold 20 in area pink. Body at x 292, y 192, width 620, height 54, Regular 20, with two deliberate lines.
-- Native table at x 48, y 270, width 864. Columns are 180 and 684, with row heights 32, 40, 40, and 40, ending at y 422. Header and body use Helvetica 20. Header is Bold in area pink; body is primary text. Use zero margins, no visible borders, and no banding. The rows are MCP, Skills, and Plugins, each with its role.
-- Operational contract label at x 48, y 438, width 216, height 30, Bold 20 in area pink. Body at x 292, y 438, width 620, height 54, Regular 20, over two lines. Retain both maintained contract elements and permission enforcement.
+- Native table at x 48, y 192, width 864. Columns are 244 and 620, with row heights 36, 72, 72, and 72, ending at y 444. Header and body use Helvetica 20. Header is Bold in area pink. Decision labels are Bold in primary text; explanation cells are Regular in primary text. Use zero margins, no visible borders, and no banding.
+- Headers are Decision and Options and trade-offs. Rows are Capability size, System access, and Tool composition. Each explanation breaks at its sentence boundary into two lines. The left column includes the shared label-to-body gutter.
+- Execution-controls statement at x 48, y 450, width 864, height 50, Helvetica 20. Bold "Execution controls apply to every approach:" on the first line, then regular "permissions, input checks, and limits on execution." on the second.
 
 ### Slide 24: pitfalls
 
-Keep the existing three-row geometry and headline-pitfall position. The cue labels are Contract, Authority, and Outcomes. Preserve the exact pitfall sentence shared with slide 45.
+Keep the existing three-row geometry and headline-pitfall position. Labels at x 48, width 216, height 30, use y 192, 254, and 316, Helvetica Bold 20 in area pink. Bodies at x 292, width 620, height 54, use Regular 20 with deliberate two-line wraps. The cue labels are Tool selection, Authority, and Outcomes. Preserve the exact pitfall sentence shared with slide 45. Description drift and the timeout example stay spoken.
 
 ### Slide 25: unapproved destination
 
