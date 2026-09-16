@@ -50,7 +50,7 @@ The six-row mapping is the talk's synthesis of the engineering responsibilities 
 
 ### Direct competency view, revised September 16, 2026
 
-Slide 43 turns the six Section 2 areas into learning objectives. This is the talk's synthesis of the existing evidence and engineering decisions, in the same area order. The competencies are unranked. Slide 42 identifies the familiar engineering habits; slide 43 identifies the model-specific behavior those habits must address.
+Slide 44 turns the six Section 2 areas into learning objectives. This is the talk's synthesis of the existing evidence and engineering decisions, in the same area order. The competencies are unranked. Slide 43 identifies the familiar engineering habits; slide 44 identifies the model-specific behavior those habits must address.
 
 | Area | Competency to develop | Evidence already developed |
 |---|---|---|
@@ -87,7 +87,7 @@ The talk track develops those existing decisions through representative failures
 
 ### Recap wording, revised September 16, 2026
 
-Slide 44 repeats the six Section 2 headline pitfalls exactly. These are the talk's summaries of the decisions and failure modes already sourced in Section 2 Research §1 through §6, in that order.
+Slide 45 repeats the six Section 2 headline pitfalls exactly. These are the talk's summaries of the decisions and failure modes already sourced in Section 2 Research §1 through §6, in that order.
 
 1. Model Selection: Selecting or changing models without testing them on your task.
 2. Context Engineering: Adding context without curating it.

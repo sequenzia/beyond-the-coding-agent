@@ -16,7 +16,7 @@ product = works.all()
 - Display narrative number 5. Both code lines are visible on entry.
 - Preserve the existing large monospace composition, aligned equals signs, semantic colors, and attribution.
 - Keep the metaphor on screen for the whole beat. It is separate from the title and follows the Section 1 divider.
-- The metaphor returns on slide 7 and in the spoken recap on slide 44. Visual values follow the design brief.
+- The metaphor returns on slide 7 and in the spoken recap on slide 45. Visual values follow the design brief.
 
 ## Talk track
 

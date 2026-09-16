@@ -1,5 +1,7 @@
 # Model Selection integration draft
 
+Numbering note, September 16, 2026: the orientation insertion shifts this review's deck slide numbers 10 through 47 forward by one. The original review numbers below are historical. See `internal/deck/section-2-orientation-numbering-map.json` for current spec paths.
+
 Accepted and integrated September 16, 2026. The presenter approved the five-screen sequence, shared primer, and proposed content. Outline beat 2.1, numbered specs 10 through 14, and the reusable deck builder now implement this revision. This file retains the supporting content review. The FRB application shows a compact evidence scorecard with no invented results. Rehearsal must validate the 4:30 reference.
 
 ## Agreed direction

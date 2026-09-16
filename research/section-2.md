@@ -2,7 +2,7 @@
 
 Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetched and quoted directly. **UNVERIFIED** means from a search snippet or secondary coverage; confirm before it goes on a slide. Organized by the six areas in the outline, plus the map, the June to September 2026 window, and a closing "verify before stage" list.
 
-Current authoring placement, updated September 16: map 9; Model Selection 10 through 14; Context Engineering 15 through 19; Tools & Extensibility 20 through 24; Orchestration 25 through 29; Verification & Evals 30 through 34; AgentOps 35 through 39; closing map 40. Dated earlier revision notes and former coding-agent screenshot anchors below retain historical slide numbers. The content-rework subsections describe the active design. Full source records and evidence status remain unchanged by the naming update.
+Current authoring placement, updated September 16: map 9; section orientation 10; Model Selection 11 through 15; Context Engineering 16 through 20; Tools & Extensibility 21 through 25; Orchestration 26 through 30; Verification & Evals 31 through 35; AgentOps 36 through 40; closing map 41. Dated earlier revision notes and former coding-agent screenshot anchors below retain historical slide numbers. The content-rework subsections describe the active design. Full source records and evidence status remain unchanged by the naming update.
 
 ## 0. The map: agent = model + harness
 
@@ -36,6 +36,7 @@ Current authoring placement, updated September 16: map 9; Model Selection 10 thr
 - Deliberately wrong answer: “The board confirmed bearing wear.” The expected distinction preserves the preliminary hypothesis, unresolved cause, and inspection decision.
 - FRB-017 has a sensor fault. FRB-031 has confirmed bearing wear. Similar symptoms justify comparison, not proof of a common cause. Duplicate records do not create independent cases.
 - Teaching rationale: one request connects six distinct engineering responsibilities. It makes evidence fidelity and uncertainty visible without implying a deployed system, model benchmark, or personal experience. The FRB failure is an invented teaching check.
+- Orientation on slide 10 introduces the five-part teaching pattern and the same invented research-and-drafting task. For this example, FRB records describe a failure and the board's discussions and decisions. People retain official decision authority. The detailed evidence problem and deployment constraints remain in the area applications.
 - The design confines research workers to authorized internal FRB records and attachments. Missing, unreadable, conflicting, incomplete, or unauthorized evidence produces an explicit limitation. Citation existence and semantic support are separate checks.
 - Content-rework assumption, added September 15, 2026: the FRB corpus includes CUI and export-controlled information (ECI). Model calls that handle those records use services and environments approved for the applicable data and use. For this example, assume the approved model choices are older and less capable for the intended synthesis than newer alternatives outside the approved environment. This is an illustrative deployment constraint informed by presenter-supplied audience context, not measured model evidence or a formal designation of the invented excerpts.
 
@@ -114,7 +115,7 @@ Provider responsibilities behind the picker: defaults, model-specific prompt and
 
 ### Shared primer and selection sequence, integrated September 16, 2026
 
-These records support the accepted integration in `outlines/section-2-integration/01-model-selection.md`, outline beat 2.1, and slides 10 through 14. The presenter requested both the external storyboard's teaching approach and its technical foundations, with a short primer before decisions and five screens: quote, primer, decisions, pitfalls, and FRB application.
+These records support the accepted integration in `outlines/section-2-integration/01-model-selection.md`, outline beat 2.1, and slides 11 through 15. The presenter requested both the external storyboard's teaching approach and its technical foundations, with a short primer before decisions and five screens: quote, primer, decisions, pitfalls, and FRB application.
 
 **OpenAI, "Key concepts," OpenAI API documentation, publication date not stated, checked September 16, 2026** [primary]. https://developers.openai.com/api/docs/concepts Fetched and read directly in a browser.
 
@@ -265,7 +266,7 @@ Keep both FRB-042-BRF r1 slide 6 and FRB-042-MIN r2 §3 paragraph 2 with their d
 
 ### Context integration, September 16, 2026
 
-The presenter selected a conceptual evidence pipeline with brief definitions, carrying forward the external storyboard's teaching approach and technical foundations. The accepted content is recorded in `outlines/section-2-integration/02-context-engineering.md` and integrated into outline beat 2.2, slides 15 through 19, and the deck builder. Context Engineering has a 4:30 rehearsal reference.
+The presenter selected a conceptual evidence pipeline with brief definitions, carrying forward the external storyboard's teaching approach and technical foundations. The accepted content is recorded in `outlines/section-2-integration/02-context-engineering.md` and integrated into outline beat 2.2, slides 16 through 20, and the deck builder. Context Engineering has a 4:30 rehearsal reference.
 
 The Anthropic context-engineering article above was fetched and its retrieval, compaction, and structured-note sections read directly again on September 16, 2026. It supports explaining selected memory as information stored outside the current context and brought back when useful. The distinction between working context, retained memory, and authoritative records is application-design guidance adapted from the external storyboard and the existing FRB contract. It is not a new empirical finding or a claim that stored information is always correct.
 
@@ -356,7 +357,7 @@ Maintenance covers description/schema/behavior drift, overlapping tool sets, and
 
 **Illustrative Export cited brief contract.** Background services parse and index PDF, Word, and PowerPoint files. Search and retrieval supply the evidence; this focused example is the agent-facing export operation from the §0 contract. It accepts a checked draft, citations, and destination. Code enforces access and permitted destinations, and requires source IDs, revisions, and locations. It returns a brief matching the checked draft, with citations and uncertainty intact, plus an export receipt. Failure or incomplete results are explicit; an unconfirmed export is not reported as complete. This is an illustrative design, not a deployed API. People continue to own official causes, decisions, and board records.
 
-The full four-tool inventory remains in `internal/frb-running-example.md`. CamoLeak and the ClawHub audit remain backup evidence with their demonstration and secondary-source limitations. Production security principles appear on slides 37 and 38 in the current authoring target; incident details stay in research backup.
+The full four-tool inventory remains in `internal/frb-running-example.md`. CamoLeak and the ClawHub audit remain backup evidence with their demonstration and secondary-source limitations. Production security principles appear on slides 38 and 39 in the current authoring target; incident details stay in research backup.
 
 ### Tools content rework
 
@@ -370,7 +371,7 @@ The tool returns a receipt when completion is confirmed, an explicit failure whe
 
 ### Tools integration, September 16, 2026
 
-The presenter selected MCP, skills, and plugins for the main explanation, with A2A as backup. The approved failure choice is a proposed FRB export to an unapproved destination that the tool rejects. The accepted content is recorded in `outlines/section-2-integration/03-tools-and-extensibility.md` and integrated into outline beat 2.3, slides 20 through 24, and the reusable deck builder. Tools & Extensibility has a 4:10 rehearsal reference.
+The presenter selected MCP, skills, and plugins for the main explanation, with A2A as backup. The approved failure choice is a proposed FRB export to an unapproved destination that the tool rejects. The accepted content is recorded in `outlines/section-2-integration/03-tools-and-extensibility.md` and integrated into outline beat 2.3, slides 21 through 25, and the reusable deck builder. Tools & Extensibility has a 4:10 rehearsal reference.
 
 The MCP introduction and server-concepts records above were fetched and read again September 16, 2026. Use their connection, tool discovery, typed-input, and execution-result concepts for a proposal, execution, and observation diagram. Schema validity and permission are separate requirements. The existing OWASP source and FRB contract support enforcing authorization outside the model. No new protocol-version claim or provider-specific structured-output guarantee is needed.
 
@@ -470,7 +471,7 @@ Optional workers compare independent FRB cases only within the authorized corpus
 
 ### Orchestration integration, September 16, 2026
 
-The presenter selected a controlled workflow and bounded agent loop as the main teaching frame, with delegation kept brief. The accepted content is recorded in `outlines/section-2-integration/04-orchestration.md` and integrated into outline beat 2.4, slides 25 through 29, and the reusable deck builder. The 3:55 area reference is retained, with the workflow on slide 26 and focused recovery on slide 29.
+The presenter selected a controlled workflow and bounded agent loop as the main teaching frame, with delegation kept brief. The accepted content is recorded in `outlines/section-2-integration/04-orchestration.md` and integrated into outline beat 2.4, slides 26 through 30, and the reusable deck builder. The 3:55 area reference is retained, with the workflow on slide 27 and focused recovery on slide 30.
 
 The Anthropic architecture article above was fetched again September 16, 2026. Its workflow/agent distinction, environment feedback, stopping conditions, and combination of patterns support the proposed foundations diagram. The FRB workflow keeps retrieve, inspect, compare, reconcile, verify, and export. A bounded investigation loop inside a stage illustrates model-selected actions within code-enforced controls. This is teaching design, not a claim that every application requires that architecture.
 
@@ -562,7 +563,7 @@ Model graders, evaluation services, stored traces, and human reviewers that rece
 
 ### Verification & Evals integration, September 16, 2026
 
-The presenter selected practical evaluation design, with pass@k and pass^k kept in backup, and retained citation existence versus source support as the main FRB worked example. The accepted content is recorded in `outlines/section-2-integration/05-verification-and-evals.md` and integrated into outline beat 2.5, slides 30 through 34, and the reusable builder. The 4:35 area allocation is retained, with 0:10 moved from the worked example to the foundations.
+The presenter selected practical evaluation design, with pass@k and pass^k kept in backup, and retained citation existence versus source support as the main FRB worked example. The accepted content is recorded in `outlines/section-2-integration/05-verification-and-evals.md` and integrated into outline beat 2.5, slides 31 through 35, and the reusable builder. The 4:35 area allocation is retained, with 0:10 moved from the worked example to the foundations.
 
 The Anthropic agent-evaluation article above was fetched again September 16, 2026. Its task/case, trial, grader, and suite definitions and its distinction between a transcript and actual outcome support the shared primer. Code, model, and human grading remain complementary choices. Repeated trials and inspection of grader decisions are part of the practical explanation. No benchmark result, universal sample size, or numerical shipping threshold is imported.
 
@@ -652,7 +653,7 @@ These are proposed operating responsibilities for the invented FRB system, not a
 
 ### AgentOps integration, September 16, 2026
 
-The presenter accepted the external storyboard's lifecycle, trace, release, and outcome framing for slides 35 through 39. Outline beat 2.6, the slide specs, and reusable deck authoring implement the reviewed integration. Preserve the security pitfall, processing boundary, accountable response, and human ownership of official FRB records. AgentOps remains 4:10 and Section 2 remains 28:30.
+The presenter accepted the external storyboard's lifecycle, trace, release, and outcome framing for slides 36 through 40. Outline beat 2.6, the slide specs, and reusable deck authoring implement the reviewed integration. Preserve the security pitfall, processing boundary, accountable response, and human ownership of official FRB records. AgentOps remains 4:10 and Section 2 remains 28:30.
 
 Presenter decisions, September 16, 2026: teach a practical primer on traces, versioned configuration, and outcome metrics. Keep SLOs and error budgets in Markdown backup. Use an approved model/configuration update that worsens brief quality and review work while APIs remain healthy as the main FRB application. The accepted five-screen review is in `outlines/section-2-integration/06-agentops.md`.
 
@@ -701,7 +702,7 @@ The proposed operator pauses the rollout, compares affected task categories and 
 - Orchestration integration: checkpoint and idempotency sources were checked September 16, 2026. Keep durable saved state distinct from external completion evidence, and qualify retry behavior by the service contract. The permitted-export timeout is a separate illustrative case from Tools' rejected destination. The accepted content and timing redistribution are integrated; spoken pacing remains to be rehearsed.
 - Tools & Extensibility integration: MCP roles, Agent Skills, and the OpenAI plugin-packaging example were checked September 16, 2026. Keep A2A in backup. The unapproved-destination rejection is an illustrative contract test, not a measured result. The accepted content and 4:10 reference are integrated; rehearsal remains necessary.
 - Context Engineering integration: the conceptual retrieval and memory passages were rechecked September 16, 2026. Retain the distinction between source availability, retrieval, and assembled input. The selected missing-minutes failure is illustrative; do not imply a measured retrieval failure or merge the briefing and minutes into one revision sequence. The accepted content and 4:30 reference are integrated; rehearsal remains necessary.
-- Model Selection integration primer: the four OpenAI documentation records in §1 were checked September 16, 2026. Preserve model-specific qualifications for context accounting and reasoning settings. The accepted primer is integrated into slide 11. Rehearse the new 4:30 Model Selection reference before stage.
+- Model Selection integration primer: the four OpenAI documentation records in §1 were checked September 16, 2026. Preserve model-specific qualifications for context accounting and reasoning settings. The accepted primer is integrated into slide 12. Rehearse the new 4:30 Model Selection reference before stage.
 - FRB material is illustrative. Check IDs, revisions, source locations, uncertainty, and human ownership against `internal/frb-running-example.md`; do not seek or imply real-world verification of invented cases.
 - Data sensitivities: NARA and the NIST publication abstract checked September 15, 2026. Keep organization-specific eligibility and the observation about older, less capable approved options attributed to presenter-supplied context. The FRB corpus's CUI/ECI constraint and capability gap are illustrative assumptions. No named model, provider, environment, or FRB record has been established as approved or formally designated by these sources.
 

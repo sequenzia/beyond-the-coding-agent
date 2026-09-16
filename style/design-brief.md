@@ -1,6 +1,6 @@
 # Design brief
 
-Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 23 and 24 define the current 47-slide authoring target, integrated into Markdown September 16. Section 24 records the revised opening and supersedes earlier Section 1 examples. Sections 17 through 22 describe the earlier Section 2 layouts and exported deck. The builder now implements the new target; final rendering and native playback are reviewed with each exported revision.
+Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 23 and 24 define the current 48-slide authoring target, integrated into Markdown September 16. Section 24 records the revised opening and supersedes earlier Section 1 examples. Sections 17 through 22 describe the earlier Section 2 layouts and exported deck. The builder now implements the new target; final rendering and native playback are reviewed with each exported revision.
 
 ## 1. Scope and precedence
 
@@ -660,28 +660,28 @@ This section supersedes the Section 2 composition, numbering, and story rules in
 
 ### Numbering and playback
 
-- Narrative slides: 47. Section 1 is 1 through 8, Section 2 is 9 through 40, and Section 3 is 41 through 47.
-- Section 2 uses one narrative identity for every composition. Slide 9 retains six map states. Slides 10 through 39 are six groups of five static slides. Slide 40 is the standalone responsibility map.
+- Narrative slides: 48. Section 1 is 1 through 8, Section 2 is 9 through 41, and Section 3 is 42 through 48.
+- Section 2 uses one narrative identity for every composition. Slide 9 retains six map states. Slide 10 is the static section orientation. Slides 11 through 40 are six groups of five static slides. Slide 41 is the standalone responsibility map.
 - The five-screen sequence is quote, combined definition and importance, decisions, pitfalls, and FRB application. Hard cuts throughout. No standalone user screen, screenshot placeholder, compact continuation, or user/owner kicker.
-- The authoring target is 47 compositions. The revised opening and Section 3 review produce 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances. The builder validates these counts and records them in its build receipt.
+- The authoring target is 48 compositions. The revised opening and Section 3 review produce 55 physical slides, 56 states, one internal click, no Morph transitions, and 55 advances. The builder validates these counts and records them in its build receipt.
 - Section 2 remains 25:00 to 29:00. The 27:00 reference in the specs only guides rehearsal cues. There is no automatic slide timing.
-- Slides 4, 8, and 41 are the matching typographic dividers. Slide 44 retains the six recap bands, with the final area labeled Production operations. Slide 47 retains the Questions reveal.
+- Slides 4, 8, and 42 are the matching typographic dividers. Slide 45 retains the six recap bands, with the final area labeled Production operations. Slide 48 retains the Questions reveal.
 
 ### Shared header and orientation
 
-Reuse `slideHeader()` and the existing reserved header/body separation. The kicker's area name remains Bold in its area color and is followed by the neutral beat label. Use the current 20-point kicker role. The mini-map retains its existing position and geometry on slides 10 through 39. No additional title appears on a quote slide.
+Reuse `slideHeader()` and the existing reserved header/body separation. The kicker's area name remains Bold in its area color and is followed by the neutral beat label. Use the current 20-point kicker role. The mini-map retains its existing position and geometry on slides 11 through 40. No additional title appears on a quote slide.
 
-Content-slide titles use x 48, y 68, width 692, height 76, Helvetica Bold 32. Body content begins at y 192 and ends by y 492. Display the new narrative number using the existing shared numbering component. Slides 9 and 40 retain standalone full-screen compositions without a kicker or mini-map.
+Content-slide titles use x 48, y 68, width 692, height 76, Helvetica Bold 32. Body content begins at y 192 and ends by y 492. Display the new narrative number using the existing shared numbering component. Slides 9 and 41 retain standalone full-screen compositions without a kicker or mini-map.
 
 ### Quote compositions
 
-Retarget the existing exact quote layouts and images to slides 10, 15, 20, 25, 30, and 35. Models, Context, and Orchestration use the four-line layout in section 17. Tools and Evals use their three-line layouts in sections 19 and 21. Production operations uses the longer quote layout from section 22, including attribution below the smaller image. Keep quotation and attribution native and editable.
+Retarget the existing exact quote layouts and images to slides 11, 16, 21, 26, 31, and 36. Models, Context, and Orchestration use the four-line layout in section 17. Tools and Evals use their three-line layouts in sections 19 and 21. Production operations uses the longer quote layout from section 22, including attribution below the smaller image. Keep quotation and attribution native and editable.
 
 Reuse the six existing illustrations in their original areas. Do not bake text into the images or generate replacement artwork merely for renumbering. The final area keeps the technical asset name `operating-observability.png`; its displayed area name is Production operations.
 
 ### Definition and importance
 
-Slides 11, 16, 21, 26, 31, and 36 use two flat text columns. The left column defines the subject, and the right explains its importance. The coding-agent connection stays spoken; there is no screenshot or user-example panel.
+Slides 12, 17, 22, 27, 32, and 37 use two flat text columns. The left column defines the subject, and the right explains its importance. The coding-agent connection stays spoken; there is no screenshot or user-example panel.
 
 - Left column x 48, right column x 492, each width 420.
 - Block labels at y 192, height 30, Helvetica Bold 20 in the area color.
@@ -691,38 +691,38 @@ Slides 11, 16, 21, 26, 31, and 36 use two flat text columns. The left column def
 
 ### Decision compositions
 
-Slides 22, 27, and 32 retain the three aligned rows from section 17: y 192, 292, and 392; question column x 48, width 272, height 82, Bold 24; explanation column x 344, width 568, height 82, Regular 20.
+Slides 23, 28, and 33 retain the three aligned rows from section 17: y 192, 292, and 392; question column x 48, width 272, height 82, Bold 24; explanation column x 344, width 568, height 82, Regular 20.
 
-Slides 12, 17, and 37 use four rows at y 192, 264, 336, and 408. Label column x 48, width 272; explanation column x 344, width 568; each height 62. Both use 20-point text, with labels Bold. Keep each explanation to two deliberate lines where possible. The compact authored sentences in the specs, rather than the detailed research tables, define the visible text.
+Slides 13, 18, and 38 use four rows at y 192, 264, 336, and 408. Label column x 48, width 272; explanation column x 344, width 568; each height 62. Both use 20-point text, with labels Bold. Keep each explanation to two deliberate lines where possible. The compact authored sentences in the specs, rather than the detailed research tables, define the visible text.
 
 Use aligned native text without decorative boxes or table rules. Supporting retrieval, grader, and coordination comparisons remain in notes; do not place a second table beside these rows.
 
 ### Pitfalls compositions
 
-Slides 13, 18, 23, 28, 33, and 38 reuse the three labeled rows at y 192, 254, and 316. Labels: x 48, width 216, height 30, Bold 20 in the area color. Body: x 292, width 620, height 54, Regular 20. An authored qualifying line, when present, uses x 48, y 386, width 864, height 30, Regular 20.
+Slides 14, 19, 24, 29, 34, and 39 reuse the three labeled rows at y 192, 254, and 316. Labels: x 48, width 216, height 30, Bold 20 in the area color. Body: x 292, width 620, height 54, Regular 20. An authored qualifying line, when present, uses x 48, y 386, width 864, height 30, Regular 20.
 
-The pitfall label uses x 48, y 426, width 124, height 30, Bold 20. The exact sentence uses x 196, y 426, width 716, height 64, Bold 24. Preserve the deliberate line breaks specified in §25. The pitfall is in the body, not a footer band. Slide 33 has no story hold, placeholder, or extra advance.
+The pitfall label uses x 48, y 426, width 124, height 30, Bold 20. The exact sentence uses x 196, y 426, width 716, height 64, Bold 24. Preserve the deliberate line breaks specified in §25. The pitfall is in the body, not a footer band. Slide 34 has no story hold, placeholder, or extra advance.
 
-Slide 38 uses its three rows for the combined-risk capabilities. Its final label can wrap to two lines and uses height 54 at the same y 316 position. It does not add a separate triangle diagram. Preserve the threat-model qualification in the notes. Slide 23 keeps its takeaway in the notes and does not repeat it in the optional qualifying-line position.
+Slide 39 uses its three rows for the combined-risk capabilities. Its final label can wrap to two lines and uses height 54 at the same y 316 position. It does not add a separate triangle diagram. Preserve the threat-model qualification in the notes. Slide 24 keeps its takeaway in the notes and does not repeat it in the optional qualifying-line position.
 
 ### FRB application compositions
 
 All six application slides keep a visible 16-point illustrative caption at x 48, y 192, width 864. Body copy is at least 20. Tables use the existing flat native style, with no banding or visible borders. Keep dates, document IDs, revisions, locations, uncertainty, and outcome labels editable.
 
-- **Slide 14:** native two-column table at x 48, y 228, width 864, columns 224 and 640. Header and cells 20, header Bold in the area color. Row heights 36, 76, 64, and 76, ending at y 480. No additional bottom sentence. The first data row carries the scenario constraint.
-- **Slide 19:** retain the two-column source-and-annotation arrangement from section 18. To fit the full dates with clear separation, use left source captions at y 224 and 344, each height 40 at 16 with exact 20-point spacing. Source quotations begin at y 262 and 400, heights 60 and 90 at 24. The right annotations keep y 224, 316, and 408 labels and their body positions from section 18. Preserve the two distinct document identities.
-- **Slide 24:** use the section 19 two-column contract geometry. Row heights 36, 44, 64, 64, and 56, ending at y 492. Keep the exact-content condition and unknown-outcome distinction in the visible text.
-- **Slide 29:** reuse the six-step editable workflow from section 20. Keep the verification gate and one concise recovery rule below it. Detailed response branches remain in speaker notes.
-- **Slide 34:** reuse the editable source-support check from section 21. Preserve the exact source and wrong answer. PASS and FAIL remain explicit words. The regression instruction remains at the bottom. There is no personal-story cue before this slide.
-- **Slide 39:** native two-column agreement at x 48, y 228, width 864, columns 224 and 640. Header and cells 20. Row heights 36, 52, 52, 52, and 52, ending at y 472. Four compact responsibility rows carry the accepted six-row agreement through grouping; the full explanation stays spoken.
+- **Slide 15:** native two-column table at x 48, y 228, width 864, columns 224 and 640. Header and cells 20, header Bold in the area color. Row heights 36, 76, 64, and 76, ending at y 480. No additional bottom sentence. The first data row carries the scenario constraint.
+- **Slide 20:** retain the two-column source-and-annotation arrangement from section 18. To fit the full dates with clear separation, use left source captions at y 224 and 344, each height 40 at 16 with exact 20-point spacing. Source quotations begin at y 262 and 400, heights 60 and 90 at 24. The right annotations keep y 224, 316, and 408 labels and their body positions from section 18. Preserve the two distinct document identities.
+- **Slide 25:** use the section 19 two-column contract geometry. Row heights 36, 44, 64, 64, and 56, ending at y 492. Keep the exact-content condition and unknown-outcome distinction in the visible text.
+- **Slide 30:** reuse the six-step editable workflow from section 20. Keep the verification gate and one concise recovery rule below it. Detailed response branches remain in speaker notes.
+- **Slide 35:** reuse the editable source-support check from section 21. Preserve the exact source and wrong answer. PASS and FAIL remain explicit words. The regression instruction remains at the bottom. There is no personal-story cue before this slide.
+- **Slide 40:** native two-column agreement at x 48, y 228, width 864, columns 224 and 640. Header and cells 20. Row heights 36, 52, 52, 52, and 52, ending at y 472. Four compact responsibility rows carry the accepted six-row agreement through grouping; the full explanation stays spoken.
 
 ### Maps and Section 3 retargeting
 
-Preserve the base diagram and all generated variants. Slide 9 remains the opening map. The former responsibility-map composition becomes slide 40 and keeps `internal/renders/map-yours.png` and the Model selection badge.
+Preserve the base diagram and all generated variants. Slide 9 remains the opening map. The former responsibility-map composition becomes slide 41 and keeps `internal/renders/map-yours.png` and the Model selection badge.
 
-Section 3's numbering migration moved old 20 through 26 to 39 through 45 in the Section 2 rework and then to 41 through 47. Section 25 supersedes the earlier slide 42 and 43 compositions. Both are now static. The support composition and Morph associated with slide 43 are removed. Keep the close's internal reveal. Slide 44 retains the Production operations label, six-band structure, and exact pitfall sentences.
+Section 3's numbering migration moved old 20 through 26 to 39 through 45 in the Section 2 rework and then to 41 through 47. Section 25 supersedes the earlier slide 43 and 44 compositions. Both are now static. The support composition and Morph associated with slide 44 are removed. Keep the close's internal reveal. Slide 45 retains the Production operations label, six-band structure, and exact pitfall sentences.
 
-For slide 44's final area label, retain the existing colored block and x 48. Use width 224, height 32 at 20 Bold, centered vertically within the band, to keep the full new area name on one line. Other recap labels retain width 208. Section 25 defines the revised equal-height bands.
+For slide 45's final area label, retain the existing colored block and x 48. Use width 224, height 32 at 20 Bold, centered vertically within the band, to keep the full new area name on one line. Other recap labels retain width 208. Section 25 defines the revised equal-height bands.
 
 The agenda is now slide 3. Its revised layout and all Section 1 compositions follow section 24.
 
@@ -739,7 +739,7 @@ Title (1, 0:05), bio (2, 0:30), agenda (3, 0:25), Section 1 divider (4, 0:10), c
 - Slide 1 preserves the former title state's geometry and type. It is now a standalone composition without an internal build.
 - Slide 2 preserves the bio's photo, text, geometry, and type. Only its contextual handoff changes.
 - Slide 5 preserves the former code-metaphor state's geometry and colored Consolas runs, with both lines visible on entry. The display mono role now refers to slide 5. Its attribution remains x 48, y 472, width 864, right aligned.
-- Slide 6 preserves the thesis's geometry and type, also reused on slide 47. Its two display sentences remain the only content besides the number.
+- Slide 6 preserves the thesis's geometry and type, also reused on slide 48. Its two display sentences remain the only content besides the number.
 
 ### Agenda
 
@@ -755,7 +755,7 @@ Use a flat full-width agenda above a compact goals area. Everything is native ed
 
 ### Three section dividers
 
-Slides 4, 8, and 41 use the same `sectionDivider()` component. Label at x 48, y 168, width 864, height 25, Helvetica Regular 20, secondary. Rule at x 48, y 208, width 864, height 1, hairline color. Title at x 48, y 232, width 864, height 140, Helvetica Bold 60, exact 70-point line spacing. Slide 4 breaks after "AI". The other two dividers preserve their existing wrapping. No mini-map, internal builds, or transitions beyond hard cuts.
+Slides 4, 8, and 42 use the same `sectionDivider()` component. Label at x 48, y 168, width 864, height 25, Helvetica Regular 20, secondary. Rule at x 48, y 208, width 864, height 1, hairline color. Title at x 48, y 232, width 864, height 140, Helvetica Bold 60, exact 70-point line spacing. Slide 4 breaks after "AI". The other two dividers preserve their existing wrapping. No mini-map, internal builds, or transitions beyond hard cuts.
 
 ### Comparison and commitments
 
@@ -765,34 +765,34 @@ The replacement state gains a title at x 110, y 68, width 748, height 40, Helvet
 
 ## 25. Section 3 review, September 16, 2026
 
-Slide 42 is one static composition. This supersedes its former two-state table and evidence treatment, including the earlier colored right-column distinction between transformed and unchanged skills. Preserve the shared header, title, mini-map, and narrative number. Use hard cuts into and out of the slide.
+Slide 43 is one static composition. This supersedes its former two-state table and evidence treatment, including the earlier colored right-column distinction between transformed and unchanged skills. Preserve the shared header, title, mini-map, and narrative number. Use hard cuts into and out of the slide.
 
 Use the existing flat native two-column table at x 48, y 192, width 864. Content columns are 420 wide with a 24-point gutter. The header and each of the six data rows are 42 points high, ending at y 486. Header cells use Helvetica Bold 24 in Section 3 green. All data cells use Helvetica Regular 20 in primary text, with 1.25 line spacing, zero margins, no banding, and no visible borders. All rows carry equal weight. No quote, attribution, or replacement state follows the table.
 
-Slide 43 is one static composition using the same header, native table treatment, type roles, and colors as slide 42. Its table remains at x 48, y 192, width 864. Use a 272-point area column, a 24-point gutter, and a 568-point competency column. The header and first five data rows are 40 points high. The final data row is 60 points high, ending at y 492. Break its description after "manage". All rows carry equal weight. The ladder, strip, quote, support composition, and Morph are removed.
+Slide 44 is one static composition using the same header, native table treatment, type roles, and colors as slide 43. Its table remains at x 48, y 192, width 864. Use a 272-point area column, a 24-point gutter, and a 568-point competency column. The header and first five data rows are 40 points high. The final data row is 60 points high, ending at y 492. Break its description after "manage". All rows carry equal weight. The ladder, strip, quote, support composition, and Morph are removed.
 
-The 47 narrative slides now use 47 authored compositions. The compiler produces 54 physical slides and 55 presentation states, with one internal click, no Morph transitions, and 54 advances. Section 3 has a 4:30 reference, including slide 42 at 1:05, slide 43 at 1:15, and slide 45 at 0:55.
+The 48 narrative slides now use 48 authored compositions. The compiler produces 55 physical slides and 56 presentation states, with one internal click, no Morph transitions, and 55 advances. Section 3 has a 4:30 reference, including slide 43 at 1:05, slide 44 at 1:15, and slide 46 at 0:55.
 
-Slide 44 retains the compact header and six full-width recap bands. Each band is 60 points high with 6-point gaps, at y 100, 166, 232, 298, 364, and 430, ending at y 490. Preserve the 272-point colored label block, labels at x 48, and sentences at x 296 with width 616. Labels use Helvetica Bold 20 with the existing area-specific text colors. Sentences use Helvetica Regular 20 in primary text, vertically centered in a 54-point box inset 3 points from the band's top. Break the final sentence before "without reviewing". All bands are visible on entry.
+Slide 45 retains the compact header and six full-width recap bands. Each band is 60 points high with 6-point gaps, at y 100, 166, 232, 298, 364, and 430, ending at y 490. Preserve the 272-point colored label block, labels at x 48, and sentences at x 296 with width 616. Labels use Helvetica Bold 20 with the existing area-specific text colors. Sentences use Helvetica Regular 20 in primary text, vertically centered in a 54-point box inset 3 points from the band's top. Break the final sentence before "without reviewing". All bands are visible on entry.
 
-The revised pitfall sentences on slides 13, 18, 23, 28, 33, and 38 use the existing Section 2 geometry. Break slide 13 before "without testing", slide 33 before "without error analysis", and slide 38 before "and outbound access". Keep the other three sentences on one line where they fit. Line breaks do not change the exact sentence shared with slide 44.
+The revised pitfall sentences on slides 14, 19, 24, 29, 34, and 39 use the existing Section 2 geometry. Break slide 14 before "without testing", slide 34 before "without error analysis", and slide 39 before "and outbound access". Keep the other three sentences on one line where they fit. Line breaks do not change the exact sentence shared with slide 45.
 
-Slide 45 retains its two-state replacement composition and existing geometry. Its first state shows four roadmap rows at y 192 with 67-point spacing and height 59. The numbered labels are: Choose one narrow task; Start with one model call; Turn failures into checks; Add autonomy when evals justify it. The assignment state keeps its heading at y 192, instructions at y 256, caption at y 342, and native four-column example at y 374. The heading reads “Review 20 to 50 outputs for one task.” The caption reads “Illustrative FRB example. Use the same record for your task.” No personal-story hold or presenter-authored slot remains. The state stays visible through the handoff to slide 46.
+Slide 46 retains its two-state replacement composition and existing geometry. Its first state shows four roadmap rows at y 192 with 67-point spacing and height 59. The numbered labels are: Choose one narrow task; Start with one model call; Turn failures into checks; Add autonomy when evals justify it. The assignment state keeps its heading at y 192, instructions at y 256, caption at y 342, and native four-column example at y 374. The heading reads “Review 20 to 50 outputs for one task.” The caption reads “Illustrative FRB example. Use the same record for your task.” No personal-story hold or presenter-authored slot remains. The state stays visible through the handoff to slide 47.
 
 
 ## 26. Area naming update, September 16, 2026
 
-This section supersedes earlier displayed area names and recap-label geometry. The six names, in order, are Model Selection (slides 10 through 14), Context Engineering (15 through 19), Tools & Extensibility (20 through 24), Orchestration (25 through 29), Verification & Evals (30 through 34), and AgentOps (35 through 39). Use these exact names in the agenda, area kickers, competency table, and recap. Earlier dated revision notes retain historical names. Slide 42 retains Production operations as an existing software engineering skill.
+This section supersedes earlier displayed area names and recap-label geometry. The six names, in order, are Model Selection (slides 11 through 15), Context Engineering (15 through 19), Tools & Extensibility (20 through 24), Orchestration (25 through 29), Verification & Evals (30 through 34), and AgentOps (35 through 39). Use these exact names in the agenda, area kickers, competency table, and recap. Earlier dated revision notes retain historical names. Slide 43 retains Production operations as an existing software engineering skill.
 
-Keep the existing area colors, quote illustrations, mini-maps, and content geometry. Preserve every visual state and asset of slides 9 and 40. Narration may use the current area names. No diagram regeneration is required. All slide counts, timing references, and transitions remain unchanged.
+Keep the existing area colors, quote illustrations, mini-maps, and content geometry. Preserve every visual state and asset of slides 9 and 41. Narration may use the current area names. No diagram regeneration is required. All slide counts, timing references, and transitions remain unchanged.
 
-Slide 44 keeps its six 60-point bands, 6-point gaps, 272-point label blocks, and existing pitfall sentences. Label boxes use x 48, width 208, height 54, y equal to the band top plus 3, Helvetica Bold 20, 1.25 line spacing, and vertical centering. Wrap Context Engineering after Context, Tools & Extensibility after &, and Verification & Evals after Verification. Model Selection, Orchestration, and AgentOps stay on one line. Preserve the area-specific label colors.
+Slide 45 keeps its six 60-point bands, 6-point gaps, 272-point label blocks, and existing pitfall sentences. Label boxes use x 48, width 208, height 54, y equal to the band top plus 3, Helvetica Bold 20, 1.25 line spacing, and vertical centering. Wrap Context Engineering after Context, Tools & Extensibility after &, and Verification & Evals after Verification. Model Selection, Orchestration, and AgentOps stay on one line. Preserve the area-specific label colors.
 
 ## 27. Model Selection integration, September 16, 2026
 
-The accepted sequence is quote, shared technical primer, decisions, pitfalls, and FRB application. It retains narrative slides 10 through 14, hard cuts, and no internal builds. Model Selection has a 4:30 reference. Section 2 now totals 27:35 within the existing range. Preserve the shared header, mini-map, area blue, native numbering, and all unrelated compositions.
+The accepted sequence is quote, shared technical primer, decisions, pitfalls, and FRB application. It retains narrative slides 11 through 15, hard cuts, and no internal builds. Model Selection has a 4:30 reference. Section 2 now totals 27:35 within the existing range. Preserve the shared header, mini-map, area blue, native numbering, and all unrelated compositions.
 
-### Slide 11: model invocation primer
+### Slide 12: model invocation primer
 
 This replaces the two-column definition composition for Model Selection only. Use one native editable invocation diagram with three connected text groups, followed by three annotation rows and a responsibility line. Keep the background clear of cards and decorative borders.
 
@@ -801,15 +801,15 @@ This replaces the two-column definition composition for Model Selection only. Us
 - Annotation rows begin at y 320, 360, and 400. Labels at x 48, width 216, height 30, Bold 20 in area blue. Explanations at x 292, width 620, height 30, Regular 20. Rows define tokens, context capacity, and reasoning settings. Context accounting applies to the whole call, not only supplied input.
 - The selection responsibility uses x 48, y 458, width 864, height 30, Regular 20. Keep it to one line. The fuller choose-and-maintain definition remains spoken.
 
-### Slide 12: selection decisions
+### Slide 13: selection decisions
 
 Use the existing three-row decisions composition at y 192, 292, and 392. Labels at x 48, width 272, height 82, Helvetica Bold 24. Explanations at x 344, width 568, height 82, Regular 20. The sequence is eligible options, required quality, and task efficiency. Routing and model changes remain spoken.
 
-### Slide 13: pitfalls
+### Slide 14: pitfalls
 
-Keep the existing three-row geometry and headline-pitfall placement. The cue labels are Capacity, Effort, and Cost. Preserve the exact headline sentence and its existing line break. Slide 44 remains unchanged.
+Keep the existing three-row geometry and headline-pitfall placement. The cue labels are Capacity, Effort, and Cost. Preserve the exact headline sentence and its existing line break. Slide 45 remains unchanged.
 
-### Slide 14: FRB design and scorecard
+### Slide 15: FRB design and scorecard
 
 This replaces the earlier full-width starting-design table for Model Selection only. Preserve the illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text. The deployment constraint begins at x 48, y 224, width 864, height 50, Regular 20. Break before "for this synthesis."
 
@@ -821,9 +821,9 @@ The design, failure, and evidence remain one applied example. Full source identi
 
 ## 28. Context Engineering integration, September 16, 2026
 
-The accepted sequence is quote, working-context foundations, conceptual retrieval decisions, pitfalls, and the missing-minutes FRB application. Preserve narrative slides 15 through 19, static entry, hard cuts, the Context Engineering pink, mini-maps, and native numbering. Context Engineering has a 4:30 reference and Section 2 totals 28:00. Existing anatomy assets are not regenerated by this content pass.
+The accepted sequence is quote, working-context foundations, conceptual retrieval decisions, pitfalls, and the missing-minutes FRB application. Preserve narrative slides 16 through 20, static entry, hard cuts, the Context Engineering pink, mini-maps, and native numbering. Context Engineering has a 4:30 reference and Section 2 totals 28:00. Existing anatomy assets are not regenerated by this content pass.
 
-### Slide 16: context assembly
+### Slide 17: context assembly
 
 Replace the former definition columns with one native editable context-assembly diagram. Stored memory and authoritative records sit outside the assembled input, with selected information flowing into it. This uses the same text and connector language as the Model Selection invocation.
 
@@ -832,7 +832,7 @@ Replace the former definition columns with one native editable context-assembly 
 - Working context label inside the boundary at x 492, y 216, width 396, height 32, Helvetica Bold 24 in area pink. Body at x 492, y 270, width 396, height 130, Regular 24. Break after "evidence," and "history" for three lines.
 - Two native horizontal arrows run from x 380 to 452 at y 258 and 416. Use the shared secondary 2-point connector style. They show selected information entering the call. Do not imply that all retained memory or every source document enters every invocation.
 
-### Slide 17: conceptual evidence path
+### Slide 18: conceptual evidence path
 
 Use a single evidence pipeline above two explanatory columns. All content remains native editable text and connectors. Keep the shared header and title.
 
@@ -842,11 +842,11 @@ Use a single evidence pipeline above two explanatory columns. All content remain
 - Provenance line at x 48, y 320, width 864, height 30, Regular 20: preserve source identity, revision, and access scope.
 - Lower labels at x 48 and 492, y 370, width 420, height 30, Bold 20 in area pink. The Find the evidence and Manage the context bodies begin at y 406, width 420, height 78, Regular 20. Each uses three deliberate lines. Keep the embedding definition spoken and the brief search comparison visible.
 
-### Slide 18: pitfalls
+### Slide 19: pitfalls
 
 Preserve the current three labeled rows and the exact headline pitfall. The existing Coverage, Summaries, and Sources copy already supports the new explanation. Update the talk track only.
 
-### Slide 19: missing-minutes application
+### Slide 20: missing-minutes application
 
 Retain the existing left-column excerpts, dates, source IDs, revisions, and locations from §23. The briefing and minutes remain separate documents. Keep the illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text.
 
@@ -857,9 +857,9 @@ Retain the existing left-column excerpts, dates, source IDs, revisions, and loca
 
 ## 29. Tools & Extensibility integration, September 16, 2026
 
-The accepted sequence is quote, tool-call foundations, capability and extension decisions, pitfalls, and the unapproved-destination FRB contract test. Keep narrative slides 20 through 24, static entry, hard cuts, the area pink, mini-map, and native numbering. Tools & Extensibility has a 4:10 reference and Section 2 totals 28:30. Preserve existing anatomy assets. A2A stays in Markdown backup.
+The accepted sequence is quote, tool-call foundations, capability and extension decisions, pitfalls, and the unapproved-destination FRB contract test. Keep narrative slides 21 through 25, static entry, hard cuts, the area pink, mini-map, and native numbering. Tools & Extensibility has a 4:10 reference and Section 2 totals 28:30. Preserve existing anatomy assets. A2A stays in Markdown backup.
 
-### Slide 21: tool-call foundations
+### Slide 22: tool-call foundations
 
 Use one native editable flow matching the Model Selection invocation, with an illustrative application call and the execution checks below it. All text remains editable.
 
@@ -869,7 +869,7 @@ Use one native editable flow matching the Model Selection invocation, with an il
 - The `export_cited_brief(draft, citations, destination)` signature uses x 48, y 372, width 864, height 30, Consolas Regular 20 in primary text. It is conceptual pseudocode, not a provider API or a complete schema.
 - Application checks label at x 48, y 438, width 216, height 30, Helvetica Bold 20 in area pink. Body at x 292, y 438, width 620, height 54, Regular 20: authenticated identity and exact checked content on the first line, permitted destination on the second.
 
-### Slide 22: capabilities and extension mechanisms
+### Slide 23: capabilities and extension mechanisms
 
 Use one compact native terminology table between capability-size and contract decisions. Avoid decorative cards or a competing second table.
 
@@ -877,11 +877,11 @@ Use one compact native terminology table between capability-size and contract de
 - Native table at x 48, y 270, width 864. Columns are 180 and 684, with row heights 32, 40, 40, and 40, ending at y 422. Header and body use Helvetica 20. Header is Bold in area pink; body is primary text. Use zero margins, no visible borders, and no banding. The rows are MCP, Skills, and Plugins, each with its role.
 - Operational contract label at x 48, y 438, width 216, height 30, Bold 20 in area pink. Body at x 292, y 438, width 620, height 54, Regular 20, over two lines. Retain both maintained contract elements and permission enforcement.
 
-### Slide 23: pitfalls
+### Slide 24: pitfalls
 
-Keep the existing three-row geometry and headline-pitfall position. The cue labels are Contract, Authority, and Outcomes. Preserve the exact pitfall sentence shared with slide 44.
+Keep the existing three-row geometry and headline-pitfall position. The cue labels are Contract, Authority, and Outcomes. Preserve the exact pitfall sentence shared with slide 45.
 
-### Slide 24: unapproved destination
+### Slide 25: unapproved destination
 
 Consolidate the design, mismatch, and expected checks into one composition. Keep every value conceptual; do not invent a real destination or measured rejection result.
 
@@ -895,9 +895,9 @@ The comparison replaces duplicate failure prose. Exact checked content remains v
 
 ## 30. Orchestration integration, September 16, 2026
 
-The accepted sequence is quote, workflow and agent-loop foundations, execution decisions, pitfalls, and uncertain-export recovery. Preserve narrative slides 25 through 29, static entry, hard cuts, Orchestration pink, mini-maps, and native numbering. The area remains 3:55 and Section 2 remains 28:30. Keep the current anatomy assets.
+The accepted sequence is quote, workflow and agent-loop foundations, execution decisions, pitfalls, and uncertain-export recovery. Preserve narrative slides 26 through 30, static entry, hard cuts, Orchestration pink, mini-maps, and native numbering. The area remains 3:55 and Section 2 remains 28:30. Keep the current anatomy assets.
 
-### Slide 26: workflow with an expanded agent loop
+### Slide 27: workflow with an expanded agent loop
 
 Use a native editable six-stage workflow and one expanded inspection loop. The workflow and loop remain distinct while showing how they combine. Keep code-enforced verification outside the loop's discretionary next-action choice.
 
@@ -909,17 +909,17 @@ Use a native editable six-stage workflow and one expanded inspection loop. The w
 - Loop stages start at x 64, 286, 508, and 730, y 368, width 164, height 50, Regular 20, centered, each on two lines: Observe result, Choose action, Call tool, Update state. Forward arrows at y 393 start at x 240, 462, and 684, width 32. A return path drops from x 812, y 426 to y 436, points left to x 146, and returns upward to y 426. This leaves clearance beneath the lower text lines. Use the shared secondary connector style.
 - Required gate label at x 48, y 466, width 180, height 25, Bold 20 in pink. Body at x 244, y 466, width 668, height 25, Regular 20: exact draft passes verification before export.
 
-### Slide 27: execution state and recovery decisions
+### Slide 28: execution state and recovery decisions
 
 Use compact aligned rows with a checkpoint definition beneath them. Labels at x 48, width 216, height 30, Helvetica Bold 20 in pink. Bodies at x 292, width 620, height 54, Regular 20. Three rows begin at y 192, 272, and 352 for Explicit state, Recovery, and Stopping conditions. Each explanation uses two lines.
 
 The Checkpoint label is at x 48, y 450, width 216, height 30, Bold 20 in pink. Its definition is at x 292, y 450, width 620, height 30, Regular 20. Durability, delegation, and the detailed resource-limit inventory stay spoken.
 
-### Slide 28: pitfalls
+### Slide 29: pitfalls
 
-Retain the current visible Gates, Progress, and Recovery rows, their geometry, and the exact headline pitfall shared with slide 44. Only the talk track changes.
+Retain the current visible Gates, Progress, and Recovery rows, their geometry, and the exact headline pitfall shared with slide 45. Only the talk track changes.
 
-### Slide 29: uncertain export sequence
+### Slide 30: uncertain export sequence
 
 Use two native editable lanes to distinguish caller knowledge from service-side effects. The sequence describes a separate permitted export and an expected recovery check, not a measured run.
 
@@ -935,9 +935,9 @@ All connectors use the shared secondary 2-point style. Use line segments and a n
 
 ## 31. Verification & Evals integration, September 16, 2026
 
-The accepted sequence is quote, verification/evaluation foundations, practical case design, pitfalls, and the retained source-support failure. Preserve narrative slides 30 through 34, static entry, hard cuts, the green area color, mini-maps, and native numbering. The area stays 4:35 and Section 2 stays 28:30. Reliability notation remains in Markdown backup.
+The accepted sequence is quote, verification/evaluation foundations, practical case design, pitfalls, and the retained source-support failure. Preserve narrative slides 31 through 35, static entry, hard cuts, the green area color, mini-maps, and native numbering. The area stays 4:35 and Section 2 stays 28:30. Reliability notation remains in Markdown backup.
 
-### Slide 31: complementary checks and practical vocabulary
+### Slide 32: complementary checks and practical vocabulary
 
 Use two flat text columns for verification and evaluation, with a shared vocabulary row below. Keep every element native and editable. Avoid invented scores or a decorative grid of trial outcomes.
 
@@ -948,7 +948,7 @@ Use two flat text columns for verification and evaluation, with a shared vocabul
 
 The two questions describe one-result acceptance and behavior across cases and repeated runs. The lower row supplies vocabulary used by the suite matrix. Ordinary tests and the shared use of checks remain explicit in the talk track.
 
-### Slide 32: illustrative evaluation cases
+### Slide 33: illustrative evaluation cases
 
 Replace the three abstract decision rows with a native case matrix. Keep the full grader comparison spoken and connect it to the checks column. The matrix is an illustrative design, not a score report or a complete release suite.
 
@@ -959,15 +959,15 @@ Replace the three abstract decision rows with a native case matrix. Keep the ful
 
 Expected behavior depends on each case's starting conditions. The distinction between recoverable export evidence and an unresolved variant remains spoken. Do not imply all blocked or incomplete runs count as completed work.
 
-### Slides 30, 33, and 34
+### Slides 31, 34, and 35
 
-Preserve their current visible copy and layouts. Slide 30 keeps both quote authors. Slide 33 keeps the exact headline pitfall shared with slide 44. Slide 34 retains the exact invented minutes, cited unsupported claim, explicit PASS/FAIL wording, expected unresolved cause and inspection, and regression-case instruction. Its talk track tightens by 0:10 to connect the example to the preceding case-design framework.
+Preserve their current visible copy and layouts. Slide 31 keeps both quote authors. Slide 34 keeps the exact headline pitfall shared with slide 45. Slide 35 retains the exact invented minutes, cited unsupported claim, explicit PASS/FAIL wording, expected unresolved cause and inspection, and regression-case instruction. Its talk track tightens by 0:10 to connect the example to the preceding case-design framework.
 
 ## 32. AgentOps integration, September 16, 2026
 
-The accepted sequence is quote, practical operating foundations, operating decisions, security pitfalls, and an illustrative FRB release incident. Preserve narrative slides 35 through 39, static entry, hard cuts, the amber area color, mini-maps, and native numbering. AgentOps stays 4:10 and Section 2 stays 28:30. Keep SLOs and error budgets in Markdown backup and the operating agreement as supporting material.
+The accepted sequence is quote, practical operating foundations, operating decisions, security pitfalls, and an illustrative FRB release incident. Preserve narrative slides 36 through 40, static entry, hard cuts, the amber area color, mini-maps, and native numbering. AgentOps stays 4:10 and Section 2 stays 28:30. Keep SLOs and error budgets in Markdown backup and the operating agreement as supporting material.
 
-### Slide 36: recorded work, configuration, and outcomes
+### Slide 37: recorded work, configuration, and outcomes
 
 Use one native editable composition. The definition leads into three foundations. A compact recorded path explains the trace and one span without suggesting durations or measured outcomes.
 
@@ -980,11 +980,11 @@ Use one native editable composition. The definition leads into three foundations
 
 Private reasoning, the full configuration inventory, sampled quality labels, and the one-run/across-runs distinction remain spoken. There are no invented values or telemetry screenshots.
 
-### Slide 37: operating decisions
+### Slide 38: operating decisions
 
 Use three flat aligned rows for Evidence, Releases, and Response. Labels at x 48, width 216, height 30, Helvetica Bold 20 in amber. Bodies at x 292, width 620, height 54, Regular 20. Rows begin at y 192, 292, and 392. Each body uses two deliberate lines, separating its paired decisions. Keep detailed operating-policy trade-offs in the talk track.
 
-### Slide 39: qualitative release incident
+### Slide 40: qualitative release incident
 
 Replace the operating-agreement table with a native editable incident record. Preserve the illustrative label and explicit export gate.
 
@@ -995,6 +995,21 @@ Replace the operating-agreement table with a native editable incident record. Pr
 
 No numbers or charts imply a measured regression. Compatibility, authorization, uncertain root cause, pending work, and official board authority remain explicit in the talk track.
 
-### Slides 35 and 38
+### Slides 36 and 39
 
-Preserve the visible copy and layouts. Slide 35 retains Rauch as the speaker and Datadog as publisher. Slide 38 retains the exact headline sentence shared with recap slide 44 and the probabilistic-filter qualification. Its revised narration connects the capability review to changing integrations.
+Preserve the visible copy and layouts. Slide 36 retains Rauch as the speaker and Datadog as publisher. Slide 39 retains the exact headline sentence shared with recap slide 45 and the probabilistic-filter qualification. Its revised narration connects the capability review to changing integrations.
+
+## 33. Section 2 orientation, September 16, 2026
+
+Insert narrative slide 10 after the opening map. Shift prior narrative slides 10 through 47 to 11 through 48. This revision supersedes earlier numbering and counts in this brief. The current target is 48 narrative slides, 48 authored compositions, 55 physical slides, 56 states, one internal click, no Morph transitions, and 55 advances. Beat 2.0 pairs a 1:05 map with a 0:45 orientation; Section 2 remains 28:30. Use the numbering migration in `internal/deck/section-2-orientation-numbering-map.json`.
+
+Use the shared standard header: neutral section kicker at x 48, y 36, width 716, height 25, Helvetica Bold 20 with its beat label Regular; both use secondary text. Place `mini-all` at x 752, y 36, width 160, height 90. Title at x 48, y 68, width 692, height 76, Helvetica Bold 32 in primary text. Header divider at x 48, y 168, width 864, height 1 in the shared hairline color.
+
+Use two flat columns at x 48 and x 492, each width 420. Column headings at y 192, height 30, Helvetica Bold 20 in primary text. No cards, icons, or decorative rules.
+
+- Left list: Helvetica Regular 20 in primary text. Numerals use secondary text at x 48, width 24; labels start at x 84, width 384. Row tops are y 234, 274, 339, 379, and 419. Heights are 30, 55, 30, 30, and 30. The second row breaks after its subject label, retaining its colon.
+- Right subject: y 234, height 55, Helvetica Regular 20 in primary text, on two deliberate lines.
+- Right request: y 309, height 90, Helvetica Regular 20 in primary text, on three deliberate lines.
+- Right illustrative status and authority boundary: y 421, height 55, Helvetica Regular 20 in secondary text, on two deliberate lines.
+
+Display the narrative number using the existing shared component. All content appears on entry and remains native and editable. Use hard cuts and no internal reveals. Preserve map images and all six highlight states without regenerating diagram assets.

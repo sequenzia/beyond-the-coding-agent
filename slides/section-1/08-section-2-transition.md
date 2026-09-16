@@ -11,7 +11,7 @@ Beat 1.8 Section 2 transition. Section 1. Time 0:10. Builds: 0.
 ## Layout and visual
 
 - Display narrative number 8.
-- Preserve the existing typographic divider. Match slides 4 and 41 in composition and title position.
+- Preserve the existing typographic divider. Match slides 4 and 42 in composition and title position.
 - No mini-map or internal builds. Hard cut into the slide and into the map on slide 9.
 - Visual values follow the design brief.
 

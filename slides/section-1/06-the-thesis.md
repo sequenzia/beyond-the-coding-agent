@@ -10,7 +10,7 @@ Beat 1.6 The thesis. Section 1. Time 0:30. Builds: 0.
 ## Layout and visual
 
 - Display narrative number 6. Preserve the existing two centered sentences and emphasis on the second.
-- No title or attribution. Reuse the same composition on closing slide 47.
+- No title or attribution. Reuse the same composition on closing slide 48.
 - The visible thesis carries the role distinction while the narration adds scope and responsibility.
 - Visual values follow the design brief.
 

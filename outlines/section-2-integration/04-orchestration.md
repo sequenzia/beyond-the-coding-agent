@@ -1,5 +1,7 @@
 # Orchestration integration draft
 
+Numbering note, September 16, 2026: the orientation insertion shifts this review's deck slide numbers 10 through 47 forward by one. The original review numbers below are historical. See `internal/deck/section-2-orientation-numbering-map.json` for current spec paths.
+
 Accepted and integrated September 16, 2026. The presenter approved this draft for the outline, slide specs, and PowerPoint. Outline beat 2.4, slides 25 through 29, design brief §30, and the reusable builder implement workflow and agent-loop foundations, saved-state decisions, and the uncertain-export recovery example. Delegation stays brief. This file retains the supporting content review. Rehearse the retained 3:55 area reference.
 
 ## Agreed direction and carried-forward structure

@@ -14,7 +14,7 @@ Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/
 
 Speaker notes reload the talk track from Markdown, without timestamps, metadata, or material after the advance cue. Build cues use native bold uppercase headings. Research links and rehearsal guidance remain in Markdown. Visible text, layouts, and click assignments are authored in `internal/deck/author.mjs`; update those blocks alongside the corresponding slide specs. Rebuild from the saved code instead of reconstructing the deck. Inspect rendered states after changes and validate native PowerPoint playback before presenting.
 
-The 47 narrative slides use 47 authored compositions. `internal/deck/expand.mjs` splits compositions at finite object exits into 54 physical slides, retaining one internal click and no Morph transitions. Every physical slide displays its narrative number. The presentation has 55 states and 54 advances. Preserve both authored and expanded build maps, and inspect full editing views as well as presentation states.
+The 48 narrative slides use 48 authored compositions. `internal/deck/expand.mjs` splits compositions at finite object exits into 55 physical slides, retaining one internal click and no Morph transitions. Every physical slide displays its narrative number. The presentation has 56 states and 55 advances. Preserve both authored and expanded build maps, and inspect full editing views as well as presentation states.
 
 ## Source of truth and the evidence layer
 
@@ -29,21 +29,21 @@ Every source entry in research has the same shape: a bold line with author, titl
 
 ## The slides layer
 
-`slides/section-N/NN-descriptive-name.md` holds one file per slide, numbered to match the outline (`01` through `47`). Each file is a tool-agnostic spec with five sections: on-slide text build by build, layout and visual notes, a near-script talk track with `[m:ss]` marks and bold must-say lines, short-form sources pointing to research sections, and open items.
+`slides/section-N/NN-descriptive-name.md` holds one file per slide, numbered to match the outline (`01` through `48`). Each file is a tool-agnostic spec with five sections: on-slide text build by build, layout and visual notes, a near-script talk track with `[m:ss]` marks and bold must-say lines, short-form sources pointing to research sections, and open items.
 
 Slide files render the outline. They do not restate its reasoning and they never introduce a claim. A new claim goes into the research file and the outline first, then onto the slide. The `[verify]`, `[you write]`, and `[your story]` markers mean the same thing in slide files as in the outline.
 
 Conventions the slide files follow:
 
 - **Time splits.** A two-slide beat splits its time between the two files, stated in each header, and the two must sum to the beat. Section sums must match the outline's checks blocks.
-- **Section dividers.** Slides 4, 8, and 41 are matching typographic dividers with hard cuts and no internal builds. Each takes 0:10. Slides 4 and 8 are budgeted within Section 1; slide 41 is in Section 3.
-- **Area names.** Use Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. Preserve the map visuals on slides 9 and 40. Keep Production operations as the existing skill on slide 42.
-- **Kickers.** Section 2 slides use the area name in Bold and its area color, followed by a neutral beat label. A mini-map sits top right. Section 3 uses "The transition · " plus the beat name, with a mini-map except on recap slide 44. Full-screen diagrams remain standalone.
-- **Pitfalls.** Every area discusses decision-specific pitfalls and highlights one headline pitfall in the body. The sentence matches slide 44 word for word. A separate FRB application follows. Slide 44 retains six recap bands with area names in the blocks.
+- **Section dividers.** Slides 4, 8, and 42 are matching typographic dividers with hard cuts and no internal builds. Each takes 0:10. Slides 4 and 8 are budgeted within Section 1; slide 42 is in Section 3.
+- **Area names.** Use Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. Preserve the map visuals on slides 9 and 41. Keep Production operations as the existing skill on slide 43.
+- **Kickers.** The orientation on slide 10 uses a neutral section kicker and `mini-all`. Area slides in Section 2 use the area name in Bold and its area color, followed by a neutral beat label. A mini-map sits top right. Section 3 uses "The transition · " plus the beat name, with a mini-map except on recap slide 45. Full-screen diagrams remain standalone.
+- **Pitfalls.** Every area discusses decision-specific pitfalls and highlights one headline pitfall in the body. The sentence matches slide 45 word for word. A separate FRB application follows. Slide 45 retains six recap bands with area names in the blocks.
 - **Takeaways are spoken, not shown.** Content titles identify the responsibility. The agenda includes the agreed learning goals.
 - **Personal stories.** The Section 2 rework removed story #2 and its reservation. The Section 3 review removed story #3. Preserve presenter-authored slot #1. The optional bio story is not included in the current 4:00 Section 1 target. Do not invent it.
 - **Cut order.** Each talk track names what to cut first if the section runs long and what may never be cut.
-- **Diagram.** Slide 9 uses the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 40 uses the render of the `-yours.svg` variant generated from it; the mini-maps are generated from it too. Run `node internal/build-diagrams.mjs` if the base changes.
+- **Diagram.** Slide 9 uses the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 41 uses the render of the `-yours.svg` variant generated from it; the mini-maps are generated from it too. Run `node internal/build-diagrams.mjs` if the base changes.
 - **Visual values.** `style/design-brief.md` holds the type scale, grid, color roles, area colors, component specs, build rules, and diagram theme. Slide files describe intent in words like "small" or "strip" and defer to the brief for every size, color, and position. A visual change goes into the brief, not into slide files.
 
 ## Markers
@@ -65,8 +65,8 @@ A claim graduates from `UNVERIFIED` to `[primary]` only after being checked in a
 
 - **Scope is fixed.** The talk description in the README was published to attendees. Every outline version must cover every topic it names. Only the weighting changes.
 - **Two named tools.** The coding agents named on stage are Codex CLI and Devin. Their brief spoken anchors remain in Section 2. The standalone user screens and screenshot walkthroughs were removed in the Section 2 rework. Other products appear only as incident evidence. Tool facts come from vendor documentation and are marked `[primary]` in research with the date checked.
-- **Time and slide counts must reconcile.** Section 1 is 4:00 across slides 1 through 8. Section 2 is 25:00 to 29:00 across slides 9 through 40, with a 28:30 rehearsal reference. Section 3 is 4:30 across slides 41 through 47. Presentation time is approximately 33:30 to 37:30; discussion fills the rest of the 50-minute session. Each section ends with a checks block that sums its beat times and maps description coverage. Update it and the structure table when timings or numbering change.
-- **Every Section 2 area uses the same five-screen pattern:** quote, combined definition and importance (technical foundations in all six areas), decisions and trade-offs, challenges and pitfalls, and separate FRB application. Each is a separately numbered static slide. AgentOps is the final area, followed by the responsibility map on slide 40. Headline pitfalls also appear on slide 44. Section 2 has no user/owner pairing or reserved personal story.
+- **Time and slide counts must reconcile.** Section 1 is 4:00 across slides 1 through 8. Section 2 is 25:00 to 29:00 across slides 9 through 41, with a 28:30 rehearsal reference. Section 3 is 4:30 across slides 42 through 48. Presentation time is approximately 33:30 to 37:30; discussion fills the rest of the 50-minute session. Each section ends with a checks block that sums its beat times and maps description coverage. Update it and the structure table when timings or numbering change.
+- **Every Section 2 area uses the same five-screen pattern:** quote, combined definition and importance (technical foundations in all six areas), decisions and trade-offs, challenges and pitfalls, and separate FRB application. Each is a separately numbered static slide. AgentOps is the final area, followed by the responsibility map on slide 41. Headline pitfalls also appear on slide 45. Section 2 has no user/owner pairing or reserved personal story.
 - **Beat format is fixed.** Time, slide, say, takeaway line, sources. It is a talk track, not a script.
 
 ## Adding or changing a claim

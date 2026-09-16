@@ -1,5 +1,7 @@
 # Context Engineering integration draft
 
+Numbering note, September 16, 2026: the orientation insertion shifts this review's deck slide numbers 10 through 47 forward by one. The original review numbers below are historical. See `internal/deck/section-2-orientation-numbering-map.json` for current spec paths.
+
 Accepted and integrated September 16, 2026. The presenter approved this draft for the outline, slide specs, and PowerPoint. Outline beat 2.2, slides 15 through 19, design brief §28, and the reusable builder implement the conceptual evidence pipeline and missing-minutes FRB failure. This file retains the supporting content review. Rehearse the 4:30 area reference.
 
 ## Agreed direction and carried-forward structure

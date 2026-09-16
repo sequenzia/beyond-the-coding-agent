@@ -133,12 +133,27 @@ await newSlide('08');sectionDivider(2,'What AI engineers\nactually engineer');
 await newSlide('09');await img('internal/renders/map-full.png',0,0,960,540,{end:1});
 for(let k=1;k<=4;k++)await img(`internal/renders/map-${['model','harness','per-run','across-runs'][k-1]}.png`,0,0,960,540,{start:k,end:k+1,duration:300});
 await img('internal/renders/map-full.png',0,0,960,540,{start:5,duration:300});
+// Section orientation: the repeated teaching pattern and one shared example.
+await newSlide('10',{area:'Section 2',beat:'Orientation',map:'all',color:C.secondary,title:"How we'll explore the six areas"});
+text('In each area',48,192,420,30,20,{bold:true});
+text('One example throughout',492,192,420,30,20,{bold:true});
+[
+ ['Opening perspective',234,30],
+ ['Foundations:\nwhat it is and why it matters',274,55],
+ ['Decisions and trade-offs',339,30],
+ ['Challenges and pitfalls',379,30],
+ ['FRB application',419,30],
+].forEach(([label,y,h],i)=>{text(String(i+1),48,y,24,30,20,{color:C.secondary});text(label,84,y,384,h,20);});
+text('Failure Review Board (FRB)\nresearch',492,234,420,55,20);
+text('“Summarize a pump shutdown review,\ncompare related cases, and export\na cited brief.”',492,309,420,90,20);
+text('Illustrative example. People retain\nofficial decision authority.',492,421,420,55,20,{color:C.secondary});
+
 // Section 2: reviewed quote-first content, one narrative identity per composition.
 // Visible copy is authored here and matched to the numbered Markdown specs.
 const section2Areas = [
   {
     "area": AREA_NAMES[0],
-    "start": 10,
+    "start": 11,
     "image": "models-in-system.png",
     "quote": "A decent model with a great harness beats a great model with a bad harness.",
     "author": "Addy Osmani",
@@ -196,7 +211,7 @@ const section2Areas = [
   },
   {
     "area": AREA_NAMES[1],
-    "start": 15,
+    "start": 16,
     "image": "context-selection.png",
     "quote": "Context, therefore, must be treated as a finite resource with diminishing marginal returns.",
     "author": "Anthropic",
@@ -239,7 +254,7 @@ const section2Areas = [
   },
   {
     "area": AREA_NAMES[2],
-    "start": 20,
+    "start": 21,
     "image": "tools-interface.png",
     "quote": "Agents are only as effective as the tools we give them.",
     "author": "Anthropic",
@@ -282,7 +297,7 @@ const section2Areas = [
   },
   {
     "area": AREA_NAMES[3],
-    "start": 25,
+    "start": 26,
     "image": "orchestration-path.png",
     "quote": "we recommend finding the simplest solution possible, and only increasing complexity when needed.",
     "author": "Anthropic",
@@ -331,7 +346,7 @@ const section2Areas = [
   },
   {
     "area": AREA_NAMES[4],
-    "start": 30,
+    "start": 31,
     "image": "evals-inspection.png",
     "quote": "Error analysis is the most important activity in evals.",
     "author": "Hamel Husain and Shreya Shankar",
@@ -378,7 +393,7 @@ const section2Areas = [
   },
   {
     "area": AREA_NAMES[5],
-    "start": 35,
+    "start": 36,
     "image": "operating-observability.png",
     "quote": "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe.",
     "author": "Guillermo Rauch",
@@ -654,10 +669,10 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   text('Failed drafts remain blocked from export.',48,466,864,25,20,{bold:true});
  }
 }
-await newSlide('40');await img('internal/renders/map-yours.png',0,0,960,540,{alt:'Anatomy of an Agentic AI System, with responsibility badges'});
+await newSlide('41');await img('internal/renders/map-yours.png',0,0,960,540,{alt:'Anatomy of an Agentic AI System, with responsibility badges'});
 
-await newSlide('41');sectionDivider(3,'Making the transition');
-await newSlide('42',{area:'The transition',beat:'What transfers',map:'all',color:C.green,title:'What transfers'});
+await newSlide('42');sectionDivider(3,'Making the transition');
+await newSlide('43',{area:'The transition',beat:'What transfers',map:'all',color:C.green,title:'What transfers'});
 twoTable(['Existing skill','Application in an AI system'],[
  ['Decomposition and systems thinking','Bounded workflows and clear state'],
  ['Interface design','Tool contracts and explicit outcomes'],
@@ -666,7 +681,7 @@ twoTable(['Existing skill','Application in an AI system'],[
  ['Security and least privilege','Enforced access and action limits'],
  ['Production operations','Quality, cost, latency, and recovery'],
 ],192,[42,42,42,42,42,42,42],{color:C.green});
-await newSlide('43',{area:'The transition',beat:'What you add',map:'all',color:C.green,title:'What you add'});
+await newSlide('44',{area:'The transition',beat:'What you add',map:'all',color:C.green,title:'What you add'});
 twoTable(['Area','Competency to develop'],[
  [AREA_NAMES[0],'Recognize failure patterns and evaluate task fit'],
  [AREA_NAMES[1],'Select evidence and preserve its meaning'],
@@ -675,9 +690,9 @@ twoTable(['Area','Competency to develop'],[
  [AREA_NAMES[4],'Define quality and measure behavior across repeated trials'],
  [AREA_NAMES[5],'Investigate quality changes and manage\nsecurity, cost, and latency'],
 ],192,[40,40,40,40,40,40,60],{color:C.green,columnWidths:[272,24,568]});
-await newSlide('44',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
+await newSlide('45',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
 AREA_NAMES.forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=100+i*66,h=60;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);const label=i===1?name.replace(' ','\n'):i===2?name.replace('& ','&\n'):i===4?name.replace(' &','\n&'):name;text(label,48,y+3,208,54,20,{bold:true,color:i===0?C.text:C.bg,middle:true});const sentence=i===5?pitfalls[i].replace(' without reviewing','\nwithout reviewing'):pitfalls[i];text(sentence,296,y+3,616,h-6,20,{middle:true});});
-await newSlide('45',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'The first assignment replaces the four roadmap rows and stays visible through the handoff.'});
+await newSlide('46',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'The first assignment replaces the four roadmap rows and stays visible through the handoff.'});
 ['Choose one narrow task.','Start with one model call.','Turn failures into checks.','Add autonomy when evals justify it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','',{end:1});text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary,end:1});text(v,136,202+i*67,756,42,32,{bold:true,end:1});});
 text('Review 20 to 50 outputs for one task.',48,192,864,45,32,{start:1,bold:true});
 text('Record the input, observed behavior,\nexpected behavior, and check.',48,256,864,60,24,{start:1});
@@ -686,10 +701,10 @@ evidenceTable([
  ['Input','Observed','Expected','Check'],
  ['FRB-042\nsummary','Bearing wear\nconfirmed','Cause remains\nunresolved','Does the source\nsupport the claim?'],
 ],[216,216,216,216],374,[32,76],{color:C.green,start:1});
-await newSlide('46',{title:'Resources',variant:'resources'});
+await newSlide('47',{title:'Resources',variant:'resources'});
 const resources=[['Chip Huyen, AI Engineering: Building Applications with Foundation Models.','O\'Reilly, 2025.'],['Anthropic engineering: "Building effective agents" (December 2024).','"Effective context engineering for AI agents" (September 2025).','"Demystifying evals for AI agents" (January 2026).'],['OpenAI, "A practical guide to building agents" (2025).'],['Hamel Husain, "AI Evals: Everything You Need to Know," hamel.dev.','Shreya Shankar and Hamel Husain, Evals for AI Engineers.','O\'Reilly, October 2026.'],['OWASP Top 10 for LLM Applications (2025)','and for Agentic Applications (2026).'],['OpenTelemetry GenAI semantic conventions.']];
 let ry=146;for(const lines of resources){for(const lineText of lines){text(lineText,48,ry,864,25,20);ry+=25;}ry+=8;}
-await newSlide('47');thesis(true);
+await newSlide('48');thesis(true);
 
 // Add the editable narrative number last, above full-screen images and bands.
 for (let i = 0; i < meta.length; i++) {

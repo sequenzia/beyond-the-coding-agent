@@ -11,7 +11,7 @@ Beat 1.4 Section 1 divider. Section 1. Time 0:10. Builds: 0.
 ## Layout and visual
 
 - Display narrative number 4.
-- Match the typography, horizontal rule, and title position of the Section 2 and Section 3 dividers on slides 8 and 41.
+- Match the typography, horizontal rule, and title position of the Section 2 and Section 3 dividers on slides 8 and 42.
 - Break the title after "AI" so the second line reads "becomes part of the product".
 - No mini-map or internal builds. Hard cuts into and out of the slide.
 - Visual values follow the design brief.

@@ -1,5 +1,7 @@
 # Verification & Evals integration draft
 
+Numbering note, September 16, 2026: the orientation insertion shifts this review's deck slide numbers 10 through 47 forward by one. The original review numbers below are historical. See `internal/deck/section-2-orientation-numbering-map.json` for current spec paths.
+
 Accepted and integrated September 16, 2026. The presenter approved this draft for the outline, slide specs, and PowerPoint. Outline beat 2.5, slides 30 through 34, design brief §31, and the reusable builder implement the practical primer, case matrix, and retained source-support example. Reliability notation remains in Markdown backup. This file retains the supporting content review. Rehearse the retained 4:35 area reference.
 
 ## Agreed direction and carried-forward structure
