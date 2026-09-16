@@ -143,7 +143,7 @@ await newSlide('07',{title:'Engineering the system around the model'});
  text(body,344,192+i*100,568,82,24);
 });
 await newSlide('08');sectionDivider(2,'What AI engineers\nactually engineer');
-// The anatomy map uses the supplied renders, including every highlight state.
+// The anatomy map uses the generated 8K renders and brighter descriptions from design brief §8.
 await newSlide('09');await img('internal/renders/map-full.png',0,0,960,540,{end:1});
 for(let k=1;k<=4;k++)await img(`internal/renders/map-${['model','harness','per-run','across-runs'][k-1]}.png`,0,0,960,540,{start:k,end:k+1,duration:300});
 await img('internal/renders/map-full.png',0,0,960,540,{start:5,duration:300});
@@ -232,34 +232,44 @@ const section2Areas = [
     "publication": "Effective context engineering for AI agents, September 2025",
     "titles": [
       "Context Engineering, opening quote",
-      "Context for the next step",
-      "Retrieval and context choices",
+      "Context for each model call",
+      "Selecting and organizing context",
       "Context pitfalls",
       "Evidence for the FRB brief"
     ],
-    "contextSources": [
-      ["Memory", "Selected information\nretained for later use."],
-      ["Authoritative records", "Source documents and\napplication state checked\nfor this task."]
+    "contextCategories": [
+      ["Instructions", "Rules and\nconstraints"],
+      ["Current request", "The task and\ndesired result"],
+      ["Examples", "Demonstrations of\nexpected behavior"],
+      ["Retrieved evidence", "Relevant files\nand passages"],
+      ["History and\ntask state", "Prior messages\nand progress"],
+      ["Selected memory", "Retained information\nbrought into this call"],
+      ["Tool definitions", "Available operations\nand arguments"],
+      ["Tool results", "Returned data\nand observations"]
     ],
-    "workingContext": "Instructions, request, evidence,\ntools, and relevant history\navailable for this step.",
-    "pipeline": ["Authorized\nsources", "Retrieval", "Evidence\nselection", "Assembled\ninput"],
     "contextChoices": [
-      ["Find the evidence", "Keyword: terms and identifiers.\nSemantic: similarity using embeddings.\nHybrid: both signals."],
-      ["Manage the context", "Preload essentials.\nFetch detail when needed.\nRetain and refresh useful information."]
+      ["Select", "Preload essentials.\nRetrieve relevant evidence when needed."],
+      ["Position", "Distinguish instructions from evidence.\nTest placement of key information."],
+      ["Maintain", "Refresh stale information.\nCompact history while preserving constraints."],
+      ["Delegate", "Give focused tasks separate contexts.\nReturn findings with sources."]
     ],
     "pitfall": "Adding context without curating it.",
     "cues": [
       [
-        "Coverage",
-        "Decisive evidence can be missing."
+        "Distraction",
+        "Irrelevant content can steer the answer away from the task."
       ],
       [
-        "Summaries",
-        "Qualifications can disappear."
+        "Position",
+        "Relevant evidence can be overlooked depending on placement."
       ],
       [
-        "Sources",
-        "Versions and identities must remain traceable."
+        "Context rot",
+        "Reliability can decline as the input grows."
+      ],
+      [
+        "Information loss",
+        "Retrieval, summaries, and handoffs can omit critical details."
       ]
     ],
     "quoteWrapped": "“Context, therefore, must be\ntreated as a finite resource\nwith diminishing marginal\nreturns.”",
@@ -495,14 +505,13 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   });
   text(a.responsibility,48,458,864,30,20);
  }else if(areaIndex===1){
-  a.contextSources.forEach(([label,body],i)=>{
-   text(label,48,192+i*160,300,30,20,{bold:true,color});
-   text(body,48,230+i*160,300,i?75:54,20);
+  shape(48,192,864,300,'none',color,0,{strokeWidth:2,name:'working-context-boundary'});
+  text('Input for this call',72,208,816,30,20,{color:C.secondary});
+  a.contextCategories.forEach(([label,body],i)=>{
+   const x=72+(i%4)*210,y=248+Math.floor(i/4)*120;
+   text(label,x,y,186,50,20,{bold:true,color});
+   text(body,x,y+56,186,54,20);
   });
-  shape(468,192,444,296,'none',color,0,{strokeWidth:2,name:'working-context-boundary'});
-  text('Working context',492,216,396,32,24,{bold:true,color});
-  text(a.workingContext,492,270,396,130,24);
-  arrow(380,258,72);arrow(380,416,72);
  }else if(areaIndex===2){
   a.toolCall.forEach(([label,body],i)=>{
    text(label,48+i*308,192,248,30,20,{bold:true,color});
@@ -554,15 +563,12 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
 
  await header(a.start+2,'Decisions',a.titles[2]);
  if(areaIndex===1){
-  text('RAG',48,192,78,30,20,{bold:true,color});
-  text('Retrieve information and supply it as evidence for generation.',148,192,764,30,20);
-  a.pipeline.forEach((label,i)=>text(label,48+i*232,250,168,60,20,{bold:true,color,align:'center',middle:true}));
-  [230,462,694].forEach(x=>arrow(x,280,36));
-  text('Preserve source identity, revision, and access scope.',48,320,864,30,20);
   a.contextChoices.forEach(([label,body],i)=>{
-   text(label,48+i*444,370,420,30,20,{bold:true,color});
-   text(body,48+i*444,406,420,78,20);
+   const y=192+i*66;
+   text(label,48,y,216,30,20,{bold:true,color});
+   text(body,292,y,620,54,20);
   });
+  text('Preserve source identity and enforce access before inclusion.',48,466,864,30,20,{bold:true});
  }else if(areaIndex===2){
   text('Capability size',48,192,216,30,20,{bold:true,color});
   text('Flexible primitives or task-oriented operations.\nEvaluate the boundary on real work.',292,192,620,54,20);
@@ -596,8 +602,9 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
 
  await header(a.start+3,'Challenges and pitfalls',a.titles[3]);
  a.cues.forEach(([label,body],i)=>{
-  text(label,48,192+i*62,216,areaIndex===5&&i===2?54:30,20,{bold:true,color});
-  text(body,292,192+i*62,620,54,20);
+  const y=192+i*(areaIndex===1?54:62);
+  text(label,48,y,216,areaIndex===5&&i===2?54:30,20,{bold:true,color});
+  text(body,292,y,620,54,20);
  });
  if(areaIndex===4)text('Inspect the result and the trace before choosing a repair.',48,386,864,30,20);
  if(areaIndex===5)text('A probabilistic filter is insufficient as the sole security boundary.',48,386,864,30,20);

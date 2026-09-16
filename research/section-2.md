@@ -206,6 +206,12 @@ Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with 
 - Supports a brief distinction between lexical matching, semantic similarity, and combined retrieval. The content draft uses no reported performance percentages, model ranking, fixed chunk count, or claim that hybrid retrieval always wins. Preserve enough source context to interpret a retrieved passage.
 - Primer passages rechecked directly in a browser September 16, 2026. The source describes embeddings as "vector embeddings that encode meaning" and distinguishes semantic retrieval from lexical matching. Teaching definition: an embedding represents content numerically so a search system can compare similarity. The talk keeps this conceptual and uses no implementation or benchmark recommendation from the article.
 
+**Nelson F. Liu, Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua, Fabio Petroni, and Percy Liang, "Lost in the Middle: How Language Models Use Long Contexts," Transactions of the Association for Computational Linguistics, February 2024** [primary]. https://aclanthology.org/2024.tacl-1.9/ PDF: https://aclanthology.org/2024.tacl-1.9.pdf Checked in a browser September 16, 2026.
+
+- "performance can degrade significantly when changing the position of relevant information"
+- Controlled experiments cover multi-document question answering and key-value retrieval with the models studied in the paper. The results support treating placement as an evaluation variable. They do not establish one best order for every model and task, or quantify the behavior of a current deployment.
+- Slide 18 uses the engineering recommendation to test where key information works best. No benchmark number, universal beginning-or-end rule, or fixed context threshold appears on stage.
+
 **Yichao "Peak" Ji, Manus, "Context Engineering for AI Agents: Lessons from Building Manus," July 18, 2025** [primary]. https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
 
 - "the KV-cache hit rate is the single most important metric for a production-stage AI agent"
@@ -227,11 +233,12 @@ Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with 
 - Context Clash: "When you accrue new information and tools in your context that conflicts with other information in the context."
 - Evidence cited: Gemini 2.5 Pokemon agent hallucinating game state into its goals; distraction ceilings around 100k tokens for Gemini 2.5 Pro and 32k for Llama 3.1 405b; Berkeley Function-Calling Leaderboard, all models worse with more tools, a quantized Llama 3.1 8b failing at 46 tools and succeeding at 19; Microsoft and Salesforce sharded-prompt study, 39% average drop across multiturn, o3 falling from 98.1 to 64.1.
 
-**Chroma, "Context Rot," Kelly Hong, Anton Troynikov, Jeff Huber, July 14, 2025** [primary]. https://www.trychroma.com/research/context-rot
+**Chroma, "Context Rot," Kelly Hong, Anton Troynikov, Jeff Huber, July 14, 2025** [primary]. https://www.trychroma.com/research/context-rot Rechecked in a browser September 16, 2026.
 
 - "Model performance varies significantly as input length changes, even on simple tasks."
 - "models do not use their context uniformly; instead, their performance grows increasingly unreliable as input length grows"
 - 18 models including GPT-4.1, Claude 4, Gemini 2.5, Qwen3.
+- The report varies input length and distracting material. It supports the qualified warning that reliability can decline as input grows, including before reaching the maximum window. Model and task behavior varies. No universal failure threshold or measured performance claim about the talk's application follows from these experiments.
 
 **Cognition, "Introducing SWE-grep and SWE-grep-mini: RL for Multi-Turn, Fast Context Retrieval," October 16, 2025** [primary]. https://cognition.com/blog/swe-grep Checked in a browser September 14, 2026.
 
@@ -279,6 +286,30 @@ Teaching sequence: authorized sources, retrieval, evidence selection, and assemb
 Presenter-selected failure: retrieval misses the later FRB-042-MIN r2 minutes, so their decisive passage never reaches the model. This is a hypothetical failure using the already invented packet, not an observed run. The preliminary FRB-042-BRF r1 briefing and the minutes remain different documents. Inspect whether the required passage was available, returned by retrieval, and retained in the actual model input. A source absent from the corpus, an access restriction, and an omitted search result are different conditions. A missing result does not establish a cause or confirm the preliminary hypothesis. Preserve unresolved status and inspection requirements in summaries when the evidence is available. No new document, result, or successful repair is claimed.
 
 The application-record boundary stays brief: use maintained records for permissions and confirmed operations, and official board sources for recorded findings. A generated summary alone does not establish those facts. Orchestration retains ownership of progress and recovery, Tools retains execution and authorization contracts, and Verification & Evals retains detailed output grading.
+
+### Slide 17 foundations refinement, September 16, 2026
+
+The presenter approved the eight-category input diagram and 1:00 script. This refines the existing Anthropic context-engineering material and coding-agent anchor above. Common input categories are instructions, the current request, examples, retrieved evidence, history and task state, selected memory, tool definitions, and tool results. These are teaching categories, not an exhaustive taxonomy, required ordering, or equal token allocations. The diagram shows input for one call, not the full context-capacity accounting described in §1.
+
+The script makes repeated curation explicit: the system manages the input before every model call, including the call following a tool result. Stored memory and source documents contribute selected information when it is brought into the working context. Generated summaries still need supporting sources. Tool definitions describe available operations and arguments; tool results carry returned observations. This is a conceptual synthesis of the existing sources, not a new empirical claim.
+
+The approved slide contains no FRB reference. Positioning, compaction choices, and subagents remain for the subsequent decisions review. The 0:10 recovered from foundations is reserved in slide 19's rehearsal allowance pending that review, preserving the 4:30 area and 28:30 Section 2 references.
+
+### Slide 18 decisions refinement, September 16, 2026
+
+The presenter approved "Selecting and organizing context" and its 1:10 script. Four decisions organize the existing material: select, position, maintain, and delegate. Retrieval definitions and the keyword, semantic, and hybrid comparison remain spoken. Selection determines which retrieved results actually enter the input, with source references retained and access enforced before inclusion. The positioning recommendation is supported by Liu et al. above and remains a test for the model and task, not a universal ordering rule.
+
+Anthropic's September 2025 context-engineering article was rechecked in a browser September 16, 2026. Its compaction and sub-agent sections support preserving important information during summarization and using focused workers with separate working contexts. The approved script asks what each worker receives and what it returns, allowing detailed exploration to remain local to that worker. Findings retain supporting sources. It claims neither that every task needs subagents nor that delegation eliminates information loss.
+
+The approved slide contains no FRB reference. Its final line connects context size and possible summary or handoff losses to the next slide. Current area timings are 0:20, 1:00, 1:10, 0:45, and 1:15 for slides 16 through 20. Slide 19's additional 0:15 is rehearsal allowance pending its content review. Context Engineering remains 4:30 and Section 2 remains 28:30.
+
+### Slide 19 pitfalls refinement, September 16, 2026
+
+The presenter approved four failure modes and a 0:45 script: distraction, position, context rot, and information loss. The exact headline remains "Adding context without curating it." as on recap slide 45. Chroma's report above supports the qualified context-length and distraction warnings. Liu et al. supports position sensitivity in the studied tasks and models. Anthropic's compaction and sub-agent guidance supports checking which details survive summaries and handoffs.
+
+The script distinguishes context rot, meaning degraded use of a growing input, from information becoming outdated. The freshness reminder and possible loss of constraints or uncertainty develop existing context-maintenance guidance. The closing instruction is to inspect the actual input for this call, including missing information and content that no longer belongs. This is engineering guidance, not a measured guarantee or universal placement rule.
+
+Slides 17, 18, and 19 now have approved scripts at 1:00, 1:10, and 0:45. Their specs and scripts contain no FRB references. Slide 20 remains unchanged. The five-slide area stays at 4:30 and Section 2 stays at 28:30. Content review is complete; presenter rehearsal remains open.
 
 ## 3. Tools & Extensibility
 
@@ -701,6 +732,9 @@ The proposed operator pauses the rollout, compares affected task categories and 
 
 ## Verify before stage
 
+- Slides 17 through 19: approved copy and scripts are integrated. Rehearse their combined 2:55. Chroma's rot and distraction evidence was rechecked September 16, 2026. Preserve the distinction between context rot and stale information, the qualified placement warning, and the exact headline shared with slide 45.
+- Slide 18 decisions refinement: Liu et al.'s placement evidence and Anthropic's compaction and sub-agent guidance were checked September 16, 2026. Keep the placement recommendation task- and model-specific. Preserve source references and access enforcement. Rehearse the approved 1:10 script and its transition to the reserved 0:45 pitfalls slide.
+- Slide 17 foundations refinement: the approved eight-category diagram develops the existing context-engineering sources. Preserve its distinction between stored information and selected input, and rehearse the 1:00 script. The category layout implies neither processing order nor equal token budgets.
 - AgentOps integration: trace definitions, evolving GenAI conventions, and Google SRE release/objective guidance were checked September 16, 2026. Keep SLOs and error budgets in backup. The approved-update incident is illustrative and preserves the export gate, authorized processing, and human authority. Correlation motivates investigation rather than proving cause. The accepted copy and 4:10 reference are integrated; spoken pacing remains to be rehearsed.
 - Verification & Evals integration: the Anthropic definitions and OpenAI evaluation-method guidance were checked September 16, 2026. Keep pass@k and pass^k in backup. The suite matrix contains illustrative case designs and expected checks, not measured outcomes. Preserve the exact FRB source-support failure and distinguish fixture-specific completion from unresolved status. The accepted copy and timing redistribution are integrated; spoken pacing remains to be rehearsed.
 - Orchestration integration: checkpoint and idempotency sources were checked September 16, 2026. Keep durable saved state distinct from external completion evidence, and qualify retry behavior by the service contract. The permitted-export timeout is a separate illustrative case from Tools' rejected destination. The accepted content and timing redistribution are integrated; spoken pacing remains to be rehearsed.

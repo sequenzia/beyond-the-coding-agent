@@ -20,28 +20,28 @@
 
     <rect id="box-identity" x="72" y="163" width="580" height="100" rx="10" fill="#303236"/>
     <text x="362" y="205" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Identity &amp; Access Management</text>
-    <text x="362" y="239" text-anchor="middle" font-size="24" fill="#adaca9">Auth, permissions, scoped credentials</text>
+    <text class="diagram-description" x="362" y="239" text-anchor="middle" font-size="28" fill="#d7d5d0">Auth, permissions, scoped credentials</text>
 
     <rect id="box-security" x="670" y="163" width="580" height="100" rx="10" fill="#303236"/>
     <text x="960" y="205" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Security</text>
-    <text x="960" y="239" text-anchor="middle" font-size="24" fill="#adaca9">Injection defense, sandboxing, secrets</text>
+    <text class="diagram-description" x="960" y="239" text-anchor="middle" font-size="28" fill="#d7d5d0">Injection defense, sandboxing, secrets</text>
 
     <rect id="box-data" x="1268" y="163" width="580" height="100" rx="10" fill="#303236"/>
     <text x="1558" y="205" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">External Data &amp; Retrieval</text>
-    <text x="1558" y="239" text-anchor="middle" font-size="24" fill="#adaca9">RAG, vector stores, connectors</text>
+    <text class="diagram-description" x="1558" y="239" text-anchor="middle" font-size="28" fill="#d7d5d0">RAG, vector stores, connectors</text>
   </g>
 
   <g id="one-run" opacity="0.3">
     <rect x="72" y="288" width="1776" height="574" rx="16" fill="none" stroke="#4c4d50" stroke-width="2" stroke-dasharray="12 8"/>
     <text x="100" y="334" font-size="40" font-weight="700" fill="#fffcf5">One run</text>
-    <text x="1820" y="332" text-anchor="end" font-size="24" fill="#adaca9">Repeats for each goal</text>
+    <text class="diagram-description" x="1820" y="332" text-anchor="end" font-size="28" fill="#d7d5d0">Repeats for each goal</text>
   </g>
 
   <g id="goal" opacity="0.3">
     <rect id="box-goal" x="100" y="550" width="300" height="140" rx="10" fill="none" stroke="#adaca9" stroke-width="4"/>
     <text x="250" y="598" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Goal</text>
-    <text x="250" y="632" text-anchor="middle" font-size="24" fill="#adaca9">From user, trigger,</text>
-    <text x="250" y="662" text-anchor="middle" font-size="24" fill="#adaca9">or schedule</text>
+    <text class="diagram-description" x="250" y="632" text-anchor="middle" font-size="28" fill="#d7d5d0">From user, trigger,</text>
+    <text class="diagram-description" x="250" y="662" text-anchor="middle" font-size="28" fill="#d7d5d0">or schedule</text>
   </g>
 
   <g id="arrows" opacity="0.3">
@@ -52,14 +52,14 @@
   <g id="agent" opacity="0.3">
     <rect x="450" y="362" width="1050" height="472" rx="16" fill="none" stroke="#4c4d50" stroke-width="2"/>
     <text x="480" y="408" font-size="40" font-weight="700" fill="#fffcf5">Agent</text>
-    <text x="1470" y="406" text-anchor="end" font-size="24" fill="#adaca9">Model + harness</text>
+    <text class="diagram-description" x="1470" y="406" text-anchor="end" font-size="28" fill="#d7d5d0">Model + harness</text>
   </g>
 
   <g id="model">
     <rect id="box-model" x="475" y="550" width="210" height="140" rx="10" fill="#13223f" stroke="#1064f8" stroke-width="4"/>
-    <text x="580" y="598" text-anchor="middle" font-size="32" font-weight="700" fill="#1064f8">Model</text>
-    <text x="580" y="632" text-anchor="middle" font-size="24" fill="#adaca9">Decides</text>
-    <text x="580" y="662" text-anchor="middle" font-size="24" fill="#adaca9">what to do</text>
+    <text x="580" y="598" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Model</text>
+    <text class="diagram-description" x="580" y="632" text-anchor="middle" font-size="28" fill="#d7d5d0">Decides</text>
+    <text class="diagram-description" x="580" y="662" text-anchor="middle" font-size="28" fill="#d7d5d0">what to do</text>
   </g>
 
   <g id="plus" opacity="0.3">
@@ -69,31 +69,31 @@
   <g id="harness" opacity="0.3">
     <rect id="box-harness" x="745" y="418" width="730" height="404" rx="16" fill="#2b1b2c" stroke="#f948be" stroke-width="4"/>
     <text x="762" y="460" font-size="40" font-weight="700" fill="#f948be">Harness</text>
-    <text x="762" y="492" font-size="24" fill="#adaca9">Carries state across turns</text>
+    <text class="diagram-description" x="762" y="492" font-size="28" fill="#d7d5d0">Carries state across turns</text>
 
     <rect id="box-orchestration" x="762" y="512" width="340" height="90" rx="10" fill="#303236"/>
     <text x="932" y="550" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Orchestration</text>
-    <text x="932" y="582" text-anchor="middle" font-size="24" fill="#adaca9">Loop, hooks, workflows</text>
+    <text class="diagram-description" x="932" y="582" text-anchor="middle" font-size="28" fill="#d7d5d0">Loop, hooks, workflows</text>
 
     <rect id="box-tools" x="1118" y="512" width="340" height="90" rx="10" fill="#303236"/>
     <text x="1288" y="550" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Tools</text>
-    <text x="1288" y="582" text-anchor="middle" font-size="24" fill="#adaca9">Files, shell, web, MCP</text>
+    <text class="diagram-description" x="1288" y="582" text-anchor="middle" font-size="28" fill="#d7d5d0">Files, shell, web, MCP</text>
 
     <rect id="box-context" x="762" y="614" width="340" height="90" rx="10" fill="#303236"/>
     <text x="932" y="652" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Context and memory</text>
-    <text x="932" y="684" text-anchor="middle" font-size="24" fill="#adaca9">History, working memory</text>
+    <text class="diagram-description" x="932" y="684" text-anchor="middle" font-size="28" fill="#d7d5d0">History, working memory</text>
 
     <rect id="box-guardrails" x="1118" y="614" width="340" height="90" rx="10" fill="#303236"/>
     <text x="1288" y="652" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Guardrails</text>
-    <text x="1288" y="684" text-anchor="middle" font-size="24" fill="#adaca9">Limits on actions</text>
+    <text class="diagram-description" x="1288" y="684" text-anchor="middle" font-size="28" fill="#d7d5d0">Limits on actions</text>
 
     <rect id="box-instructions" x="762" y="716" width="340" height="90" rx="10" fill="#303236"/>
     <text x="932" y="754" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Instructions</text>
-    <text x="932" y="786" text-anchor="middle" font-size="24" fill="#adaca9">System prompt, config</text>
+    <text class="diagram-description" x="932" y="786" text-anchor="middle" font-size="28" fill="#d7d5d0">System prompt, config</text>
 
     <rect id="box-verification" x="1118" y="716" width="340" height="90" rx="10" fill="#303236"/>
     <text x="1288" y="754" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Verification</text>
-    <text x="1288" y="786" text-anchor="middle" font-size="24" fill="#adaca9">Tests, checks, self-review</text>
+    <text class="diagram-description" x="1288" y="786" text-anchor="middle" font-size="28" fill="#d7d5d0">Tests, checks, self-review</text>
   </g>
 
   <g id="stop" opacity="0.3">
@@ -108,14 +108,14 @@
 
     <rect id="box-observability" x="72" y="928" width="580" height="100" rx="10" fill="#303236"/>
     <text x="362" y="970" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Observability</text>
-    <text x="362" y="1004" text-anchor="middle" font-size="24" fill="#adaca9">Logs, traces, metrics, cost</text>
+    <text class="diagram-description" x="362" y="1004" text-anchor="middle" font-size="28" fill="#d7d5d0">Logs, traces, metrics, cost</text>
 
     <rect id="box-evaluations" x="670" y="928" width="580" height="100" rx="10" fill="#303236"/>
     <text x="960" y="970" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Evaluations</text>
-    <text x="960" y="1004" text-anchor="middle" font-size="24" fill="#adaca9">Offline evals, regression suites, A/B</text>
+    <text class="diagram-description" x="960" y="1004" text-anchor="middle" font-size="28" fill="#d7d5d0">Offline evals, regression suites, A/B</text>
 
     <rect id="box-governance" x="1268" y="928" width="580" height="100" rx="10" fill="#303236"/>
     <text x="1558" y="970" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Governance</text>
-    <text x="1558" y="1004" text-anchor="middle" font-size="24" fill="#adaca9">Policies, audit trails, approvals</text>
+    <text class="diagram-description" x="1558" y="1004" text-anchor="middle" font-size="28" fill="#d7d5d0">Policies, audit trails, approvals</text>
   </g>
 </svg>

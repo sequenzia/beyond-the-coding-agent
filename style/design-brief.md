@@ -333,12 +333,12 @@ The deck has 26 narrative slides, 28 authored compositions, and 56 physical Powe
 |---|---|
 | Canvas | `#14161c` |
 | Title | 40 units (20) Bold primary. Kept in the SVG because slide 7 uses it as the slide title |
-| Outer frame, One run, Agent containers | no fill. 2 unit (1) stroke `#4c4d50`. One run keeps its dash, 12 8. One run and Agent labels 40 units Bold primary. Descriptions 24 units Regular secondary. The outer frame has no label or description |
+| Outer frame, One run, Agent containers | no fill. 2 unit (1) stroke `#4c4d50`. One run keeps its dash, 12 8. One run and Agent labels 40 units Bold primary. Descriptions 28 units (14) Regular diagram description color `#d7d5d0`. The outer frame has no label or description |
 | Per-run and Across-runs row labels | 32 units Bold primary. No row descriptions |
-| The 13 generic boxes | fill `#303236`, no stroke. Title 32 units (16) Bold primary. Subtitle 24 units (12) Regular secondary |
-| Model | fill `#13223f`, 4 unit (2) stroke `#1064f8`. Title `#1064f8`. Subtitle secondary, two lines |
-| Harness | fill `#2b1b2c`, 4 unit stroke `#f948be`. Label `#f948be`. Description secondary. The six inner boxes as generic boxes |
-| Goal | no fill. 4 unit stroke `#adaca9`. Title primary. Subtitle secondary, two lines |
+| The 13 generic boxes | fill `#303236`, no stroke. Title 32 units (16) Bold primary. Subtitle 28 units (14) Regular diagram description color `#d7d5d0` |
+| Model | fill `#13223f`, 4 unit (2) stroke `#1064f8`. Title primary. Subtitle diagram description color, two lines |
+| Harness | fill `#2b1b2c`, 4 unit stroke `#f948be`. Label `#f948be`. Description diagram description color. The six inner boxes as generic boxes |
+| Goal | no fill. 4 unit stroke `#adaca9`. Title primary. Subtitle diagram description color, two lines |
 | Stopping condition | a generic box. Title 28 units Bold on three lines, the one exception to 32 |
 | Arrows and the plus sign | `#adaca9`. Arrows 4 units with a 20 unit marker. Plus sign 56 units |
 | Green | absent from the full map. Present only on the mini-map |
@@ -365,8 +365,10 @@ A text-free variant of the base for the 160 by 90 mini-map. Same boxes and the h
 
 1. Edit the base SVG. Keep the layer groups: `title`, `platform`, `per-run`, `one-run`, `goal`, `agent`, `model`, `plus`, `harness`, `stop`, `arrows`, `across-runs`. Keep the `box-` ids on the rectangles; the generator reads them for badges and mini-maps.
 2. During full-map review, run `node internal/build-diagrams.mjs --full-only` to update only `internal/renders/map-full.png`. After approval, run `node internal/build-diagrams.mjs` to write the `-closing` variant, the highlight states, the mini variants, and every PNG. Both modes render through headless Chrome, which resolves system Helvetica. They need Node and Google Chrome and nothing else.
-3. Renders: `map-full`, `map-model`, `map-harness`, `map-per-run`, `map-across-runs`, `map-closing` at 3840 by 2160, and the seven `mini-` files at 640 by 360, all in `internal/renders/`.
+3. Renders: `map-full`, `map-model`, `map-harness`, `map-per-run`, `map-across-runs`, `map-closing` at 7680 by 4320, and the seven `mini-` files at 640 by 360, all in `internal/renders/`. Render full maps directly from the 1920 by 1080 SVG at device scale 4. Preserve the PNG bytes and disabled image compression in the deck.
 4. Confirm the render is Helvetica and not a fallback face by comparing a title against the deck.
+
+**High-resolution readability, September 16, 2026.** Full maps use 8K renders for 5K and 6K displays. Descriptions grow from 24 to 28 SVG units and use solid `#d7d5d0`; component headings, geometry, wording, and 0.3 inactive-layer opacity stay unchanged. The Model label is primary light text inside its blue outline. Tag every description with `class="diagram-description"` so the closing variant can omit descriptions independently of typography. Mini-maps stay text-free at their existing resolution. The original 12-point diagram-description exception is superseded by this 14-point rule.
 
 **Why PNG rather than importing the SVG and converting to shapes.** Conversion maps the font to Helvetica Neue, which is banned. It drops or distorts `marker-end` arrowheads. It turns centered text into left-aligned boxes that shift on Windows. And it yields about 80 shapes that must be regrouped by hand after every edit.
 
@@ -827,6 +829,8 @@ The accepted sequence is quote, working-context foundations, conceptual retrieva
 
 ### Slide 17: context assembly
 
+Superseded by the approved eight-category diagram in §38. The following geometry records the earlier composition.
+
 Replace the former definition columns with one native editable context-assembly diagram. Stored memory and authoritative records sit outside the assembled input, with selected information flowing into it. This uses the same text and connector language as the Model Selection invocation.
 
 - Left sources: x 48, width 300. Memory label at y 192 and authoritative-records label at y 352, each height 30, Helvetica Bold 20 in area pink. Memory body at y 230, height 54, Regular 20, two lines. Records body at y 390, height 75, Regular 20, three lines.
@@ -835,6 +839,8 @@ Replace the former definition columns with one native editable context-assembly 
 - Two native horizontal arrows run from x 380 to 452 at y 258 and 416. Use the shared secondary 2-point connector style. They show selected information entering the call. Do not imply that all retained memory or every source document enters every invocation.
 
 ### Slide 18: conceptual evidence path
+
+Superseded by the approved four-row decisions layout in §39. The following geometry records the earlier composition.
 
 Use a single evidence pipeline above two explanatory columns. All content remains native editable text and connectors. Keep the shared header and title.
 
@@ -845,6 +851,8 @@ Use a single evidence pipeline above two explanatory columns. All content remain
 - Lower labels at x 48 and 492, y 370, width 420, height 30, Bold 20 in area pink. The Find the evidence and Manage the context bodies begin at y 406, width 420, height 78, Regular 20. Each uses three deliberate lines. Keep the embedding definition spoken and the brief search comparison visible.
 
 ### Slide 19: pitfalls
+
+Superseded by the approved four-row failure-mode composition in §40.
 
 Preserve the current three labeled rows and the exact headline pitfall. The existing Coverage, Summaries, and Sources copy already supports the new explanation. Update the talk track only.
 
@@ -1022,7 +1030,7 @@ Slide 41 closes Section 2 by connecting the six areas within the familiar anatom
 
 Title: x 48, y 36, width 864, height 42, Helvetica Bold 32 in primary text. Place a native flat area key in two rows at y 88 and 122, height 25, with columns x 48, 344, and 640, width 272. Use Helvetica Bold 20 and each area's existing color, in presentation order across each row. There are no chips, badges, cards, or connectors in the key.
 
-The closing diagram is a generated `-closing.svg` variant of the shared base, rendered as `map-closing.png` at 3840 by 2160. Place the image at x 0, y 0, width 960, height 540, behind the native title and key. Its upper canvas is blank for the header. Preserve horizontal positions and all core labels. Omit the original title and 24-unit technical subtitles. Retain the original label font sizes rather than scaling the diagram down. The SVG uses two units per point.
+The closing diagram is a generated `-closing.svg` variant of the shared base, rendered as `map-closing.png` at 7680 by 4320. Place the image at x 0, y 0, width 960, height 540, behind the native title and key. Its upper canvas is blank for the header. Preserve horizontal positions and all core labels. Omit the original title and all text tagged `diagram-description`. Retain the original label font sizes rather than scaling the diagram down. The SVG uses two units per point.
 
 Closing SVG vertical positions:
 
@@ -1070,3 +1078,39 @@ Native flat comparison table at x 48, y 192, width 864. Content columns are 420 
 ### Slides 6 and 7 explanatory rows
 
 Use native editable text rows, with no visible table header. Each row starts at y 192, 292, or 392. Labels at x 48, width 272, height 82. Explanations at x 344, width 568, height 82. Preserve the locked wording. On slide 6, break the second explanation after "not". On slide 7, break the first explanation after "required", the second after "limits", and the third after "repeated runs,". Other rows fit naturally without forced breaks. All text fits above the bottom safe margin.
+
+## 38. Context input diagram, September 16, 2026
+
+The presenter approved slide 17's eight-category copy and 1:00 script. This replaces its context-assembly layout in §28. Preserve the standard title header, pink area kicker, `mini-context`, narrative number, static entry, and hard cuts. Use one native editable boundary with flat text groups, not separate cards. The diagram represents the input for a single call. It does not represent total capacity, processing order, or equal token allocations.
+
+- Title: "Context for each model call", using the shared standard header geometry and type.
+- Input boundary: x 48, y 192, width 864, height 300. No fill. Square corners. Pink 2-point outline.
+- Diagram label: "Input for this call", x 72, y 208, width 816, height 30, Helvetica Regular 20 in secondary text.
+- Four columns start at x 72, 282, 492, and 702, each width 186. Category labels start at y 248 and 368, height 50, Helvetica Bold 20 in pink. Supporting text starts at y 304 and 424, height 54, Helvetica Regular 20 in primary text. Use the standard 1.25 line spacing and zero text insets.
+- Top row: Instructions, Current request, Examples, Retrieved evidence. Bottom row: History and task state, Selected memory, Tool definitions, Tool results. Break History and task state after "and". Other labels fit on one line.
+- Supporting-text breaks: after "and" for Rules and constraints; after "and" for The task and desired result; after "of" for Demonstrations of expected behavior; after "files" for Relevant files and passages; after "messages" for Prior messages and progress; after "information" for Retained information brought into this call; after "operations" for Available operations and arguments; after "data" for Returned data and observations.
+
+Keep the responsibility at every inference turn spoken. No extra takeaway, source footer, connector, animation, or application example appears on the slide. The 0:10 saved in foundations becomes rehearsal allowance on slide 19 pending its review. The area remains 4:30 and Section 2 remains 28:30.
+
+## 39. Context decisions, September 16, 2026
+
+The presenter approved slide 18's four decision rows and 1:10 script. This replaces its conceptual evidence-path layout in §28. Preserve the standard title header, pink area kicker, `mini-context`, narrative number, static entry, and hard cuts. Keep all content native and editable, with no cards, connectors, or visible search-method inventory.
+
+- Title: "Selecting and organizing context", using the shared standard header geometry and type.
+- Four flat rows begin at y 192, 258, 324, and 390. Labels Select, Position, Maintain, and Delegate sit at x 48, width 216, height 30, Helvetica Bold 20 in pink.
+- Supporting text sits at x 292, width 620, height 54, Helvetica Regular 20 in primary text. Use two deliberate lines in every row, breaking after the first sentence. Preserve the exact approved copy in the slide spec.
+- Supporting line: "Preserve source identity and enforce access before inclusion." at x 48, y 466, width 864, height 30, Helvetica Bold 20 in primary text.
+- Use the standard 1.25 line spacing and zero text insets. Keep all content within the shared safe area.
+
+RAG, embeddings, and the keyword, semantic, and hybrid comparison remain spoken. Placement is a decision to test for the model and task. Subagents illustrate separate working contexts and selective return of findings. The additional 0:15 recovered from slide 18 brings slide 19's reserved allowance to 0:45. Slides 16 through 20 now take 0:20, 1:00, 1:10, 0:45, and 1:15, preserving the area's 4:30 and Section 2's 28:30.
+
+## 40. Context pitfalls, September 16, 2026
+
+The presenter approved slide 19's four failure modes and 0:45 script. This replaces its three-row content in §28. Preserve the standard header, pink area kicker, `mini-context`, narrative number, static entry, and hard cuts. Use native editable text with the same type scale as slide 18.
+
+- Four flat rows begin at y 192, 246, 300, and 354. Labels Distraction, Position, Context rot, and Information loss sit at x 48, width 216, height 30, Helvetica Bold 20 in pink.
+- Supporting text sits at x 292, width 620, height 54, Helvetica Regular 20 in primary text. Preserve the exact approved sentences and allow natural wrapping.
+- Retain the existing headline-pitfall row. Label "Pitfall" at x 48, y 426, width 124, height 30, Helvetica Bold 20 in pink. Sentence "Adding context without curating it." at x 196, y 426, width 716, height 64, Helvetica Bold 24 in primary text. This sentence matches slide 45 exactly.
+- Use standard 1.25 line spacing and zero text insets. No new card, diagram, source footer, or animation appears.
+
+The script distinguishes degraded use of a growing context from information becoming outdated. All three Context Engineering content slides are now approved at 1:00, 1:10, and 0:45. This closes their pending content reviews. Rehearsal remains open. The area stays 4:30 and Section 2 stays 28:30. Slide 20 is unchanged.

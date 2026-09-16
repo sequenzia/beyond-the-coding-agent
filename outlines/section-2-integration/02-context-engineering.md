@@ -4,6 +4,24 @@ Numbering note, September 16, 2026: the orientation insertion shifts this review
 
 Accepted and integrated September 16, 2026. The presenter approved this draft for the outline, slide specs, and PowerPoint. Outline beat 2.2, slides 15 through 19, design brief §28, and the reusable builder implement the conceptual evidence pipeline and missing-minutes FRB failure. This file retains the supporting content review. Rehearse the 4:30 area reference.
 
+## Subsequent slide 17 approval, September 16, 2026
+
+The presenter approved "Context for each model call" with eight categories in two rows: instructions, current request, examples, retrieved evidence, history and task state, selected memory, tool definitions, and tool results. The diagram is labeled "Input for this call". The exact approved copy and 1:00 script are in `slides/section-2/17-context-for-the-next-step.md`. Design brief §38 and the reusable builder implement that composition. This approval supersedes the foundations content below, which remains a historical review record.
+
+The script states the curation responsibility at every inference turn, including the call after a tool result. Stored information enters the working context through selection, and summaries still need supporting sources. Slide 17 contains no application example. Current timings are slide 16 at 0:20, slide 17 at 1:00, slide 18 at 1:25, slide 19 at 0:30, and slide 20 at 1:15. The extra 0:10 on slide 19 is rehearsal allowance pending its separate content review. The area remains 4:30 and Section 2 remains 28:30.
+
+## Subsequent slide 18 approval, September 16, 2026
+
+The presenter approved "Selecting and organizing context" with four flat decision rows: Select, Position, Maintain, and Delegate. A supporting line preserves source identity and access enforcement. The exact approved copy and 1:10 script are in `slides/section-2/18-context-decisions.md`. Design brief §39 and the reusable builder implement the composition. This approval supersedes the retrieval-decisions content below, which remains a historical review record.
+
+RAG, embeddings, and search-method definitions remain spoken. Positioning becomes a choice to test. Compaction must preserve important constraints and unresolved work. Focused subagents can use separate contexts and return findings with sources. Slide 18 contains no application example. The current timings supersede the preceding slide 17 approval record: 0:20, 1:00, 1:10, 0:45, and 1:15 for slides 16 through 20, totaling 4:30. Slide 19's content review remains pending within its expanded allowance. Section 2 remains 28:30.
+
+## Subsequent slide 19 approval, September 16, 2026
+
+The presenter approved the four failure modes Distraction, Position, Context rot, and Information loss, plus the 0:45 script. The headline remains "Adding context without curating it." and matches recap slide 45. The exact approved content is in `slides/section-2/19-context-pitfalls.md`; design brief §40 and the reusable builder implement it. This supersedes the historical pitfalls treatment below.
+
+The script distinguishes context rot from stale information, preserves possible losses in retrieval, summaries, and subagent handoffs, and closes on inspecting the actual input. Slides 17 through 19 now have approved content and scripts with no FRB references. Their combined time is 2:55, the area remains 4:30, and Section 2 remains 28:30. Slide 20 is unchanged. The pending content reviews recorded above are complete; rehearsal remains open.
+
 ## Agreed direction and carried-forward structure
 
 - Explain how evidence reaches the model through a conceptual pipeline.

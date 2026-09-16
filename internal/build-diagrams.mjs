@@ -24,6 +24,7 @@ if (args.length > 1 || (args.length === 1 && !['--full-only', '--closing-only'].
 }
 const fullOnly = args[0] === '--full-only';
 const closingOnly = args[0] === '--closing-only';
+const fullMapScale = 4; // 7680 by 4320 from the 1920 by 1080 SVG.
 
 const C = {
   bg: '#14161c', primary: '#fffcf5', secondary: '#adaca9',
@@ -58,10 +59,15 @@ async function render(svgPath, pngPath, width, height, scale) {
   child.kill('SIGKILL');
   rmSync(profile, { recursive: true, force: true });
   if (!existsSync(pngPath)) throw new Error(`render timed out: ${pngPath}`);
+  const png = readFileSync(pngPath);
+  if (png.toString('hex', 0, 8) !== '89504e470d0a1a0a'
+      || png.readUInt32BE(16) !== width * scale || png.readUInt32BE(20) !== height * scale) {
+    throw new Error(`unexpected PNG dimensions: ${pngPath}; expected ${width * scale} by ${height * scale}`);
+  }
 }
 
 if (fullOnly) {
-  await render(basePath, join(renderDir, 'map-full.png'), 1920, 1080, 2);
+  await render(basePath, join(renderDir, 'map-full.png'), 1920, 1080, fullMapScale);
   console.log('wrote map-full.png');
   process.exit(0);
 }
@@ -94,7 +100,7 @@ const areas = {
 };
 const componentAreas = Object.fromEntries(Object.values(areas).flatMap(a => a.boxes.map(id => [id, a])));
 let closing = base.replace(/  <g id="title">[\s\S]*?<\/g>\n/, '')
-  .replace(/    <text [^>]*font-size="24"[^>]*>[^<]*<\/text>\n/g, '')
+  .replace(/    <text [^>]*class="diagram-description"[^>]*>[^<]*<\/text>\n/g, '')
   .replace('x="40" y="80" width="1840" height="970"', 'x="40" y="312" width="1840" height="708"')
   .replace('x="72" y="288" width="1776" height="574"', 'x="72" y="472" width="1776" height="370"')
   .replace('x="450" y="362" width="1050" height="472"', 'x="450" y="530" width="1050" height="292"')
@@ -124,7 +130,7 @@ closing = closing.replace(/<text ([^>]*)>([^<]*)<\/text>/g, (tag, attrs, label) 
 });
 writeFileSync(closingPath, closing);
 if (closingOnly) {
-  await render(closingPath, join(renderDir, 'map-closing.png'), 1920, 1080, 2);
+  await render(closingPath, join(renderDir, 'map-closing.png'), 1920, 1080, fullMapScale);
   console.log('wrote closing SVG and map-closing.png');
   process.exit(0);
 }
@@ -182,6 +188,6 @@ for (const state of [...Object.keys(areas), 'all']) {
 }
 
 const full = { 'map-full': basePath, 'map-closing': closingPath, 'map-model': stateFiles.model, 'map-harness': stateFiles.harness, 'map-per-run': stateFiles['per-run'], 'map-across-runs': stateFiles['across-runs'] };
-for (const [name, p] of Object.entries(full)) await render(p, join(renderDir, `${name}.png`), 1920, 1080, 2);
+for (const [name, p] of Object.entries(full)) await render(p, join(renderDir, `${name}.png`), 1920, 1080, fullMapScale);
 for (const [state, p] of Object.entries(miniFiles)) await render(p, join(renderDir, `mini-${state}.png`), 160, 90, 4);
 console.log(`wrote ${closingPath.split('/').pop()}, ${Object.keys(stateFiles).length} highlight states, ${Object.keys(miniFiles).length} mini variants, ${Object.keys(full).length + Object.keys(miniFiles).length} renders`);

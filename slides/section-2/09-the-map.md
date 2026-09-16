@@ -9,6 +9,7 @@ The existing anatomy diagram, with its six states. No added text beyond the narr
 ## Layout and visual
 
 - Preserve the six existing anatomy states and full-screen composition. Display narrative number 9 throughout.
+- Use the high-resolution renders, larger and brighter descriptions, and light Model label specified in the design brief. Preserve all wording and component positions.
 - State order: full brightness, Model, Harness, per-run services, across-run services, full brightness.
 - The final full-brightness state connects the map to coding agents and hands off to the section orientation. No added text over the diagram.
 - Diagram theme, map geometry, and numbering follow design brief §23 and the base diagram rules.

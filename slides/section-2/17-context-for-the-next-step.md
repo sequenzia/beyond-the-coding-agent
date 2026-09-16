@@ -1,57 +1,66 @@
-# Slide 17: Context for the next step
+# Slide 17: Context for each model call
 
-Beat 2.2. Section 2. Rehearsal reference 1:10 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
+Beat 2.2. Section 2. Rehearsal reference 1:00 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds. Visible copy and script approved September 16, 2026.
 
 ## On the slide
 
 **Kicker:** Context Engineering · Foundations
 
-**Title:** Context for the next step
+**Title:** Context for each model call
 
-**Working context**
+**Diagram label:** Input for this call
 
-Instructions, request, evidence, tools, and relevant history available for this step.
+Top row:
 
-**Memory**
+| Category | Supporting text |
+|---|---|
+| **Instructions** | Rules and constraints |
+| **Current request** | The task and desired result |
+| **Examples** | Demonstrations of expected behavior |
+| **Retrieved evidence** | Relevant files and passages |
 
-Selected information retained for later use.
+Bottom row:
 
-**Authoritative records**
-
-Source documents and application state checked for this task.
+| Category | Supporting text |
+|---|---|
+| **History and task state** | Prior messages and progress |
+| **Selected memory** | Retained information brought into this call |
+| **Tool definitions** | Available operations and arguments |
+| **Tool results** | Returned data and observations |
 
 ## Layout and visual
 
 - Display narrative number 17, the area kicker, and `mini-context` throughout.
-- Use the native context-assembly diagram in design brief §28. All visual values are defined there.
-- Place memory and authoritative records outside the assembled input. Connect selected information to working context, whose contents include the instructions and current request.
-- Keep all labels editable. Show the complete content on entry with hard cuts and no internal builds.
-- The coding-agent connection and the distinction between prompt engineering and broader context stay spoken.
+- Use the native editable eight-category diagram in design brief §38. All visual values are defined there.
+- Place two rows of four categories inside one outlined input boundary. Keep each explanation with its category.
+- The categories are common ingredients, not a required sequence, exhaustive inventory, or equal portions of the context budget. The diagram shows input for this call rather than total context-capacity accounting.
+- Show the complete content on entry with hard cuts and no internal builds. Keep the repeated-selection responsibility and coding-agent example spoken.
 
 ## Talk track
 
-[0:00] **WORKING CONTEXT**
+[0:00] **INPUT FOR THIS CALL**
 
-[0:00] Model Selection showed a model call. **Context Engineering assembles the information for its next step.** That includes instructions, the request, relevant evidence, tool information, and useful history. Prompt engineering addresses the instructions within that larger input.
+[0:00] **Context Engineering manages the information available to the model at every inference turn.** Each turn is another model call.
 
-[0:18] Memory is selected information retained for later use. The system still chooses what to bring into this call. Compaction condenses working history to make room for further work. Both need checks that important details survive.
+[0:10] The input can include instructions, the current request, examples, and retrieved evidence. It also includes selected history, task state, and memory.
 
-[0:36] Keep source documents and application records distinct from a generated summary. For our FRB system, a remembered description of a finding must remain traceable to the board record. Access and confirmed actions come from application records.
+[0:21] Tool definitions describe available operations and their arguments. Tool results contain the observations returned by those operations.
 
-[0:54] A coding agent similarly combines repository instructions, relevant files, and test output for its next decision.
+[0:30] Stored memory and source documents remain outside the working context until selected information is brought in. A generated summary still needs supporting sources.
 
-[1:02] **The responsibility is to supply relevant information while preserving its meaning and source.** Next, follow the evidence into that input.
+[0:41] For a coding agent, that might mean repository instructions, relevant files, and test output.
 
-[1:10] Advance to slide 18.
+[0:48] **The system must manage this input before every model call, including the next call after a tool result.** Next, we'll look at those choices.
 
-Cut first: the coding-agent elaboration. Never cut working context, memory, the record distinction, or the selection responsibility. Cue times are rehearsal guides, not automatic playback timing.
+[1:00] Advance to slide 18.
+
+Cut first: the coding-agent example. Never cut the opening definition, the distinction between stored and included information, or the closing responsibility. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Anthropic, September 2024 and September 2025, primer passages rechecked September 2026; existing context, memory, and access guidance. Research §0 and §2 in `research/section-2.md`, with inherited eligibility and authorization boundaries in §1 and §3.
-- Illustrative packet and contracts: `internal/frb-running-example.md`. The missing-minutes failure is a teaching scenario, not a measured result. No retrieval method is an assumed winner.
-- Accepted content integration: `outlines/section-2-integration/02-context-engineering.md`.
+- Anthropic, September 2025, and the existing coding-agent context material. Research §2 in `research/section-2.md`, including the approved slide 17 foundations refinement.
+- The eight categories organize existing source concepts for teaching. They do not prescribe a request format, sequence, or token allocation.
 
 ## Open items
 
-- Rehearse the 4:30 area on the actual presentation machine. Preserve the conceptual evidence path and the missing-minutes application when trimming.
+- Rehearse the approved 1:00 script on the actual presentation machine.
