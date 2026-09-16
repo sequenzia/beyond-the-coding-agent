@@ -21,7 +21,7 @@ Beat 3.1 What transfers. Section 3. Time 1:05. One static screen; no internal bu
 
 - Display narrative number 43 throughout. Preserve the shared header and mini-map.
 - One static, editable table. All six rows appear on entry and remain visible through the handoff to slide 44. Use hard cuts.
-- Pair each familiar skill with its application. Give all six rows equal weight. Use the shared table treatment and visual values in design brief §25.
+- Pair each familiar skill with its application. Give all six rows equal weight. Use the shared table treatment and visual values in design brief §§25 and 36.
 - The takeaway is spoken, not shown.
 
 ## Talk track

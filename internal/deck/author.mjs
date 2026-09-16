@@ -10,7 +10,7 @@ import { speakerNoteParagraphs } from './notes.mjs';
 
 registerFonts(GlobalFonts);
 const ctx=createCanvas(8,8).getContext('2d');
-const C={bg:'#14161c',text:'#fffcf5',secondary:'#adaca9',surface:'#303236',hair:'#4c4d50',pink:'#f948be',blue:'#1064f8',green:'#01b66d',amber:'#fdad00',blueTint:'#13223f',pinkTint:'#2b1b2c'};
+const C={bg:'#14161c',text:'#fffcf5',secondary:'#adaca9',surface:'#303236',hair:'#4c4d50',pink:'#f948be',blue:'#1064f8',green:'#01b66d',transition:'#fe7026',amber:'#fdad00',blueTint:'#13223f',pinkTint:'#2b1b2c'};
 const P=4/3;
 const deck=Presentation.create({slideSize:{width:1280,height:720}});
 deck.theme.colorScheme={name:'Beyond the Coding Agent',themeColors:{accent1:C.pink,accent2:C.blue,accent3:C.green,accent4:C.amber,accent5:C.secondary,accent6:C.surface,bg1:C.bg,bg2:C.surface,tx1:C.text,tx2:C.secondary,dk1:C.bg,dk2:C.surface,lt1:C.text,lt2:C.secondary,hlink:C.text,folHlink:C.text}};
@@ -675,7 +675,7 @@ text('Six connected engineering areas',48,36,864,42,32,{bold:true,name:'slide-ti
 AREA_NAMES.forEach((label,i)=>text(label,48+(i%3)*296,i<3?88:122,272,25,20,{bold:true,color:[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],name:`area-key-${i+1}`}));
 
 await newSlide('42');sectionDivider(3,'Making the transition');
-await newSlide('43',{area:'The transition',beat:'What transfers',map:'all',color:C.green,title:'What transfers'});
+await newSlide('43',{area:'The transition',beat:'What transfers',map:'all',color:C.transition,title:'What transfers'});
 twoTable(['Existing skill','Application in an AI system'],[
  ['Decomposition and systems thinking','Bounded workflows and clear state'],
  ['Interface design','Tool contracts and explicit outcomes'],
@@ -683,8 +683,8 @@ twoTable(['Existing skill','Application in an AI system'],[
  ['Debugging and observability','Traces of model calls and tool actions'],
  ['Security and least privilege','Enforced access and action limits'],
  ['Production operations','Quality, cost, latency, and recovery'],
-],192,[42,42,42,42,42,42,42],{color:C.green});
-await newSlide('44',{area:'The transition',beat:'What you add',map:'all',color:C.green,title:'What you add'});
+],192,[42,42,42,42,42,42,42],{color:C.transition});
+await newSlide('44',{area:'The transition',beat:'What you add',map:'all',color:C.transition,title:'What you add'});
 twoTable(['Area','Competency to develop'],[
  [AREA_NAMES[0],'Recognize failure patterns and evaluate task fit'],
  [AREA_NAMES[1],'Select evidence and preserve its meaning'],
@@ -692,22 +692,15 @@ twoTable(['Area','Competency to develop'],[
  [AREA_NAMES[3],'Bound model-selected actions and handle interruption'],
  [AREA_NAMES[4],'Define quality and measure behavior across repeated trials'],
  [AREA_NAMES[5],'Investigate quality changes and manage\nsecurity, cost, and latency'],
-],192,[40,40,40,40,40,40,60],{color:C.green,columnWidths:[272,24,568]});
-await newSlide('45',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
-AREA_NAMES.forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=100+i*66,h=60;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);const label=i===1?name.replace(' ','\n'):i===2?name.replace('& ','&\n'):i===4?name.replace(' &','\n&'):name;text(label,48,y+3,208,54,20,{bold:true,color:i===0?C.text:C.bg,middle:true});const sentence=i===5?pitfalls[i].replace(' without reviewing','\nwithout reviewing'):pitfalls[i];text(sentence,296,y+3,616,h-6,20,{middle:true});});
-await newSlide('46',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'The first assignment replaces the four roadmap rows and stays visible through the handoff.'});
-['Choose one narrow task.','Start with one model call.','Turn failures into checks.','Add autonomy when evals justify it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','',{end:1});text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary,end:1});text(v,136,202+i*67,756,42,32,{bold:true,end:1});});
-text('Review 20 to 50 outputs for one task.',48,192,864,45,32,{start:1,bold:true});
-text('Record the input, observed behavior,\nexpected behavior, and check.',48,256,864,60,24,{start:1});
-attr('Illustrative FRB example. Use the same record for your task.',48,342,864,{start:1});
-evidenceTable([
- ['Input','Observed','Expected','Check'],
- ['FRB-042\nsummary','Bearing wear\nconfirmed','Cause remains\nunresolved','Does the source\nsupport the claim?'],
-],[216,216,216,216],374,[32,76],{color:C.green,start:1});
-await newSlide('47',{title:'Resources',variant:'resources'});
+],192,[40,40,40,40,40,40,60],{color:C.transition,columnWidths:[272,24,568]});
+await newSlide('45',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.transition});
+AREA_NAMES.forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=100+i*66,h=60;shape(48,y,864,h,C.surface);shape(48,y,224,h,color);const label=i===1?name.replace(' ','\n'):i===2?name.replace('& ','&\n'):i===4?name.replace(' &','\n&'):name;text(label,64,y+3,192,54,20,{bold:true,color:i===0?C.text:C.bg,middle:true});const sentence=i===5?pitfalls[i].replace(' without reviewing','\nwithout reviewing'):pitfalls[i];text(sentence,296,y+3,600,h-6,20,{middle:true});});
+await newSlide('46',{area:'The transition',beat:'The roadmap',map:'all',color:C.transition,title:'The roadmap'});
+['Choose one narrow task.','Start with one model call.','Turn failures into checks.','Add autonomy when evals justify it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','');text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary});text(v,136,202+i*67,756,42,32,{bold:true});});
+await newSlide('47');thesis(true);
+await newSlide('48',{title:'Resources',variant:'resources'});
 const resources=[['Chip Huyen, AI Engineering: Building Applications with Foundation Models.','O\'Reilly, 2025.'],['Anthropic engineering: "Building effective agents" (December 2024).','"Effective context engineering for AI agents" (September 2025).','"Demystifying evals for AI agents" (January 2026).'],['OpenAI, "A practical guide to building agents" (2025).'],['Hamel Husain, "AI Evals: Everything You Need to Know," hamel.dev.','Shreya Shankar and Hamel Husain, Evals for AI Engineers.','O\'Reilly, October 2026.'],['OWASP Top 10 for LLM Applications (2025)','and for Agentic Applications (2026).'],['OpenTelemetry GenAI semantic conventions.']];
 let ry=146;for(const lines of resources){for(const lineText of lines){text(lineText,48,ry,864,25,20);ry+=25;}ry+=8;}
-await newSlide('48');thesis(true);
 
 // Add the editable narrative number last, above full-screen images and bands.
 for (let i = 0; i < meta.length; i++) {

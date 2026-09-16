@@ -2,7 +2,7 @@
 
 ## Presentation outline, v2
 
-**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Section 1 has a 4:00 rehearsal target. Section 3 has a 4:30 reference. The 28:30 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget. Discussion fills the remainder of the session.
+**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Section 1 has a 4:00 rehearsal target. Section 3 has a 4:10 reference. The 28:30 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget. Discussion fills the remainder of the session.
 
 **Date:** September 17, 2026.
 
@@ -36,10 +36,10 @@ AI engineering builds on a foundation of software engineering. This talk focuses
 | 2.5 Verification & Evals | 4:35 | 31 through 35 |
 | 2.6 AgentOps | 4:10 | 36 through 40 |
 | 2.7 Section wrap | 0:50 | 41 |
-| 3. Making the transition | 4:30 | 42 through 48 |
+| 3. Making the transition | 4:10 | 42 through 48 |
 | 4. Questions and discussion | Remainder of the 50-minute session | none, slide 48 stays up |
 
-Section 2 references sum to 28:30 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 4:30, the talk runs about 33:30 to 37:30. Discussion fills the remainder of the 50-minute session.
+Section 2 references sum to 28:30 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 4:10, the talk runs about 33:10 to 37:10. Discussion fills the remainder of the 50-minute session.
 
 ### The Section 2 pattern
 
@@ -53,7 +53,7 @@ Each area has five separately numbered static slides. The opening and closing an
 
 The six standalone user screens and all paired user/owner labels are removed. Codex CLI and Devin remain the named coding-agent anchors in the map narration. There are no screenshot walkthroughs. Verification & Evals has no personal story or 1:00 reservation. The final area is AgentOps. The FRB corpus's CUI/ECI requirements and older, less capable approved models are explicit illustrative deployment assumptions informed by presenter-supplied audience context. They are not universal model-performance claims.
 
-The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 48. The builder now implements the same 48-slide narrative. Its expansion produces 55 physical slides and 56 presentation states.
+The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 48. The builder now implements the same 48-slide narrative. Its expansion produces 54 physical slides and 55 presentation states.
 
 ---
 
@@ -251,7 +251,7 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 
 ---
 
-## Section 3. Making the transition (4:30, 7 slides)
+## Section 3. Making the transition (4:10, 7 slides)
 
 ### 3.0 Transition (0:10). Slide 42
 
@@ -299,11 +299,11 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 - Say:
   - You have seen each of these in the system we walked through. **Use them to guide what you inspect in your own system.**
   - Model and tool choices need task evidence. Context needs curation. More autonomy needs checks and limits. Inspect failures and review the capabilities your integrations combine.
-  - **A practical first step is to examine outputs, record a failure, and define the check that would catch it.** The roadmap makes that first assignment concrete.
+  - **A practical first step is to examine outputs, record a failure, and define the check that would catch it.** The roadmap makes that practical path concrete.
 - Takeaway line: "Use these pitfalls to guide your first checks."
-- Sources: Section 2 Research §1 through §6; recap synthesis in Section 3 Research §3 and first assignment in §4.
+- Sources: Section 2 Research §1 through §6; recap synthesis in Section 3 Research §3 and learning sequence in §4.
 
-### 3.4 The roadmap (0:55). Slide 46
+### 3.4 The roadmap (0:35). Slide 46
 
 - Slide: four steps.
   1. Choose one narrow task.
@@ -315,14 +315,18 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
   - **Start with one model call** and examples you can inspect. If you already have an AI feature, use its outputs for the chosen task.
   - **Turn failures into checks.** Inspect the result, repair the cause, and rerun the cases.
   - **Add autonomy when evals justify it.** Keep actions bounded and verify the result. A workflow or loop is a design to evaluate when the task needs it.
-  - On the final state, show **“Review 20 to 50 outputs for one task. Record the input, observed behavior, expected behavior, and check.”** The illustrative FRB row contrasts false confirmation with an unresolved cause and a source-support check. Apply the record to the chosen task. Fix the cause and rerun the case so it becomes a regression check.
 
 - Takeaway line: "Autonomy is earned by evals, one step at a time."
-- Sources: Husain, evals FAQ; Anthropic, December 2024; learning-sequence synthesis and FRB assignment in Research §4. OpenAI's guide and Hashimoto's adoption arc remain supporting research.
+- Sources: Husain, evals FAQ; Anthropic, December 2024; learning-sequence synthesis in Research §4. OpenAI's guide and Hashimoto's adoption arc remain supporting research.
 
-### 3.5 Resources and close (0:30). Slides 47 and 48
+### 3.5 Close and resources (0:30). Slides 47 and 48
 
-**Slide 47, resources.** Shown, not discussed.
+**Slide 47, close.** The two thesis sentences, then "Questions."
+
+- Say: Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer. The difference is not the tools. It is what you are responsible for. Let’s use the remaining time for your questions.
+- Sources: research §4.
+
+**Slide 48, resources.** Shown, not discussed.
 
 - Chip Huyen, *AI Engineering: Building Applications with Foundation Models*, O'Reilly, 2025.
 - Anthropic engineering: "Building effective agents" (December 2024), "Effective context engineering for AI agents" (September 2025), "Demystifying evals for AI agents" (January 2026).
@@ -331,15 +335,12 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 - OWASP Top 10 for LLM Applications (2025) and for Agentic Applications (2026).
 - OpenTelemetry GenAI semantic conventions.
 
-**Slide 48, close.** The two thesis sentences, then "Questions."
-
-- Say: Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer. The difference is not the tools. It is what you are responsible for. Let’s use the remaining time for your questions.
-- Sources: research §4.
+Resources stays visible during questions and discussion.
 
 ### Section 3 checks
 
-- Time: 0:10 + 1:05 + 1:15 + 0:35 + 0:55 + 0:30 = 4:30.
-- Slides: 42 through 48. Deck: 48 narrative slides and 48 authored compositions expand to 55 physical slides, 56 states, one internal click, no Morph transitions, and 55 advances.
+- Time: 0:10 + 1:05 + 1:15 + 0:35 + 0:35 + 0:30 = 4:10.
+- Slides: 42 through 48. Deck: 48 narrative slides and 48 authored compositions expand to 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
 - Evidence status: competencies are unranked learning objectives grounded in Section 2's engineering decisions. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
 
@@ -379,10 +380,10 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 
 ### Whole-talk checks
 
-- Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 28:30 rehearsal reference. Section 3 is 4:30. The current references imply 33:30 to 37:30 of presentation; discussion fills the remainder of the 50-minute session.
-- Deck: 48 narrative slides, eight in Section 1, thirty-three in Section 2, and seven in Section 3. Each narrative slide has one authored composition. Expansion produces 55 physical slides, 56 states, one internal click, no Morph transitions, and 55 advances.
+- Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 28:30 rehearsal reference. Section 3 is 4:10. The current references imply 33:10 to 37:10 of presentation; discussion fills the remainder of the 50-minute session.
+- Deck: 48 narrative slides, eight in Section 1, thirty-three in Section 2, and seven in Section 3. Each narrative slide has one authored composition. Expansion produces 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances.
 - FRB acceptance: a suspected cause never becomes a confirmed finding without support. Later minutes remain distinct from preliminary material. Similar symptoms and duplicates do not establish a common cause. Missing, unreadable, conflicting, incomplete, or unauthorized evidence yields an explicit limitation. Export matches the selection and preserves citations and uncertainty. Check citation existence separately from semantic support.
-- Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap assignment. The evals and roadmap personal stories are removed. Preserve the optional presenter-authored slot in Section 1. Orchestration has no audience pause.
+- Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap sequence. The evals and roadmap personal stories are removed. Preserve the optional presenter-authored slot in Section 1. Orchestration has no audience pause.
 - Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.7, 2.5, 2.6, 3.3); why tests are necessary but not sufficient (1.7, 2.5); why evals continue after deployment (1.7, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
 
 ### What only you can supply

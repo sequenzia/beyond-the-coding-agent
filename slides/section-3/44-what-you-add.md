@@ -21,7 +21,7 @@ Beat 3.2 What you add. Section 3. Time 1:15. One static screen; no internal buil
 
 - Display narrative number 44 throughout. Preserve the shared header and mini-map.
 - One static, editable table. All six rows appear on entry and remain visible through the handoff to slide 45. Use hard cuts.
-- Match slide 43's flat table treatment. Give the competency column more room for its descriptions, as defined in design brief §25.
+- Match slide 43's flat table treatment. Give the competency column more room for its descriptions, as defined in design brief §§25 and 36.
 - The rows follow Section 2's area order. They are unranked and carry equal weight.
 - The takeaway is spoken, not shown.
 

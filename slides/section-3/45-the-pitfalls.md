@@ -19,7 +19,7 @@ Six recap bands. No separate title. Use each full area name, with deliberate two
 
 - Display narrative number 45 throughout, with the shared compact header and no mini-map.
 - Preserve the six recap bands, area order, colors, label style, and weight. Show all six on entry and use hard cuts.
-- Give the bands equal height. Use the recap geometry and wrapping in design brief §25.
+- Give the bands equal height. Inset the bands from both side edges, following design brief §36.
 - The pitfall text after each colon matches the headline sentence on slides 14, 19, 24, 29, 34, and 39 exactly. Update each pair together.
 - The takeaway is spoken, not shown.
 
@@ -35,13 +35,13 @@ Six recap bands. No separate title. Use each full area name, with deliberate two
 
 [0:35] Advance to slide 46.
 
-Cut first: the middle paragraph summarizing the six areas. Preserve time to read, the instruction to use the pitfalls for inspection, and the bridge to the first assignment. Do not read all six bands aloud.
+Cut first: the middle paragraph summarizing the six areas. Preserve time to read, the instruction to use the pitfalls for inspection, and the bridge to the roadmap. Do not read all six bands aloud.
 
 ## Sources
 
 - The six pitfalls are the talk's summaries of Section 2 Research §1 through §6 in `research/section-2.md`.
 - Recap synthesis: Research §3 in `research/section-3.md`.
-- The bridge to inspecting outputs and recording a failure develops the existing first assignment. Husain, evals FAQ; Research §4 in `research/section-3.md`.
+- The bridge to inspecting outputs and recording a failure supports the roadmap. Husain, evals FAQ; Research §4 in `research/section-3.md`.
 
 ## Open items
 

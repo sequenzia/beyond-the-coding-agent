@@ -4,6 +4,7 @@ base background-color: #14161c
 base text-color: #fffcf5
 
 accent-colors:
+    - #fe7026 orange (Section 3)
     - #f948be pink
     - #1064f8 blue
     - #01b66d green
@@ -24,7 +25,7 @@ area colors:
     - Evals: green
     - Production operations: amber
     - Section 1: pink as the landing color; slide 1 carries amber and green
-    - Section 3: green
+    - Section 3: #fe7026 orange
 
 text on a solid accent block:
     - on blue: #fffcf5

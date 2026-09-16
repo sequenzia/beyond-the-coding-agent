@@ -1034,3 +1034,14 @@ Closing SVG vertical positions:
 Map component titles remain primary text. The Harness heading retains pink. Apply each area's existing tint as the component fill and its accent as a 4-unit outline: Model blue; Context and memory, Instructions, and External Data & Retrieval pink; Tools pink; Orchestration pink; Verification and Evaluations green; Identity & Access Management, Security, Guardrails, Observability, and Governance amber. Tints are `#13223f`, `#2b1b2c`, `#122926`, and `#302819`. The harness grouping retains its existing pink tint and outline. Goal, stopping condition, outer grouping lines, and connectors remain neutral.
 
 The area mapping matches `mini-all`. Shared pink continues to identify the three harness areas through their component names and positions. No additional area colors or ownership labels are introduced. `--closing-only` regenerates just this variant and render; the default diagram command regenerates every active variant. Legacy `-yours.svg` and `map-yours.png` files are retained as historical assets and are no longer generated or used by the deck.
+
+
+## 36. Section 3 finishing pass, September 16, 2026
+
+This section supersedes earlier Section 3 color, recap geometry, roadmap-state, closing-order, count, and timing rules.
+
+- Section 3 accent is orange `#fe7026`. Use it for the Bold “The transition” kicker on slides 43 through 46 and the native table headers on slides 43 and 44. Neutral beat labels remain secondary. Preserve area colors in slide 45 and all mini-maps. The matching Section 3 divider retains primary title text.
+- Slide 45 bands occupy x 48, width 864, leaving the shared 48-point side margins. Preserve the six 60-point heights and 6-point gaps at y 100 through 430. Label blocks are 224 wide. Label text uses x 64, width 192, y equal to band top plus 3, height 54, Bold 20, vertically centered. Keep existing area text colors and deliberate label wraps. Sentence boxes use x 296, width 600, y equal to band top plus 3, height 54, Regular 20, primary, vertically centered. Retain the final sentence break before “without reviewing”.
+- Slide 46 is one static composition containing only the four roadmap rows. Preserve their geometry from §25, with no finite exits, assignment, record table, or internal builds. Its reference time is 0:35.
+- Slide 47 is the thesis close with its existing Questions reveal. Slide 48 is Resources, one static state that stays visible during discussion. Preserve their existing typography and geometry.
+- Current counts: 48 narrative slides, 48 authored compositions, 54 physical slides, 55 presentation states, one internal click, no Morph transitions, and 54 advances. Section 3 sums to 4:10. Presentation time is approximately 33:10 to 37:10.

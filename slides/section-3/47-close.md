@@ -1,6 +1,6 @@
-# Slide 48: Close
+# Slide 47: Close
 
-Beat 3.5 Resources and close, second half. Section 3. Time 0:22 of the beat's 0:30; slide 47 took 0:08. Builds: 1. Stays up for the remaining questions and discussion time.
+Beat 3.5 Close and resources, first half. Section 3. Time 0:22 of the beat's 0:30; slide 48 takes 0:08. Builds: 1.
 
 ## On the slide
 
@@ -13,12 +13,12 @@ The two thesis sentences, exactly as on slide 6.
 
 ## Layout and visual
 
-- Display narrative number 48 throughout, using the shared component in the design brief.
+- Display narrative number 47 throughout, using the shared component in the design brief.
 - Playback: One physical slide. Questions remains an internal reveal.
 
 - Reuse slide 6 unchanged, then add the build. The audience saw this screen thirty minutes ago; the recognition is the close.
-- "Questions" sits beneath the two sentences in the same type, smaller. No contact details, no handles, no logos; those belong on slide 2 or slide 47 if anywhere.
-- This slide stays up for the remaining discussion time, so it has to be calm. Nothing on it should compete with the room.
+- "Questions" sits beneath the two sentences in the same type, smaller. No contact details, no handles, no logos; those belong on slide 2 or slide 48 if anywhere.
+- Reveal Questions, then advance to the final resources slide. Use a hard cut.
 
 ## Talk track
 
@@ -30,7 +30,7 @@ The two thesis sentences, exactly as on slide 6.
 
 Let’s use the remaining time for your questions.
 
-[0:22] Section 4 begins. The slide stays.
+[0:22] Advance to slide 48.
 
 ## Backup for questions and discussion
 
