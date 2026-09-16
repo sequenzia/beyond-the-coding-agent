@@ -1,6 +1,6 @@
 # Slide 25: Orchestration, opening quote
 
-Beat 2.4. Section 2. Rehearsal reference 0:20 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.4. Section 2. Rehearsal reference 0:20 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -25,7 +25,7 @@ Building effective agents, December 2024
 
 [0:00] **“we recommend finding the simplest solution possible, and only increasing complexity when needed.”**
 
-[0:06] Decide which steps code fixes and which decisions the model makes. Then establish the conditions under which that work may continue.
+[0:06] Decide which transitions code controls and where the model can choose an action. Then establish how work progresses, stops, and resumes.
 
 [0:20] Advance to slide 26.
 

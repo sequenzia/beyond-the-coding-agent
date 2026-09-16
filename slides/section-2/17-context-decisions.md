@@ -1,49 +1,69 @@
-# Slide 17: Context decisions
+# Slide 17: Retrieval and context choices
 
-Beat 2.2. Section 2. Rehearsal reference 1:25 of the area's 4:05. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.2. Section 2. Rehearsal reference 1:25 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
 **Kicker:** Context Engineering · Decisions
 
-**Title:** Context decisions
+**Title:** Retrieval and context choices
 
-| Decision | Starting approach and trade-off |
-|---|---|
-| What enters the step? | Useful instructions, state, and evidence. Remove repetition. |
-| How is it retrieved? | Keyword, semantic, or hybrid. Choose for the data and task. |
-| What persists? | Keep essential constraints. Refresh summaries and memory. |
-| Which sources and scope? | Preserve identity and revision. Enforce authorized access. |
+**RAG:** Retrieve information and supply it as evidence for generation.
+
+The evidence path:
+
+1. Authorized sources
+2. Retrieval
+3. Evidence selection
+4. Assembled input
+
+Preserve source identity, revision, and access scope.
+
+**Find the evidence**
+
+Keyword: terms and identifiers.
+Semantic: similarity using embeddings.
+Hybrid: both signals.
+
+**Manage the context**
+
+Preload essentials.
+Fetch detail when needed.
+Retain and refresh useful information.
 
 ## Layout and visual
 
 - Display narrative number 17, the area kicker, and `mini-context` throughout.
-- Use the 4-row decisions composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Render the authored rows as aligned text, with no decorative boxes. Keep supporting comparisons in speaker notes.
+- Use the four-stage evidence path and two explanatory columns in design brief §28. All visual values are defined there.
+- Retrieval finds candidate material. Selection decides which passages and source details enter the model input. Keep the source-to-input provenance line visible.
+- The pipeline describes retrieved evidence. Other inputs were introduced on slide 16.
+- Keep the embedding definition spoken. The visible search comparison supports the conceptual explanation without an implementation walkthrough.
+- Keep all text and connectors editable. Show the complete content on entry with hard cuts and no internal builds.
 
 ## Talk track
 
-[0:00] **DECISIONS AND TRADE-OFFS**
+[0:00] **RETRIEVAL AND CONTEXT DECISIONS**
 
-[0:00] First, what belongs in the next step? Preserve relevant detail and uncertainty, while removing repetition that adds no evidence. A summary saves space but can lose meaning, so retain access to the source.
+[0:00] **RAG means retrieval-augmented generation.** Retrieve relevant information and supply it as evidence for the model's response. Authorized internal records can supply that information.
 
-[0:15] Second, how will retrieval find it? Keyword search matches terms and identifiers. Semantic search uses similarity of meaning and can help when wording differs, while still missing an exact identifier. Hybrid retrieval combines the signals and adds result-merging work. Use direct lookup when the source is known. Compare the approaches on the evidence your tasks need.
+[0:13] Follow the path from sources, through retrieval and selection, into the actual model input. Keep document identity, revision, and location attached. Enforce access before restricted content reaches an unauthorized recipient or processing service.
 
-[0:41] Third, what persists? Compaction summarizes the current conversation. Persistent memory can retain selected information across sessions. Both need decisions about freshness and what must survive. Keep important constraints, unresolved questions, and source references. Stable prefixes may help caching, but correctness and access take priority over those savings.
+[0:30] If we know the board ID, use direct lookup or exact search. Keyword search matches terms and identifiers. **An embedding represents content numerically so a search system can compare similarity.** Semantic search can help with differently worded descriptions of similar shutdowns. Hybrid retrieval combines both signals. Test which approach finds the evidence this task needs.
 
-[1:03] Fourth, provenance and scope. Keep document identity, revision, and source location attached to evidence. Enforce the user's access outside the model. A user's permission to read a record does not establish that every processing service may receive it.
+[0:59] Then decide what to preload and what to fetch when needed. Retain essential constraints and source references. Refresh retained information and access when the task resumes or records change.
+
+[1:16] The question is whether the assembled input contains the right evidence with its meaning intact.
 
 [1:25] Advance to slide 18.
 
-Cut first: cache detail, then retrieval mechanics beyond the brief comparison. Never cut the brief retrieval comparison, source identity, and access enforcement. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: elaboration about hybrid retrieval and preload trade-offs. Never cut RAG, the embedding definition, keyword versus semantic search, the evidence path, or the access boundary. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Context Engineering content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
+- Anthropic, September 2024 and September 2025, primer passages rechecked September 2026; existing context, memory, and access guidance. Research §0 and §2 in `research/section-2.md`, with inherited eligibility and authorization boundaries in §1 and §3.
+- Illustrative packet and contracts: `internal/frb-running-example.md`. The missing-minutes failure is a teaching scenario, not a measured result. No retrieval method is an assumed winner.
+- Accepted content integration: `outlines/section-2-integration/02-context-engineering.md`.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the 4:30 area on the actual presentation machine. Preserve the conceptual evidence path and the missing-minutes application when trimming.

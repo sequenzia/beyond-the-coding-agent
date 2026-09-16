@@ -77,6 +77,8 @@ Background services parse and index PDF reports, Word minutes, and PowerPoint br
 
 For Export cited brief, verification status must refer to the exact content being exported. The service checks that status; a model-supplied assertion that a draft was checked does not establish it. Changed content requires renewed verification. Code enforces access and the permitted export destination under the scenario's CUI/ECI requirements. The operation preserves citations, unresolved findings, and limitations rather than generating a fresh summary during export.
 
+Tools integration teaching case, September 16, 2026: assume the model proposes a well-formed export request whose destination falls outside the approved scope. The expected contract behavior is rejection before transfer with a clear reason. Check that no export reached that destination, in addition to inspecting the rejection. This is an illustrative contract test, not an observed export or measured rejection rate. No real destination or sensitive record is introduced.
+
 The result contract distinguishes confirmed completion with a receipt, known failure, and an unknown outcome when completion cannot be confirmed. Do not treat an unconfirmed result as either proof of success or permission to repeat the side effect. Orchestration determines the next step using that result and the saved execution state.
 
 The bounded workflow retrieves the target packet, inspects evidence, compares cases, reconciles findings, verifies the brief, and exports. Optional workers perform independent comparisons only after the simpler workflow has been measured. They return evidence, IDs, revisions, source locations, and uncertainty to the main analyst. They cannot approve official conclusions or export records independently.
@@ -92,6 +94,10 @@ Keep the six-stage workflow as the proposed baseline. Model judgment can interpr
 | A matching receipt confirms the checked draft was exported | Record completion and return the existing receipt. |
 | A confirmed failure establishes that the export did not complete | Address the cause, recheck prerequisites, and retry only within policy and the remaining budget. |
 | The outcome is unknown | Inspect the export state before deciding whether to retry. If it remains unknown, preserve the uncertainty and hand off. |
+
+Orchestration integration teaching case, September 16, 2026: this is a separate export from the rejected destination in Tools. The destination is permitted and the exact draft passed its checks. Suppose the export occurs but the response never reaches the caller. Record the outcome as unknown and inspect the intended export's state and receipt before choosing a next step. The expected checks establish a matching checked artifact without a duplicate export. If the outcome remains unknown, pause or hand off with that uncertainty intact. This is an illustrative recovery test, not a measured result.
+
+The proposed execution layer saves a stable operation reference with the intended draft identity and destination and provides a way to inspect the corresponding receipt or status. This does not add a fifth named agent-facing tool. A checkpoint saves execution state; use durable storage where it must survive a restart. It does not establish that an external action completed. If the export service supports idempotent retries, reuse the same intended operation identity and parameters under that contract. An identifier alone does not make a retry safe. Changed content or destination changes the intent and requires the applicable checks again.
 
 At an action, token, retry, or end-to-end latency limit, stop further automated work and state what is incomplete. A limit does not mean the requested brief was completed. Any export of a limited brief must still pass its applicable checks and authorization. Official causes and board decisions remain with people.
 
@@ -113,6 +119,10 @@ Direct checks cover resolvable citations and recorded constraints such as access
 
 Retain this failure as one regression case within a broader suite covering the shared packet's risks: duplicate documents, revised sources, inaccessible evidence, parsing failures, cross-case confusion, and export behavior. Repeat trials to examine consistency. Compare system changes using the same relevant cases and record the task, criteria, source revisions, and configuration needed to interpret the results. Inspect the trace before assigning a failure to a component, and review the grader itself when a result appears inconsistent with the evidence.
 
+Verification & Evals integration, September 16, 2026: the illustrative suite matrix covers a routine cited brief, a disallowed export destination, and a lost export response. The routine brief needs supported findings, preserved uncertainty, and valid references. A disallowed destination needs a clear rejection and no transfer. In the lost-response fixture, available matching operation evidence should establish completion without duplication. A variant where the outcome cannot be established instead requires an explicit unresolved status or handoff. These are expected behaviors for authored cases, not measured results.
+
+Reserve held-out cases from routine tuning and compare relevant configurations across repeated trials. Inspect case categories as well as aggregate results. Record starting conditions, source revisions, permitted effects, and the system and grader configurations. Reset or isolate state between independent trials so prior exports do not make a later trial appear successful. Enforce required constraints while allowing legitimate variations in harmless read actions. Broader coverage includes missing evidence, unavailable records, and adversarial material. The source-support failure remains the main worked example and one regression case.
+
 The presenter removed the separate evals personal story and its 1:00 reservation in the content rework. This invented check is the area's worked example. It does not represent personal experience.
 
 ### AgentOps agreement
@@ -123,14 +133,22 @@ This is a proposed operating agreement for the illustrative system. AgentOps is 
 |---|---|
 | Access and processing scope | Enforce authorized records, eligible model and supporting services, and permitted export destinations under the corpus's CUI/ECI requirements. Apply the boundary to derived context, traces, and evaluation artifacts too. |
 | Evidence of behavior | Connect each request to exact source revisions, observable tool actions, check results, exported content, and the receipt or unresolved export state. Restrict access to the evidence. |
-| Operating signals | Monitor quality, source freshness, parsing and tool failures, handoffs, cost per completed brief, and end-to-end latency. Include retries and verification when reviewing resource use. |
+| Operating signals | Monitor quality, useful completion, source freshness, parsing and tool failures, handoffs, cost per completed brief, end-to-end latency, and review work. Include retries and verification when reviewing resource use. Make sampling and delayed quality labels explicit. |
 | Limits and handoff | Stop or return a limitation under the established execution rules. Route failed checks, missing evidence, exhausted budgets, and unknown export outcomes to an assigned authorized responder. Supply the context needed to investigate. |
-| Changes and incidents | Assign an accountable operator and a review process for model, prompt, retrieval, tool, permission, and configuration changes. Keep a way to disable a capability or revert a problematic configuration. Inspect any already completed actions separately. |
+| Changes and incidents | Record code, model/settings, prompt, retrieval/data/index, tool, orchestration, and grader versions. Assign an accountable operator and review process, including permission changes. Compare a controlled candidate cohort with the tested configuration on comparable tasks. Define pause and rollback conditions. Keep a way to disable a capability or restore a tested compatible configuration. Inspect any already completed actions separately. |
 | Official decisions | People retain responsibility for official causes, decisions, and board records. An exported research brief does not replace that authority. |
 
 Review the combined capabilities when integrations change. An internal attachment can contain untrusted instructions. The system's source access must not create unrestricted outbound communication. Break or constrain that path while retaining the broader security review. New or stronger model services remain subject to the same eligibility constraints.
 
 Use failures to identify a response and a subsequent improvement. For example, investigate a source-support failure using the saved revisions and trace, repair the responsible component, rerun the relevant evaluation cases, and monitor after the change. No response times, cost limits, quality thresholds, or real organizational owners are invented here.
+
+### AgentOps release incident
+
+AgentOps integration teaching case, September 16, 2026: an approved model/configuration update reaches a controlled group of FRB requests. Assume APIs remain healthy while more drafts overstate unresolved causes and require authorized review than comparable work on the tested configuration. The source-support gate continues to block failing drafts from export. These are stipulated qualitative symptoms, not measured performance or evidence that unsupported content was exported.
+
+The assigned operator pauses the rollout, compares similar task categories by configuration, and inspects protected traces, source revisions, and check results. The release association starts investigation; it does not prove root cause. Restore a tested compatible configuration when the defined rollback condition is met. The candidate and restored configuration remain within the applicable CUI/ECI processing and permission boundaries. If suitable recovery is unavailable, pause or limit the capability and route work to the authorized responder.
+
+Review pending work and any completed effects separately. Keep the existing source-support regression case, add newly understood failure variants, rerun relevant evaluations, and monitor recovery. Report review effort separately if the cost measure excludes it. People retain responsibility for official causes, decisions, and board records. The operating agreement is the supporting artifact behind the incident, not a claim that a real service or organization implemented these controls.
 
 ## Slide map
 
@@ -142,7 +160,7 @@ Use failures to identify a response and a subsequent improvement. For example, i
 | 24 | Define the agent's tool contract and enforce authorization |
 | 29 | Bound workflow, workers, retries, and resume |
 | 34 | Separate citation existence from source support and retain the failure as a regression case |
-| 39 | Enforce access, trace decisions, and monitor accountable operation |
+| 39 | Detect and contain an illustrative release regression using protected evidence and accountable response |
 | 40 | Connect the six responsibilities |
 | 45 | Review 20 to 50 outputs and record input, observed behavior, expected behavior, and check |
 

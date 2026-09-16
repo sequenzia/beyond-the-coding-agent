@@ -112,6 +112,38 @@ Provider responsibilities behind the picker: defaults, model-specific prompt and
 
 **When you are the owner.** Six selection axes: capability on your tasks, cost per completed task, latency at p95, context window, tool-use reliability, data residency. Routing and fallback. Pinned version: controlled migration and lifecycle management. Moving alias: automatic updates and regression monitoring. A snapshot controls one source of variation. Prompts, tools, retrieval, and the environment also affect behavior. Data residency can override every other axis for enterprise. Fallback composition reported for 2026 (UNVERIFIED): retry primary, rotate provider on exhaustion, serve semantic cache hit, degrade UI.
 
+### Shared primer and selection sequence, integrated September 16, 2026
+
+These records support the accepted integration in `outlines/section-2-integration/01-model-selection.md`, outline beat 2.1, and slides 10 through 14. The presenter requested both the external storyboard's teaching approach and its technical foundations, with a short primer before decisions and five screens: quote, primer, decisions, pitfalls, and FRB application.
+
+**OpenAI, "Key concepts," OpenAI API documentation, publication date not stated, checked September 16, 2026** [primary]. https://developers.openai.com/api/docs/concepts Fetched and read directly in a browser.
+
+- "These models allow text outputs in response to their inputs."
+- "Text generation and embeddings models process text in chunks called tokens."
+- The page describes pretrained text-generation models. Teaching definition: inference is running a trained model on supplied input to obtain an output. This is a plain-language synthesis, not a quotation from the page.
+- Explain text tokens as pieces of text, which can include parts of words. Do not teach a universal words-per-token conversion or imply that every modality uses text tokenization.
+
+**OpenAI, "Conversation state," OpenAI API documentation, publication date not stated, checked September 16, 2026** [primary]. https://developers.openai.com/api/docs/guides/conversation-state Fetched and read the context-window section directly in a browser.
+
+- "The context window is the maximum number of tokens that can be used in a single request."
+- The documentation includes input and generated output in context accounting, including reasoning tokens for applicable models. Output limits and context limits are distinct constraints. Exact accounting and available capacity depend on the selected model and API.
+- Teaching application: reserve capacity for the response and applicable reasoning as well as the supplied input. Do not draw the context window as an input-only container or equate it with persistent storage.
+
+**OpenAI, "Reasoning models," OpenAI API documentation, publication date not stated, checked September 16, 2026** [primary]. https://developers.openai.com/api/docs/guides/reasoning Fetched and read the reasoning-effort and context-management sections directly in a browser.
+
+- "The `reasoning.effort` parameter guides the model on how much to think when performing a task."
+- Supported settings and defaults vary by model. The documentation describes a trade-off involving reasoning, token usage, and response speed. Reasoning tokens can occupy context capacity even when the API does not expose their content.
+- Teaching application: where supported, treat reasoning effort as part of the evaluated configuration. Measure its benefit on the task. Do not present a setting as a guaranteed correctness level, a fixed token allocation, or a universal feature of every model.
+
+**OpenAI, "Model selection," OpenAI API documentation, publication date not stated, checked September 16, 2026** [primary]. https://developers.openai.com/api/docs/guides/model-selection Fetched and read the principles and exceptions directly in a browser.
+
+- "Optimize for accuracy until you hit your accuracy target."
+- "Then aim to maintain accuracy with the cheapest, fastest model possible."
+- The guide also allows hard cost or latency thresholds to exclude candidates before further testing. Teaching application: satisfy data eligibility and hard product limits, establish acceptable task quality, then optimize efficiency within the acceptable set.
+- The talk's total-task accounting includes retrieval, tools, retries, verification, and human review. This is an engineering recommendation carried forward from the external report and existing FRB contract, not a measured finding in this provider guide.
+
+Integration boundary: explain the existence of context capacity here. Context Engineering owns how to select and preserve the information within it. Model Selection uses evaluation results to choose a configuration; Verification & Evals explains how to construct and trust those results. No model ranking, numerical context limit, or reasoning-setting recommendation is imported from the live documentation.
+
 ### Data sensitivities and model eligibility
 
 **National Archives and Records Administration, "Controlled Unclassified Information (CUI)," National Archives, reviewed August 12, 2025** [primary]. https://www.archives.gov/cui Checked in a browser September 15, 2026.
@@ -167,6 +199,7 @@ Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with 
 - On embeddings: "they can miss crucial exact matches."
 - On document chunks: "individual chunks lack sufficient context."
 - Supports a brief distinction between lexical matching, semantic similarity, and combined retrieval. The content draft uses no reported performance percentages, model ranking, fixed chunk count, or claim that hybrid retrieval always wins. Preserve enough source context to interpret a retrieved passage.
+- Primer passages rechecked directly in a browser September 16, 2026. The source describes embeddings as "vector embeddings that encode meaning" and distinguishes semantic retrieval from lexical matching. Teaching definition: an embedding represents content numerically so a search system can compare similarity. The talk keeps this conceptual and uses no implementation or benchmark recommendation from the article.
 
 **Yichao "Peak" Ji, Manus, "Context Engineering for AI Agents: Lessons from Building Manus," July 18, 2025** [primary]. https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
 
@@ -229,6 +262,18 @@ The draft's four decisions are what to include for the next step, how to retriev
 The FRB application inherits the CUI/ECI corpus and approved-model constraints in §0 and §1. Context preparation must stay within the applicable approved scope, including any services that process the restricted records for parsing, retrieval, embedding, or summarization. This extends the illustrative deployment boundary, not a new claim about a particular provider's approval. Supply focused, traceable evidence to the available approved model and evaluate the result. Do not infer that an older model necessarily has a smaller context window or that retrieval overcomes every capability limit.
 
 Keep both FRB-042-BRF r1 slide 6 and FRB-042-MIN r2 §3 paragraph 2 with their distinct identities, dates, and locations. A working summary preserves the preliminary hypothesis, unresolved cause, and outstanding inspection. Comparison cases remain separate from the target case. Refresh source versions and recheck access before finalizing the brief. No-match, incomplete-index, and unreadable-source outcomes produce appropriately scoped limitations. The shared packet remains the authoring reference. Detailed output grading stays in Verification & Evals.
+
+### Context integration, September 16, 2026
+
+The presenter selected a conceptual evidence pipeline with brief definitions, carrying forward the external storyboard's teaching approach and technical foundations. The accepted content is recorded in `outlines/section-2-integration/02-context-engineering.md` and integrated into outline beat 2.2, slides 15 through 19, and the deck builder. Context Engineering has a 4:30 rehearsal reference.
+
+The Anthropic context-engineering article above was fetched and its retrieval, compaction, and structured-note sections read directly again on September 16, 2026. It supports explaining selected memory as information stored outside the current context and brought back when useful. The distinction between working context, retained memory, and authoritative records is application-design guidance adapted from the external storyboard and the existing FRB contract. It is not a new empirical finding or a claim that stored information is always correct.
+
+Teaching sequence: authorized sources, retrieval, evidence selection, and assembled model input. RAG retrieves information to supply as evidence for generation. Keyword search matches terms and identifiers; semantic search uses learned similarity; hybrid search combines the signals. Match the method to the evidence needed. Do not equate RAG with a required vector database, internet access, or a guarantee of answer correctness. Keep source identities, revisions, and locations with the selected passages. Memory and compaction remain supporting concepts, with freshness and access checks when information is reused.
+
+Presenter-selected failure: retrieval misses the later FRB-042-MIN r2 minutes, so their decisive passage never reaches the model. This is a hypothetical failure using the already invented packet, not an observed run. The preliminary FRB-042-BRF r1 briefing and the minutes remain different documents. Inspect whether the required passage was available, returned by retrieval, and retained in the actual model input. A source absent from the corpus, an access restriction, and an omitted search result are different conditions. A missing result does not establish a cause or confirm the preliminary hypothesis. Preserve unresolved status and inspection requirements in summaries when the evidence is available. No new document, result, or successful repair is claimed.
+
+The application-record boundary stays brief: use maintained records for permissions and confirmed operations, and official board sources for recorded findings. A generated summary alone does not establish those facts. Orchestration retains ownership of progress and recovery, Tools retains execution and authorization contracts, and Verification & Evals retains detailed output grading.
 
 ## 3. Tools & Extensibility
 
@@ -323,6 +368,31 @@ The illustrative FRB application retains the existing four-tool inventory and fo
 
 The tool returns a receipt when completion is confirmed, an explicit failure when known, or an unknown outcome when completion cannot be confirmed. Orchestration uses that evidence to decide whether to inspect, retry, or hand off. Tool design supplies the result contract, while orchestration owns the recovery policy. Evaluate use of the tool set with the available approved models; clear contracts do not guarantee that their capability limits disappear.
 
+### Tools integration, September 16, 2026
+
+The presenter selected MCP, skills, and plugins for the main explanation, with A2A as backup. The approved failure choice is a proposed FRB export to an unapproved destination that the tool rejects. The accepted content is recorded in `outlines/section-2-integration/03-tools-and-extensibility.md` and integrated into outline beat 2.3, slides 20 through 24, and the reusable deck builder. Tools & Extensibility has a 4:10 rehearsal reference.
+
+The MCP introduction and server-concepts records above were fetched and read again September 16, 2026. Use their connection, tool discovery, typed-input, and execution-result concepts for a proposal, execution, and observation diagram. Schema validity and permission are separate requirements. The existing OWASP source and FRB contract support enforcing authorization outside the model. No new protocol-version claim or provider-specific structured-output guarantee is needed.
+
+**Agent Skills contributors, "Agent Skills Overview," Agent Skills documentation, publication date not stated, checked September 16, 2026** [primary]. https://agentskills.io/home Fetched and read directly in a browser.
+
+- "At its core, a skill is a folder containing a `SKILL.md` file."
+- Skills package instructions and can include scripts and reference material. Teach the role as reusable task guidance and supporting resources. The format's existence does not establish that following a skill grants permission to execute an action.
+
+**OpenAI, "Skills & Plugins," ChatGPT Learn documentation, publication date not stated, checked September 16, 2026** [primary]. https://learn.chatgpt.com/docs/skills-and-plugins Fetched and read directly in a browser.
+
+- "A plugin is an installable bundle that can include skills and Model Context Protocol (MCP) servers."
+- This supplies a concrete packaging example behind the talk's generic plugin explanation. Exact contents, manifests, and supported features depend on the host. Do not claim a universal plugin format or teach installation details. On stage, describe packaging capabilities for reuse and distribution.
+
+**A2A Project, "Agent2Agent (A2A) Protocol," official documentation, version 1.0.0, publication date not stated, checked September 16, 2026** [primary]. https://a2a-protocol.org/v1.0.0/ Fetched and read directly in a browser. Backup only.
+
+- "an open standard designed to enable seamless communication and collaboration between AI agents."
+- Keep the agent-communication distinction available for questions. No A2A definition, protocol comparison, or claim that the FRB system uses it appears in the main five screens. The external report's versioned key-concepts URL did not load during this check; the versioned overview above supports this limited backup definition.
+
+Illustrative application of the existing export contract: the model proposes an export with well-formed draft, citation, and destination arguments. The destination is outside the application's permitted scope. Code rejects the request before transfer. This is an expected test outcome, not a measured system result. Check the rejection reason and absence of an export at that destination; an error message alone does not establish absence of effects. No real destination, document, credential, approval, or sensitive data is introduced.
+
+Preserve the other contract requirements: the exact exported content must have passed verification, citations and uncertainty remain intact, and allowed completion returns a receipt. Keep rejected execution distinct from an unknown outcome after a possible action. Tools supplies the contract and result; Orchestration owns subsequent recovery or continuation.
+
 ## 4. Orchestration
 
 **Anthropic, "Building effective agents," Erik Schluntz and Barry Zhang, December 19, 2024** [primary]. https://www.anthropic.com/engineering/building-effective-agents
@@ -398,6 +468,30 @@ Use the tool contract's confirmed, failed, and unknown outcomes to choose the re
 
 Optional workers compare independent FRB cases only within the authorized corpus and approved processing scope. They return evidence and uncertainty to the main analyst and cannot export or approve official findings. Keep delegation conditional on measured benefit with the available approved models. Additional workers do not establish that a capability gap is solved. Compare whole-task quality, cost, and latency, including reconciliation and verification. The presenter chose a brief multi-agent contrast with the bounded workflow; detailed patterns remain backup. The full contract remains in `internal/frb-running-example.md`.
 
+### Orchestration integration, September 16, 2026
+
+The presenter selected a controlled workflow and bounded agent loop as the main teaching frame, with delegation kept brief. The accepted content is recorded in `outlines/section-2-integration/04-orchestration.md` and integrated into outline beat 2.4, slides 25 through 29, and the reusable deck builder. The 3:55 area reference is retained, with the workflow on slide 26 and focused recovery on slide 29.
+
+The Anthropic architecture article above was fetched again September 16, 2026. Its workflow/agent distinction, environment feedback, stopping conditions, and combination of patterns support the proposed foundations diagram. The FRB workflow keeps retrieve, inspect, compare, reconcile, verify, and export. A bounded investigation loop inside a stage illustrates model-selected actions within code-enforced controls. This is teaching design, not a claim that every application requires that architecture.
+
+**LangChain, "Checkpointers," LangGraph documentation, publication date not stated, checked September 16, 2026** [primary]. https://docs.langchain.com/oss/python/langgraph/checkpointers Fetched and read directly in a browser through the persistence guide.
+
+- "A checkpointer saves a snapshot of graph state at each super-step, organized into threads."
+- Teaching definition: a checkpoint saves execution state so work can resume. The source provides a concrete implementation example. The talk does not prescribe LangGraph, checkpoint frequency, or an API.
+- The linked persistence guide distinguishes in-memory storage from storage that survives a process restart. A restart-safe design needs durable state. Do not imply that any in-memory snapshot survives a crash.
+
+**Malcolm Featonby, "Making retries safe with idempotent APIs," Amazon Builders' Library, publication date not stated, checked September 16, 2026** [primary]. https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Fetched and read directly in a browser.
+
+- "An idempotent operation is one where a request can be retransmitted or retried with no additional side effects"
+- The article explains ambiguous timeouts, reconciliation, and caller-provided request identifiers backed by service behavior. A label stored in a log alone does not create idempotency. The same intended request and service contract must support a safe retry.
+- Teaching distinction: resuming saved computation and establishing an external action's outcome are different responsibilities. Preserve uncertainty until operation evidence establishes what happened.
+
+FRB teaching case: this is a separate, permitted export, unlike the rejected destination in Tools. The exact draft passed its checks, and the destination is allowed. Suppose the export occurs but its response never reaches the caller. The orchestrator records an unknown outcome and checks the corresponding export state and receipt before choosing a next step. Expected checks establish a matching checked artifact and avoid a duplicate export. If the outcome remains unknown, pause or hand off rather than claim success or blindly repeat the operation. This is an illustrative scenario and expected behavior, not a measured recovery result.
+
+The proposed execution design records a stable reference for the intended export with its draft identity and destination. It needs a way to inspect the corresponding receipt or status. These are execution-layer design requirements, not a new named agent-facing tool or a vendor guarantee. If the service supports idempotent retries, the same intended operation reuses the relevant identity and parameters under that contract. Do not invent a successful retry or promise recovery when the service cannot establish the result.
+
+Checkpointing and idempotency receive brief definitions. Detailed storage, locking, transaction, and retry implementations remain backup. Delegation stays a short conditional option for independent case comparisons, with clear assignments, evidence, reconciliation, and measured whole-task benefit.
+
 ## 5. Verification & Evals
 
 **Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, May 28, 2025, updated September 13, 2026** [primary]. https://hamel.dev/blog/posts/evals-faq/ Checked in a browser September 15, 2026. The page's displayed modification date is September 13; this corrects the earlier September 1 date in this entry.
@@ -465,6 +559,26 @@ Keep error analysis connected to engineering changes: inspect the outcome and tr
 The FRB case keeps the existing invented minutes, deliberately unsupported answer, direct-reference PASS, source-support FAIL, and expected unresolved cause. A reference resolving correctly does not establish support for the claim. Failed source-support checks prevent export of that draft under the shared contract. The corrected content needs verification again. The presenter chose a brief comparison of code checks, model graders, and expert review. Remove the personal story and its 1:00 reservation from the revised content; the FRB check is the worked example. Final timing remains open for the pacing pass.
 
 Model graders, evaluation services, stored traces, and human reviewers that receive the CUI/ECI records remain within the applicable approved access and processing scope. This follows the illustrative deployment boundary in §0 and §1. An approved answering model is not automatically a suitable grader. Evaluate grader agreement with expert decisions; if suitable model grading is unavailable, use authorized expert review for the semantic judgments or limit the automated scope. These are authored design choices, not a claim that any named grader or service is approved.
+
+### Verification & Evals integration, September 16, 2026
+
+The presenter selected practical evaluation design, with pass@k and pass^k kept in backup, and retained citation existence versus source support as the main FRB worked example. The accepted content is recorded in `outlines/section-2-integration/05-verification-and-evals.md` and integrated into outline beat 2.5, slides 30 through 34, and the reusable builder. The 4:35 area allocation is retained, with 0:10 moved from the worked example to the foundations.
+
+The Anthropic agent-evaluation article above was fetched again September 16, 2026. Its task/case, trial, grader, and suite definitions and its distinction between a transcript and actual outcome support the shared primer. Code, model, and human grading remain complementary choices. Repeated trials and inspection of grader decisions are part of the practical explanation. No benchmark result, universal sample size, or numerical shipping threshold is imported.
+
+**OpenAI, "Evaluation best practices," OpenAI API documentation, publication date not stated, checked September 16, 2026** [primary]. https://developers.openai.com/api/docs/guides/evaluation-best-practices Fetched and read directly in a browser. This record covers evaluation methods only and does not verify the separate platform-lifecycle lead above.
+
+- "Use human feedback to calibrate automated scoring."
+- "Ensure your test data includes typical cases, edge cases, and adversarial cases."
+- The guide includes a held-out evaluation example and continuous evaluation after changes. Teaching application: reserve cases from routine tuning, compare configurations on relevant cases, and expand the suite as new failures appear. Do not import the guide's illustrative numerical targets or current model recommendations.
+
+The practical suite uses authored FRB case categories to connect the preceding areas: a routine cited brief, a disallowed export destination, and an export with a lost response. A broader suite also covers missing evidence, unavailable sources, conflicting or misattributed records, and adversarial material. The table specifies expected behavior and suitable checks, not observed pass rates or a complete release suite.
+
+Each case needs its own starting conditions and allowed outcomes. For the lost-response scenario, recoverable matching operation evidence should lead to verified completion without duplication. If the fixture instead makes the outcome unknowable, it should require an explicit unresolved status or handoff. Do not treat these distinct starting conditions as interchangeable or count every stopped run as completed work. Likewise, a missing-source case must distinguish an unavailable record from a retrieval miss when the record was accessible.
+
+Retain the exact invented minutes and unsupported claim in the main worked example. Citation existence passes while semantic support fails. An authorized expert or suitable expert-calibrated model grader assesses support within the approved processing scope. A failing draft cannot pass the export gate; corrected content needs a new check. Reuse the failure in regression evaluation while retaining independent cases for comparison. Inspection of the result and trace identifies a repair; the symptom alone does not establish the faulty component.
+
+The pass@k and pass^k vocabulary remains supporting material, using the definitions in the Anthropic source and external report. No formulas or reliability calculations appear in the five slides or timed talk tracks. The removed personal story and its time reservation remain absent.
 
 ## 6. AgentOps: observability, guardrails, security, identity, governance
 
@@ -536,6 +650,38 @@ The FRB agreement extends the existing access, monitoring, handoff, and human-ow
 
 These are proposed operating responsibilities for the invented FRB system, not a deployed control design, organizational role assignment, or compliance certification. Keep specific incident accounts, legal duties, telemetry schema details, and statistics in backup with their existing qualifications. The main narrative stays on the engineering decisions and their observable consequences.
 
+### AgentOps integration, September 16, 2026
+
+The presenter accepted the external storyboard's lifecycle, trace, release, and outcome framing for slides 35 through 39. Outline beat 2.6, the slide specs, and reusable deck authoring implement the reviewed integration. Preserve the security pitfall, processing boundary, accountable response, and human ownership of official FRB records. AgentOps remains 4:10 and Section 2 remains 28:30.
+
+Presenter decisions, September 16, 2026: teach a practical primer on traces, versioned configuration, and outcome metrics. Keep SLOs and error budgets in Markdown backup. Use an approved model/configuration update that worsens brief quality and review work while APIs remain healthy as the main FRB application. The accepted five-screen review is in `outlines/section-2-integration/06-agentops.md`.
+
+**Illustrative release incident, authored September 16, 2026.** A candidate configuration changes the model or its settings within the already approved processing environment. A controlled group of requests produces more unsupported draft claims and requires more authorized review than comparable work on the tested configuration. API availability remains healthy. The source-support gate still blocks failing drafts from export. These are stipulated qualitative teaching conditions, not observations from a deployed system or measurements of a named model.
+
+The proposed operator pauses the rollout, compares affected task categories and configurations, and inspects protected traces, source revisions, and check results. The release association motivates investigation; it does not independently establish root cause. Restore a tested compatible configuration when the defined rollback condition is met, while preserving current authorization and data constraints. Review pending work and any completed effects separately, add newly understood failure variants to the evaluation suite, and monitor recovery. The existing source-support regression case remains in that suite. People retain authority over official causes, decisions, and board records. The operating agreement remains the supporting artifact behind this incident.
+
+**OpenTelemetry Authors, "Traces," OpenTelemetry documentation, checked September 16, 2026** [primary]. https://opentelemetry.io/docs/concepts/signals/traces/
+
+- "A span represents a unit of work or operation."
+- A trace connects operations along a request's path. Spans carry start and end times and can relate parent and child operations. Use these concepts for a short practical primer; SDK setup and attribute schemas stay in backup.
+
+**OpenTelemetry Authors, "Semantic Conventions for GenAI agent and framework spans," OpenTelemetry GenAI repository, checked September 16, 2026** [primary]. https://raw.githubusercontent.com/open-telemetry/semantic-conventions-genai/main/docs/gen-ai/gen-ai-agent-spans.md
+
+- "Development" is the document's status.
+- "This attribute is likely to contain sensitive information including user/PII data."
+- The document covers agent, workflow, and tool operations and includes version/model attributes. The sensitive-content warning appears on message attributes. This supports connecting observed operations and configuration while deliberately controlling captured content. Do not present these evolving conventions as a stable universal schema or a record of private model reasoning.
+
+**Steven Thurgood and David Ferguson, with Alex Hidalgo and Betsy Beyer, "Implementing SLOs," The Site Reliability Workbook, Google/O'Reilly, 2018** [primary]. https://sre.google/workbook/implementing-slos/ Checked September 16, 2026.
+
+- "Service level objectives (SLOs) specify a target level for the reliability of your service."
+- The chapter connects service measures to user journeys and requires an agreed response policy with owners. The talk applies that principle to useful task completion alongside latency and cost. An SLI is a measured service indicator; an SLO sets its target over a period. An error budget expresses the allowed shortfall under that objective. These are operational concepts, not permission to violate authorization or other hard constraints. No numeric target is proposed for the illustrative FRB system.
+
+**Alec Warner and Štěpán Davidovič, with Alex Hidalgo, Betsy Beyer, Kyle Smith, and Matt Duftler, "Canarying Releases," The Site Reliability Workbook, Google/O'Reilly, 2018** [primary]. https://sre.google/workbook/canarying-releases/ Checked September 16, 2026.
+
+- "We define canarying as a partial and time-limited deployment of a change in a service and its evaluation."
+- Compare a candidate with a control using representative measures attributable to the change. The chapter discusses configuration and data changes, gradual exposure, and isolation problems. A concerning comparison can justify stopping a rollout and investigating without establishing root cause.
+- Proposed application to this talk: record the AI system's behavioral dependencies, compare useful outcomes by configuration, define containment and rollback conditions, and preserve evidence. Restoring a tested compatible configuration must preserve current data eligibility and permissions. It does not undo external actions already completed. These are teaching design choices for the FRB fixture, not measured rollout results.
+
 ## 7. June to September 2026: what the audience lived through
 
 - **MCP revision 2026-07-28**, the largest since launch. Stateless at the protocol layer; Multi Round-Trip Requests replace server-initiated sampling and elicitation; formal deprecation policy with a twelve-month minimum window; HTTP+SSE transport deprecated; new rule "MCP servers MUST NOT treat possession of a state handle as authentication." https://blog.modelcontextprotocol.io/posts/2026-07-28/ Release-note specifics UNVERIFIED beyond spec pages.
@@ -550,6 +696,12 @@ These are proposed operating responsibilities for the invented FRB system, not a
 
 ## Verify before stage
 
+- AgentOps integration: trace definitions, evolving GenAI conventions, and Google SRE release/objective guidance were checked September 16, 2026. Keep SLOs and error budgets in backup. The approved-update incident is illustrative and preserves the export gate, authorized processing, and human authority. Correlation motivates investigation rather than proving cause. The accepted copy and 4:10 reference are integrated; spoken pacing remains to be rehearsed.
+- Verification & Evals integration: the Anthropic definitions and OpenAI evaluation-method guidance were checked September 16, 2026. Keep pass@k and pass^k in backup. The suite matrix contains illustrative case designs and expected checks, not measured outcomes. Preserve the exact FRB source-support failure and distinguish fixture-specific completion from unresolved status. The accepted copy and timing redistribution are integrated; spoken pacing remains to be rehearsed.
+- Orchestration integration: checkpoint and idempotency sources were checked September 16, 2026. Keep durable saved state distinct from external completion evidence, and qualify retry behavior by the service contract. The permitted-export timeout is a separate illustrative case from Tools' rejected destination. The accepted content and timing redistribution are integrated; spoken pacing remains to be rehearsed.
+- Tools & Extensibility integration: MCP roles, Agent Skills, and the OpenAI plugin-packaging example were checked September 16, 2026. Keep A2A in backup. The unapproved-destination rejection is an illustrative contract test, not a measured result. The accepted content and 4:10 reference are integrated; rehearsal remains necessary.
+- Context Engineering integration: the conceptual retrieval and memory passages were rechecked September 16, 2026. Retain the distinction between source availability, retrieval, and assembled input. The selected missing-minutes failure is illustrative; do not imply a measured retrieval failure or merge the briefing and minutes into one revision sequence. The accepted content and 4:30 reference are integrated; rehearsal remains necessary.
+- Model Selection integration primer: the four OpenAI documentation records in §1 were checked September 16, 2026. Preserve model-specific qualifications for context accounting and reasoning settings. The accepted primer is integrated into slide 11. Rehearse the new 4:30 Model Selection reference before stage.
 - FRB material is illustrative. Check IDs, revisions, source locations, uncertainty, and human ownership against `internal/frb-running-example.md`; do not seek or imply real-world verification of invented cases.
 - Data sensitivities: NARA and the NIST publication abstract checked September 15, 2026. Keep organization-specific eligibility and the observation about older, less capable approved options attributed to presenter-supplied context. The FRB corpus's CUI/ECI constraint and capability gap are illustrative assumptions. No named model, provider, environment, or FRB record has been established as approved or formally designated by these sources.
 

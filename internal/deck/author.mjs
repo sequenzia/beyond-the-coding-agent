@@ -76,7 +76,7 @@ function twoTable(headers,rows,y,rowHeights,opts={}){
  addMeta(obj,'table',opts);return obj;
 }
 function evidenceTable(values,widths,y,heights,opts={}){
- const obj=slide.tables.add({rows:values.length,columns:widths.length,left:48*P,top:y*P,width:864*P,height:heights.reduce((a,b)=>a+b,0)*P,columnWidths:widths.map(w=>w*P),values});
+ const obj=slide.tables.add({rows:values.length,columns:widths.length,left:(opts.x??48)*P,top:y*P,width:widths.reduce((a,b)=>a+b,0)*P,height:heights.reduce((a,b)=>a+b,0)*P,columnWidths:widths.map(w=>w*P),values});
  obj.styleOptions={headerRow:false,bandedRows:false,bandedColumns:false,firstColumn:false,lastColumn:false};
  obj.cells.block({row:0,column:0,rowCount:values.length,columnCount:widths.length}).assign({fill:C.bg,textStyle:{typeface:'Helvetica',fontSize:20*P,color:C.text},margins:{left:0,right:0,top:0,bottom:0},anchor:'top'});
  for(let r=0;r<values.length;r++){obj.rows[r].height=heights[r]*P;for(let c=0;c<widths.length;c++)obj.getCell(r,c).text.style={typeface:'Helvetica',fontSize:20*P,color:r===0?(opts.color||C.pink):C.text,bold:r===0,autoFit:'none',lineSpacing:1.25};}
@@ -145,46 +145,49 @@ const section2Areas = [
     "publication": "Agent Harness Engineering, April 2026",
     "titles": [
       "Model Selection, opening quote",
-      "Model Selection",
-      "Model selection",
+      "The model invocation",
+      "Selecting a model configuration",
       "Model-selection pitfalls",
       "Models for the FRB brief"
     ],
-    "overview": [
-      "Choose and maintain a model configuration suited to the task and approved for the data.",
-      "Eligible for the data.\nCapable on the task.\nWithin cost and latency requirements."
+    "invocation": [
+      ["Supplied input", "Instructions, request,\nevidence, tool definitions"],
+      ["Inference", "Run a trained model\nwith selected settings"],
+      ["Generated output", "Response or\nproposed tool call"]
     ],
+    "foundations": [
+      ["Tokens", "Units of content the model processes and generates."],
+      ["Context limit", "Capacity for input and generated tokens."],
+      ["Reasoning settings", "Control reasoning effort where supported."]
+    ],
+    "responsibility": "Choose a configuration suited to the task and approved for the data.",
     "decisions": [
       [
-        "Data and deployment",
-        "Approved service, environment, and intended use."
+        "Eligible options",
+        "Approved for the data, environment, and intended use."
       ],
       [
-        "Task fit and settings",
-        "Compare quality, cost, and latency on your tasks."
+        "Required quality",
+        "Representative tasks, with clear acceptance criteria."
       ],
       [
-        "One model or routing?",
-        "Begin with one. Add routes when measurements justify them."
-      ],
-      [
-        "Version changes",
-        "Pinned: plan migration. Alias: monitor regressions."
+        "Task efficiency",
+        "Completion time and cost per successful task,\nincluding retries and review."
       ]
     ],
     "pitfall": "Selecting or changing models without testing them on your task.",
     "cues": [
       [
-        "Access",
-        "Availability does not establish approval."
+        "Capacity",
+        "Evidence fits, but the result still needs checking."
       ],
       [
-        "Coverage",
-        "Task changes can leave gaps."
+        "Effort",
+        "A higher setting still needs task evidence."
       ],
       [
-        "Dependencies",
-        "A pinned model does not freeze the system."
+        "Cost",
+        "Token price omits retries and review."
       ]
     ],
     "quoteWrapped": "“A decent model with a\ngreat harness beats a\ngreat model with a\nbad harness.”",
@@ -201,31 +204,19 @@ const section2Areas = [
     "titles": [
       "Context Engineering, opening quote",
       "Context for the next step",
-      "Context decisions",
+      "Retrieval and context choices",
       "Context pitfalls",
       "Evidence for the FRB brief"
     ],
-    "overview": [
-      "Select and maintain information for the next model step.\nRAG supplies retrieved knowledge.",
-      "Relevant evidence.\nPreserved constraints.\nCurrent, traceable sources."
+    "contextSources": [
+      ["Memory", "Selected information\nretained for later use."],
+      ["Authoritative records", "Source documents and\napplication state checked\nfor this task."]
     ],
-    "decisions": [
-      [
-        "What enters the step?",
-        "Useful instructions, state, and evidence. Remove repetition."
-      ],
-      [
-        "How is it retrieved?",
-        "Keyword, semantic, or hybrid. Choose for the data and task."
-      ],
-      [
-        "What persists?",
-        "Keep essential constraints. Refresh summaries and memory."
-      ],
-      [
-        "Which sources and scope?",
-        "Preserve identity and revision. Enforce authorized access."
-      ]
+    "workingContext": "Instructions, request, evidence,\ntools, and relevant history\navailable for this step.",
+    "pipeline": ["Authorized\nsources", "Retrieval", "Evidence\nselection", "Assembled\ninput"],
+    "contextChoices": [
+      ["Find the evidence", "Keyword: terms and identifiers.\nSemantic: similarity using embeddings.\nHybrid: both signals."],
+      ["Manage the context", "Preload essentials.\nFetch detail when needed.\nRetain and refresh useful information."]
     ],
     "pitfall": "Adding context without curating it.",
     "cues": [
@@ -255,38 +246,30 @@ const section2Areas = [
     "publication": "Writing effective tools for agents, with agents, September 2025",
     "titles": [
       "Tools & Extensibility, opening quote",
-      "Tools and connections",
-      "Tool-design decisions",
+      "Tool calls and execution",
+      "Capabilities and extension mechanisms",
       "Tool-design pitfalls",
       "Export cited brief"
     ],
-    "overview": [
-      "Tool: an operation with defined inputs, results, and execution rules.\nMCP: a common integration interface.",
-      "Useful capabilities.\nClear results.\nEnforced boundaries."
+    "toolCall": [
+      ["Proposal", "The model selects an\noperation and supplies\narguments."],
+      ["Execution", "Application code validates,\nauthorizes, and executes\npermitted requests."],
+      ["Observation", "The result informs\nthe next model step."]
     ],
-    "decisions": [
-      [
-        "Capabilities and granularity",
-        "Distinct operations that fit the task. Evaluate flexibility against coordination work."
-      ],
-      [
-        "A usable contract",
-        "Descriptions, inputs, results, and errors must agree."
-      ],
-      [
-        "Permitted execution",
-        "Validate and authorize in code. Scope reads and writes."
-      ]
+    "mechanisms": [
+      ["MCP", "Connect applications to tools and context."],
+      ["Skills", "Reusable task instructions and supporting resources."],
+      ["Plugins", "Package capabilities for installation and distribution."]
     ],
     "pitfall": "Copying APIs without evaluating task fit.",
     "cues": [
       [
-        "Tool set",
-        "Overlapping purposes confuse selection."
-      ],
-      [
         "Contract",
         "Description, schema, and behavior can drift."
+      ],
+      [
+        "Authority",
+        "Valid arguments still require permission checks."
       ],
       [
         "Outcomes",
@@ -306,27 +289,25 @@ const section2Areas = [
     "publication": "Building effective agents, December 2024",
     "titles": [
       "Orchestration, opening quote",
-      "Execution control",
-      "Orchestration decisions",
+      "Workflows and agent loops",
+      "State, recovery, and stopping",
       "Execution pitfalls",
-      "Workflow for the FRB brief"
+      "Recovery after an uncertain export"
     ],
-    "overview": [
-      "Sequence work, carry state, coordinate, stop, and recover.",
-      "Reach checked outcomes\nwithin enforced limits.\nCombine code-controlled paths and model judgment."
-    ],
+    "workflow": ["Retrieve", "Inspect", "Compare", "Reconcile", "Verify", "Export"],
+    "agentLoop": ["Observe\nresult", "Choose\naction", "Call\ntool", "Update\nstate"],
     "decisions": [
       [
-        "Who chooses the next step?",
-        "Code for required gates. Model judgment where adaptation helps."
+        "Explicit state",
+        "Pending work, completed stages,\ncheck results, and operation status."
       ],
       [
-        "When should work be delegated?",
-        "Begin with a bounded workflow. Add workers after measured benefit."
+        "Recovery",
+        "Resume saved state and reconcile\nexternal actions before retrying."
       ],
       [
-        "How does work stop or recover?",
-        "Completion checks, saved state, bounded retries, and handoff."
+        "Stopping conditions",
+        "Completion, waiting, failure,\ncancellation, and budget exhaustion."
       ]
     ],
     "pitfall": "Adding multiple agents before trying a workflow.",
@@ -358,27 +339,23 @@ const section2Areas = [
     "titles": [
       "Verification & Evals, opening quote",
       "Verification and evaluation",
-      "Evaluation decisions",
+      "Designing the evaluation suite",
       "Evaluation pitfalls",
       "Does the source support the claim?"
     ],
-    "overview": [
-      "Verification: acceptance of this result.\nEvaluation: behavior across cases and repeated trials.",
-      "Ordinary tests remain necessary.\nCheck outcomes, required constraints, and consistency."
+    "evalScales": [
+      ["Verification", "Does this result meet\nthe requirements?"],
+      ["Evaluation", "How does the system perform\nacross cases and repeated runs?"]
     ],
-    "decisions": [
-      [
-        "What counts as success?",
-        "Outcomes, serious failures, and useful limitations."
-      ],
-      [
-        "Which checks fit?",
-        "Code checks, model graders, expert review. Evaluate grader agreement."
-      ],
-      [
-        "Which cases and trials?",
-        "Representative work, known failures, and repeated attempts."
-      ]
+    "evalVocabulary": [
+      ["Case", "Input and expected\nconditions."],
+      ["Trial", "One attempt at a case."],
+      ["Grader", "A check of behavior\nor outcome."]
+    ],
+    "evalCases": [
+      ["Routine brief", "Supported findings.\nUncertainty preserved.", "Reference checks plus expert\nor calibrated model judgment."],
+      ["Disallowed\nexport", "Reject before transfer.\nNo export at that destination.", "Permission and\nexport-state checks."],
+      ["Lost export\nresponse", "Reconcile the outcome.\nAvoid duplicate export.", "Receipt and\nartifact checks."]
     ],
     "pitfall": "Using a generic judge without error analysis or result checks.",
     "cues": [
@@ -408,31 +385,30 @@ const section2Areas = [
     "publication": "State of AI Engineering, Datadog, 2026",
     "titles": [
       "AgentOps, opening quote",
-      "AgentOps",
-      "Production decisions",
+      "Operating the system over time",
+      "Operating decisions",
       "Risks across integrations",
-      "FRB operating agreement"
+      "Operating an FRB release"
     ],
-    "overview": [
-      "Operate agentic systems with observability, enforced controls, and accountable response.",
-      "Behavior, access, cost, and latency change over time.\nFailures need an accountable response."
+    "definition": "Operate agentic systems with observability, enforced controls,\nand accountable response.",
+    "recordedOperations": ["Retrieve", "Model", "Verify", "Export / hold"],
+    "foundations": [
+      ["Trace", "The operations behind one task."],
+      ["Versioned\nconfiguration", "The versions and settings in use."],
+      ["Outcome metrics", "Quality, completion time, cost, and review work."]
     ],
     "decisions": [
       [
-        "Authority",
-        "Enforce identity, scope, and permitted destinations."
+        "Evidence",
+        "Capture enough to investigate.\nLimit sensitive content."
       ],
       [
-        "Observation",
-        "Connect evidence to outcomes, quality, cost, and latency."
+        "Releases",
+        "Compare a controlled cohort.\nDefine rollback conditions."
       ],
       [
-        "Limits and handoff",
-        "Set the policy and assign the authorized responder."
-      ],
-      [
-        "Changes and incidents",
-        "Review changes. Keep a way to restrict or revert configuration."
+        "Response",
+        "Enforce scope and limits.\nAssign an authorized responder."
       ]
     ],
     "pitfall": "Combining private data, untrusted content, and outbound access without reviewing the risk.",
@@ -476,18 +452,118 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   await img('internal/illustrations/'+a.image,640,212,272,272);
  }
 
- await header(a.start+1,'What and why',a.titles[1]);
- text('What it is',48,192,420,30,20,{bold:true,color});
- text(a.overview[0],48,234,420,200,24);
- text('Why it matters',492,192,420,30,20,{bold:true,color});
- text(a.overview[1],492,234,420,200,24);
+ await header(a.start+1,'Foundations',a.titles[1]);
+ if(areaIndex===0){
+  a.invocation.forEach(([label,body],i)=>{
+   const x=48+i*308;
+   text(label,x,192,248,30,20,{bold:true,color});
+   text(body,x,230,248,64,20);
+  });
+  arrow(308,255,32);arrow(616,255,32);
+  a.foundations.forEach(([label,body],i)=>{
+   text(label,48,320+i*40,216,30,20,{bold:true,color});
+   text(body,292,320+i*40,620,30,20);
+  });
+  text(a.responsibility,48,458,864,30,20);
+ }else if(areaIndex===1){
+  a.contextSources.forEach(([label,body],i)=>{
+   text(label,48,192+i*160,300,30,20,{bold:true,color});
+   text(body,48,230+i*160,300,i?75:54,20);
+  });
+  shape(468,192,444,296,'none',color,0,{strokeWidth:2,name:'working-context-boundary'});
+  text('Working context',492,216,396,32,24,{bold:true,color});
+  text(a.workingContext,492,270,396,130,24);
+  arrow(380,258,72);arrow(380,416,72);
+ }else if(areaIndex===2){
+  a.toolCall.forEach(([label,body],i)=>{
+   text(label,48+i*308,192,248,30,20,{bold:true,color});
+   text(body,48+i*308,230,248,96,20);
+  });
+  arrow(308,267,32);arrow(616,267,32);
+  attr('Illustrative application call',48,340,864);
+  text('export_cited_brief(draft, citations, destination)',48,372,864,30,20,{font:'Consolas'});
+  text('Application checks',48,438,216,30,20,{bold:true,color});
+  text('Authenticated identity. Exact checked content.\nPermitted destination.',292,438,620,54,20);
+ }else if(areaIndex===3){
+  text('Workflow',48,192,180,30,20,{bold:true,color});
+  text('Code defines the stages and permitted transitions.',244,192,668,30,20);
+  attr('Illustrative FRB workflow',48,232,864);
+  a.workflow.forEach((label,i)=>text(label,48+i*148,260,112,30,20,{bold:true,align:'center',color:i===1?color:C.text}));
+  [168,316,464,612,760].forEach(x=>arrow(x,274,20));
+  shape(190,250,124,50,'none',color,0,{strokeWidth:2,name:'inspect-stage'});
+  line(252,300,0,16);
+  shape(48,316,864,134,'none',color,0,{strokeWidth:2,name:'bounded-agent-loop'});
+  text('Agent loop',64,330,148,26,20,{bold:true,color});
+  text('Model chooses the next action within limits.',232,330,656,26,20);
+  a.agentLoop.forEach((label,i)=>text(label,64+i*222,368,164,50,20,{align:'center'}));
+  [240,462,684].forEach(x=>arrow(x,393,32));
+  line(812,426,0,10);arrow(812,436,-666);line(146,436,0,-10);
+  text('Required gate',48,466,180,25,20,{bold:true,color});
+  text('Exact draft passes verification before export.',244,466,668,25,20);
+ }else if(areaIndex===4){
+  a.evalScales.forEach(([label,body],i)=>{
+   text(label,48+i*444,192,420,30,20,{bold:true,color});
+   text(body,48+i*444,234,420,100,24);
+  });
+  shape(48,350,864,1,C.hair);
+  a.evalVocabulary.forEach(([label,body],i)=>{
+   text(label,48+i*296,378,272,26,20,{bold:true,color});
+   text(body,48+i*296,412,272,60,20);
+  });
+ }else{
+  text(a.definition,48,192,864,50,20);
+  a.foundations.forEach(([label,body],i)=>{
+   const y=[262,382,450][i];
+   text(label,48,y,216,i===1?54:30,20,{bold:true,color});
+   text(body,292,y,620,30,20);
+  });
+  a.recordedOperations.forEach((label,i)=>text(label,292+i*156,302,i===3?152:120,30,20,{align:'center'}));
+  [416,572,728].forEach(x=>arrow(x,316,24));
+  shape(448,334,120,2,color);
+  attr('one span',448,344,120,{align:'center'});
+ }
 
  await header(a.start+2,'Decisions',a.titles[2]);
- const four=a.decisions.length===4;
- a.decisions.forEach(([question,body],i)=>{
-  text(question,48,192+i*(four?72:100),272,four?62:82,four?20:24,{bold:true});
-  text(body,344,192+i*(four?72:100),568,four?62:82,20);
- });
+ if(areaIndex===1){
+  text('RAG',48,192,78,30,20,{bold:true,color});
+  text('Retrieve information and supply it as evidence for generation.',148,192,764,30,20);
+  a.pipeline.forEach((label,i)=>text(label,48+i*232,250,168,60,20,{bold:true,color,align:'center',middle:true}));
+  [230,462,694].forEach(x=>arrow(x,280,36));
+  text('Preserve source identity, revision, and access scope.',48,320,864,30,20);
+  a.contextChoices.forEach(([label,body],i)=>{
+   text(label,48+i*444,370,420,30,20,{bold:true,color});
+   text(body,48+i*444,406,420,78,20);
+  });
+ }else if(areaIndex===2){
+  text('Capability size',48,192,216,30,20,{bold:true,color});
+  text('Flexible primitives or task-oriented operations.\nEvaluate the boundary on real work.',292,192,620,54,20);
+  evidenceTable([['Mechanism','Role'],...a.mechanisms],[180,684],270,[32,40,40,40],{color});
+  text('Operational contract',48,438,216,30,20,{bold:true,color});
+  text('Maintain descriptions, inputs, results, and failure behavior.\nEnforce permissions in code.',292,438,620,54,20);
+ }else if(areaIndex===3){
+  a.decisions.forEach(([label,body],i)=>{
+   text(label,48,192+i*80,216,30,20,{bold:true,color});
+   text(body,292,192+i*80,620,54,20);
+  });
+  text('Checkpoint',48,450,216,30,20,{bold:true,color});
+  text('Saved execution state for resumption.',292,450,620,30,20);
+ }else if(areaIndex===4){
+  attr('Illustrative evaluation cases.',48,192,864);
+  evidenceTable([['Case','Expected behavior','Checks'],...a.evalCases],[216,360,288],224,[32,64,64,64],{color});
+  text('Comparison',48,462,164,30,20,{bold:true,color});
+  text('Held-out cases and repeated trials.',244,462,668,30,20);
+ }else if(areaIndex===5){
+  a.decisions.forEach(([label,body],i)=>{
+   text(label,48,192+i*100,216,30,20,{bold:true,color});
+   text(body,292,192+i*100,620,54,20);
+  });
+ }else{
+  const four=a.decisions.length===4;
+  a.decisions.forEach(([question,body],i)=>{
+   text(question,48,192+i*(four?72:100),272,four?62:82,four?20:24,{bold:true});
+   text(body,344,192+i*(four?72:100),568,four?62:82,20);
+  });
+ }
 
  await header(a.start+3,'Challenges and pitfalls',a.titles[3]);
  a.cues.forEach(([label,body],i)=>{
@@ -503,38 +579,59 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
  await header(a.start+4,'FRB application',a.titles[4]);
  if(areaIndex===0){
   attr('Illustrative proposed design. No model results claimed.',48,192,864);
+  text('CUI/ECI corpus. Approved options assumed older and less capable\nfor this synthesis.',48,224,864,50,20);
+  text('Design',48,292,420,30,20,{bold:true,color});
+  text('Evaluate one eligible configuration\nfor summaries and cross-case synthesis.',48,326,420,64,20);
+  text('Failure to test',48,408,420,30,20,{bold:true,color});
+  text('Possible bearing wear becomes\na confirmed cause.',48,442,420,50,20);
+  text('Selection scorecard',492,292,420,30,20,{bold:true,color});
   evidenceTable([
-   ['Choice','Starting design'],
-   ['Constraint','CUI/ECI corpus. Approved options assumed older\nand less capable for this synthesis.'],
-   ['Configuration','Evaluate one eligible configuration on the FRB task.'],
-   ['If quality falls short','Evaluate narrower scope and human review.\nKeep the evidence requirement.'],
-  ],[224,640],228,[36,76,64,76],{color});
+   ['Measure','Evidence to collect'],
+   ['Quality','Supported findings.\nUncertainty preserved.'],
+   ['Time','Completion time.'],
+   ['Cost','All attempts and review\nper successful brief.'],
+  ],[100,320],330,[30,50,30,50],{color,x:492});
  }else if(areaIndex===1){
-  attr('Illustrative FRB evidence.',48,192,864);
+  attr('Illustrative FRB evidence and retrieval failure.',48,192,864);
   text('FRB-042-BRF r1 · August 19, 2026\nslide 6',48,224,420,40,16,{color:C.secondary,exact:20});
   text('“Bearing wear is a\npossible cause.”',48,262,420,60,24);
-  text('FRB-042-MIN r2 · August 22, 2026\n§3, paragraph 2',48,344,420,40,16,{color:C.secondary,exact:20});
+  text('FRB-042-MIN r2 · August 22, 2026\n§3, paragraph 2 · omitted in this failure',48,344,420,40,16,{color:C.secondary,exact:20});
   text('“Cause remains unresolved.\nInspect the bearing before\nassigning a cause.”',48,400,420,90,24);
-  [['Select','Relevant passages with\ntheir source identities.'],['Retain','Unresolved cause.\nInspection required.'],['Refresh','Source versions and access\nbefore finalizing.']].forEach(([label,body],i)=>{
-   text(label,492,224+i*92,420,26,20,{bold:true,color});text(body,492,254+i*92,420,54,20);
+  [
+   ['Design','Supply both passages\nwith their source identities.',224,254,54],
+   ['Failure','Retrieval misses the later minutes.',314,344,30],
+   ['Evidence to check','Both passages reach the input.\nSummary preserves uncertainty\nand required inspection.',384,414,78],
+  ].forEach(([label,body,labelY,bodyY,bodyH])=>{
+   text(label,492,labelY,420,26,20,{bold:true,color});text(body,492,bodyY,420,bodyH,20);
   });
  }else if(areaIndex===2){
-  attr('Illustrative Export cited brief contract.',48,192,864);
-  evidenceTable([
-   ['Contract','Requirement'],
-   ['Input','Checked draft, citations, destination.'],
-   ['Checks','Exact draft passed verification.\nAccess and destination permitted.'],
-   ['Output','Matching content and citations, with uncertainty preserved.\nExport receipt.'],
-   ['Failure','Known failure or unknown outcome stays explicit.'],
-  ],[224,640],228,[36,44,64,64,56],{color});
+  attr('Illustrative CUI/ECI export contract test. No deployed result claimed.',48,192,864);
+  text('Design',48,224,164,30,20,{bold:true,color});
+  text('Export the exact checked draft\nto a permitted destination.',224,224,688,54,20);
+  twoTable(['Contract requires','Model proposes'],[
+   ['A destination permitted\nfor these records','A destination outside\nthe approved scope'],
+  ],294,[32,58],{color});
+  text('Expected result',48,400,216,30,20,{bold:true,color});
+  text('Export rejected before transfer.',292,400,620,32,24,{bold:true});
+  text('Evidence to check',48,442,216,30,20,{bold:true,color});
+  text('Clear rejection reason.\nNo export at that destination.',292,442,620,50,20);
  }else if(areaIndex===3){
-  attr('Illustrative bounded workflow.',48,192,864);
-  ['Retrieve the packet.','Inspect evidence.','Compare cases.','Reconcile findings.','Verify the brief.','Export.'].forEach((v,i)=>{
-   const x=i%2===0?48:492,y=224+Math.floor(i/2)*56;
-   text(String(i+1),x,y,32,40,24,{color:C.secondary});text(v,x+48,y,372,40,24);
-  });
-  text('Export only after checks pass on the exact draft.',48,392,864,30,20,{bold:true});
-  text('Inspect an unknown export outcome\nbefore deciding whether to retry.',48,434,864,54,20);
+  attr('Illustrative permitted export and recovery test.',48,192,864);
+  text('Orchestrator',48,224,272,30,20,{bold:true,color});
+  text('Export service',640,224,272,30,20,{bold:true,color});
+  text('Record and dispatch export',48,258,272,30,20);
+  text('Export occurs',640,258,272,30,20);
+  arrow(336,272,288);
+  text('Outcome unknown',48,302,272,30,20,{bold:true,color});
+  text('Response lost',388,288,200,20,16,{color:C.secondary,align:'center',exact:20});
+  line(624,314,-114,0);arrow(450,314,-114);
+  line(474,308,12,12);line(474,320,12,-12);
+  text('Inspect export state',48,350,272,30,20);
+  text('Receipt and artifact',640,350,272,30,20);
+  arrow(336,364,288);
+  text('Evidence to check',48,402,216,30,20,{bold:true,color});
+  text('Matching receipt and checked artifact.\nNo duplicate export.',292,402,620,50,20);
+  text('If unresolved: pause or hand off with uncertainty intact.',48,466,864,25,20);
  }else if(areaIndex===4){
   attr('Illustrative source-support check.',48,192,864);
   text('FRB-042-MIN r2 · §3, paragraph 2',48,224,420,24,16,{color:C.secondary});
@@ -547,14 +644,14 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   text('Cause unresolved.\nInspection required.',492,384,420,64,24);
   text('Keep this failure as a regression case.',48,460,864,30,20);
  }else{
-  attr('Illustrative proposed operating agreement.',48,192,864);
+  attr('Illustrative release incident.',48,192,864);
   evidenceTable([
-   ['Responsibility','FRB rule'],
-   ['Approved scope','Records, services, destinations, traces, and eval artifacts.'],
-   ['Evidence and signals','Revisions, checks, export state.\nQuality, freshness, cost, latency.'],
-   ['Response','Enforced limits. An assigned, authorized responder.'],
-   ['Accountability','Review changes. People own official findings and records.'],
-  ],[224,640],228,[36,52,52,52,52],{color});
+   ['Incident','FRB example'],
+   ['Change','An approved model/configuration update\nreaches a controlled cohort.'],
+   ['Signal','APIs stay healthy. Unsupported drafts\nand review work increase.'],
+   ['Response','Pause the rollout. Inspect traces.\nRestore the tested configuration when indicated.'],
+  ],[186,678],224,[32,64,64,64],{color});
+  text('Failed drafts remain blocked from export.',48,466,864,25,20,{bold:true});
  }
 }
 await newSlide('40');await img('internal/renders/map-yours.png',0,0,960,540,{alt:'Anatomy of an Agentic AI System, with responsibility badges'});

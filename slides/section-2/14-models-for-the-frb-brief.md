@@ -1,6 +1,6 @@
 # Slide 14: Models for the FRB brief
 
-Beat 2.1. Section 2. Rehearsal reference 1:25 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.1. Section 2. Rehearsal reference 1:25 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -10,43 +10,59 @@ Beat 2.1. Section 2. Rehearsal reference 1:25 of the area's 3:55. Section 2 rema
 
 **Illustrative proposed design. No model results claimed.**
 
-| Choice | Starting design |
+CUI/ECI corpus. Approved options assumed older and less capable for this synthesis.
+
+**Design**
+
+Evaluate one eligible configuration for summaries and cross-case synthesis.
+
+**Failure to test**
+
+Possible bearing wear becomes a confirmed cause.
+
+**Selection scorecard**
+
+| Measure | Evidence to collect |
 |---|---|
-| Constraint | CUI/ECI corpus. Approved options assumed older and less capable for this synthesis. |
-| Configuration | Evaluate one eligible configuration on the FRB task. |
-| If quality falls short | Evaluate narrower scope and human review. Keep the evidence requirement. |
+| Quality | Supported findings. Uncertainty preserved. |
+| Time | Completion time. |
+| Cost | All attempts and review per successful brief. |
 
 ## Layout and visual
 
 - Display narrative number 14, the area kicker, and `mini-models` throughout.
-- Use the area-specific FRB composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Keep the illustrative label visible. Preserve source identities, uncertainty, and the applicable access boundary.
+- Use the two-column FRB application and native scorecard in design brief §27. All visual values are defined there.
+- Keep the illustrative caption and deployment constraint visible above the application. Place design and failure on the left and the compact scorecard on the right.
+- The scorecard contains evidence to collect, with no scores, invented comparison, or winning configuration.
+- Preserve the source distinction in the talk track. The detailed citation check remains on slide 34.
+- Show the complete content on entry. Use hard cuts and no internal builds. Keep text and the scorecard editable.
 
 ## Talk track
 
 [0:00] **FRB APPLICATION**
 
-[0:00] Assume the FRB corpus includes CUI and ECI. For this example, the approved models are older and less capable for the intended synthesis than newer alternatives outside the approved environment. That reflects a constraint familiar to this audience, not a universal claim about sensitive-data deployments.
+[0:00] Our invented FRB corpus includes CUI and ECI. Assume the approved options are older and less capable for this synthesis. **Evaluate useful work within that approved set.**
 
-[0:21] Start with one eligible configuration. Test whether it can produce faithful summaries and supported findings. A possible cause must remain a possible cause. If it cannot reliably produce the full brief, evaluate a narrower task, such as preparing cited findings for an engineer to reconcile, or a more structured workflow with review. Those changes still need evidence that they work. If they do not meet the requirement, limit or defer that capability.
+[0:14] Start with one eligible configuration. Test single-case summaries and cross-case synthesis separately. The preliminary briefing calls bearing wear a possible cause. The later minutes leave the cause unresolved and require inspection. A candidate that reports a confirmed cause has failed this case.
 
-[0:54] The goal is useful work within the data constraints, without lowering the evidence requirement or sending restricted records to an unapproved fallback. Revisit the design when measured needs or suitable approved options change.
+[0:34] That answer alone does not identify the faulty component. Check which evidence reached the model and how the workflow handled it.
 
-[1:09] That choice now depends on what information the model receives. Context Engineering is next.
+[0:45] The scorecard records supported findings and preserved uncertainty, completion time, and total cost, including failed attempts and review. It contains evidence to collect. No winning model or measured result is supplied.
 
-[1:16] **The model is a versioned, expiring dependency. Treat it like one.**
+[0:59] If the full brief falls short, evaluate preparing cited findings for an engineer to reconcile. **Keep the evidence requirement and the approved processing boundary.** If the narrower task still fails, limit or defer it.
+
+[1:15] Context Engineering develops the information we supply. **The model is a versioned, expiring dependency. Treat it like one.**
 
 [1:25] Advance to slide 15.
 
-Cut first: the narrower-scope example. Never cut illustrative status, CUI/ECI scope, and the unchanged evidence requirement. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the detailed scorecard explanation and narrower-task example. Never cut illustrative status, CUI/ECI scope and capability assumptions, possible versus established cause, or the unchanged evidence requirement. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Model Selection content; Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; lifecycle sources and presenter context. Research §0 and §1. No model scores or winner are claimed.
+- OpenAI concepts, context, reasoning, and selection guidance, checked September 2026; Osmani, April 2026; data eligibility and lifecycle sources; presenter audience context. Research §0 and §1 in `research/section-2.md`.
+- Illustrative packet and contracts: `internal/frb-running-example.md`. Failure investigation: Research §5. No model scores or winning configuration are claimed.
+- Accepted content integration: `outlines/section-2-integration/01-model-selection.md`.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the 4:30 area on the actual presentation machine. The four primer concepts precede decisions. Preserve the FRB decision and headline pitfall when trimming.

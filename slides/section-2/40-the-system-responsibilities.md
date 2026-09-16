@@ -1,6 +1,6 @@
 # Slide 40: The system responsibilities
 
-Beat 2.7. Section 2. Rehearsal reference 0:50. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.7. Section 2. Rehearsal reference 0:50. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 

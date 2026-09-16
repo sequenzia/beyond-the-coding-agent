@@ -1,6 +1,6 @@
 # Slide 15: Context Engineering, opening quote
 
-Beat 2.2. Section 2. Rehearsal reference 0:20 of the area's 4:05. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.2. Section 2. Rehearsal reference 0:20 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -25,7 +25,7 @@ Effective context engineering for AI agents, September 2025
 
 [0:00] **“Context, therefore, must be treated as a finite resource with diminishing marginal returns.”**
 
-[0:05] You decide what information the model receives for its next step. A larger context window does not establish that every available piece of information will help.
+[0:05] Model Selection established the available capacity. Context Engineering decides what information the next step needs and how to supply it. A larger context window does not establish that every available piece will help.
 
 [0:20] Advance to slide 16.
 

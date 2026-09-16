@@ -1,51 +1,57 @@
 # Slide 16: Context for the next step
 
-Beat 2.2. Section 2. Rehearsal reference 0:45 of the area's 4:05. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.2. Section 2. Rehearsal reference 1:10 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** Context Engineering · What and why
+**Kicker:** Context Engineering · Foundations
 
 **Title:** Context for the next step
 
-**What it is**
+**Working context**
 
-Select and maintain information for the next model step.
-RAG supplies retrieved knowledge.
+Instructions, request, evidence, tools, and relevant history available for this step.
 
-**Why it matters**
+**Memory**
 
-Relevant evidence.
-Preserved constraints.
-Current, traceable sources.
+Selected information retained for later use.
+
+**Authoritative records**
+
+Source documents and application state checked for this task.
 
 ## Layout and visual
 
 - Display narrative number 16, the area kicker, and `mini-context` throughout.
-- Use the definition-and-importance composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Give the definition and importance distinct blocks. The coding-agent connection stays in the talk track; no screenshot or user-example panel.
+- Use the native context-assembly diagram in design brief §28. All visual values are defined there.
+- Place memory and authoritative records outside the assembled input. Connect selected information to working context, whose contents include the instructions and current request.
+- Keep all labels editable. Show the complete content on entry with hard cuts and no internal builds.
+- The coding-agent connection and the distinction between prompt engineering and broader context stay spoken.
 
 ## Talk track
 
-[0:00] **DEFINITION AND IMPORTANCE**
+[0:00] **WORKING CONTEXT**
 
-[0:00] Context engineering selects, organizes, and maintains instructions, task state, evidence, tool results, and useful history. Prompt engineering focuses on the instructions within that wider set. A coding agent combines repository instructions, relevant files, and test output to decide what to do next.
+[0:00] Model Selection showed a model call. **Context Engineering assembles the information for its next step.** That includes instructions, the request, relevant evidence, tool information, and useful history. Prompt engineering addresses the instructions within that larger input.
 
-[0:18] RAG retrieves relevant information and supplies it to the model. That can mean authorized internal records. It does not require open-web access.
+[0:18] Memory is selected information retained for later use. The system still chooses what to bring into this call. Compaction condenses working history to make room for further work. Both need checks that important details survive.
 
-[0:27] A missing passage, stale version, or lost qualification can change the basis of the answer. More text does not establish better evidence. Inspect what reached the model and what was left out.
+[0:36] Keep source documents and application records distinct from a generated summary. For our FRB system, a remembered description of a finding must remain traceable to the board record. Access and confirmed actions come from application records.
 
-[0:45] Advance to slide 17.
+[0:54] A coding agent similarly combines repository instructions, relevant files, and test output for its next decision.
 
-Cut first: the context-item inventory. Never cut the context and RAG definitions. Cue times are rehearsal guides, not automatic playback timing.
+[1:02] **The responsibility is to supply relevant information while preserving its meaning and source.** Next, follow the evidence into that input.
+
+[1:10] Advance to slide 17.
+
+Cut first: the coding-agent elaboration. Never cut working context, memory, the record distinction, or the selection responsibility. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Context Engineering content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
+- Anthropic, September 2024 and September 2025, primer passages rechecked September 2026; existing context, memory, and access guidance. Research §0 and §2 in `research/section-2.md`, with inherited eligibility and authorization boundaries in §1 and §3.
+- Illustrative packet and contracts: `internal/frb-running-example.md`. The missing-minutes failure is a teaching scenario, not a measured result. No retrieval method is an assumed winner.
+- Accepted content integration: `outlines/section-2-integration/02-context-engineering.md`.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the 4:30 area on the actual presentation machine. Preserve the conceptual evidence path and the missing-minutes application when trimming.

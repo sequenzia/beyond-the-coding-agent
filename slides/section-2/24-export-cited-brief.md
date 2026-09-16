@@ -1,6 +1,6 @@
 # Slide 24: Export cited brief
 
-Beat 2.3. Section 2. Rehearsal reference 1:00 of the area's 3:40. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.3. Section 2. Rehearsal reference 1:05 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -8,46 +8,57 @@ Beat 2.3. Section 2. Rehearsal reference 1:00 of the area's 3:40. Section 2 rema
 
 **Title:** Export cited brief
 
-**Illustrative Export cited brief contract.**
+**Illustrative CUI/ECI export contract test. No deployed result claimed.**
 
-| Contract | Requirement |
+**Design**
+
+Export the exact checked draft to a permitted destination.
+
+| Contract requires | Model proposes |
 |---|---|
-| Input | Checked draft, citations, destination. |
-| Checks | Exact draft passed verification. Access and destination permitted. |
-| Output | Matching content and citations, with uncertainty preserved. Export receipt. |
-| Failure | Known failure or unknown outcome stays explicit. |
+| A destination permitted for these records | A destination outside the approved scope |
+
+**Expected result**
+
+Export rejected before transfer.
+
+**Evidence to check**
+
+Clear rejection reason. No export at that destination.
 
 ## Layout and visual
 
 - Display narrative number 24, the area kicker, and `mini-tools` throughout.
-- Use the area-specific FRB composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Keep the illustrative label visible. Preserve source identities, uncertainty, and the applicable access boundary.
+- Use the native destination comparison and expected checks in design brief §29. All visual values are defined there.
+- Keep the illustrative label visible. The mismatch illustrates a failed permission check for a well-formed request, not an observed deployed incident.
+- Consolidate the design, failure, and evidence into one composition. The comparison replaces duplicate failure prose and the earlier full contract table.
+- Use no real destination, credential, or controlled record. Keep the exact-checked-content condition visible and preserve the full contract in the talk track and shared FRB reference.
+- Keep text and the comparison editable. Show all content on entry with hard cuts and no internal builds.
 
 ## Talk track
 
 [0:00] **FRB APPLICATION**
 
-[0:00] Consider Export cited brief. Parsing and indexing are background services; the agent-facing export takes a checked draft, citations, and a permitted destination.
+[0:00] The FRB brief is ready for export. Our contract requires the exact draft that passed verification, its citations, and a destination permitted for these records.
 
-[0:10] The service must establish that the exact content being exported passed its checks. The caller saying it was checked is insufficient. Changed content requires renewed verification. Enforce access and the destination in code. Preserve citations, unresolved findings, and limitations rather than generating a fresh summary during export.
+[0:12] **Suppose the model requests an export to a destination outside that approved scope.** Its arguments can be well formed and still fail the permission check.
 
-[0:30] Return a receipt when completion is confirmed. If the operation fails or its outcome is unknown, say so explicitly. An MCP connection could expose this tool, but the application service must implement those guarantees.
+[0:24] The expected behavior is for the service to reject the request before transfer and return a clear reason. In a test, check both the rejection and the absence of an export at that destination. An error message alone does not establish that no transfer occurred.
 
-[0:45] The result now tells the execution controller what it can establish. Orchestration decides what happens next.
+[0:44] This preserves the CUI/ECI boundary. A permitted export must still retain the checked wording, citations, and uncertainty and return a matching receipt.
 
-[0:52] **A description guides the model. Code enforces the contract.**
+[0:55] This rejection is a known outcome. Orchestration next handles continuation and uncertainty after execution. **A description guides the model. Code enforces the contract.**
 
-[1:00] Advance to slide 25.
+[1:05] Advance to slide 25.
 
-Cut first: the sentence about exposing the contract through MCP. Never cut exact checked content, permitted destination, and unknown-outcome handling. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: receipt elaboration. Never cut illustrative status, the destination mismatch, rejection before transfer, the no-export check, or exact checked content. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Tools & Extensibility content; Anthropic, September and November 2025; MCP documentation, July 2026; OWASP, 2025; illustrative export contract. Research §0 and §3.
+- Anthropic, September and November 2025; MCP documentation, July 2026, rechecked September 2026; Agent Skills and OpenAI plugin documentation, checked September 2026; OWASP, 2025. Research §3 in `research/section-2.md`.
+- Illustrative export contract: Research §0 and §3, and `internal/frb-running-example.md`. The unapproved-destination case is an expected contract test, not a measured result.
+- Accepted content integration: `outlines/section-2-integration/03-tools-and-extensibility.md`. A2A remains in supporting Markdown.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the 4:10 area on the actual presentation machine. Preserve the execution boundary and the unapproved-destination example when trimming.

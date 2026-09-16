@@ -1,6 +1,6 @@
 # Slide 10: Model Selection, opening quote
 
-Beat 2.1. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.1. Section 2. Rehearsal reference 0:25 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -25,7 +25,7 @@ Agent Harness Engineering, April 2026
 
 [0:00] **“A decent model with a great harness beats a great model with a bad harness.”**
 
-[0:08] Osmani is describing his engineering experience. Evaluate the model inside the system you are building, because the surrounding context, tools, and control flow shape the result.
+[0:08] Osmani is describing his engineering experience. Evaluate the model inside the system you are building, because the surrounding context, tools, and control flow shape the result. First, establish what happens in one model call.
 
 [0:25] Advance to slide 11.
 

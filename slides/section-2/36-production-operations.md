@@ -1,47 +1,52 @@
-# Slide 36: AgentOps
+# Slide 36: Operating the system over time
 
-Beat 2.6. Section 2. Rehearsal reference 0:40 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.6. Section 2. Rehearsal reference 0:55 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** AgentOps · What and why
+**Kicker:** AgentOps · Foundations
 
-**Title:** AgentOps
-
-**What it is**
+**Title:** Operating the system over time
 
 Operate agentic systems with observability, enforced controls, and accountable response.
 
-**Why it matters**
+- **Trace:** The operations behind one task.
+- **Versioned configuration:** The versions and settings in use.
+- **Outcome metrics:** Quality, completion time, cost, and review work.
 
-Behavior, access, cost, and latency change over time.
-Failures need an accountable response.
+Recorded operations: Retrieve → Model → Verify → Export / hold. Identify the model operation as one span.
 
 ## Layout and visual
 
 - Display narrative number 36, the area kicker, and `mini-operating` throughout.
-- Use the definition-and-importance composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Give the definition and importance distinct blocks. The coding-agent connection stays in the talk track; no screenshot or user-example panel.
+- Use the foundations composition in design brief §32. All visual values are defined there.
+- Keep the definition above the three foundations. Place a compact native trace under its definition and identify one operation as a span.
+- This is recorded work, not a prescribed next-action loop. No durations, scores, or telemetry screenshots are invented.
+- Show the complete content on entry, with hard cuts and no internal reveal. Keep native text and diagram elements editable and the takeaway spoken.
 
 ## Talk track
 
-[0:00] **DEFINITION AND IMPORTANCE**
+[0:00] **FOUNDATIONS**
 
-[0:00] AgentOps means operating agentic systems with observability, enforced controls, and accountable response. Observability connects actions and outcomes. Guardrails constrain behavior. Identity and security establish access and authority. Governance assigns responsibility for changes and incidents. Permissions, execution limits, and usage information are familiar from coding agents; a deployed product needs a responsible team behind them.
+[0:00] **AgentOps operates the service across many runs and over time.** Orchestration controls one run. Here we connect observability, enforced controls, and accountable response as the system changes.
 
-[0:22] Models, prompts, records, permissions, and services can change without a corresponding application-code change. Quality, cost, latency, and access may change with them. New integrations also create combinations of capabilities that deserve a fresh review.
+[0:12] A trace connects the operations behind a task: retrieval, model calls, tools, checks, and the outcome. A span records one timed operation. These are observations of work, not access to the model's private reasoning.
 
-[0:40] Advance to slide 37.
+[0:29] Versioned configuration records the code, model and settings, prompts, retrieval setup, and tool contracts in use. A prompt edit or index refresh can change answers without an application-code release.
 
-Cut first: the terminology inventory. Never cut the accountable-operation definition. Cue times are rehearsal guides, not automatic playback timing.
+[0:42] Outcome metrics track useful completion and quality alongside time, cost, and review work. Quality judgments may arrive later or through samples. **API availability alone does not establish that the task succeeded.**
+
+[0:55] Advance to slide 37.
+
+Cut first: the full configuration inventory. Never cut the across-runs scope, trace/configuration/outcome connection, or API-health distinction. Cue times are rehearsal guides, not automatic playback timing.
+
+Backup: SLOs and error budgets remain in the integration review and Research §6, outside the visible copy and timed talk track.
 
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed AgentOps content; Rauch in Datadog, 2026; Willison, June 2025; OWASP; existing observability framing; illustrative FRB operating agreement. Research §0, §3, and §6.
+- OpenTelemetry trace and GenAI guidance; Google SRE operating guidance, checked September 2026. Research §6. The configuration inventory connects the preceding five areas.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the redistributed 4:10 AgentOps delivery and native playback on the actual presentation machine.

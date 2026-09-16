@@ -1,6 +1,6 @@
 # Slide 20: Tools & Extensibility, opening quote
 
-Beat 2.3. Section 2. Rehearsal reference 0:20 of the area's 3:40. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.3. Section 2. Rehearsal reference 0:20 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -25,7 +25,7 @@ Writing effective tools for agents, with agents, September 2025
 
 [0:00] **“Agents are only as effective as the tools we give them.”**
 
-[0:05] A tool is a contract between the system and a model caller. Its name, description, inputs, results, and execution rules all contribute to that contract.
+[0:05] A tool gives the model an operation it can request. The contract must make that operation useful to the caller and enforceable by the application.
 
 [0:20] Advance to slide 21.
 

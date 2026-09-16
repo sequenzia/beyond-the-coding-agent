@@ -1,6 +1,6 @@
 # Slide 19: Evidence for the FRB brief
 
-Beat 2.2. Section 2. Rehearsal reference 1:15 of the area's 4:05. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.2. Section 2. Rehearsal reference 1:15 of the area's 4:30. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -8,7 +8,7 @@ Beat 2.2. Section 2. Rehearsal reference 1:15 of the area's 4:05. Section 2 rema
 
 **Title:** Evidence for the FRB brief
 
-**Illustrative FRB evidence.**
+**Illustrative FRB evidence and retrieval failure.**
 
 **FRB-042-BRF r1 · August 19, 2026 · slide 6**
 
@@ -16,44 +16,55 @@ Beat 2.2. Section 2. Rehearsal reference 1:15 of the area's 4:05. Section 2 rema
 
 **FRB-042-MIN r2 · August 22, 2026 · §3, paragraph 2**
 
+Caption annotation: omitted in this failure.
+
 “Cause remains unresolved. Inspect the bearing before assigning a cause.”
 
-- **Select:** Relevant passages with their source identities.
-- **Retain:** Unresolved cause. Inspection required.
-- **Refresh:** Source versions and access before finalizing.
+**Design**
+
+Supply both passages with their source identities.
+
+**Failure**
+
+Retrieval misses the later minutes.
+
+**Evidence to check**
+
+Both passages reach the input. The summary preserves uncertainty and required inspection.
 
 ## Layout and visual
 
 - Display narrative number 19, the area kicker, and `mini-context` throughout.
-- Use the area-specific FRB composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Keep the illustrative label visible. Preserve source identities, uncertainty, and the applicable access boundary.
-- The briefing and minutes are different documents. Keep dates, revisions, and source locations attached to their editable excerpts.
+- Retain the two source excerpts and use the updated right-column application in design brief §28. All visual values are defined there.
+- Keep dates, document IDs, revisions, and source locations attached to the editable excerpts. They are different documents, not successive revisions of one file.
+- Mark the minutes as omitted in the hypothetical failing retrieval. Both passages remain visible so the audience can see what the model input lacks.
+- The evidence statement describes the expected condition to check, not a measured passing result. The detailed answer-support check stays on slide 34.
+- Keep the illustrative label visible. Show all content on entry with hard cuts and no internal builds.
 
 ## Talk track
 
 [0:00] **FRB APPLICATION**
 
-[0:00] The preliminary briefing, FRB-042-BRF revision one, slide six, says bearing wear is a possible cause. The later minutes, FRB-042-MIN revision two, section three, leave the cause unresolved and require inspection. These are different documents, with distinct identities and source locations.
+[0:00] The preliminary briefing identifies bearing wear as a possible cause. The later minutes leave the cause unresolved and require inspection. These are different documents with distinct identities and source locations.
 
-[0:20] Retrieve both relevant passages. Keep the unresolved cause and outstanding inspection in any working summary. When comparing other boards, keep their established findings attached to their own cases. Refresh versions and access before finalizing the brief. Missing, unreadable, or inaccessible evidence becomes an explicit limitation.
+[0:15] **Suppose retrieval returns the briefing but misses the minutes. The decisive passage never reaches the model.** This is our hypothetical failure, not a measured result.
 
-[0:43] The approved-processing constraint also applies to the services preparing this context. Focused evidence is a design to evaluate with the available model, not a promise that it removes every capability limit.
+[0:28] Inspect the path. Were the minutes available and readable within the authorized scope? Did retrieval return the passage? Did context assembly retain it? Those checks locate where the information was lost.
 
-[0:58] The next question is how the system obtains information and acts on it. That is the tool contract.
+[0:44] The expected input includes both passages and their references. A working summary preserves the unresolved cause and required inspection. Refresh revisions and access before finalizing. Missing or unreadable evidence remains an explicit limitation. Preparation services stay within the same approved processing boundary.
 
-[1:07] **Context is a budget, not a bucket.**
+[1:05] Next, Tools & Extensibility explains the operations that obtain information and act on it. **Context is a budget, not a bucket.**
 
 [1:15] Advance to slide 20.
 
-Cut first: the comparison-case reminder. Never cut the distinct source identities and preserved uncertainty. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the detailed availability investigation. Never cut illustrative status, the two source identities, the missing-minutes failure, uncertainty and inspection, or the processing boundary. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Context Engineering content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
+- Anthropic, September 2024 and September 2025, primer passages rechecked September 2026; existing context, memory, and access guidance. Research §0 and §2 in `research/section-2.md`, with inherited eligibility and authorization boundaries in §1 and §3.
+- Illustrative packet and contracts: `internal/frb-running-example.md`. The missing-minutes failure is a teaching scenario, not a measured result. No retrieval method is an assumed winner.
+- Accepted content integration: `outlines/section-2-integration/02-context-engineering.md`.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the 4:30 area on the actual presentation machine. Preserve the conceptual evidence path and the missing-minutes application when trimming.

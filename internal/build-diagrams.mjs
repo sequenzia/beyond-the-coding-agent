@@ -1,5 +1,6 @@
 // Regenerates every diagram variant and render from the base landscape SVG.
-// Usage: node internal/build-diagrams.mjs
+// Usage: node internal/build-diagrams.mjs [--full-only]
+// --full-only updates map-full.png without writing other variants or renders.
 // Needs Node and Google Chrome. Writes the -yours variant beside the base,
 // highlight states and mini-map variants to internal/generated/, PNGs to internal/renders/.
 // Values come from style/design-brief.md section 8.
@@ -16,12 +17,52 @@ const yoursPath = join(here, 'anatomy-of-an-agentic-ai-system-landscape-yours.sv
 const genDir = join(here, 'generated');
 const renderDir = join(here, 'renders');
 const chrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const args = process.argv.slice(2);
+if (args.length > 1 || (args.length === 1 && args[0] !== '--full-only')) {
+  throw new Error('Usage: node internal/build-diagrams.mjs [--full-only]');
+}
+const fullOnly = args[0] === '--full-only';
 
 const C = {
   bg: '#14161c', primary: '#fffcf5', secondary: '#adaca9',
   pink: '#f948be', blue: '#1064f8', green: '#01b66d', amber: '#fdad00',
 };
 const base = readFileSync(basePath, 'utf8');
+
+// Renders through headless Chrome, which resolves system Helvetica.
+mkdirSync(renderDir, { recursive: true });
+// Chrome writes the screenshot within seconds and then keeps running for its updater service,
+// so the launch is asynchronous: wait for the PNG to land and stop growing, then stop Chrome.
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+async function render(svgPath, pngPath, width, height, scale) {
+  const profile = mkdtempSync(join(tmpdir(), 'diagram-chrome-'));
+  rmSync(pngPath, { force: true });
+  const child = spawn(chrome, [
+    '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
+    `--user-data-dir=${profile}`, `--force-device-scale-factor=${scale}`, `--window-size=${width},${height}`,
+    `--screenshot=${resolve(pngPath)}`, `file://${resolve(svgPath)}`,
+  ], { stdio: 'ignore' });
+  const deadline = Date.now() + 60000;
+  let lastSize = -1;
+  let stable = 0;
+  while (Date.now() < deadline) {
+    await sleep(250);
+    if (!existsSync(pngPath)) continue;
+    const size = statSync(pngPath).size;
+    if (size > 0 && size === lastSize) { if (++stable >= 2) break; } else { stable = 0; lastSize = size; }
+  }
+  child.kill('SIGTERM');
+  await sleep(300);
+  child.kill('SIGKILL');
+  rmSync(profile, { recursive: true, force: true });
+  if (!existsSync(pngPath)) throw new Error(`render timed out: ${pngPath}`);
+}
+
+if (fullOnly) {
+  await render(basePath, join(renderDir, 'map-full.png'), 1920, 1080, 2);
+  console.log('wrote map-full.png');
+  process.exit(0);
+}
 
 // Every rect with a box- id: geometry the variants need.
 const boxes = {};
@@ -66,15 +107,19 @@ for (const [name, keep] of Object.entries(states)) {
 }
 
 // 3. Mini-map variants: text-free, respaced, one state per area plus all.
-const mini = {
-  identity: [72, 195, 560, 100], security: [680, 195, 560, 100], data: [1288, 195, 560, 100],
-  goal: [100, 578, 300, 140], model: [475, 578, 210, 140],
-  orchestration: [762, 530, 328, 80], tools: [1130, 530, 328, 80],
-  context: [762, 636, 328, 80], guardrails: [1130, 636, 328, 80],
-  instructions: [762, 742, 328, 80], verification: [1130, 742, 328, 80],
-  stop: [1550, 578, 298, 140],
-  observability: [72, 928, 560, 100], evaluations: [680, 928, 560, 100], governance: [1288, 928, 560, 100],
-};
+const mini = Object.fromEntries(Object.entries(boxes)
+  .filter(([id]) => id !== 'harness')
+  .map(([id, b]) => [id, [b.x, b.y, b.w, b.h]]));
+// Keep the compact layout's wider gaps while following the base's vertical positions.
+for (const row of [['identity', 'security', 'data'], ['observability', 'evaluations', 'governance']]) {
+  row.forEach((id, col) => { mini[id] = [72 + col * 608, boxes[id].y, 560, 100]; });
+}
+const miniRows = [['orchestration', 'tools'], ['context', 'guardrails'], ['instructions', 'verification']];
+miniRows.forEach((row, index) => {
+  row.forEach((id, col) => {
+    mini[id] = [boxes.harness.x + 17 + col * 368, boxes.harness.y + 84 + index * 106, 328, 80];
+  });
+});
 const areas = {
   models: { color: C.blue, boxes: ['model'] },
   context: { color: C.pink, boxes: ['context', 'instructions', 'data'] },
@@ -90,7 +135,7 @@ function miniSvg(state) {
   const outline = `fill="none" stroke="${C.secondary}" stroke-width="18"`;
   let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="160" height="90">\n`;
   s += `  <rect width="1920" height="1080" fill="${C.bg}"/>\n`;
-  s += `  <rect x="745" y="446" width="730" height="404" rx="20" ${outline}/>\n`;
+  s += `  <rect x="${boxes.harness.x}" y="${boxes.harness.y}" width="${boxes.harness.w}" height="${boxes.harness.h}" rx="20" ${outline}/>\n`;
   for (const [id, [x, y, w, h]] of Object.entries(mini)) {
     s += lit[id]
       ? `  <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="${lit[id]}"/>\n`
@@ -105,34 +150,6 @@ for (const state of [...Object.keys(areas), 'all']) {
   miniFiles[state] = p;
 }
 
-// 4. Renders through headless Chrome, which resolves system Helvetica.
-mkdirSync(renderDir, { recursive: true });
-// Chrome writes the screenshot within seconds and then keeps running for its updater service,
-// so the launch is asynchronous: wait for the PNG to land and stop growing, then stop Chrome.
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-async function render(svgPath, pngPath, width, height, scale) {
-  const profile = mkdtempSync(join(tmpdir(), 'diagram-chrome-'));
-  rmSync(pngPath, { force: true });
-  const child = spawn(chrome, [
-    '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
-    `--user-data-dir=${profile}`, `--force-device-scale-factor=${scale}`, `--window-size=${width},${height}`,
-    `--screenshot=${resolve(pngPath)}`, `file://${resolve(svgPath)}`,
-  ], { stdio: 'ignore' });
-  const deadline = Date.now() + 60000;
-  let lastSize = -1;
-  let stable = 0;
-  while (Date.now() < deadline) {
-    await sleep(250);
-    if (!existsSync(pngPath)) continue;
-    const size = statSync(pngPath).size;
-    if (size > 0 && size === lastSize) { if (++stable >= 2) break; } else { stable = 0; lastSize = size; }
-  }
-  child.kill('SIGTERM');
-  await sleep(300);
-  child.kill('SIGKILL');
-  rmSync(profile, { recursive: true, force: true });
-  if (!existsSync(pngPath)) throw new Error(`render timed out: ${pngPath}`);
-}
 const full = { 'map-full': basePath, 'map-yours': yoursPath, 'map-model': stateFiles.model, 'map-harness': stateFiles.harness, 'map-per-run': stateFiles['per-run'], 'map-across-runs': stateFiles['across-runs'] };
 for (const [name, p] of Object.entries(full)) await render(p, join(renderDir, `${name}.png`), 1920, 1080, 2);
 for (const [state, p] of Object.entries(miniFiles)) await render(p, join(renderDir, `mini-${state}.png`), 160, 90, 4);

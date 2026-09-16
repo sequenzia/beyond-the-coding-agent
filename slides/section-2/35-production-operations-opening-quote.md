@@ -1,6 +1,6 @@
 # Slide 35: AgentOps, opening quote
 
-Beat 2.6. Section 2. Rehearsal reference 0:25 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.6. Section 2. Rehearsal reference 0:25 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 

@@ -1,6 +1,6 @@
 # Slide 38: Risks across integrations
 
-Beat 2.6. Section 2. Rehearsal reference 0:45 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.6. Section 2. Rehearsal reference 0:45 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -28,9 +28,9 @@ A probabilistic filter is insufficient as the sole security boundary.
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **Combining private data, untrusted content, and outbound access without reviewing the risk.** Willison describes private data, untrusted content, and external communication combining into a potential path for data theft. A document can contain instructions, and an outbound request can carry information. Review the combined path and break or constrain it.
+[0:00] **Combining private data, untrusted content, and outbound access without reviewing the risk** is the headline pitfall. Willison describes how these capabilities can combine into a path for data theft. An internal attachment can contain untrusted instructions, and an outbound request can carry information.
 
-[0:27] This is one threat model, not a complete safety test. A probabilistic filter can contribute to protection but is insufficient as the sole security boundary.
+[0:23] Review the combined capabilities when integrations change. Break or constrain the path, and enforce the permitted scope outside the model. This is one threat model, not a complete safety test. **A probabilistic filter is insufficient as the sole security boundary.**
 
 [0:45] Advance to slide 39.
 

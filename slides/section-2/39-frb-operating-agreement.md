@@ -1,51 +1,54 @@
-# Slide 39: FRB operating agreement
+# Slide 39: Operating an FRB release
 
-Beat 2.6. Section 2. Rehearsal reference 1:00 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.6. Section 2. Rehearsal reference 1:05 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
 **Kicker:** AgentOps · FRB application
 
-**Title:** FRB operating agreement
+**Title:** Operating an FRB release
 
-**Illustrative proposed operating agreement.**
+**Illustrative release incident.**
 
-| Responsibility | FRB rule |
+| Incident | FRB example |
 |---|---|
-| Approved scope | Records, services, destinations, traces, and eval artifacts. |
-| Evidence and signals | Revisions, checks, export state. Quality, freshness, cost, latency. |
-| Response | Enforced limits. An assigned, authorized responder. |
-| Accountability | Review changes. People own official findings and records. |
+| Change | An approved model/configuration update reaches a controlled cohort. |
+| Signal | APIs stay healthy. Unsupported drafts and review work increase. |
+| Response | Pause the rollout. Inspect traces. Restore the tested configuration when indicated. |
+
+Failed drafts remain blocked from export.
 
 ## Layout and visual
 
 - Display narrative number 39, the area kicker, and `mini-operating` throughout.
-- Use the area-specific FRB composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Keep the illustrative label visible. Preserve source identities, uncertainty, and the applicable access boundary.
+- Use the qualitative incident record in design brief §32. All visual values are defined there.
+- Keep the illustrative label and export-gate statement visible. Use a native editable table with no invented scores, rollout percentages, or charts.
+- The operating agreement remains supporting material in the shared FRB contract. Preserve approved processing, uncertainty, and human authority in the talk track.
+- Show the complete content on entry, with hard cuts and no internal reveal. Keep the takeaway spoken.
 
 ## Talk track
 
 [0:00] **FRB APPLICATION**
 
-[0:00] The operating agreement carries forward our approved processing scope and permitted export destinations. Apply those restrictions to derived context, traces, and evaluation artifacts too.
+[0:00] In this fictional rollout, an approved model/configuration update reaches a controlled group of FRB requests. The APIs remain healthy, but more drafts overstate unresolved causes and require authorized review. **The source-support gate still blocks failing drafts from export.** The controls work, but useful completion and review effort worsen.
 
-[0:11] Connect each brief to the source revisions, actions, checks, and export receipt or unknown state. Monitor supported findings, freshness, parsing and tool failures, cost per completed brief, and latency. Assign an authorized responder for failed checks, missing evidence, exhausted budgets, and unresolved export outcomes.
+[0:21] The assigned operator pauses the rollout, compares similar tasks by configuration, and inspects protected traces and source revisions. The association starts investigation; it does not prove root cause. Restore a tested compatible configuration when the rollback condition is met. Data and permission constraints still apply.
 
-[0:31] **People remain responsible for official causes, decisions, and board records.** If failures increase, the team investigates the evidence, repairs the responsible component, reruns the relevant evals, and monitors after the change. Useful controls and signals need people accountable for acting on them.
+[0:43] Review pending work and any completed effects separately. Keep the existing source-support regression case, add newly understood variants, rerun relevant evals, and monitor recovery. **People remain responsible for official causes, decisions, and board records.**
 
-[0:50] **The system needs evidence of its behavior and people accountable for responding.**
+[0:58] **The system needs evidence of its behavior and people accountable for responding.**
 
-[1:00] Advance to slide 40.
+[1:05] Advance to slide 40.
 
-Cut first: the detailed metric inventory. Never cut protected evidence and human authority over official FRB records. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the repeated explanation of suite maintenance. Never cut healthy APIs versus degraded outcomes, the export gate, accountable containment, approved processing scope, or human authority. Cue times are rehearsal guides, not automatic playback timing.
+
+Supporting artifact: the operating agreement and release incident in `internal/frb-running-example.md`. The integration review retains the fuller configuration record, SLO/error-budget backup, and comparison caveats.
 
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed AgentOps content; Rauch in Datadog, 2026; Willison, June 2025; OWASP; existing observability framing; illustrative FRB operating agreement. Research §0, §3, and §6.
+- Illustrative release incident and operating agreement, Research §0, §5, and §6; Google SRE release guidance, checked September 2026. No real rollout, measured regression, or named model approval is claimed.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the redistributed 4:10 AgentOps delivery and native playback on the actual presentation machine.

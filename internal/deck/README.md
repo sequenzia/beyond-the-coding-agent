@@ -2,7 +2,7 @@
 
 This directory is the editable source for the PowerPoint deck. Keep these files in Git. `.deck-build/` contains disposable build snapshots, intermediate PPTX files, renders, and validation reports. The builder never reads from an older build directory.
 
-**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 47 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-1-numbering-map.json`; the prior Section 2 map remains a historical authoring record. Layout rules are in design brief §§23 through 25. The compiler and notes tests cover the new numbering.
+**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 47 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-1-numbering-map.json`; the prior Section 2 map remains a historical authoring record. Layout rules are in design brief §§23 through 32. The compiler and notes tests cover the new numbering.
 
 ## Rebuild
 
@@ -67,13 +67,13 @@ The launcher itself needs Node on `PATH`. If it is unavailable, invoke `build.mj
 
 Current area names: Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. `AREA_NAMES` in `author.mjs` supplies the agenda, area headers, competency table, and recap. Preserve map visuals and assets on slides 9 and 40. Their narration may use the current area names. Design brief §26 defines the naming update and wrapped recap labels. Dated revision history below retains the names used at the time.
 
-The six standalone user screens and screenshot placeholders are removed. Each area now has an opening quote, a combined definition-and-importance screen, decisions, pitfalls, and an FRB application. The six quote illustrations and anatomy renders remain in `internal/`. Quote text, definitions, decisions, pitfalls, and application evidence remain editable native objects. Visible copy is explicit in `section2Areas` and the associated compositions in `author.mjs`; speaker notes load from the numbered specs.
+The six standalone user screens and screenshot placeholders are removed. Each area now has an opening quote, a combined definition-and-importance screen (technical foundations in all six areas), decisions, pitfalls, and an FRB application. The six quote illustrations and anatomy renders remain in `internal/`. Quote text, definitions, decisions, pitfalls, and application evidence remain editable native objects. Visible copy is explicit in `section2Areas` and the associated compositions in `author.mjs`; speaker notes load from the numbered specs.
 
 ### Builds and slide numbering
 
 The opening order is title (1), unchanged bio (2), agenda (3), Section 1 divider (4), code metaphor (5), thesis (6), comparison and Production readiness (7), then Section 2 divider (8). All three dividers use the same component. The title and hook are now separate static compositions.
 
-There are 47 narrative slides, 47 authored compositions, and 54 physical PowerPoint slides. Each narrative slide has one authored composition. The compiler creates another 7 slides at replacement boundaries. There are 55 presentation states, one internal click, no Morph transitions, and 54 advances. Section 2 remains 25:00 to 29:00, with a 27:00 rehearsal reference; Section 1 is 4:00 and Section 3 is 4:30. The presentation is approximately 33:30 to 37:30; discussion fills the rest of the 50-minute session.
+There are 47 narrative slides, 47 authored compositions, and 54 physical PowerPoint slides. Each narrative slide has one authored composition. The compiler creates another 7 slides at replacement boundaries. There are 55 presentation states, one internal click, no Morph transitions, and 54 advances. Section 2 remains 25:00 to 29:00, with a 28:30 rehearsal reference; Section 1 is 4:00 and Section 3 is 4:30. The presentation is approximately 33:30 to 37:30; discussion fills the rest of the 50-minute session.
 
 Every physical slide has an editable narrative number from 1 through 47. Continuations repeat their narrative number. The number is added last so images and bands cannot cover it. Its geometry and typography live in design brief section 6.
 

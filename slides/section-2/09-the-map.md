@@ -1,6 +1,6 @@
 # Slide 9: The map
 
-Beat 2.0. Section 2. Rehearsal reference 1:50. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. Six map states; five hard-cut advances.
+Beat 2.0. Section 2. Rehearsal reference 1:50. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. Six map states; five hard-cut advances.
 
 ## On the slide
 
@@ -37,7 +37,7 @@ Observability, evaluations, and governance let the team learn from and control m
 
 [1:02] **FULL MAP**
 
-You encounter these components in coding agents such as Codex CLI and Devin. Each area begins with a quote, then what it is and why it matters, the decisions, pitfalls, and an applied example.
+You encounter these components in coding agents such as Codex CLI and Devin. Each area begins with a quote, then its foundations, decisions, pitfalls, and an applied example. Model Selection starts with a short technical primer. Context Engineering explains how we assemble its input. Tools & Extensibility explains how requested operations execute.
 
 [1:20] **We will carry one invented example throughout: a system that researches Failure Review Boards, compares related cases, and exports a cited brief.** The request is to summarize FRB-042, compare similar shutdowns, and distinguish possible causes from established findings. **People remain responsible for official causes, decisions, and board records.**
 

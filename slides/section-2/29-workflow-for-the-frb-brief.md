@@ -1,60 +1,61 @@
-# Slide 29: Workflow for the FRB brief
+# Slide 29: Recovery after an uncertain export
 
-Beat 2.4. Section 2. Rehearsal reference 1:25 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.4. Section 2. Rehearsal reference 1:10 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
 **Kicker:** Orchestration · FRB application
 
-**Title:** Workflow for the FRB brief
+**Title:** Recovery after an uncertain export
 
-**Illustrative bounded workflow.**
+**Illustrative permitted export and recovery test.**
 
-1. Retrieve the packet.
-2. Inspect evidence.
-3. Compare cases.
-4. Reconcile findings.
-5. Verify the brief.
-6. Export.
+| Orchestrator | Export service |
+|---|---|
+| Record and dispatch export | Export occurs |
+| Outcome unknown | Response lost before reaching the caller |
+| Inspect export state | Receipt and artifact |
 
-**Export only after checks pass on the exact draft.**
+**Evidence to check**
 
-Inspect an unknown export outcome before deciding whether to retry.
+Matching receipt and checked artifact. No duplicate export.
+
+**If unresolved:** Pause or hand off with uncertainty intact.
 
 ## Layout and visual
 
 - Display narrative number 29, the area kicker, and `mini-orchestration` throughout.
-- Use the area-specific FRB composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Keep the illustrative label visible. Preserve source identities, uncertainty, and the applicable access boundary.
-- Keep the six-step workflow visible. The detailed outcome-response branches remain spoken, not a second table. No audience pause.
+- Use the native two-lane recovery sequence in design brief §30. All visual values are defined there.
+- Distinguish the service-side export from caller-side uncertainty. Mark the lost response and show the subsequent state inspection.
+- This is a separate permitted export of the checked draft, not a continuation that bypasses the rejected destination on slide 24.
+- The evidence statement describes expected checks. The scenario does not claim a measured recovery, successful mitigation, or implemented service guarantee.
+- The six-stage workflow now appears on slide 26. Operation-reference mechanics and qualified idempotency stay in the talk track and shared reference.
+- Keep text and diagram elements editable. Show the complete content on entry with hard cuts and no internal builds.
 
 ## Talk track
 
-[0:00] **FRB APPLICATION**
+[0:00] **FRB RECOVERY APPLICATION**
 
-[0:00] Begin with six stages: retrieve the packet, inspect evidence, compare cases, reconcile findings, verify the brief, and export. Model judgment operates within stages. Code preserves the conditions for moving to export.
+[0:00] This is a separate export to a permitted destination, using the exact checked draft. Suppose the service creates the brief, but the response never reaches the caller.
 
-[0:14] Save the source revisions, working draft, completed stages, and check results. A changed draft needs verification again. Changed evidence on resume returns the affected work to inspection and reconciliation.
+[0:14] **Record outcome unknown. Check the export state before deciding whether to retry.** Use the intended operation's reference to inspect its receipt and output. A matching checked artifact can establish completion without another export.
 
-[0:28] If the matching export receipt confirms completion, return it. If a confirmed failure establishes that export did not complete, address the cause and retry only within policy and the remaining budget. If completion is unknown, inspect the export state. If it remains unknown, preserve that uncertainty and hand off.
+[0:33] **Idempotency means retrying the same intended operation does not duplicate its effects.** The service must support that contract. An identifier in our log alone is insufficient.
 
-[0:50] At a work limit, stop and state what is incomplete. A limited brief still needs its checks before export. Independent comparisons could become worker assignments later, but remain within the same approved scope and cannot export on their own.
+[0:48] If the outcome remains uncertain, pause or hand off. Recheck permissions and freshness when work resumes, and repeat verification if the draft changes. Reaching a work limit does not make an incomplete brief complete.
 
-[1:09] The workflow now has a verification stage. Next, we define what its checks should establish.
+[1:02] Next, Verification & Evals explains what the checks should establish. **The loop is where autonomy gets its limits. Start with the workflow.**
 
-[1:15] **The loop is where autonomy gets its limits. Start with the workflow.**
+[1:10] Advance to slide 30.
 
-[1:25] Advance to slide 30.
-
-Cut first: the optional-worker reminder. Never cut the verification gate, safe retry rule, and explicit incomplete outcome. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: detailed operation-reference mechanics. Never cut permitted-export status, outcome uncertainty, reconciliation before retry, the qualified idempotency definition, or explicit incomplete/handoff status. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Orchestration content; Anthropic, December 2024, June and November 2025; 12-Factor Agents; illustrative workflow and recovery contract. Research §0, §3, and §4.
+- Anthropic, December 2024, June and November 2025; LangChain checkpoint documentation and Featonby, Amazon Builders' Library, checked September 2026. Research §4 in `research/section-2.md`.
+- Illustrative workflow and recovery contract: Research §0, §3, and §4, and `internal/frb-running-example.md`. The permitted-export timeout is a separate teaching scenario from Tools' rejection case.
+- Accepted integration: `outlines/section-2-integration/04-orchestration.md`. No framework choice, measured recovery result, or universal retry guarantee is claimed.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the retained 3:55 allocation on the actual presentation machine. The foundations slide gains 0:15 and the focused recovery application gives up 0:15. Preserve the workflow gate and safe recovery distinction when trimming.

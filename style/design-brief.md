@@ -325,7 +325,7 @@ The deck has 26 narrative slides, 28 authored compositions, and 56 physical Powe
 
 ## 8. Diagram re-theme
 
-**Source of truth.** `internal/anatomy-of-an-agentic-ai-system-landscape.svg`, hand-edited, in the dark theme below, with a `<g id>` per layer. Every other diagram file is generated from it by `internal/build-diagrams.mjs`: the `-yours` variant beside it, the four highlight states and seven mini-map variants under `internal/generated/`, and the PNG renders under `internal/renders/`. Edit the base, run the script, and every variant and render follows.
+**Source of truth.** `internal/anatomy-of-an-agentic-ai-system-landscape.svg`, hand-edited, in the dark theme below, with a `<g id>` per layer. Every other diagram file is generated from it by `internal/build-diagrams.mjs`: the `-yours` variant beside it, the four highlight states and seven mini-map variants under `internal/generated/`, and the PNG renders under `internal/renders/`. All variants follow the approved full map. The default command regenerates everything. Use `--full-only` when reviewing a future change to the full map before propagating it.
 
 ### Color mapping
 
@@ -333,8 +333,8 @@ The deck has 26 narrative slides, 28 authored compositions, and 56 physical Powe
 |---|---|
 | Canvas | `#14161c` |
 | Title | 40 units (20) Bold primary. Kept in the SVG because slide 7 uses it as the slide title |
-| Platform, One run, Agent containers | no fill. 2 unit (1) stroke `#4c4d50`. One run keeps its dash, 12 8. Labels 40 units Bold primary. Descriptions 24 units Regular secondary |
-| Per-run and Across-runs row labels | 32 units Bold primary. Descriptions 24 units Regular secondary |
+| Outer frame, One run, Agent containers | no fill. 2 unit (1) stroke `#4c4d50`. One run keeps its dash, 12 8. One run and Agent labels 40 units Bold primary. Descriptions 24 units Regular secondary. The outer frame has no label or description |
+| Per-run and Across-runs row labels | 32 units Bold primary. No row descriptions |
 | The 13 generic boxes | fill `#303236`, no stroke. Title 32 units (16) Bold primary. Subtitle 24 units (12) Regular secondary |
 | Model | fill `#13223f`, 4 unit (2) stroke `#1064f8`. Title `#1064f8`. Subtitle secondary, two lines |
 | Harness | fill `#2b1b2c`, 4 unit stroke `#f948be`. Label `#f948be`. Description secondary. The six inner boxes as generic boxes |
@@ -349,7 +349,9 @@ The deck has 26 narrative slides, 28 authored compositions, and 56 physical Powe
 
 ### Layout
 
-The harness grid is re-laid so every 32 unit title fits on one line: two columns of 340 with a 16 gap, three rows of 90 with 12 gaps, inside a harness 730 wide. The width came from the Model box, now 210, and the stopping-condition box, now 298, whose title runs to three lines. Goal is 300 wide with its subtitle on two lines. Model, Goal, and the stopping condition are 140 tall and share a center line with the harness. The exact coordinates live in the SVG, not here.
+The harness grid is re-laid so every 32 unit title fits on one line: two columns of 340 with a 16 gap, three rows of 90 with 12 gaps, inside a harness 730 wide. Model is 210 wide. The stopping-condition box is 270 wide, with its title centered on three lines. Goal is 300 wide with its subtitle on two lines. Model, Goal, and the stopping condition are 140 tall and share a center line with the harness. The exact coordinates live in the SVG, not here.
+
+The full map retains the outer frame without the Platform heading or description. The per-run headings include "Identity & Access Management" and "External Data & Retrieval". The latter keeps "RAG, vector stores, connectors" as its subtitle. Per-run services and Across runs have no row descriptions. There are 33 units from the Per-run services heading baseline to its card row, and 25 units from that row's bottom to the dashed border. The Across runs heading baseline is 50 units below the dashed border, leaving space above the letters. This adds 16 units of breathing room below Per-run services and above Across runs compared with the first full-map revision. The execution contents and arrows move together to preserve their alignment. One run has 28 units of geometric clearance to Goal on the left, the stopping-condition box on the right, and Agent at the bottom. Typography, strokes, colors, and the internal harness layout are unchanged.
 
 ### Highlight states
 
@@ -357,12 +359,12 @@ A highlight state sets every layer group except the named one to opacity 0.3: `m
 
 ### Mini-map variant
 
-A text-free variant of the base for the 160 by 90 mini-map. Same boxes and the harness container, nothing else. Outlines 18 units, which is 1.5 at 160 wide, in `#adaca9`, no fill. Box radius 14 units, container radius 20. The harness rows and the per-run and across-runs boxes are respaced so their gaps survive at a twelfth of the size: harness boxes 328 by 80 in two columns with a 40 gap and three rows with 26 gaps; the row boxes 560 wide with 48 gaps. A lit box is filled in its area color with no stroke. Seven states: `mini-models`, `mini-context`, `mini-tools`, `mini-orchestration`, `mini-evals`, `mini-operating`, `mini-all`, lighting the boxes the area table in section 5 names. Fallback if the mini renders read as clutter on the venue screen: a four-layer schematic drawn as four native rounded rectangles.
+A text-free variant of the base for the 160 by 90 mini-map. Same boxes and the harness container, nothing else. Outlines 18 units, which is 1.5 at 160 wide, in `#adaca9`, no fill. Box radius 14 units, container radius 20. The harness rows and the per-run and across-runs boxes are respaced so their gaps survive at a twelfth of the size: harness boxes 328 by 80 in two columns with a 40 gap and three rows with 26 gaps; the row boxes 560 wide with 48 gaps. The row positions, Goal, Model, stopping condition, and harness frame inherit their geometry from the base. The compact harness grid begins 17 units from the frame's left edge and 84 units below its top. A lit box is filled in its area color with no stroke. Seven states: `mini-models`, `mini-context`, `mini-tools`, `mini-orchestration`, `mini-evals`, `mini-operating`, `mini-all`, lighting the boxes the area table in section 5 names. Fallback if the mini renders read as clutter on the venue screen: a four-layer schematic drawn as four native rounded rectangles.
 
 ### Production path
 
 1. Edit the base SVG. Keep the layer groups: `title`, `platform`, `per-run`, `one-run`, `goal`, `agent`, `model`, `plus`, `harness`, `stop`, `arrows`, `across-runs`. Keep the `box-` ids on the rectangles; the generator reads them for badges and mini-maps.
-2. Run `node internal/build-diagrams.mjs`. It writes the `-yours` variant, the highlight states, the mini variants, and renders every PNG through headless Chrome, which resolves system Helvetica. It needs Node and Google Chrome and nothing else.
+2. During full-map review, run `node internal/build-diagrams.mjs --full-only` to update only `internal/renders/map-full.png`. After approval, run `node internal/build-diagrams.mjs` to write the `-yours` variant, the highlight states, the mini variants, and every PNG. Both modes render through headless Chrome, which resolves system Helvetica. They need Node and Google Chrome and nothing else.
 3. Renders: `map-full`, `map-model`, `map-harness`, `map-per-run`, `map-across-runs`, `map-yours` at 3840 by 2160, and the seven `mini-` files at 640 by 360, all in `internal/renders/`.
 4. Confirm the render is Helvetica and not a fallback face by comparing a title against the deck.
 
@@ -785,3 +787,214 @@ This section supersedes earlier displayed area names and recap-label geometry. T
 Keep the existing area colors, quote illustrations, mini-maps, and content geometry. Preserve every visual state and asset of slides 9 and 40. Narration may use the current area names. No diagram regeneration is required. All slide counts, timing references, and transitions remain unchanged.
 
 Slide 44 keeps its six 60-point bands, 6-point gaps, 272-point label blocks, and existing pitfall sentences. Label boxes use x 48, width 208, height 54, y equal to the band top plus 3, Helvetica Bold 20, 1.25 line spacing, and vertical centering. Wrap Context Engineering after Context, Tools & Extensibility after &, and Verification & Evals after Verification. Model Selection, Orchestration, and AgentOps stay on one line. Preserve the area-specific label colors.
+
+## 27. Model Selection integration, September 16, 2026
+
+The accepted sequence is quote, shared technical primer, decisions, pitfalls, and FRB application. It retains narrative slides 10 through 14, hard cuts, and no internal builds. Model Selection has a 4:30 reference. Section 2 now totals 27:35 within the existing range. Preserve the shared header, mini-map, area blue, native numbering, and all unrelated compositions.
+
+### Slide 11: model invocation primer
+
+This replaces the two-column definition composition for Model Selection only. Use one native editable invocation diagram with three connected text groups, followed by three annotation rows and a responsibility line. Keep the background clear of cards and decorative borders.
+
+- Columns start at x 48, 356, and 664, each width 248. Labels at y 192, height 30, Helvetica Bold 20 in area blue. Bodies at y 230, height 64, Helvetica Regular 20. Deliberately wrap input after "request," and output after "or". Inference reads "Run a trained model" then "with selected settings."
+- Native horizontal arrows connect the groups at y 255, from x 308 to 340 and from x 616 to 648. Use the shared secondary 2-point connector style. The arrows describe input and output flow, not execution authority.
+- Annotation rows begin at y 320, 360, and 400. Labels at x 48, width 216, height 30, Bold 20 in area blue. Explanations at x 292, width 620, height 30, Regular 20. Rows define tokens, context capacity, and reasoning settings. Context accounting applies to the whole call, not only supplied input.
+- The selection responsibility uses x 48, y 458, width 864, height 30, Regular 20. Keep it to one line. The fuller choose-and-maintain definition remains spoken.
+
+### Slide 12: selection decisions
+
+Use the existing three-row decisions composition at y 192, 292, and 392. Labels at x 48, width 272, height 82, Helvetica Bold 24. Explanations at x 344, width 568, height 82, Regular 20. The sequence is eligible options, required quality, and task efficiency. Routing and model changes remain spoken.
+
+### Slide 13: pitfalls
+
+Keep the existing three-row geometry and headline-pitfall placement. The cue labels are Capacity, Effort, and Cost. Preserve the exact headline sentence and its existing line break. Slide 44 remains unchanged.
+
+### Slide 14: FRB design and scorecard
+
+This replaces the earlier full-width starting-design table for Model Selection only. Preserve the illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text. The deployment constraint begins at x 48, y 224, width 864, height 50, Regular 20. Break before "for this synthesis."
+
+- Left application column: x 48, width 420. Design label at y 292 and failure label at y 408, each height 30, Bold 20 in area blue. Bodies begin at y 326 and 442, heights 64 and 50, Regular 20. Use two lines for each body.
+- Right scorecard: title at x 492, y 292, width 420, height 30, Bold 20 in area blue. Native table at x 492, y 330, width 420. Columns are 100 and 320. Row heights are 30, 50, 30, and 50, ending at y 490. Header and cells use Helvetica 20. Headers are Bold in area blue; cells are primary text. Use zero margins, no banding, and no visible borders, matching existing native evidence tables.
+- The table has Measure and Evidence to collect columns, then Quality, Time, and Cost rows. Two-line entries describe supported findings and preserved uncertainty, and all attempts and review per successful brief. Completion time fits one line. Never place invented values or candidate rankings in this table.
+
+The design, failure, and evidence remain one applied example. Full source identities, failure diagnosis, narrower assisted scope, and the unchanged evidence requirement remain in the talk track.
+
+## 28. Context Engineering integration, September 16, 2026
+
+The accepted sequence is quote, working-context foundations, conceptual retrieval decisions, pitfalls, and the missing-minutes FRB application. Preserve narrative slides 15 through 19, static entry, hard cuts, the Context Engineering pink, mini-maps, and native numbering. Context Engineering has a 4:30 reference and Section 2 totals 28:00. Existing anatomy assets are not regenerated by this content pass.
+
+### Slide 16: context assembly
+
+Replace the former definition columns with one native editable context-assembly diagram. Stored memory and authoritative records sit outside the assembled input, with selected information flowing into it. This uses the same text and connector language as the Model Selection invocation.
+
+- Left sources: x 48, width 300. Memory label at y 192 and authoritative-records label at y 352, each height 30, Helvetica Bold 20 in area pink. Memory body at y 230, height 54, Regular 20, two lines. Records body at y 390, height 75, Regular 20, three lines.
+- Assembled-input boundary: x 468, y 192, width 444, height 296, no fill, square corners, 2-point area-pink outline. This is a diagram boundary, not a decorative card.
+- Working context label inside the boundary at x 492, y 216, width 396, height 32, Helvetica Bold 24 in area pink. Body at x 492, y 270, width 396, height 130, Regular 24. Break after "evidence," and "history" for three lines.
+- Two native horizontal arrows run from x 380 to 452 at y 258 and 416. Use the shared secondary 2-point connector style. They show selected information entering the call. Do not imply that all retained memory or every source document enters every invocation.
+
+### Slide 17: conceptual evidence path
+
+Use a single evidence pipeline above two explanatory columns. All content remains native editable text and connectors. Keep the shared header and title.
+
+- RAG label at x 48, y 192, width 78, height 30, Helvetica Bold 20 in area pink. Definition at x 148, y 192, width 764, height 30, Regular 20.
+- Four pipeline stages begin at x 48, 280, 512, and 744, each width 168, y 250, height 60, Bold 20 in area pink, horizontally and vertically centered. Wrap Authorized sources, Evidence selection, and Assembled input over two lines. Retrieval fits one line.
+- Horizontal arrows at y 280 begin at x 230, 462, and 694, each width 36. Use the shared secondary 2-point connector style.
+- Provenance line at x 48, y 320, width 864, height 30, Regular 20: preserve source identity, revision, and access scope.
+- Lower labels at x 48 and 492, y 370, width 420, height 30, Bold 20 in area pink. The Find the evidence and Manage the context bodies begin at y 406, width 420, height 78, Regular 20. Each uses three deliberate lines. Keep the embedding definition spoken and the brief search comparison visible.
+
+### Slide 18: pitfalls
+
+Preserve the current three labeled rows and the exact headline pitfall. The existing Coverage, Summaries, and Sources copy already supports the new explanation. Update the talk track only.
+
+### Slide 19: missing-minutes application
+
+Retain the existing left-column excerpts, dates, source IDs, revisions, and locations from §23. The briefing and minutes remain separate documents. Keep the illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text.
+
+- The minutes caption's second line includes "omitted in this failure" after its source location. Keep its existing y 344, height 40, 16-point type and exact 20-point spacing. Both source quotations retain their current positions and 24-point type.
+- Right-column labels use x 492, width 420, height 26, Helvetica Bold 20 in area pink, at y 224, 314, and 384. Labels are Design, Failure, and Evidence to check.
+- Right bodies use x 492, width 420, Helvetica Regular 20. Design begins at y 254, height 54, two lines. Failure begins at y 344, height 30, one line. Evidence begins at y 414, height 78, three lines, ending within the content boundary.
+- The evidence text describes the expected condition to check. It does not assert that a measured repair succeeded. No scorecard, chart, or additional artifact is added to this slide.
+
+## 29. Tools & Extensibility integration, September 16, 2026
+
+The accepted sequence is quote, tool-call foundations, capability and extension decisions, pitfalls, and the unapproved-destination FRB contract test. Keep narrative slides 20 through 24, static entry, hard cuts, the area pink, mini-map, and native numbering. Tools & Extensibility has a 4:10 reference and Section 2 totals 28:30. Preserve existing anatomy assets. A2A stays in Markdown backup.
+
+### Slide 21: tool-call foundations
+
+Use one native editable flow matching the Model Selection invocation, with an illustrative application call and the execution checks below it. All text remains editable.
+
+- Three columns start at x 48, 356, and 664, each width 248. Proposal, Execution, and Observation labels use y 192, height 30, Helvetica Bold 20 in area pink. Bodies start at y 230, height 96, Regular 20. Use deliberate line breaks to fit each explanation in three lines.
+- Native horizontal arrows run from x 308 to 340 and from x 616 to 648, at y 267. Use the shared secondary 2-point connector style. The labels and bodies make the model/application distinction explicit.
+- The caption "Illustrative application call" uses x 48, y 340, width 864, height 20, Helvetica Regular 16 in secondary text.
+- The `export_cited_brief(draft, citations, destination)` signature uses x 48, y 372, width 864, height 30, Consolas Regular 20 in primary text. It is conceptual pseudocode, not a provider API or a complete schema.
+- Application checks label at x 48, y 438, width 216, height 30, Helvetica Bold 20 in area pink. Body at x 292, y 438, width 620, height 54, Regular 20: authenticated identity and exact checked content on the first line, permitted destination on the second.
+
+### Slide 22: capabilities and extension mechanisms
+
+Use one compact native terminology table between capability-size and contract decisions. Avoid decorative cards or a competing second table.
+
+- Capability size label at x 48, y 192, width 216, height 30, Helvetica Bold 20 in area pink. Body at x 292, y 192, width 620, height 54, Regular 20, with two deliberate lines.
+- Native table at x 48, y 270, width 864. Columns are 180 and 684, with row heights 32, 40, 40, and 40, ending at y 422. Header and body use Helvetica 20. Header is Bold in area pink; body is primary text. Use zero margins, no visible borders, and no banding. The rows are MCP, Skills, and Plugins, each with its role.
+- Operational contract label at x 48, y 438, width 216, height 30, Bold 20 in area pink. Body at x 292, y 438, width 620, height 54, Regular 20, over two lines. Retain both maintained contract elements and permission enforcement.
+
+### Slide 23: pitfalls
+
+Keep the existing three-row geometry and headline-pitfall position. The cue labels are Contract, Authority, and Outcomes. Preserve the exact pitfall sentence shared with slide 44.
+
+### Slide 24: unapproved destination
+
+Consolidate the design, mismatch, and expected checks into one composition. Keep every value conceptual; do not invent a real destination or measured rejection result.
+
+- Illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text. Name the CUI/ECI export contract and its illustrative status.
+- Design label at x 48, y 224, width 164, height 30, Bold 20 in area pink. Body at x 224, y 224, width 688, height 54, Regular 20, two lines: exact checked draft and permitted destination.
+- Native comparison table at x 48, y 294, width 864, using two 420-point content columns separated by a 24-point gutter. Header row 32 and data row 58, ending at y 384. Headers use Bold 24 in area pink. Body uses Regular 20 with two deliberate lines. Match the existing flat native table style with no visible borders or banding.
+- Expected result label at x 48, y 400, width 216, height 30, Bold 20 in area pink. Result at x 292, y 400, width 620, height 32, Bold 24 in primary text: export rejected before transfer.
+- Evidence to check label at x 48, y 442, width 216, height 30, Bold 20 in area pink. Body at x 292, y 442, width 620, height 50, Regular 20: a clear rejection reason and no export at that destination, on separate lines.
+
+The comparison replaces duplicate failure prose. Exact checked content remains visible and spoken. The expected result and evidence checks do not assert a measured success. Uncertain execution and recovery remain the handoff to Orchestration.
+
+## 30. Orchestration integration, September 16, 2026
+
+The accepted sequence is quote, workflow and agent-loop foundations, execution decisions, pitfalls, and uncertain-export recovery. Preserve narrative slides 25 through 29, static entry, hard cuts, Orchestration pink, mini-maps, and native numbering. The area remains 3:55 and Section 2 remains 28:30. Keep the current anatomy assets.
+
+### Slide 26: workflow with an expanded agent loop
+
+Use a native editable six-stage workflow and one expanded inspection loop. The workflow and loop remain distinct while showing how they combine. Keep code-enforced verification outside the loop's discretionary next-action choice.
+
+- Workflow label at x 48, y 192, width 180, height 30, Helvetica Bold 20 in area pink. Definition at x 244, y 192, width 668, height 30, Regular 20.
+- Illustrative FRB workflow caption at x 48, y 232, width 864, height 20, Regular 16 in secondary text.
+- Six stage labels begin at x 48, 196, 344, 492, 640, and 788, y 260, width 112, height 30, Bold 20, centered. Inspect uses area pink; the other stages use primary text. Horizontal arrows start at x 168, 316, 464, 612, and 760, y 274, width 20, using the shared secondary 2-point style.
+- A pink 2-point outline around Inspect uses x 190, y 250, width 124, height 50, no fill and square corners. Connect its center at x 252 down from y 300 to the expanded loop at y 316.
+- Expanded-loop boundary at x 48, y 316, width 864, height 134, no fill, 2-point pink outline. Agent loop label at x 64, y 330, width 148, height 26, Bold 20 in pink. Explanation at x 232, y 330, width 656, height 26, Regular 20.
+- Loop stages start at x 64, 286, 508, and 730, y 368, width 164, height 50, Regular 20, centered, each on two lines: Observe result, Choose action, Call tool, Update state. Forward arrows at y 393 start at x 240, 462, and 684, width 32. A return path drops from x 812, y 426 to y 436, points left to x 146, and returns upward to y 426. This leaves clearance beneath the lower text lines. Use the shared secondary connector style.
+- Required gate label at x 48, y 466, width 180, height 25, Bold 20 in pink. Body at x 244, y 466, width 668, height 25, Regular 20: exact draft passes verification before export.
+
+### Slide 27: execution state and recovery decisions
+
+Use compact aligned rows with a checkpoint definition beneath them. Labels at x 48, width 216, height 30, Helvetica Bold 20 in pink. Bodies at x 292, width 620, height 54, Regular 20. Three rows begin at y 192, 272, and 352 for Explicit state, Recovery, and Stopping conditions. Each explanation uses two lines.
+
+The Checkpoint label is at x 48, y 450, width 216, height 30, Bold 20 in pink. Its definition is at x 292, y 450, width 620, height 30, Regular 20. Durability, delegation, and the detailed resource-limit inventory stay spoken.
+
+### Slide 28: pitfalls
+
+Retain the current visible Gates, Progress, and Recovery rows, their geometry, and the exact headline pitfall shared with slide 44. Only the talk track changes.
+
+### Slide 29: uncertain export sequence
+
+Use two native editable lanes to distinguish caller knowledge from service-side effects. The sequence describes a separate permitted export and an expected recovery check, not a measured run.
+
+- Illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text.
+- Lane headings at x 48 and 640, y 224, width 272, height 30, Bold 20 in pink: Orchestrator and Export service.
+- First row at y 258, height 30, Regular 20: Record and dispatch export on the left and Export occurs on the right. A forward arrow runs from x 336 to 624 at y 272.
+- The left state Outcome unknown uses x 48, y 302, width 272, height 30, Bold 20 in pink. The lost-response path runs right to left at y 314, broken between x 450 and 510. Label Response lost at x 388, y 288, width 200, height 20, Regular 16 in secondary text, centered. Use a small connector cross at x 480, y 314 to mark the break. Keep this label clear of the lane bodies.
+- Third row at y 350, height 30, Regular 20: Inspect export state on the left and Receipt and artifact on the right. A forward arrow runs from x 336 to 624 at y 364.
+- Evidence to check label at x 48, y 402, width 216, height 30, Bold 20 in pink. Body at x 292, y 402, width 620, height 50, Regular 20, two lines: matching receipt and checked artifact; no duplicate export.
+- The unresolved-outcome rule uses x 48, y 466, width 864, height 25, Regular 20. State that unresolved outcomes pause or hand off with uncertainty intact.
+
+All connectors use the shared secondary 2-point style. Use line segments and a native cross only to explain the lost response. The service-side event is a scenario assumption; the caller still has to inspect evidence. Operation references, qualified idempotency, freshness, and permissions remain in the talk track.
+
+## 31. Verification & Evals integration, September 16, 2026
+
+The accepted sequence is quote, verification/evaluation foundations, practical case design, pitfalls, and the retained source-support failure. Preserve narrative slides 30 through 34, static entry, hard cuts, the green area color, mini-maps, and native numbering. The area stays 4:35 and Section 2 stays 28:30. Reliability notation remains in Markdown backup.
+
+### Slide 31: complementary checks and practical vocabulary
+
+Use two flat text columns for verification and evaluation, with a shared vocabulary row below. Keep every element native and editable. Avoid invented scores or a decorative grid of trial outcomes.
+
+- Verification label at x 48 and Evaluation label at x 492, y 192, width 420, height 30, Helvetica Bold 20 in area green.
+- Questions at the same x values, y 234, width 420, height 100, Regular 24. Break the verification question after "meet" and the evaluation question after "perform".
+- A shared hairline separator spans x 48 to 912 at y 350, height 1.
+- Case, Trial, and Grader labels begin at x 48, 344, and 640, y 378, width 272, height 26, Bold 20 in area green. Definitions begin at y 412, width 272, height 60, Regular 20. Case and Grader use two deliberate lines; Trial fits one line.
+
+The two questions describe one-result acceptance and behavior across cases and repeated runs. The lower row supplies vocabulary used by the suite matrix. Ordinary tests and the shared use of checks remain explicit in the talk track.
+
+### Slide 32: illustrative evaluation cases
+
+Replace the three abstract decision rows with a native case matrix. Keep the full grader comparison spoken and connect it to the checks column. The matrix is an illustrative design, not a score report or a complete release suite.
+
+- Illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text.
+- Native table at x 48, y 224, width 864. Columns are 216, 360, and 288 for Case, Expected behavior, and Checks. Header height 32; each of the three case rows is 64, ending at y 448. Use Helvetica 20, with Bold green headers and primary body text. Use zero margins, no visible borders, and no banding.
+- The rows cover Routine brief, Disallowed export, and Lost export response. Use deliberate two-line descriptions. The routine brief's final cell reads "Reference checks plus expert" then "or calibrated model judgment." Preserve the qualification on model grading.
+- Comparison label at x 48, y 462, width 164, height 30, Bold 20 in green. Body at x 244, y 462, width 668, height 30, Regular 20: held-out cases and repeated trials.
+
+Expected behavior depends on each case's starting conditions. The distinction between recoverable export evidence and an unresolved variant remains spoken. Do not imply all blocked or incomplete runs count as completed work.
+
+### Slides 30, 33, and 34
+
+Preserve their current visible copy and layouts. Slide 30 keeps both quote authors. Slide 33 keeps the exact headline pitfall shared with slide 44. Slide 34 retains the exact invented minutes, cited unsupported claim, explicit PASS/FAIL wording, expected unresolved cause and inspection, and regression-case instruction. Its talk track tightens by 0:10 to connect the example to the preceding case-design framework.
+
+## 32. AgentOps integration, September 16, 2026
+
+The accepted sequence is quote, practical operating foundations, operating decisions, security pitfalls, and an illustrative FRB release incident. Preserve narrative slides 35 through 39, static entry, hard cuts, the amber area color, mini-maps, and native numbering. AgentOps stays 4:10 and Section 2 stays 28:30. Keep SLOs and error budgets in Markdown backup and the operating agreement as supporting material.
+
+### Slide 36: recorded work, configuration, and outcomes
+
+Use one native editable composition. The definition leads into three foundations. A compact recorded path explains the trace and one span without suggesting durations or measured outcomes.
+
+- Definition at x 48, y 192, width 864, height 50, Helvetica Regular 20. Break after "enforced controls,".
+- Trace label at x 48, y 262, width 216, height 30, Bold 20 in amber. Definition at x 292, y 262, width 620, height 30, Regular 20.
+- Recorded operation labels Retrieve, Model, Verify, and Export / hold at x 292, 448, 604, and 760, y 302. Widths are 120, 120, 120, and 152; heights are 30. Use Regular 20 centered. Connect them with secondary 2-point arrows starting at x 416, 572, and 728, y 316, width 24.
+- Identify the Model operation as one span with an amber 2-point underline at x 448, y 334, width 120, and centered secondary caption "one span" at x 448, y 344, width 120, height 20, Regular 16. This is an annotation to an observed operation, not a duration bar.
+- Versioned configuration label at x 48, y 382, width 216, height 54, Bold 20 in amber, on two lines. Definition at x 292, y 382, width 620, height 30, Regular 20.
+- Outcome metrics label at x 48, y 450, width 216, height 30, Bold 20 in amber. Definition at x 292, y 450, width 620, height 30, Regular 20.
+
+Private reasoning, the full configuration inventory, sampled quality labels, and the one-run/across-runs distinction remain spoken. There are no invented values or telemetry screenshots.
+
+### Slide 37: operating decisions
+
+Use three flat aligned rows for Evidence, Releases, and Response. Labels at x 48, width 216, height 30, Helvetica Bold 20 in amber. Bodies at x 292, width 620, height 54, Regular 20. Rows begin at y 192, 292, and 392. Each body uses two deliberate lines, separating its paired decisions. Keep detailed operating-policy trade-offs in the talk track.
+
+### Slide 39: qualitative release incident
+
+Replace the operating-agreement table with a native editable incident record. Preserve the illustrative label and explicit export gate.
+
+- Illustrative caption at x 48, y 192, width 864, height 20, Helvetica Regular 16 in secondary text.
+- Native table at x 48, y 224, width 864, with columns 186 and 678 for Incident and FRB example. Header height 32, followed by three 64-point rows, ending at y 448. Use Helvetica 20, Bold amber headers, primary body text, zero margins, no visible borders, and no banding.
+- The rows are Change, Signal, and Response. Each body has two deliberate lines. Keep the conditional restoration wording and approved-update context.
+- The statement "Failed drafts remain blocked from export." appears at x 48, y 466, width 864, height 25, Bold 20 in primary text.
+
+No numbers or charts imply a measured regression. Compatibility, authorization, uncertain root cause, pending work, and official board authority remain explicit in the talk track.
+
+### Slides 35 and 38
+
+Preserve the visible copy and layouts. Slide 35 retains Rauch as the speaker and Datadog as publisher. Slide 38 retains the exact headline sentence shared with recap slide 44 and the probabilistic-filter qualification. Its revised narration connects the capability review to changing integrations.

@@ -1,6 +1,6 @@
 # Slide 30: Verification & Evals, opening quote
 
-Beat 2.5. Section 2. Rehearsal reference 0:20 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.5. Section 2. Rehearsal reference 0:20 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -25,7 +25,7 @@ AI Evals: Everything You Need to Know, September 2026
 
 [0:00] **“Error analysis is the most important activity in evals.”**
 
-[0:05] Inspect the result and the trace before choosing a repair. A score becomes useful when the team understands the behavior behind it.
+[0:05] Inspect the result and trace before choosing a repair. An aggregate score becomes useful when we understand the failures behind it.
 
 [0:20] Advance to slide 31.
 

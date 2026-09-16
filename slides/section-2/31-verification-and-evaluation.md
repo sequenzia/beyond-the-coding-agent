@@ -1,50 +1,57 @@
 # Slide 31: Verification and evaluation
 
-Beat 2.5. Section 2. Rehearsal reference 0:50 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.5. Section 2. Rehearsal reference 1:00 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** Verification & Evals · What and why
+**Kicker:** Verification & Evals · Foundations
 
 **Title:** Verification and evaluation
 
-**What it is**
+**Verification**
 
-Verification: acceptance of this result.
-Evaluation: behavior across cases and repeated trials.
+Does this result meet the requirements?
 
-**Why it matters**
+**Evaluation**
 
-Ordinary tests remain necessary.
-Check outcomes, required constraints, and consistency.
+How does the system perform across cases and repeated runs?
+
+Shared vocabulary:
+
+- **Case:** Input and expected conditions.
+- **Trial:** One attempt at a case.
+- **Grader:** A check of behavior or outcome.
 
 ## Layout and visual
 
 - Display narrative number 31, the area kicker, and `mini-evals` throughout.
-- Use the definition-and-importance composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- Give the definition and importance distinct blocks. The coding-agent connection stays in the talk track; no screenshot or user-example panel.
+- Use the two comparison columns and shared vocabulary row in design brief §31. All visual values are defined there.
+- Compare one-result acceptance with behavior across cases and repeated runs. The same checks can serve both purposes.
+- Keep the vocabulary native and editable. Do not invent trial results or success-rate graphics.
+- Show the complete content on entry with hard cuts and no internal builds. Keep the coding-agent connection spoken.
 
 ## Talk track
 
-[0:00] **DEFINITION AND IMPORTANCE**
+[0:00] **VERIFICATION AND EVALUATION FOUNDATIONS**
 
-[0:00] Verification informs acceptance of a particular result or action. Evaluation measures behavior across representative cases and repeated attempts. The same checks can serve both purposes. Evals are tests of an AI system. Ordinary software tests remain part of the work.
+[0:00] **Verification asks whether this result meets the required conditions. Evaluation asks how the system behaves across cases and repeated runs.** The same checks can serve both purposes.
 
-[0:17] A coding agent running repository checks gives you evidence to inspect. Its statement that everything passed still needs to agree with the actual result and the task's requirements.
+[0:14] A case defines the input, starting conditions, and expected behavior. A trial is one attempt at that case. A grader checks an aspect of the behavior or outcome. Several graders may examine the same trial.
 
-[0:29] A successful demonstration shows a useful path. A product needs evidence about intended use and its important failure cases. **An implementation can pass interface checks while producing an unsupported conclusion.** Evaluate the outcome the user depends on, including required constraints.
+[0:33] **Evals are tests of an AI system. Ordinary software tests remain necessary.** A coding agent's test output is evidence to inspect; its completion message must still agree with the actual result.
 
-[0:50] Advance to slide 32.
+[0:47] Check the output and required action constraints, including permission and verified completion. A successful demonstration establishes one useful path. The product needs evidence across representative work, important failures, and repeated attempts.
 
-Cut first: the case/trial vocabulary. Never cut the complementary uses of checks and role of ordinary tests. Cue times are rehearsal guides, not automatic playback timing.
+[1:00] Advance to slide 32.
+
+Cut first: the coding-agent elaboration. Never cut the one-result versus many-run distinction, shared vocabulary, ordinary tests, or required outcome constraints. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Verification & Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results.
+- Husain and Shankar, September 2026; Anthropic, January 2026, definitions rechecked September 2026; OpenAI evaluation-method guidance, checked September 2026. Research §5 in `research/section-2.md`.
+- Illustrative packet, suite cases, and export checks: Research §0 and §5 and `internal/frb-running-example.md`. The direct-reference PASS and source-support FAIL belong to the invented example. No measured model result or universal shipping threshold is claimed.
+- Accepted integration: `outlines/section-2-integration/05-verification-and-evals.md`. Reliability notation and formulas remain in supporting Markdown.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the retained 4:35 allocation on the actual presentation machine. The foundations slide gains 0:10 and the application gives up 0:10. Preserve ordinary tests, grader calibration, repeated trials, and ongoing evaluation when trimming.

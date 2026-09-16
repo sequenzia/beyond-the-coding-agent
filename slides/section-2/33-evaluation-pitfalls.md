@@ -1,6 +1,6 @@
 # Slide 33: Evaluation pitfalls
 
-Beat 2.5. Section 2. Rehearsal reference 0:25 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.5. Section 2. Rehearsal reference 0:25 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -19,26 +19,26 @@ Inspect the result and the trace before choosing a repair.
 ## Layout and visual
 
 - Display narrative number 33, the area kicker, and `mini-evals` throughout.
-- Use the pitfalls composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- The headline pitfall belongs in the body, not a footer. Its sentence must match slide 44 exactly.
+- Retain the current pitfalls composition and visible copy from design brief §23, as retained in §31. All visual values are defined there.
+- The headline pitfall stays in the body and matches slide 44 word for word.
+- Keep text editable. Show all content on entry with hard cuts and no internal builds. No personal-story cue or reserved pause is added.
 
 ## Talk track
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **Using a generic judge without error analysis or result checks.** Inspect actual outcomes, representative coverage, and the grader itself before selecting a repair. Evaluation continues after deployment and after changes to the model or harness.
+[0:00] **Using a generic judge without error analysis or result checks** is the headline pitfall. Check the actual outcome, the grader, and the cases before choosing a repair. Continually tuning against held-out cases weakens their independence. **Evaluation continues after deployment and after model or harness changes.** Add failures from real use.
 
 [0:25] Advance to slide 34.
 
-Cut first: the supporting cue explanations. Never cut the exact headline pitfall and ongoing evaluation. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the held-out reminder, already explained in decisions. Never cut the exact headline pitfall, error analysis, or ongoing evaluation. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Verification & Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results.
+- Husain and Shankar, September 2026; Anthropic, January 2026, definitions rechecked September 2026; OpenAI evaluation-method guidance, checked September 2026. Research §5 in `research/section-2.md`.
+- Illustrative packet, suite cases, and export checks: Research §0 and §5 and `internal/frb-running-example.md`. The direct-reference PASS and source-support FAIL belong to the invented example. No measured model result or universal shipping threshold is claimed.
+- Accepted integration: `outlines/section-2-integration/05-verification-and-evals.md`. Reliability notation and formulas remain in supporting Markdown.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the retained 4:35 allocation on the actual presentation machine. The foundations slide gains 0:10 and the application gives up 0:10. Preserve ordinary tests, grader calibration, repeated trials, and ongoing evaluation when trimming.

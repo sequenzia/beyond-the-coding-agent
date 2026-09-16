@@ -2,7 +2,7 @@
 
 ## Presentation outline, v2
 
-**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Section 1 has a 4:00 rehearsal target. Section 3 has a 4:30 reference. The 27:00 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget. Discussion fills the remainder of the session.
+**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Section 1 has a 4:00 rehearsal target. Section 3 has a 4:30 reference. The 28:30 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget. Discussion fills the remainder of the session.
 
 **Date:** September 17, 2026.
 
@@ -29,9 +29,9 @@ AI engineering builds on a foundation of software engineering. This talk focuses
 |---|---|---|
 | 1. Intro and central thesis | 4:00 | 1 through 8 |
 | 2.0 The map | 1:50 | 9 |
-| 2.1 Model Selection | 3:55 | 10 through 14 |
-| 2.2 Context Engineering | 4:05 | 15 through 19 |
-| 2.3 Tools & Extensibility | 3:40 | 20 through 24 |
+| 2.1 Model Selection | 4:30 | 10 through 14 |
+| 2.2 Context Engineering | 4:30 | 15 through 19 |
+| 2.3 Tools & Extensibility | 4:10 | 20 through 24 |
 | 2.4 Orchestration | 3:55 | 25 through 29 |
 | 2.5 Verification & Evals | 4:35 | 30 through 34 |
 | 2.6 AgentOps | 4:10 | 35 through 39 |
@@ -39,14 +39,14 @@ AI engineering builds on a foundation of software engineering. This talk focuses
 | 3. Making the transition | 4:30 | 41 through 47 |
 | 4. Questions and discussion | Remainder of the 50-minute session | none, slide 47 stays up |
 
-Section 2 references sum to 27:00 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 4:30, the talk runs about 33:30 to 37:30. Discussion fills the remainder of the 50-minute session.
+Section 2 references sum to 28:30 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 4:30, the talk runs about 33:30 to 37:30. Discussion fills the remainder of the 50-minute session.
 
 ### The Section 2 pattern
 
 Each area has five separately numbered static slides. The opening and closing anatomy diagrams remain standalone compositions.
 
 1. **Quote.** The area's selected source and conceptual visual, before any explanation.
-2. **What it is and why it matters.** One combined screen with a brief spoken connection to coding agents.
+2. **What it is and why it matters.** One combined screen with technical foundations and brief spoken connections to coding agents. Model Selection introduces inference, tokens, context limits, and reasoning settings. Context Engineering develops working context, memory, and authoritative records. Tools & Extensibility shows proposal, checked execution, and observation. Orchestration combines a controlled workflow with a bounded agent loop. Verification & Evals distinguishes one-result acceptance from behavior across cases and trials. AgentOps connects traces, versioned configuration, and outcome metrics across runs and releases.
 3. **Key decisions and trade-offs.** The choices, consequences, and conditional starting guidance.
 4. **Common challenges and pitfalls.** Continuing maintenance and one headline sentence that matches slide 44.
 5. **FRB application.** A distinct application of those choices to the same illustrative system.
@@ -152,7 +152,7 @@ Approved bio from slide 2, September 14, 2026. Stephen Sequenzia, Senior Staff A
 
 ## Section 2. What AI engineers actually engineer (25:00 to 29:00, 32 narrative slides)
 
-The rehearsal reference is 27:00. Five static slides per area follow the opening map, then a standalone closing map. The individual references below guide notes and rehearsal; they do not replace the selected range.
+The rehearsal reference is 28:30. Five static slides per area follow the opening map, then a standalone closing map. The individual references below guide notes and rehearsal; they do not replace the selected range.
 
 ### 2.0 The map (1:50 reference). Slide 9
 
@@ -161,77 +161,77 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "Agent equals model plus harness. Everything around the model is engineering work."
 - Sources: Osmani, April 2026; OpenAI, August 2026; illustrative FRB packet. Research §0.
 
-### 2.1 Model Selection (3:55 reference). Slides 10 through 14
+### 2.1 Model Selection (4:30 reference). Slides 10 through 14
 
-- Slide: 10 quote (0:25), 11 what and why (0:45), 12 decisions (1:00), 13 pitfalls (0:20), 14 FRB application (1:25).
+- Slide: 10 quote (0:25), 11 primer and responsibility (1:20), 12 decisions (1:00), 13 pitfalls (0:20), 14 FRB application (1:25).
 - Say, quote: Use the selected Osmani comparison as attributed engineering experience. **Evaluate the model inside the intended system.**
-- Say, what and why: Model Selection means choosing and maintaining a model configuration suited to the task and approved for the data. The model interprets context and proposes a response or action. **Data sensitivity determines which services and environments are eligible.** Briefly connect to choosing a coding-agent model. Compare quality, cost, and latency within the permitted set.
-- Say, decisions: Establish data eligibility, compare model and reasoning settings on representative tasks, start with one configuration unless routing earns its complexity, and plan version changes. **Pinned versions need migration; moving aliases need regression monitoring.**
-- Say, pitfalls: Maintain coverage as tasks and routes change. A pinned model does not freeze prompts, retrieval, or tools. Inspect failures before selecting a replacement.
-- Say, application: Assume the FRB corpus includes CUI/ECI and approved options are older and less capable for the intended synthesis. Begin with one eligible configuration. A possible cause must remain a possible cause. If the full brief fails evaluation, test narrower scope or human reconciliation. **Keep the evidence requirement and approved processing boundary.** No scores or winning model are claimed.
+- Say, primer: **Inference is running an already trained model on supplied input to obtain an output.** Show instructions, request, evidence, and tool definitions entering one invocation, followed by a response or proposed tool call. Explain tokens as units of content. Context limits include input and generated tokens, with model-specific accounting for reasoning. **Treat reasoning effort as part of the configuration you evaluate.** Briefly connect to choosing a coding-agent model. Model Selection means choosing and maintaining a configuration suited to the task and approved for the data. Research §0 and §1.
+- Say, decisions: **Data sensitivity determines which services and environments are eligible.** Establish eligibility for CUI/ECI and any hard product limits, then compare representative task quality. Among acceptable configurations, compare completion time and cost per successful task, including failed attempts, tools, verification, and review. Start with one configuration unless routing earns its complexity. **Pinned versions need migration; moving aliases need regression monitoring.** Research §1.
+- Say, pitfalls: Capacity, reasoning effort, and token price each require task evidence. A pinned model does not freeze prompts, retrieval, or tools. Maintain representative coverage and inspect failures before selecting a replacement. Research §1.
+- Say, application: Assume the FRB corpus includes CUI/ECI and approved options are older and less capable for the intended synthesis. Evaluate one eligible configuration on summaries and cross-case synthesis. Test the failure of promoting possible bearing wear to a confirmed cause. Inspect the supplied evidence before attributing failure to the model. A compact scorecard records evidence to collect for quality, time, and total cost. If the full brief fails evaluation, test narrower scope or human reconciliation. **Keep the evidence requirement and approved processing boundary.** No scores or winning model are claimed. Research §0 and §1.
 - Pitfall: Selecting or changing models without testing them on your task.
 - Takeaway line: "The model is a versioned, expiring dependency. Treat it like one."
-- Sources: Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; Anthropic and OpenAI lifecycle guidance; presenter audience context, September 2026; illustrative FRB application. Research §0 and §1 in `research/section-2.md`.
+- Sources: Osmani, April 2026; OpenAI concepts, context, reasoning, and selection guidance, checked September 2026; NARA, May and August 2025; NIST, May 2024; Anthropic and OpenAI lifecycle guidance; presenter audience context, September 2026; illustrative FRB application. Research §0 and §1 in `research/section-2.md`.
 
-### 2.2 Context Engineering (4:05 reference). Slides 15 through 19
+### 2.2 Context Engineering (4:30 reference). Slides 15 through 19
 
-- Slide: 15 quote (0:20), 16 what and why (0:45), 17 decisions (1:25), 18 pitfalls (0:20), 19 FRB application (1:15).
+- Slide: 15 quote (0:20), 16 foundations (1:10), 17 retrieval and context decisions (1:25), 18 pitfalls (0:20), 19 FRB application (1:15).
 - Say, quote: Use the selected Anthropic finite-context quotation. **Choose what information the next step needs.** No universal context-size threshold is claimed.
-- Say, what and why: Context engineering selects and maintains instructions, state, evidence, tool results, and useful history. RAG supplies retrieved knowledge, including internal records. A coding agent combines repository instructions, files, and test results.
-- Say, decisions: Decide what enters the step, how to retrieve it, what persists, and which sources and access scope apply. Briefly compare keyword, semantic, and hybrid retrieval. Distinguish compaction from persistent memory. **Preserve source identities and enforce access outside the model.**
-- Say, pitfalls: Inspect missing evidence, lost qualifications, stale versions, and misattribution. Keep correctness and access ahead of cache savings.
-- Say, application: Retrieve the preliminary FRB-042-BRF r1 slide 6 and the later FRB-042-MIN r2 §3 paragraph 2 as different documents. **Retain the unresolved cause and outstanding inspection.** Refresh revisions and access; missing or unreadable evidence remains a limitation. Context preparation inherits the approved processing scope.
+- Say, foundations: **Context Engineering assembles the information for the next model step.** Distinguish working context from selected memory and the authoritative records consulted for the task. Instructions are part of that wider input. Compaction condenses working history; memory retains selected information for later use. A generated summary remains traceable to board sources and does not establish permissions or confirmed actions. Briefly connect to repository instructions, files, and test output. Research §0 and §2.
+- Say, decisions: **RAG retrieves information and supplies it as evidence for generation.** Follow authorized sources through retrieval and selection into assembled input. An embedding represents content numerically for similarity comparisons. Briefly compare keyword, semantic, and hybrid retrieval. Decide what to preload, fetch when needed, retain, and refresh. **Preserve source identities and enforce access outside the model.** Keep the pipeline conceptual. Research §2.
+- Say, pitfalls: Inspect missing evidence, lost qualifications, and stale or misattributed sources. Retained summaries still need supporting records. Keep findings attached to their own cases when information is reused. Research §0 and §2.
+- Say, application: Keep the preliminary FRB-042-BRF r1 slide 6 and later FRB-042-MIN r2 §3 paragraph 2 as different documents. **Suppose retrieval misses the later minutes, so their decisive passage never reaches the model.** Check source availability, retrieval results, and assembled input to locate the loss. The expected input includes both passages with their identities. **Retain the unresolved cause and outstanding inspection.** Refresh revisions and access; unavailable evidence remains an explicit limitation. Context preparation inherits the approved processing scope. Research §0 and §2.
 - Pitfall: Adding context without curating it.
 - Takeaway line: "Context is a budget, not a bucket."
-- Sources: Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB application. Research §0 and §2 in `research/section-2.md`.
+- Sources: Anthropic, September 2024 and September 2025, primer passages rechecked September 2026; Manus, July 2025; OWASP, 2025; illustrative FRB application. Research §0 and §2 in `research/section-2.md`.
 
-### 2.3 Tools & Extensibility (3:40 reference). Slides 20 through 24
+### 2.3 Tools & Extensibility (4:10 reference). Slides 20 through 24
 
-- Slide: 20 quote (0:20), 21 what and why (1:00), 22 decisions (1:00), 23 pitfalls (0:20), 24 FRB application (1:00).
+- Slide: 20 quote (0:20), 21 foundations (1:10), 22 design and extension decisions (1:15), 23 pitfalls (0:20), 24 FRB application (1:05).
 - Say, quote: Use the selected Anthropic tools quotation. **A tool is a contract with a model caller.**
-- Say, what and why: A tool exposes an operation that software validates, executes when permitted, and reports on. MCP provides a common connection mechanism. Briefly connect to coding-agent reads and checks. Useful operations and enforced boundaries remain application responsibilities.
-- Say, decisions: Choose capabilities and granularity, design descriptions/inputs/results/errors together, and define permitted execution. More granular tools offer flexibility and add coordination work. **Validate and authorize in code, including reads.**
-- Say, pitfalls: Prune overlapping tools and keep definitions aligned with implementation. Return confirmed results, known failures, or unknown outcomes explicitly.
-- Say, application: Export cited brief accepts the checked draft, citations, and destination. **Verification must apply to the exact exported content.** A caller assertion is insufficient. Enforce scope, preserve uncertainty, and return a receipt. Do not claim completion when the outcome is unknown. Parsing and indexing remain background services.
+- Say, foundations: **A tool call is a request for an operation.** The model proposes arguments, application code validates and authorizes execution, and the result informs the next model step. Use one illustrative FRB export call. The application establishes identity, exact checked content, and permitted destination. A well-formed request can still fail authorization. Briefly connect to coding-agent reads and checks. Research §0 and §3.
+- Say, decisions: Choose capabilities and granularity, then the appropriate extension mechanism. **MCP connects applications to tools and context. Skills supply reusable task instructions and resources. Plugins package capabilities for installation and distribution.** These roles can combine. Maintain descriptions, schemas, implementation, and failure behavior together. **Validate and authorize in code, including reads.** Keep A2A in supporting material. Research §3.
+- Say, pitfalls: Keep descriptions and behavior aligned, remove confusing overlap, and enforce permissions even when arguments look valid. Return confirmed results, known failures, or unknown outcomes explicitly. Research §3.
+- Say, application: Export cited brief requires the checked draft, citations, and a permitted destination. **Suppose the proposed destination is outside the approved scope.** The expected result is rejection before transfer. Check both a clear rejection reason and the absence of an export at that destination. **Verification must apply to the exact exported content.** A permitted export preserves wording, citations, and uncertainty and returns a matching receipt. Keep rejection distinct from an unknown execution outcome. Research §0 and §3.
 - Pitfall: Copying APIs without evaluating task fit.
 - Takeaway line: "A description guides the model. Code enforces the contract."
-- Sources: Anthropic, September and November 2025; MCP, July 2026; OWASP, 2025; illustrative FRB contract. Research §0 and §3 in `research/section-2.md`.
+- Sources: Anthropic, September and November 2025; MCP, July 2026; Agent Skills and OpenAI plugin documentation, checked September 2026; OWASP, 2025; illustrative FRB contract. Research §0 and §3 in `research/section-2.md`.
 
 ### 2.4 Orchestration (3:55 reference). Slides 25 through 29
 
-- Slide: 25 quote (0:20), 26 what and why (0:45), 27 decisions (1:00), 28 pitfalls (0:25), 29 FRB application (1:25).
+- Slide: 25 quote (0:20), 26 workflow and agent-loop foundations (1:00), 27 execution decisions (1:00), 28 pitfalls (0:25), 29 FRB recovery application (1:10).
 - Say, quote: Use the selected Anthropic simplicity quotation. **Decide which steps code fixes and where model judgment helps.**
-- Say, what and why: Orchestration sequences work, carries state, and controls completion or interruption. A bounded workflow can contain model-selected actions. Briefly connect to the coding-agent action/check/retry loop. A proposed plan does not enforce execution rules.
-- Say, decisions: Choose who controls the next step, when delegation earns its coordination cost, and how execution stops or recovers. Keep multi-agent design to a brief contrast. **Define completion checks, saved state, and action/token/retry/latency limits.**
-- Say, pitfalls: Inspect skipped gates, work without progress, early completion claims, and lost handoff evidence. A timeout does not establish failure. Recheck freshness and access on resume.
-- Say, application: Retrieve, inspect, compare, reconcile, verify, export. **Export only after checks pass on the exact draft.** A matching receipt confirms completion; a known failure can be addressed and retried within policy; an unknown outcome requires inspection or handoff. A stopped run is not a completed brief. Optional workers remain within the approved scope.
+- Say, foundations: **Orchestration controls how the work progresses.** Code defines workflow stages and permitted transitions. The model can choose actions inside a bounded stage. Show retrieve, inspect, compare, reconcile, verify, and export, then expand inspection into an action-and-observation loop. **The exact draft must pass its checks before export.** Briefly connect to the coding-agent inspect/edit/check cycle. Research §0 and §4.
+- Say, decisions: Record pending work, completed stages, check results, and operation status. **A checkpoint saves execution state for resumption.** Use durable storage for restart requirements. Saved computation does not establish what an external service did. Reconcile dispatched actions with external evidence before repeating them. Distinguish completion, waiting, failure, cancellation, and exhausted budget. **Bound actions, tokens, retries, and elapsed time.** Delegation stays a brief conditional option for independent case comparisons. Research §4.
+- Say, pitfalls: Inspect skipped gates, repeated work without progress, early completion claims, and lost handoff evidence. **A timeout does not establish that an action failed.** Keep the exact multi-agent pitfall. Research §4.
+- Say, application: This is a separate permitted export of the exact checked draft. Suppose the service creates the brief but the caller receives no response. **Record outcome unknown and check export state before deciding whether to retry.** The operation reference connects the intended export to its receipt and artifact. Define idempotency briefly: retries of the same intended operation do not duplicate effects, when the service implements that contract. If the outcome remains uncertain, pause or hand off. Recheck source freshness and permissions on resume; a changed draft needs renewed verification. A work limit does not establish completion. Research §0, §3, and §4.
 - Pitfall: Adding multiple agents before trying a workflow.
 - Takeaway line: "The loop is where autonomy gets its limits. Start with the workflow."
-- Sources: Anthropic, December 2024, June and November 2025; 12-Factor Agents; illustrative FRB workflow. Research §0 and §4 in `research/section-2.md`.
+- Sources: Anthropic, December 2024, June and November 2025; LangChain checkpoint documentation and Featonby, Amazon Builders' Library, checked September 2026; 12-Factor Agents; illustrative FRB workflow and recovery case. Research §0 and §4 in `research/section-2.md`.
 
 ### 2.5 Verification & Evals (4:35 reference). Slides 30 through 34
 
-- Slide: 30 quote (0:20), 31 what and why (0:50), 32 decisions (1:30), 33 pitfalls (0:25), 34 FRB application (1:30).
+- Slide: 30 quote (0:20), 31 foundations (1:00), 32 evaluation design (1:30), 33 pitfalls (0:25), 34 FRB application (1:20).
 - Say, quote: Use the selected Husain/Shankar error-analysis quotation with both authors named. **Inspect the result and trace before choosing a repair.**
-- Say, what and why: Verification informs acceptance of a particular result; evaluation measures behavior across cases and trials. These are complementary uses of checks. **Evals are tests of an AI system. Ordinary tests remain necessary.** Connect to inspecting actual coding-agent test output.
-- Say, decisions: Define success with domain experts. Briefly compare code checks, model graders, and expert review. **Evaluate model graders against expert decisions.** Cover representative tasks, serious failures, and useful limitations. Repeat trials where consistency matters and preserve regression cases.
-- Say, pitfalls: Inspect actual outcomes, coverage, and the grader itself. Add production failures and rerun after model or harness changes. Evaluation continues after deployment. No personal story or time reservation follows.
-- Say, application: The invented answer claims the board confirmed bearing wear and cites FRB-042-MIN r2 §3 paragraph 2. The reference exists, but the minutes leave the cause unresolved and require inspection. **Reference PASS; source-support FAIL.** Prevent export of that draft, verify corrected content, and retain the failure as one regression case. Graders and reviewers remain within the approved scope.
+- Say, foundations: Verification informs acceptance of this result; evaluation measures behavior across cases and repeated runs. A case supplies inputs and expected conditions, a trial is one attempt, and a grader checks an aspect of behavior or outcome. **Evals are tests of an AI system. Ordinary tests remain necessary.** Connect to inspecting actual coding-agent test output. Check required action constraints as well as the final response. Research §5.
+- Say, decisions: Use an illustrative case matrix: routine brief, disallowed export, and lost export response. Connect expected behavior to reference, permission, state, and semantic-support checks. Include missing evidence, adversarial content, and useful limitations in broader coverage. Briefly compare code, model, and expert grading. **Evaluate model graders against expert decisions. Held-out cases are reserved from routine tuning.** Repeat trials and inspect results by case category. Distinguish fixture-specific verified completion from an unresolved outcome. Research §0 and §5.
+- Say, pitfalls: Inspect actual outcomes, coverage, and the grader before choosing a repair. Repeated tuning against held-out cases weakens their independence. **Evaluation continues after deployment and after model or harness changes.** Add failures from real use. No personal story or time reservation follows. Research §5.
+- Say, application: The invented answer claims the board confirmed bearing wear and cites FRB-042-MIN r2 §3 paragraph 2. The reference exists, but the minutes leave the cause unresolved and require inspection. **Reference PASS; source-support FAIL.** Use an authorized expert or suitable expert-calibrated model grader within the approved scope. Prevent export of the failing draft, verify corrected content, and retain the failure as one regression case. Inspect the trace before selecting a repair, then rerun relevant cases and repeated trials. Research §0 and §5.
 - Pitfall: Using a generic judge without error analysis or result checks.
 - Takeaway line: "Check the action before accepting it. Measure behavior across representative cases. Keep both checks running as the system changes."
-- Sources: Husain and Shankar, September 2026; Anthropic, January 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5 in `research/section-2.md`.
+- Sources: Husain and Shankar, September 2026; Anthropic, January 2026, definitions rechecked September 2026; OpenAI evaluation-method guidance, checked September 2026; Shankar et al., UIST 2024; illustrative FRB checks. Research §0 and §5 in `research/section-2.md`. Reliability notation stays in backup.
 
 ### 2.6 AgentOps (4:10 reference). Slides 35 through 39
 
-- Slide: 35 quote (0:25), 36 what and why (0:40), 37 decisions (1:20), 38 pitfalls (0:45), 39 FRB application (1:00).
+- Slide: 35 quote (0:25), 36 foundations (0:55), 37 decisions (1:00), 38 pitfalls (0:45), 39 FRB application (1:05).
 - Say, quote: Use Rauch's selected quotation, attributed to him and published by Datadog. It is a perspective, not a measured prediction.
-- Say, what and why: AgentOps means operating agentic systems with observability, enforced controls, and accountable response as dependencies and requirements change. Briefly connect to coding-agent permissions, limits, and usage views. **Observe actual outcomes and assign an accountable response.**
-- Say, decisions: Define authority, observe behavior and resource use, set operating limits and handoff responsibility, and assign change/incident ownership. **Enforce scope outside the model.** Track quality, cost per completed task, and latency. Reverting configuration does not undo completed actions.
+- Say, foundations: **AgentOps operates the service across many runs and over time.** A trace connects observed operations; a span records one timed operation. Record the configuration behind each outcome, including models/settings, prompts, retrieval, and tools. Changes can affect behavior without an application-code release. Measure useful completion and quality alongside time, cost, and review work, recognizing sampled or delayed quality judgments. **API availability alone does not establish that the task succeeded.** Keep SLOs and error budgets in backup.
+- Say, decisions: Capture useful evidence while minimizing sensitive content and protecting access and retention. Evaluate a candidate, then compare a controlled cohort with a tested configuration on comparable work. Define pause and rollback conditions. **Enforce identity, scope, destinations, and budgets outside the model.** Assign an authorized responder for failed checks, unavailable evidence, exhausted budgets, and unknown outcomes. Orchestration implements the run's rules; AgentOps assigns operating policy and response. **A configuration rollback does not undo completed actions.**
 - Say, pitfalls: Review private data, untrusted content, and external communication as a combined potential exfiltration path. Break or constrain it. This is one threat model. **A probabilistic filter is insufficient as the sole security boundary.**
-- Say, application: The FRB agreement covers approved records/services/destinations, protected traces and evaluation artifacts, operating signals, and an authorized responder. Follow failures into a repair, relevant evals, and monitoring. **People retain responsibility for official causes, decisions, and board records.**
+- Say, application: In the illustrative release incident, an approved model/configuration update increases unsupported drafts and review work while APIs stay healthy. **The source-support gate still blocks failing drafts from export.** The assigned operator pauses the rollout, compares similar tasks by configuration, and inspects protected traces and revisions. The association starts investigation, not proof of root cause. Restore a tested compatible configuration when indicated, preserving approved scope. Review pending work and completed effects, add failure variants to existing regression coverage, and monitor recovery. The operating agreement remains supporting material. **People retain responsibility for official causes, decisions, and board records.**
 - Pitfall: Combining private data, untrusted content, and outbound access without reviewing the risk.
 - Takeaway line: "The system needs evidence of its behavior and people accountable for responding."
-- Sources: Rauch in Datadog, 2026; Willison, June 2025; OWASP, 2025 and 2026; OpenTelemetry guidance checked September 2026; illustrative FRB operating agreement. Research §0 and §6 in `research/section-2.md`.
+- Sources: Rauch in Datadog, 2026; Willison, June 2025; OWASP, 2025 and 2026; OpenTelemetry and Google SRE guidance checked September 2026; illustrative FRB release incident and operating agreement. Research §0, §5, and §6 in `research/section-2.md`.
 
 ### 2.7 Section wrap (0:50 reference). Slide 40
 
@@ -242,10 +242,10 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 
 ### Section 2 checks
 
-- Reference time: 1:50 + 3:55 + 4:05 + 3:40 + 3:55 + 4:35 + 4:10 + 0:50 = 27:00. Working range: 25:00 to 29:00.
+- Reference time: 1:50 + 4:30 + 4:30 + 4:10 + 3:55 + 4:35 + 4:10 + 0:50 = 28:30. Working range: 25:00 to 29:00.
 - Narrative slides: 9 through 40, thirty-two slides. Each five-slide area is separately numbered. The opening map retains six states; all other Section 2 compositions are static. Projected Section 2 physical count: 37.
 - Description scope: context engineering and retrieval (2.2); tools and extensibility (2.3); harness design (2.0 and all six areas); orchestration (2.4); verification and evals (2.5); observability, guardrails, identity, security, governance (2.6, with boundary decisions in 2.1 through 2.4); cost and latency (2.1, 2.2, 2.4, 2.6). Prototype readiness, tests remaining necessary, and ongoing evaluation are explicit in 2.5 and 2.6.
-- Structure: quote first; combined definition and importance; decisions and trade-offs; common challenges and exact headline pitfall; separate FRB application. No user/owner pairing, screenshot walkthrough, or evals personal-story reservation. The recap is slide 44.
+- Structure: quote first; combined definition and importance with technical foundations in all six areas; decisions and trade-offs; common challenges and exact headline pitfall; separate FRB application. No user/owner pairing, screenshot walkthrough, or evals personal-story reservation. The recap is slide 44. Verification & Evals keeps reliability formulas in backup. AgentOps keeps SLOs and error budgets in backup.
 - Evidence: FRB records, checks, and deployment constraints are illustrative. CUI/ECI eligibility is a hard constraint in the example. Older, less capable approved choices reflect presenter context and are not a universal model ranking. Citation existence differs from semantic support. No measured FRB scores or deployed outcome is claimed. Backup research retains its verification limitations.
 
 ---
@@ -378,7 +378,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 
 ### Whole-talk checks
 
-- Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 27:00 rehearsal reference. Section 3 is 4:30. The current references imply 33:30 to 37:30 of presentation; discussion fills the remainder of the 50-minute session.
+- Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 28:30 rehearsal reference. Section 3 is 4:30. The current references imply 33:30 to 37:30 of presentation; discussion fills the remainder of the 50-minute session.
 - Deck: 47 narrative slides, eight in Section 1, thirty-two in Section 2, and seven in Section 3. Each narrative slide has one authored composition. Expansion produces 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances.
 - FRB acceptance: a suspected cause never becomes a confirmed finding without support. Later minutes remain distinct from preliminary material. Similar symptoms and duplicates do not establish a common cause. Missing, unreadable, conflicting, incomplete, or unauthorized evidence yields an explicit limitation. Export matches the selection and preserves citations and uncertainty. Check citation existence separately from semantic support.
 - Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap assignment. The evals and roadmap personal stories are removed. Preserve the optional presenter-authored slot in Section 1. Orchestration has no audience pause.

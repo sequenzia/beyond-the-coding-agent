@@ -1,6 +1,6 @@
 # Slide 28: Execution pitfalls
 
-Beat 2.4. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
+Beat 2.4. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -17,26 +17,26 @@ Beat 2.4. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 rema
 ## Layout and visual
 
 - Display narrative number 28, the area kicker, and `mini-orchestration` throughout.
-- Use the pitfalls composition in design brief §23. All visual values are defined there.
-- Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
-- Keep text editable and the spoken takeaway out of the visible body.
-- The headline pitfall belongs in the body, not a footer. Its sentence must match slide 44 exactly.
+- Retain the current pitfalls composition and visible wording, as specified in design brief §§23 and 30. All visual values are defined there.
+- The headline pitfall stays in the body and matches slide 44 word for word.
+- Keep text editable. Show the complete content on entry with hard cuts and no internal builds.
 
 ## Talk track
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **Adding multiple agents before trying a workflow.** Other failures include loops without progress, early completion claims, and handoffs that lose evidence. **A timeout does not establish that an action failed.** Inspect what happened before repeating it.
+[0:00] **Adding multiple agents before trying a workflow** is the headline pitfall. Extra workers add handoffs and reconciliation. Also watch for skipped gates, repeated work without progress, and early completion claims. **A timeout does not establish that an action failed.** Inspect what happened before repeating it.
 
 [0:25] Advance to slide 29.
 
-Cut first: the handoff example. Never cut the exact headline pitfall and timeout distinction. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the handoff elaboration. Never cut the exact headline pitfall and timeout distinction. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Orchestration content; Anthropic, December 2024, June and November 2025; 12-Factor Agents; illustrative workflow and recovery contract. Research §0, §3, and §4.
+- Anthropic, December 2024, June and November 2025; LangChain checkpoint documentation and Featonby, Amazon Builders' Library, checked September 2026. Research §4 in `research/section-2.md`.
+- Illustrative workflow and recovery contract: Research §0, §3, and §4, and `internal/frb-running-example.md`. The permitted-export timeout is a separate teaching scenario from Tools' rejection case.
+- Accepted integration: `outlines/section-2-integration/04-orchestration.md`. No framework choice, measured recovery result, or universal retry guarantee is claimed.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Rehearse the retained 3:55 allocation on the actual presentation machine. The foundations slide gains 0:15 and the focused recovery application gives up 0:15. Preserve the workflow gate and safe recovery distinction when trimming.
