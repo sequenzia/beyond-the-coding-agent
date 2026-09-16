@@ -1,10 +1,10 @@
-# Slide 20: Tools and extensibility, opening quote
+# Slide 20: Tools & Extensibility, opening quote
 
 Beat 2.3. Section 2. Rehearsal reference 0:20 of the area's 3:40. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** Tools and extensibility · Perspective
+**Kicker:** Tools & Extensibility · Perspective
 
 “Agents are only as effective as the tools we give them.”
 
@@ -34,7 +34,7 @@ Cut first: the contract-element inventory. Never cut the quote and contract defi
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Tools content; Anthropic, September and November 2025; MCP documentation, July 2026; OWASP, 2025; illustrative export contract. Research §0 and §3. Illustration provenance: `internal/illustrations/README.md`.
+- Reviewed Tools & Extensibility content; Anthropic, September and November 2025; MCP documentation, July 2026; OWASP, 2025; illustrative export contract. Research §0 and §3. Illustration provenance: `internal/illustrations/README.md`.
 
 ## Open items
 

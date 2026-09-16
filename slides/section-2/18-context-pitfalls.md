@@ -4,7 +4,7 @@ Beat 2.2. Section 2. Rehearsal reference 0:20 of the area's 4:05. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Context and knowledge · Challenges and pitfalls
+**Kicker:** Context Engineering · Challenges and pitfalls
 
 **Title:** Context pitfalls
 
@@ -35,7 +35,7 @@ Cut first: the supporting cue explanations. Never cut the exact headline pitfall
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Context content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
+- Reviewed Context Engineering content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
 
 ## Open items
 

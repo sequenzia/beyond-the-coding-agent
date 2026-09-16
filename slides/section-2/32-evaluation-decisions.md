@@ -4,7 +4,7 @@ Beat 2.5. Section 2. Rehearsal reference 1:30 of the area's 4:35. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Verification and evals · Decisions
+**Kicker:** Verification & Evals · Decisions
 
 **Title:** Evaluation decisions
 
@@ -41,7 +41,7 @@ Cut first: capability-suite detail. Never cut the brief grader comparison, exper
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results.
+- Reviewed Verification & Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results.
 
 ## Open items
 

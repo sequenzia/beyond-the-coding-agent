@@ -8,8 +8,8 @@ Beat 1.3 Agenda and goals. Section 1. Time 0:25. Builds: 0.
 
 1. **What changes when AI becomes part of the product**
 2. **What AI engineers actually engineer**
-   Models · Context and knowledge · Tools and extensibility
-   Orchestration · Verification and evals · Production operations
+   Model Selection · Context Engineering · Tools & Extensibility
+   Orchestration · Verification & Evals · AgentOps
 3. **Making the transition**
    Skills that transfer, new competencies, and where to start
 4. **Questions and discussion**

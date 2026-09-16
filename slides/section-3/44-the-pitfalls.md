@@ -6,14 +6,14 @@ Beat 3.3 The pitfalls, on one slide. Section 3. Time 0:35. One static screen; no
 
 **Kicker:** The transition · The pitfalls
 
-Six recap bands. No separate title.
+Six recap bands. No separate title. Use each full area name, with deliberate two-line wraps where specified in design brief §26.
 
-1. Models: Selecting or changing models without testing them on your task.
-2. Context: Adding context without curating it.
-3. Tools: Copying APIs without evaluating task fit.
+1. Model Selection: Selecting or changing models without testing them on your task.
+2. Context Engineering: Adding context without curating it.
+3. Tools & Extensibility: Copying APIs without evaluating task fit.
 4. Orchestration: Adding multiple agents before trying a workflow.
-5. Evals: Using a generic judge without error analysis or result checks.
-6. Production operations: Combining private data, untrusted content, and outbound access without reviewing the risk.
+5. Verification & Evals: Using a generic judge without error analysis or result checks.
+6. AgentOps: Combining private data, untrusted content, and outbound access without reviewing the risk.
 
 ## Layout and visual
 

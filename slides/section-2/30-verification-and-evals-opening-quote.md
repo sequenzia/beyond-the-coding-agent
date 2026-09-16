@@ -1,10 +1,10 @@
-# Slide 30: Verification and evals, opening quote
+# Slide 30: Verification & Evals, opening quote
 
 Beat 2.5. Section 2. Rehearsal reference 0:20 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** Verification and evals · Perspective
+**Kicker:** Verification & Evals · Perspective
 
 “Error analysis is the most important activity in evals.”
 
@@ -34,7 +34,7 @@ Cut first: the score explanation. Never cut the joint attribution and error-anal
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results. Illustration provenance: `internal/illustrations/README.md`.
+- Reviewed Verification & Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results. Illustration provenance: `internal/illustrations/README.md`.
 
 ## Open items
 

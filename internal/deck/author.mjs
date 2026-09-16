@@ -85,6 +85,12 @@ function evidenceTable(values,widths,y,heights,opts={}){
 function strip(str,opts={}){text(str,48,68,692,24,16,{...opts,color:C.secondary,exact:20});}
 function thesis(question=false){text('Using AI makes you\nan AI-enabled software engineer.',48,136,864,104,44,{align:'center'});text('Engineering systems that depend on AI\nmakes you an AI engineer.',48,286,864,104,44,{align:'center',bold:true});if(question)text('Questions',48,438,864,40,32,{align:'center',start:1});}
 
+// Canonical display names. Technical asset and map identifiers remain stable.
+const AREA_NAMES = Object.freeze([
+ 'Model Selection', 'Context Engineering', 'Tools & Extensibility',
+ 'Orchestration', 'Verification & Evals', 'AgentOps',
+]);
+
 // Section 1.
 await newSlide('01');
 text('Beyond the Coding Agent',48,185,864,58,44,{bold:true,align:'center'});
@@ -105,8 +111,8 @@ const agendaRows=[
 ];
 agendaRows.forEach(([label,y],i)=>{text(String(i+1),48,y,28,32,24,{color:C.secondary});text(label,88,y,824,32,24);});
 [
- ['Models',88,186,250,C.blue],['Context and knowledge',362,186,278,C.pink],['Tools and extensibility',664,186,248,C.pink],
- ['Orchestration',88,216,250,C.pink],['Verification and evals',362,216,278,C.green],['Production operations',664,216,248,C.amber],
+ [AREA_NAMES[0],88,186,250,C.blue],[AREA_NAMES[1],362,186,278,C.pink],[AREA_NAMES[2],664,186,248,C.pink],
+ [AREA_NAMES[3],88,216,250,C.pink],[AREA_NAMES[4],362,216,278,C.green],[AREA_NAMES[5],664,216,248,C.amber],
 ].forEach(([label,x,y,w,color])=>text(label,x,y,w,25,20,{color}));
 text('Skills that transfer, new competencies, and where to start',88,298,824,25,20,{color:C.secondary});
 shape(48,389,864,1,C.hair);
@@ -131,21 +137,21 @@ await img('internal/renders/map-full.png',0,0,960,540,{start:5,duration:300});
 // Visible copy is authored here and matched to the numbered Markdown specs.
 const section2Areas = [
   {
-    "area": "Models",
+    "area": AREA_NAMES[0],
     "start": 10,
     "image": "models-in-system.png",
     "quote": "A decent model with a great harness beats a great model with a bad harness.",
     "author": "Addy Osmani",
     "publication": "Agent Harness Engineering, April 2026",
     "titles": [
-      "Models, opening quote",
-      "Models in the system",
+      "Model Selection, opening quote",
+      "Model Selection",
       "Model selection",
       "Model-selection pitfalls",
       "Models for the FRB brief"
     ],
     "overview": [
-      "Interprets the task and context.\nProduces a response or proposed action.",
+      "Choose and maintain a model configuration suited to the task and approved for the data.",
       "Eligible for the data.\nCapable on the task.\nWithin cost and latency requirements."
     ],
     "decisions": [
@@ -186,14 +192,14 @@ const section2Areas = [
     "map": "models"
   },
   {
-    "area": "Context and knowledge",
+    "area": AREA_NAMES[1],
     "start": 15,
     "image": "context-selection.png",
     "quote": "Context, therefore, must be treated as a finite resource with diminishing marginal returns.",
     "author": "Anthropic",
     "publication": "Effective context engineering for AI agents, September 2025",
     "titles": [
-      "Context and knowledge, opening quote",
+      "Context Engineering, opening quote",
       "Context for the next step",
       "Context decisions",
       "Context pitfalls",
@@ -241,14 +247,14 @@ const section2Areas = [
     "map": "context"
   },
   {
-    "area": "Tools and extensibility",
+    "area": AREA_NAMES[2],
     "start": 20,
     "image": "tools-interface.png",
     "quote": "Agents are only as effective as the tools we give them.",
     "author": "Anthropic",
     "publication": "Writing effective tools for agents, with agents, September 2025",
     "titles": [
-      "Tools and extensibility, opening quote",
+      "Tools & Extensibility, opening quote",
       "Tools and connections",
       "Tool-design decisions",
       "Tool-design pitfalls",
@@ -292,7 +298,7 @@ const section2Areas = [
     "map": "tools"
   },
   {
-    "area": "Orchestration",
+    "area": AREA_NAMES[3],
     "start": 25,
     "image": "orchestration-path.png",
     "quote": "we recommend finding the simplest solution possible, and only increasing complexity when needed.",
@@ -343,14 +349,14 @@ const section2Areas = [
     "map": "orchestration"
   },
   {
-    "area": "Verification and evals",
+    "area": AREA_NAMES[4],
     "start": 30,
     "image": "evals-inspection.png",
     "quote": "Error analysis is the most important activity in evals.",
     "author": "Hamel Husain and Shreya Shankar",
     "publication": "AI Evals: Everything You Need to Know, September 2026",
     "titles": [
-      "Verification and evals, opening quote",
+      "Verification & Evals, opening quote",
       "Verification and evaluation",
       "Evaluation decisions",
       "Evaluation pitfalls",
@@ -394,21 +400,21 @@ const section2Areas = [
     "map": "evals"
   },
   {
-    "area": "Production operations",
+    "area": AREA_NAMES[5],
     "start": 35,
     "image": "operating-observability.png",
     "quote": "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe.",
     "author": "Guillermo Rauch",
     "publication": "State of AI Engineering, Datadog, 2026",
     "titles": [
-      "Production operations, opening quote",
-      "Production operations",
+      "AgentOps, opening quote",
+      "AgentOps",
       "Production decisions",
       "Risks across integrations",
       "FRB operating agreement"
     ],
     "overview": [
-      "Keep the deployed system observable, controlled, and accountable.",
+      "Operate agentic systems with observability, enforced controls, and accountable response.",
       "Behavior, access, cost, and latency change over time.\nFailures need an accountable response."
     ],
     "decisions": [
@@ -565,15 +571,15 @@ twoTable(['Existing skill','Application in an AI system'],[
 ],192,[42,42,42,42,42,42,42],{color:C.green});
 await newSlide('43',{area:'The transition',beat:'What you add',map:'all',color:C.green,title:'What you add'});
 twoTable(['Area','Competency to develop'],[
- ['Models','Recognize failure patterns and evaluate task fit'],
- ['Context','Select evidence and preserve its meaning'],
- ['Tools','Evaluate how the model selects and uses tools'],
- ['Orchestration','Bound model-selected actions and handle interruption'],
- ['Evals','Define quality and measure behavior across repeated trials'],
- ['Production operations','Investigate quality changes and manage\nsecurity, cost, and latency'],
+ [AREA_NAMES[0],'Recognize failure patterns and evaluate task fit'],
+ [AREA_NAMES[1],'Select evidence and preserve its meaning'],
+ [AREA_NAMES[2],'Evaluate how the model selects and uses tools'],
+ [AREA_NAMES[3],'Bound model-selected actions and handle interruption'],
+ [AREA_NAMES[4],'Define quality and measure behavior across repeated trials'],
+ [AREA_NAMES[5],'Investigate quality changes and manage\nsecurity, cost, and latency'],
 ],192,[40,40,40,40,40,40,60],{color:C.green,columnWidths:[272,24,568]});
 await newSlide('44',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
-['Models','Context','Tools','Orchestration','Evals','Production operations'].forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=100+i*66,h=60;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);text(name,48,y+(h-32)/2,i===5?224:208,32,20,{bold:true,color:i===0?C.text:C.bg,middle:true});const sentence=i===5?pitfalls[i].replace(' without reviewing','\nwithout reviewing'):pitfalls[i];text(sentence,296,y+3,616,h-6,20,{middle:true});});
+AREA_NAMES.forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=100+i*66,h=60;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);const label=i===1?name.replace(' ','\n'):i===2?name.replace('& ','&\n'):i===4?name.replace(' &','\n&'):name;text(label,48,y+3,208,54,20,{bold:true,color:i===0?C.text:C.bg,middle:true});const sentence=i===5?pitfalls[i].replace(' without reviewing','\nwithout reviewing'):pitfalls[i];text(sentence,296,y+3,616,h-6,20,{middle:true});});
 await newSlide('45',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'The first assignment replaces the four roadmap rows and stays visible through the handoff.'});
 ['Choose one narrow task.','Start with one model call.','Turn failures into checks.','Add autonomy when evals justify it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','',{end:1});text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary,end:1});text(v,136,202+i*67,756,42,32,{bold:true,end:1});});
 text('Review 20 to 50 outputs for one task.',48,192,864,45,32,{start:1,bold:true});

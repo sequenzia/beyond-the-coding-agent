@@ -1,10 +1,10 @@
-# Slide 15: Context and knowledge, opening quote
+# Slide 15: Context Engineering, opening quote
 
 Beat 2.2. Section 2. Rehearsal reference 0:20 of the area's 4:05. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** Context and knowledge · Perspective
+**Kicker:** Context Engineering · Perspective
 
 “Context, therefore, must be treated as a finite resource with diminishing marginal returns.”
 
@@ -34,7 +34,7 @@ Cut first: the repeated capacity explanation. Never cut the quote and attributio
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Context content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3. Illustration provenance: `internal/illustrations/README.md`.
+- Reviewed Context Engineering content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3. Illustration provenance: `internal/illustrations/README.md`.
 
 ## Open items
 

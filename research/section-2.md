@@ -2,7 +2,7 @@
 
 Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetched and quoted directly. **UNVERIFIED** means from a search snippet or secondary coverage; confirm before it goes on a slide. Organized by the six areas in the outline, plus the map, the June to September 2026 window, and a closing "verify before stage" list.
 
-Current authoring placement, integrated September 16: map 7; Models 8 through 12; Context 13 through 17; Tools 18 through 22; Orchestration 23 through 27; Verification and evals 28 through 32; Production operations 33 through 37; closing map 38. Dated earlier revision notes and former coding-agent screenshot anchors below retain historical slide numbers. The content-rework subsections describe the active design. Full source records and evidence status remain unchanged by renumbering.
+Current authoring placement, updated September 16: map 9; Model Selection 10 through 14; Context Engineering 15 through 19; Tools & Extensibility 20 through 24; Orchestration 25 through 29; Verification & Evals 30 through 34; AgentOps 35 through 39; closing map 40. Dated earlier revision notes and former coding-agent screenshot anchors below retain historical slide numbers. The content-rework subsections describe the active design. Full source records and evidence status remain unchanged by the naming update.
 
 ## 0. The map: agent = model + harness
 
@@ -39,12 +39,14 @@ Current authoring placement, integrated September 16: map 7; Models 8 through 12
 - The design confines research workers to authorized internal FRB records and attachments. Missing, unreadable, conflicting, incomplete, or unauthorized evidence produces an explicit limitation. Citation existence and semantic support are separate checks.
 - Content-rework assumption, added September 15, 2026: the FRB corpus includes CUI and export-controlled information (ECI). Model calls that handle those records use services and environments approved for the applicable data and use. For this example, assume the approved model choices are older and less capable for the intended synthesis than newer alternatives outside the approved environment. This is an illustrative deployment constraint informed by presenter-supplied audience context, not measured model evidence or a formal designation of the invented excerpts.
 
-## 1. Models: a component you select, measure, and replace
+## 1. Model Selection: a component you select, measure, and replace
+
+Current teaching definition: choose and maintain a model configuration suited to the task and approved for the data. This summarizes the existing task-fit, eligibility, settings, routing, and lifecycle decisions below.
 
 **Addy Osmani, "Agent Harness Engineering," AddyOsmani.com, April 19, 2026** [primary]. https://addyosmani.com/blog/agent-harness-engineering/ Checked in a browser September 15, 2026.
 
 - "A decent model with a great harness beats a great model with a bad harness."
-- Selected for the Models quote screen. The next sentence describes the author's own experience. Present this as an attributed engineering judgment, not a universal performance guarantee or benchmark result.
+- Selected for the Model Selection quote screen. The next sentence describes the author's own experience. Present this as an attributed engineering judgment, not a universal performance guarantee or benchmark result.
 - Teaching application: compare models inside the surrounding context, tools, and control flow used by the product.
 
 **Anthropic model deprecations page** [primary]. https://platform.claude.com/docs/en/about-claude/model-deprecations
@@ -143,7 +145,7 @@ Illustrative application of §0, not a measured result: the FRB corpus includes 
 
 Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with a short explanation of its controls. Slide 9 has four static screens: quote, general decisions, maintenance and pitfalls, and FRB application. General decisions address task fit, one model versus routing, and control of model changes. Routing returns here as a model-selection decision; Orchestration owns task decomposition and coordination. Compare candidates on representative tasks and start with one configuration unless measurements justify routing. Maintain coverage as intended use and routes change. A snapshot does not freeze prompts, retrieval, tools, or the environment. The detailed worker/analyst requirements remain in `internal/frb-running-example.md`. The Chen prime/composite result and LangChain routing experiment above remain backup evidence with their original limitations.
 
-## 2. Context engineering and knowledge
+## 2. Context Engineering
 
 **Andrej Karpathy, X post, June 25, 2025.** https://x.com/karpathy/status/1937902205765607626
 
@@ -226,9 +228,9 @@ The draft's four decisions are what to include for the next step, how to retriev
 
 The FRB application inherits the CUI/ECI corpus and approved-model constraints in §0 and §1. Context preparation must stay within the applicable approved scope, including any services that process the restricted records for parsing, retrieval, embedding, or summarization. This extends the illustrative deployment boundary, not a new claim about a particular provider's approval. Supply focused, traceable evidence to the available approved model and evaluate the result. Do not infer that an older model necessarily has a smaller context window or that retrieval overcomes every capability limit.
 
-Keep both FRB-042-BRF r1 slide 6 and FRB-042-MIN r2 §3 paragraph 2 with their distinct identities, dates, and locations. A working summary preserves the preliminary hypothesis, unresolved cause, and outstanding inspection. Comparison cases remain separate from the target case. Refresh source versions and recheck access before finalizing the brief. No-match, incomplete-index, and unreadable-source outcomes produce appropriately scoped limitations. The shared packet remains the authoring reference. Detailed output grading stays in Verification and evals.
+Keep both FRB-042-BRF r1 slide 6 and FRB-042-MIN r2 §3 paragraph 2 with their distinct identities, dates, and locations. A working summary preserves the preliminary hypothesis, unresolved cause, and outstanding inspection. Comparison cases remain separate from the target case. Refresh source versions and recheck access before finalizing the brief. No-match, incomplete-index, and unreadable-source outcomes produce appropriately scoped limitations. The shared packet remains the authoring reference. Detailed output grading stays in Verification & Evals.
 
-## 3. Tools and extensibility
+## 3. Tools & Extensibility
 
 **Anthropic, "Writing effective tools for agents, with agents," Ken Aizawa, September 11, 2025** [primary]. https://www.anthropic.com/engineering/writing-tools-for-agents Checked in a browser September 15, 2026.
 
@@ -321,13 +323,13 @@ The illustrative FRB application retains the existing four-tool inventory and fo
 
 The tool returns a receipt when completion is confirmed, an explicit failure when known, or an unknown outcome when completion cannot be confirmed. Orchestration uses that evidence to decide whether to inspect, retry, or hand off. Tool design supplies the result contract, while orchestration owns the recovery policy. Evaluate use of the tool set with the available approved models; clear contracts do not guarantee that their capability limits disappear.
 
-## 4. Orchestration: the loop
+## 4. Orchestration
 
 **Anthropic, "Building effective agents," Erik Schluntz and Barry Zhang, December 19, 2024** [primary]. https://www.anthropic.com/engineering/building-effective-agents
 
 - Rechecked the workflow/agent distinction, simplicity recommendation, and execution-limit discussion in a browser September 15, 2026. The content rework uses these concepts, not the page's changing framework or model examples.
 - Workflows: "systems where LLMs and tools are orchestrated through predefined code paths." Agents: "systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks."
-- "we recommend finding the simplest solution possible, and only increasing complexity when needed." Selected for the Orchestration quote screen. Exact wording checked in a browser September 15, 2026. This replaces the Osmani quote in the revised area. The Osmani quotation remains on the Models quote screen.
+- "we recommend finding the simplest solution possible, and only increasing complexity when needed." Selected for the Orchestration quote screen. Exact wording checked in a browser September 15, 2026. This replaces the Osmani quote in the revised area. The Osmani quotation remains on the Model Selection quote screen.
 - "Agentic systems often trade latency and cost for better task performance, and you should consider when this tradeoff makes sense."
 - "it's also common to include stopping conditions (such as a maximum number of iterations) to maintain control."
 - Five workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.
@@ -388,7 +390,7 @@ Illustrative application of §0: retrieve the target packet, inspect evidence, c
 
 The Markdown-first revision keeps the existing quote and develops orchestration as the execution design for selecting, sequencing, and coordinating work. The coding-agent connection is the action/check/retry loop. Define what code fixes in advance and where model judgment selects the next action. A planned sequence alone does not enforce permissions, verification, or stopping rules. The three teaching decisions remain control of the next step, delegation, and stopping/recovery.
 
-Use the simplest execution design that meets the task. The FRB starting point is a bounded workflow with model interpretation inside defined stages. It is a teaching proposal, not a claim that all agent systems must use the same architecture. Keep tool contracts in §3, context selection in §2, and model eligibility/selection in §1. Verification and evals defines acceptable results; orchestration enforces where those checks affect execution.
+Use the simplest execution design that meets the task. The FRB starting point is a bounded workflow with model interpretation inside defined stages. It is a teaching proposal, not a claim that all agent systems must use the same architecture. Keep tool contracts in §3, context selection in §2, and model eligibility/selection in §1. Verification & Evals defines acceptable results; orchestration enforces where those checks affect execution.
 
 The FRB example's six stages remain retrieve, inspect, compare, reconcile, verify, and export. Save the exact source revisions, working draft, stage completion, and relevant check and export outcomes. A changed draft requires renewed verification before export. A resumed run rechecks freshness and access; changed evidence returns the affected work to inspection and reconciliation before another verification. These are authored execution rules for the illustrative system, not guarantees supplied by a particular framework.
 
@@ -396,7 +398,7 @@ Use the tool contract's confirmed, failed, and unknown outcomes to choose the re
 
 Optional workers compare independent FRB cases only within the authorized corpus and approved processing scope. They return evidence and uncertainty to the main analyst and cannot export or approve official findings. Keep delegation conditional on measured benefit with the available approved models. Additional workers do not establish that a capability gap is solved. Compare whole-task quality, cost, and latency, including reconciliation and verification. The presenter chose a brief multi-agent contrast with the bounded workflow; detailed patterns remain backup. The full contract remains in `internal/frb-running-example.md`.
 
-## 5. Verification and evaluation
+## 5. Verification & Evals
 
 **Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, May 28, 2025, updated September 13, 2026** [primary]. https://hamel.dev/blog/posts/evals-faq/ Checked in a browser September 15, 2026. The page's displayed modification date is September 13; this corrects the earlier September 1 date in this entry.
 
@@ -452,7 +454,7 @@ Maintenance covers criteria that evolve when outputs expose missing requirements
 
 The preliminary briefing remains part of the packet and the Context example. The focused Evals screen needs only the cited minutes to demonstrate the unsupported claim. Inspect parsing, retrieval, compaction, worker output, and synthesis in the actual trace before assigning a cause or selecting a repair. The broader direct-check/expert-judgment inventory, probability notation, flight-booking/refund illustrations, and team-specific allocation figures remain backup with their original qualifications.
 
-### Verification and evals content rework
+### Verification & Evals content rework
 
 The Markdown-first revision opens with the existing Husain/Shankar quote, then defines verification and evaluation as complementary uses of checks. Verification informs acceptance of a particular result or action. Evaluation measures system behavior over representative cases and repeated trials. Code checks, model graders, and expert review can contribute to either. Evals are tests of an AI system; ordinary software tests remain necessary. The talk's inside/outside distinction is an organizing frame, not a universal technical taxonomy.
 
@@ -464,14 +466,16 @@ The FRB case keeps the existing invented minutes, deliberately unsupported answe
 
 Model graders, evaluation services, stored traces, and human reviewers that receive the CUI/ECI records remain within the applicable approved access and processing scope. This follows the illustrative deployment boundary in §0 and §1. An approved answering model is not automatically a suitable grader. Evaluate grader agreement with expert decisions; if suitable model grading is unavailable, use authorized expert review for the semantic judgments or limit the automated scope. These are authored design choices, not a claim that any named grader or service is approved.
 
-## 6. Production operations: observability, guardrails, security, identity, governance
+## 6. AgentOps: observability, guardrails, security, identity, governance
+
+Current teaching definition: operate agentic systems with observability, enforced controls, and accountable response. AgentOps names this talk's existing operational responsibilities; it introduces no new product, standard, or measured claim.
 
 **Observability.** OpenTelemetry GenAI semantic conventions: spans, attributes, metrics, events for model calls, tool executions, agent runs, retrieval, memory. Now maintained in their own repository, https://github.com/open-telemetry/semantic-conventions-genai [primary], checked in a browser September 14, 2026; the spans document carries "Status: Development" and "Warning: Semantic conventions are subject to change." The old page at https://opentelemetry.io/docs/specs/semconv/gen-ai/ now only redirects. Secondary coverage (July 2026) reports no stable release or tag yet, so instrument against a pinned snapshot and expect attribute names to move. Blog: https://opentelemetry.io/blog/2026/genai-observability/ . Platforms to name generically: Langfuse, LangSmith, Braintrust, Arize Phoenix. Metrics a builder tracks: latency p50/p95/p99, time to first token, tokens per request, cost per request and per completed task, cache hit rate, tool call and failure counts, loop iterations per task, error and rate-limit counts. Agentic moves: cost per completed task; watch p95 and p99 tokens because tails concentrate cost. Coding-agent anchor: Codex `/status` will "Display session configuration and token usage" and `/usage` will "View account token usage"; `otel.exporter`, `otel.trace_exporter`, and `otel.metrics_exporter` accept otlp-http or otlp-grpc, with metrics defaulting to statsig. Devin CLI `/usage` will "Show estimated credit/ACU usage for the session," `/session-stats` shows consumption by dimension, `/context` shows window usage; `--sandbox` with `sandbox.allowed_domains`, `sandbox.denied_domains`, and `sandbox.network_mode` of full or limited; `devin mcp login` for OAuth. Docs in §1 and §3 [primary].
 
 **Guillermo Rauch, quoted in "State of AI Engineering," Datadog, 2026** [primary]. https://www.datadoghq.com/state-of-ai-engineering/ Checked in a browser September 15, 2026.
 
 - "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe."
-- Selected excerpt for the Production operations quote screen, formerly Operating it. The report attributes the quotation to Guillermo Rauch of Vercel. Datadog is the publisher, not the speaker. The retrieved page does not establish a publication day. Wording and attribution rechecked in a browser September 15, 2026.
+- Selected excerpt for the AgentOps quote screen, formerly Production operations and Operating it. The report attributes the quotation to Guillermo Rauch of Vercel. Datadog is the publisher, not the speaker. The retrieved page does not establish a publication day. Wording and attribution rechecked in a browser September 15, 2026.
 
 
 **Simon Willison, "The lethal trifecta for AI agents," June 16, 2025** [primary]. https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/
@@ -510,7 +514,7 @@ Model graders, evaluation services, stored traces, and human reviewers that rece
 
 ### Operating decisions and the FRB agreement
 
-Earlier deck revision under the name Operating it, September 15, 2026: one session-usage example, the selected Guillermo Rauch quote, four general operating decisions, maintenance with the security pitfall, an illustrative FRB operating agreement, and the existing full-screen yours diagram. The quote graphic depicts visibility into an execution path, not a measured trace. The user example is Devin CLI `/usage`, which reports estimated credit/ACU usage for the session, as recorded in the vendor anchor above. The content rework below uses the presenter-selected name Production operations.
+Earlier deck revision under the name Operating it, September 15, 2026: one session-usage example, the selected Guillermo Rauch quote, four general operating decisions, maintenance with the security pitfall, an illustrative FRB operating agreement, and the existing full-screen yours diagram. The quote graphic depicts visibility into an execution path, not a measured trace. The user example is Devin CLI `/usage`, which reports estimated credit/ACU usage for the session, as recorded in the vendor anchor above. The current area name is AgentOps.
 
 The four decisions concern access and authority, observability, stop/handoff rules, and ownership of approvals and incidents. Enforce identity, scope, and destinations outside the model. Begin with least privilege and explicit approval requirements. Trace model calls, tools, and outcomes; track quality, cost per completed task, and latency. Set enforceable budgets, failure responses, recovery paths, and human handoff. Assign an accountable operator and review process, with audit trails and rollback. Identity design specifics remain illustrative patterns, not universal requirements.
 
@@ -520,11 +524,11 @@ Maintenance covers integrations that join private data, untrusted content, and e
 
 EchoLeak, Replit, Air Canada, and the other incidents remain research backup with their original evidence limitations. Detailed OpenTelemetry convention status, identity patterns, protocol security requirements, and Article 50 treatment also remain backup. No universal disclosure or compliance claim is made on the active slides. The full-screen yours anatomy diagram closes Section 2 after the FRB agreement.
 
-### Production operations content rework
+### AgentOps content rework
 
-The presenter selected Production operations as the replacement for Operating it. The area covers keeping the deployed system observable, controlled, and accountable under changing tasks, dependencies, and requirements. Retain the Rauch quotation first, then the definition, why it matters, decisions and trade-offs, challenges and pitfalls, and the FRB application. Preserve the closing anatomy diagram as a section wrap after the application. No slide layout or timing is assigned in this pass.
+The presenter selected AgentOps as the current name, following the earlier Production operations and Operating it revisions. The area covers keeping the deployed system observable, controlled, and accountable under changing tasks, dependencies, and requirements. Retain the Rauch quotation first, then the definition, why it matters, decisions and trade-offs, challenges and pitfalls, and the FRB application. Preserve the closing anatomy diagram as a section wrap after the application. No slide layout or timing is assigned in this pass.
 
-The four decisions remain authority, observation, stopping/handoff, and accountable ownership of approvals, changes, and incidents. Distinguish product-level operating policies and response responsibilities from the per-run execution rules in Orchestration. Observability connects observable requests, model/tool activity, source revisions, checks, outcomes, and resource use. Evaluation supplies quality criteria; production operations ensures failures reach a responsible team and feed back into the evaluation suite. OWASP authorization and monitoring guidance in §3 was rechecked in a browser September 15, 2026 for this treatment.
+The four decisions remain authority, observation, stopping/handoff, and accountable ownership of approvals, changes, and incidents. Distinguish product-level operating policies and response responsibilities from the per-run execution rules in Orchestration. Observability connects observable requests, model/tool activity, source revisions, checks, outcomes, and resource use. Evaluation supplies quality criteria; AgentOps ensures failures reach a responsible team and feed back into the evaluation suite. OWASP authorization and monitoring guidance in §3 was rechecked in a browser September 15, 2026 for this treatment.
 
 Keep the security lesson focused on the combined system. Private data, untrusted content, and outbound communication can form an exfiltration path. An attachment in an internal corpus can contain instructions the model should not treat as authority; this is an illustrative application of the threat model. Review new integrations for their combined capabilities. Enforce access and destinations outside the model. Probabilistic filters can contribute to controls, but do not establish an authorization boundary by themselves. The trifecta is one threat model, not a complete safety assessment.
 

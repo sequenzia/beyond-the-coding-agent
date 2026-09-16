@@ -16,7 +16,7 @@ The existing full-screen anatomy diagram with responsibility badges. Keep the Mo
 
 [0:00] **SECTION WRAP**
 
-[0:00] We have followed one system through six connected responsibilities: eligible models, useful context, tool contracts, execution control, evidence of quality, and production operations. A change in one can affect the others.
+[0:00] We have followed one system through six connected responsibilities: Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. A change in one can affect the others.
 
 [0:18] The diagram is now a map of engineering work you can identify, test, and improve. Much of it builds on software engineering skills you already have. The next section connects those foundations to the additional competencies you need.
 

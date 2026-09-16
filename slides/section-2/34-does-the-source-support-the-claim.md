@@ -4,7 +4,7 @@ Beat 2.5. Section 2. Rehearsal reference 1:30 of the area's 4:35. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Verification and evals · FRB application
+**Kicker:** Verification & Evals · FRB application
 
 **Title:** Does the source support the claim?
 
@@ -45,7 +45,7 @@ Keep this failure as a regression case.
 
 [0:49] Retain this as one regression case within the broader suite. Inspect the trace: did parsing, retrieval, compaction, or synthesis lose the qualification? Repair what the evidence identifies and rerun relevant cases. Passing this single check does not establish every other requirement.
 
-[1:11] Production operations connects that evidence to response during real use.
+[1:11] AgentOps connects that evidence to response during real use.
 
 [1:16] **Check the action before accepting it. Measure behavior across representative cases. Keep both checks running as the system changes.**
 
@@ -56,7 +56,7 @@ Cut first: the component-inventory questions. Never cut citation existence versu
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results.
+- Reviewed Verification & Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results.
 
 ## Open items
 

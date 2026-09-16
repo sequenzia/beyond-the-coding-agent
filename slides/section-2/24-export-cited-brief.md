@@ -4,7 +4,7 @@ Beat 2.3. Section 2. Rehearsal reference 1:00 of the area's 3:40. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Tools and extensibility · FRB application
+**Kicker:** Tools & Extensibility · FRB application
 
 **Title:** Export cited brief
 
@@ -46,7 +46,7 @@ Cut first: the sentence about exposing the contract through MCP. Never cut exact
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Tools content; Anthropic, September and November 2025; MCP documentation, July 2026; OWASP, 2025; illustrative export contract. Research §0 and §3.
+- Reviewed Tools & Extensibility content; Anthropic, September and November 2025; MCP documentation, July 2026; OWASP, 2025; illustrative export contract. Research §0 and §3.
 
 ## Open items
 

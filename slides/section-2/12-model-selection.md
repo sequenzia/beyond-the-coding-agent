@@ -4,7 +4,7 @@ Beat 2.1. Section 2. Rehearsal reference 1:00 of the area's 3:55. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Models · Decisions
+**Kicker:** Model Selection · Decisions
 
 **Title:** Model selection
 
@@ -42,7 +42,7 @@ Cut first: routing mechanics. Never cut the eligibility constraint and lifecycle
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Models content; Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; lifecycle sources and presenter context. Research §0 and §1. No model scores or winner are claimed.
+- Reviewed Model Selection content; Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; lifecycle sources and presenter context. Research §0 and §1. No model scores or winner are claimed.
 
 ## Open items
 

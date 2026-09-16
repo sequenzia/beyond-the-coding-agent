@@ -115,9 +115,9 @@ Retain this failure as one regression case within a broader suite covering the s
 
 The presenter removed the separate evals personal story and its 1:00 reservation in the content rework. This invented check is the area's worked example. It does not represent personal experience.
 
-### Production operations agreement for the content rework
+### AgentOps agreement
 
-This is a proposed operating agreement for the illustrative system. Production operations is the presenter-selected name for the final Section 2 area.
+This is a proposed operating agreement for the illustrative system. AgentOps is the presenter-selected name for the final Section 2 area. It covers observability, enforced controls, and accountable response.
 
 | Responsibility | Proposed agreement |
 |---|---|

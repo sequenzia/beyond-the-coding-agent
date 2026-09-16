@@ -776,3 +776,12 @@ Slide 44 retains the compact header and six full-width recap bands. Each band is
 The revised pitfall sentences on slides 13, 18, 23, 28, 33, and 38 use the existing Section 2 geometry. Break slide 13 before "without testing", slide 33 before "without error analysis", and slide 38 before "and outbound access". Keep the other three sentences on one line where they fit. Line breaks do not change the exact sentence shared with slide 44.
 
 Slide 45 retains its two-state replacement composition and existing geometry. Its first state shows four roadmap rows at y 192 with 67-point spacing and height 59. The numbered labels are: Choose one narrow task; Start with one model call; Turn failures into checks; Add autonomy when evals justify it. The assignment state keeps its heading at y 192, instructions at y 256, caption at y 342, and native four-column example at y 374. The heading reads “Review 20 to 50 outputs for one task.” The caption reads “Illustrative FRB example. Use the same record for your task.” No personal-story hold or presenter-authored slot remains. The state stays visible through the handoff to slide 46.
+
+
+## 26. Area naming update, September 16, 2026
+
+This section supersedes earlier displayed area names and recap-label geometry. The six names, in order, are Model Selection (slides 10 through 14), Context Engineering (15 through 19), Tools & Extensibility (20 through 24), Orchestration (25 through 29), Verification & Evals (30 through 34), and AgentOps (35 through 39). Use these exact names in the agenda, area kickers, competency table, and recap. Earlier dated revision notes retain historical names. Slide 42 retains Production operations as an existing software engineering skill.
+
+Keep the existing area colors, quote illustrations, mini-maps, and content geometry. Preserve every visual state and asset of slides 9 and 40. Narration may use the current area names. No diagram regeneration is required. All slide counts, timing references, and transitions remain unchanged.
+
+Slide 44 keeps its six 60-point bands, 6-point gaps, 272-point label blocks, and existing pitfall sentences. Label boxes use x 48, width 208, height 54, y equal to the band top plus 3, Helvetica Bold 20, 1.25 line spacing, and vertical centering. Wrap Context Engineering after Context, Tools & Extensibility after &, and Verification & Evals after Verification. Model Selection, Orchestration, and AgentOps stay on one line. Preserve the area-specific label colors.

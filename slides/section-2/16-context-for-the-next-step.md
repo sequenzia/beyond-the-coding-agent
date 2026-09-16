@@ -4,7 +4,7 @@ Beat 2.2. Section 2. Rehearsal reference 0:45 of the area's 4:05. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Context and knowledge · What and why
+**Kicker:** Context Engineering · What and why
 
 **Title:** Context for the next step
 
@@ -44,7 +44,7 @@ Cut first: the context-item inventory. Never cut the context and RAG definitions
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Context content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
+- Reviewed Context Engineering content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
 
 ## Open items
 

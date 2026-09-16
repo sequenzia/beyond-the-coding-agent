@@ -1,17 +1,16 @@
-# Slide 11: Models in the system
+# Slide 11: Model Selection
 
 Beat 2.1. Section 2. Rehearsal reference 0:45 of the area's 3:55. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** Models · What and why
+**Kicker:** Model Selection · What and why
 
-**Title:** Models in the system
+**Title:** Model Selection
 
 **What it is**
 
-Interprets the task and context.
-Produces a response or proposed action.
+Choose and maintain a model configuration suited to the task and approved for the data.
 
 **Why it matters**
 
@@ -31,7 +30,7 @@ Within cost and latency requirements.
 
 [0:00] **DEFINITION AND IMPORTANCE**
 
-[0:00] The model interprets the task and supplied context and produces a response or proposed action. Choosing one includes its version, settings, and the service or environment where it runs. Choosing a model for a coding task is a familiar version of this decision.
+[0:00] Model Selection means choosing and maintaining a configuration suited to the task and approved for the data. It includes the model version, settings, and the service or environment where it runs. Choosing a model for a coding task is a familiar version of this decision.
 
 [0:19] **Data sensitivity determines which options are eligible.** For this audience, CUI and export-controlled information bring familiar constraints. Establish which services and environments are approved for the data, then compare task quality, cost, and latency within that set. **A model appearing in a picker does not establish approval for your records.**
 
@@ -42,7 +41,7 @@ Cut first: the task-example inventory. Never cut data eligibility and task fit. 
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Models content; Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; lifecycle sources and presenter context. Research §0 and §1. No model scores or winner are claimed.
+- Reviewed Model Selection content; Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; lifecycle sources and presenter context. Research §0 and §1. No model scores or winner are claimed.
 
 ## Open items
 

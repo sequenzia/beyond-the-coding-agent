@@ -1,10 +1,10 @@
-# Slide 35: Production operations, opening quote
+# Slide 35: AgentOps, opening quote
 
 Beat 2.6. Section 2. Rehearsal reference 0:25 of the area's 4:10. Section 2 remains 25:00 to 29:00; these cues sum to a 27:00 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker:** Production operations · Perspective
+**Kicker:** AgentOps · Perspective
 
 “The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe.”
 
@@ -34,7 +34,7 @@ Cut first: the report context. Never cut Rauch attribution and Datadog publisher
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Production operations content; Rauch in Datadog, 2026; Willison, June 2025; OWASP; existing observability framing; illustrative FRB operating agreement. Research §0, §3, and §6. Illustration provenance: `internal/illustrations/README.md`.
+- Reviewed AgentOps content; Rauch in Datadog, 2026; Willison, June 2025; OWASP; existing observability framing; illustrative FRB operating agreement. Research §0, §3, and §6. Illustration provenance: `internal/illustrations/README.md`.
 
 ## Open items
 

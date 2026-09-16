@@ -65,6 +65,8 @@ The launcher itself needs Node on `PATH`. If it is unavailable, invoke `build.mj
 
 ### Section 2 content and assets
 
+Current area names: Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. `AREA_NAMES` in `author.mjs` supplies the agenda, area headers, competency table, and recap. Preserve map visuals and assets on slides 9 and 40. Their narration may use the current area names. Design brief §26 defines the naming update and wrapped recap labels. Dated revision history below retains the names used at the time.
+
 The six standalone user screens and screenshot placeholders are removed. Each area now has an opening quote, a combined definition-and-importance screen, decisions, pitfalls, and an FRB application. The six quote illustrations and anatomy renders remain in `internal/`. Quote text, definitions, decisions, pitfalls, and application evidence remain editable native objects. Visible copy is explicit in `section2Areas` and the associated compositions in `author.mjs`; speaker notes load from the numbered specs.
 
 ### Builds and slide numbering

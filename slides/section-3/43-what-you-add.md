@@ -10,12 +10,12 @@ Beat 3.2 What you add. Section 3. Time 1:15. One static screen; no internal buil
 
 | Area | Competency to develop |
 |---|---|
-| Models | Recognize failure patterns and evaluate task fit |
-| Context | Select evidence and preserve its meaning |
-| Tools | Evaluate how the model selects and uses tools |
+| Model Selection | Recognize failure patterns and evaluate task fit |
+| Context Engineering | Select evidence and preserve its meaning |
+| Tools & Extensibility | Evaluate how the model selects and uses tools |
 | Orchestration | Bound model-selected actions and handle interruption |
-| Evals | Define quality and measure behavior across repeated trials |
-| Production operations | Investigate quality changes and manage security, cost, and latency |
+| Verification & Evals | Define quality and measure behavior across repeated trials |
+| AgentOps | Investigate quality changes and manage security, cost, and latency |
 
 ## Layout and visual
 

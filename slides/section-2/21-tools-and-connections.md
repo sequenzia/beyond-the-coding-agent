@@ -4,7 +4,7 @@ Beat 2.3. Section 2. Rehearsal reference 1:00 of the area's 3:40. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Tools and extensibility · What and why
+**Kicker:** Tools & Extensibility · What and why
 
 **Title:** Tools and connections
 
@@ -44,7 +44,7 @@ Cut first: MCP features beyond its connection role. Never cut the tool definitio
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Tools content; Anthropic, September and November 2025; MCP documentation, July 2026; OWASP, 2025; illustrative export contract. Research §0 and §3.
+- Reviewed Tools & Extensibility content; Anthropic, September and November 2025; MCP documentation, July 2026; OWASP, 2025; illustrative export contract. Research §0 and §3.
 
 ## Open items
 

@@ -4,7 +4,7 @@ Beat 2.6. Section 2. Rehearsal reference 0:45 of the area's 4:10. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Production operations · Challenges and pitfalls
+**Kicker:** AgentOps · Challenges and pitfalls
 
 **Title:** Risks across integrations
 
@@ -39,7 +39,7 @@ Cut first: the outbound-request example. Never cut the exact pitfall, threat-mod
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Production operations content; Rauch in Datadog, 2026; Willison, June 2025; OWASP; existing observability framing; illustrative FRB operating agreement. Research §0, §3, and §6.
+- Reviewed AgentOps content; Rauch in Datadog, 2026; Willison, June 2025; OWASP; existing observability framing; illustrative FRB operating agreement. Research §0, §3, and §6.
 
 ## Open items
 

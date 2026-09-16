@@ -4,7 +4,7 @@ Beat 2.2. Section 2. Rehearsal reference 1:25 of the area's 4:05. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Context and knowledge · Decisions
+**Kicker:** Context Engineering · Decisions
 
 **Title:** Context decisions
 
@@ -42,7 +42,7 @@ Cut first: cache detail, then retrieval mechanics beyond the brief comparison. N
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Context content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
+- Reviewed Context Engineering content; Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB packet. Research §0, §2, and §3.
 
 ## Open items
 

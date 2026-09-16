@@ -54,12 +54,12 @@ Slide 43 turns the six Section 2 areas into learning objectives. This is the tal
 
 | Area | Competency to develop | Evidence already developed |
 |---|---|---|
-| Models | Recognize failure patterns and evaluate task fit | Section 2 Research §1 |
-| Context | Select evidence and preserve its meaning | Section 2 Research §2 |
-| Tools | Evaluate how the model selects and uses tools | Section 2 Research §3 |
+| Model Selection | Recognize failure patterns and evaluate task fit | Section 2 Research §1 |
+| Context Engineering | Select evidence and preserve its meaning | Section 2 Research §2 |
+| Tools & Extensibility | Evaluate how the model selects and uses tools | Section 2 Research §3 |
 | Orchestration | Bound model-selected actions and handle interruption | Section 2 Research §4 |
-| Evals | Define quality and measure behavior across repeated trials | Section 2 Research §5 |
-| Production operations | Investigate quality changes and manage security, cost, and latency | Section 2 Research §6 |
+| Verification & Evals | Define quality and measure behavior across repeated trials | Section 2 Research §5 |
+| AgentOps | Investigate quality changes and manage security, cost, and latency | Section 2 Research §6 |
 
 The talk track develops those existing decisions through representative failures, source qualifications, tool selection and outcomes, stopping and recovery, expert criteria, prompt injection, and operating limits. No career timeline or competency ranking is inferred.
 
@@ -89,12 +89,12 @@ The talk track develops those existing decisions through representative failures
 
 Slide 44 repeats the six Section 2 headline pitfalls exactly. These are the talk's summaries of the decisions and failure modes already sourced in Section 2 Research §1 through §6, in that order.
 
-1. Models: Selecting or changing models without testing them on your task.
-2. Context: Adding context without curating it.
-3. Tools: Copying APIs without evaluating task fit.
+1. Model Selection: Selecting or changing models without testing them on your task.
+2. Context Engineering: Adding context without curating it.
+3. Tools & Extensibility: Copying APIs without evaluating task fit.
 4. Orchestration: Adding multiple agents before trying a workflow.
-5. Evals: Using a generic judge without error analysis or result checks.
-6. Production operations: Combining private data, untrusted content, and outbound access without reviewing the risk.
+5. Verification & Evals: Using a generic judge without error analysis or result checks.
+6. AgentOps: Combining private data, untrusted content, and outbound access without reviewing the risk.
 
 The recap narration connects these failure modes to the roadmap's first assignment: inspect outputs, record a specific failure, and define a check. It adds no seventh pitfall or general claim that all failures arise from mistaking a demo for a product. The framework guidance below supports the roadmap and remains research material.
 

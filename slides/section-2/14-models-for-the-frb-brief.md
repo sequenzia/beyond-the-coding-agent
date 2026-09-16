@@ -4,7 +4,7 @@ Beat 2.1. Section 2. Rehearsal reference 1:25 of the area's 3:55. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Models · FRB application
+**Kicker:** Model Selection · FRB application
 
 **Title:** Models for the FRB brief
 
@@ -34,7 +34,7 @@ Beat 2.1. Section 2. Rehearsal reference 1:25 of the area's 3:55. Section 2 rema
 
 [0:54] The goal is useful work within the data constraints, without lowering the evidence requirement or sending restricted records to an unapproved fallback. Revisit the design when measured needs or suitable approved options change.
 
-[1:09] That choice now depends on what information the model receives. Context and knowledge is next.
+[1:09] That choice now depends on what information the model receives. Context Engineering is next.
 
 [1:16] **The model is a versioned, expiring dependency. Treat it like one.**
 
@@ -45,7 +45,7 @@ Cut first: the narrower-scope example. Never cut illustrative status, CUI/ECI sc
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Models content; Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; lifecycle sources and presenter context. Research §0 and §1. No model scores or winner are claimed.
+- Reviewed Model Selection content; Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; lifecycle sources and presenter context. Research §0 and §1. No model scores or winner are claimed.
 
 ## Open items
 
