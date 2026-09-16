@@ -1,5 +1,9 @@
 # Quote illustrations
 
+## Background correction, September 16, 2026
+
+The Context, Tools, Orchestration, Evals, and Production operations PNGs received a pixel-level background correction to match the slide canvas, `#14161c` (RGB 20, 22, 28). Only near-black blue-gray backdrop pixels were corrected. Brighter, saturated, and neutral object pixels retain their original values. The deepest contact shadows fade into the corrected background, and the outer eight pixels match the canvas exactly. Dimensions and framing remain 1254 by 1254. `models-in-system.png` is unchanged. The generation prompts below document the original artwork.
+
 ## Production operations: make the execution path visible
 
 - File: `operating-observability.png`.
