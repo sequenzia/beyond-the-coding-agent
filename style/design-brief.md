@@ -1,6 +1,6 @@
 # Design brief
 
-Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 23 and 24 define the current 48-slide authoring target, integrated into Markdown September 16. Section 24 records the revised opening and supersedes earlier Section 1 examples. Sections 17 through 22 describe the earlier Section 2 layouts and exported deck. The builder now implements the new target; final rendering and native playback are reviewed with each exported revision.
+Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 23 through 34 define the current 48-slide authoring target, integrated into Markdown September 16. Section 24 records the revised opening and supersedes earlier Section 1 examples. Sections 17 through 22 describe the earlier Section 2 layouts and exported deck. The builder now implements the new target; final rendering and native playback are reviewed with each exported revision.
 
 ## 1. Scope and precedence
 
@@ -12,7 +12,7 @@ Visual and typographic decisions for the deck. Companion to `style/colors.md`, w
 - Three orientation devices: the kicker, the mini-map, and the narrative slide number. No other footer, logo, progress bar, employer name, contact details, or takeaway lines on screen.
 - The brief carries no talk content. It names slides by number only.
 
-**The concept.** The anatomy diagram is the talk's spine. Slide 9 introduces it, Section 2 walks six areas on it, and slide 40 returns to it with responsibility badges. A mini-map at top right says where you are. Each area borrows its color from where it sits on the map and opens with a quote and colored kicker. Helvetica carries the narrative and numbering. Monospace marks commands, filenames, formulas, and the opening code metaphor.
+**The concept.** The anatomy diagram is the talk's spine. Slide 9 introduces it, Section 2 walks six areas on it, and slide 41 returns to it with the six area colors and an area key. A mini-map at top right says where you are. Each area borrows its color from where it sits on the map and opens with a quote and colored kicker. Helvetica carries the narrative and numbering. Monospace marks commands, filenames, formulas, and the opening code metaphor.
 
 ## 2. Page and PowerPoint setup
 
@@ -175,7 +175,7 @@ Slide 9 uses replacement evidence states specified in the September 15 revision 
 | Pink | `#f948be` | the harness color. Context, Tools, Orchestration. The landing color in Section 1 |
 | Blue | `#1064f8` | the model color. Models. Commands and formulas. The diagram's Model region |
 | Green | `#01b66d` | the verification color. Evals. Section 3. `works.all()`. Cells on 21 that read as unchanged |
-| Amber | `#fdad00` | the operating and warning color. Operating. `works.any()`. The "yours" badge |
+| Amber | `#fdad00` | the operating and warning color. Operating. `works.any()` |
 | Blue tint | `#13223f` | blue over the background. The Model region fill and the area card on 9 |
 | Pink tint | `#2b1b2c` | pink over the background. The Harness region fill and the area cards on 13 |
 | Green tint | `#122926` | green over the background. Area cards in the Evals area, if a slide file ever names one |
@@ -325,7 +325,7 @@ The deck has 26 narrative slides, 28 authored compositions, and 56 physical Powe
 
 ## 8. Diagram re-theme
 
-**Source of truth.** `internal/anatomy-of-an-agentic-ai-system-landscape.svg`, hand-edited, in the dark theme below, with a `<g id>` per layer. Every other diagram file is generated from it by `internal/build-diagrams.mjs`: the `-yours` variant beside it, the four highlight states and seven mini-map variants under `internal/generated/`, and the PNG renders under `internal/renders/`. All variants follow the approved full map. The default command regenerates everything. Use `--full-only` when reviewing a future change to the full map before propagating it.
+**Source of truth.** `internal/anatomy-of-an-agentic-ai-system-landscape.svg`, hand-edited, in the dark theme below, with a `<g id>` per layer. Every active diagram file is generated from it by `internal/build-diagrams.mjs`: the `-closing` variant beside it, the four highlight states and seven mini-map variants under `internal/generated/`, and the PNG renders under `internal/renders/`. All variants follow the approved full map. The default command regenerates everything. Use `--full-only` when reviewing a future change to the full map before propagating it.
 
 ### Color mapping
 
@@ -364,8 +364,8 @@ A text-free variant of the base for the 160 by 90 mini-map. Same boxes and the h
 ### Production path
 
 1. Edit the base SVG. Keep the layer groups: `title`, `platform`, `per-run`, `one-run`, `goal`, `agent`, `model`, `plus`, `harness`, `stop`, `arrows`, `across-runs`. Keep the `box-` ids on the rectangles; the generator reads them for badges and mini-maps.
-2. During full-map review, run `node internal/build-diagrams.mjs --full-only` to update only `internal/renders/map-full.png`. After approval, run `node internal/build-diagrams.mjs` to write the `-yours` variant, the highlight states, the mini variants, and every PNG. Both modes render through headless Chrome, which resolves system Helvetica. They need Node and Google Chrome and nothing else.
-3. Renders: `map-full`, `map-model`, `map-harness`, `map-per-run`, `map-across-runs`, `map-yours` at 3840 by 2160, and the seven `mini-` files at 640 by 360, all in `internal/renders/`.
+2. During full-map review, run `node internal/build-diagrams.mjs --full-only` to update only `internal/renders/map-full.png`. After approval, run `node internal/build-diagrams.mjs` to write the `-closing` variant, the highlight states, the mini variants, and every PNG. Both modes render through headless Chrome, which resolves system Helvetica. They need Node and Google Chrome and nothing else.
+3. Renders: `map-full`, `map-model`, `map-harness`, `map-per-run`, `map-across-runs`, `map-closing` at 3840 by 2160, and the seven `mini-` files at 640 by 360, all in `internal/renders/`.
 4. Confirm the render is Helvetica and not a fallback face by comparing a title against the deck.
 
 **Why PNG rather than importing the SVG and converting to shapes.** Conversion maps the font to Helvetica Neue, which is banned. It drops or distorts `marker-end` arrowheads. It turns centered text into left-aligned boxes that shift on Windows. And it yields about 80 shapes that must be regrouped by hand after every edit.
@@ -718,7 +718,7 @@ All six application slides keep a visible 16-point illustrative caption at x 48,
 
 ### Maps and Section 3 retargeting
 
-Preserve the base diagram and all generated variants. Slide 9 remains the opening map. The former responsibility-map composition becomes slide 41 and keeps `internal/renders/map-yours.png` and the Model selection badge.
+Preserve the base diagram, opening highlights, and mini-maps. Slide 9 remains the opening map. Slide 41 uses the generated closing-map variant with six area colors and a native area key, as defined in §34. The legacy ownership variant remains historical.
 
 Section 3's numbering migration moved old 20 through 26 to 39 through 45 in the Section 2 rework and then to 41 through 47. Section 25 supersedes the earlier slide 43 and 44 compositions. Both are now static. The support composition and Morph associated with slide 44 are removed. Keep the close's internal reveal. Slide 45 retains the Production operations label, six-band structure, and exact pitfall sentences.
 
@@ -1013,3 +1013,24 @@ Use two flat columns at x 48 and x 492, each width 420. Column headings at y 192
 - Right illustrative status and authority boundary: y 421, height 55, Helvetica Regular 20 in secondary text, on two deliberate lines.
 
 Display the narrative number using the existing shared component. All content appears on entry and remains native and editable. Use hard cuts and no internal reveals. Preserve map images and all six highlight states without regenerating diagram assets.
+
+## 34. Six connected engineering areas, September 16, 2026
+
+Slide 41 closes Section 2 by connecting the six areas within the familiar anatomy. This supersedes the closing-map ownership badges, title, and full-screen-only composition in earlier sections. Preserve the 0:50 reference, narrative number, static entry, hard cuts, and all deck counts. No kicker, mini-map, or visible takeaway appears here.
+
+Title: x 48, y 36, width 864, height 42, Helvetica Bold 32 in primary text. Place a native flat area key in two rows at y 88 and 122, height 25, with columns x 48, 344, and 640, width 272. Use Helvetica Bold 20 and each area's existing color, in presentation order across each row. There are no chips, badges, cards, or connectors in the key.
+
+The closing diagram is a generated `-closing.svg` variant of the shared base, rendered as `map-closing.png` at 3840 by 2160. Place the image at x 0, y 0, width 960, height 540, behind the native title and key. Its upper canvas is blank for the header. Preserve horizontal positions and all core labels. Omit the original title and 24-unit technical subtitles. Retain the original label font sizes rather than scaling the diagram down. The SVG uses two units per point.
+
+Closing SVG vertical positions:
+
+- Outer platform: y 312, height 708. Per-run heading baseline 355. Its three boxes: y 374, height 80, title baselines 424.
+- One-run frame: y 472, height 370; heading baseline 514. Agent frame: y 530, height 292; heading baseline 568.
+- Harness frame: y 578, height 226; heading baseline 616. Its three inner rows: y 634, 688, and 742, each height 46, with title baselines 666, 720, and 774.
+- Goal and Model boxes: y 642, height 104, title baselines 704. Arrows: y 694. Plus sign baseline 709.
+- Stopping-condition box: y 642, height 104; its three text baselines are 670, 700, and 730.
+- Across-runs heading baseline 899. Its three boxes: y 918, height 80, title baselines 968.
+
+Map component titles remain primary text. The Harness heading retains pink. Apply each area's existing tint as the component fill and its accent as a 4-unit outline: Model blue; Context and memory, Instructions, and External Data & Retrieval pink; Tools pink; Orchestration pink; Verification and Evaluations green; Identity & Access Management, Security, Guardrails, Observability, and Governance amber. Tints are `#13223f`, `#2b1b2c`, `#122926`, and `#302819`. The harness grouping retains its existing pink tint and outline. Goal, stopping condition, outer grouping lines, and connectors remain neutral.
+
+The area mapping matches `mini-all`. Shared pink continues to identify the three harness areas through their component names and positions. No additional area colors or ownership labels are introduced. `--closing-only` regenerates just this variant and render; the default diagram command regenerates every active variant. Legacy `-yours.svg` and `map-yours.png` files are retained as historical assets and are no longer generated or used by the deck.

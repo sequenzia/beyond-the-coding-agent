@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#adaca9"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#14161c"/>
+
+
+  <g id="platform">
+    <rect x="40" y="312" width="1840" height="708" rx="16" fill="none" stroke="#4c4d50" stroke-width="2"/>
+  </g>
+
+  <g id="per-run">
+    <text x="72" y="355" font-size="32" font-weight="700" fill="#fffcf5">Per-run services</text>
+
+    <rect id="box-identity" x="72" y="374" width="580" height="80" rx="10" fill="#302819" stroke="#fdad00" stroke-width="4"/>
+    <text x="362" y="424" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Identity &amp; Access Management</text>
+
+    <rect id="box-security" x="670" y="374" width="580" height="80" rx="10" fill="#302819" stroke="#fdad00" stroke-width="4"/>
+    <text x="960" y="424" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Security</text>
+
+    <rect id="box-data" x="1268" y="374" width="580" height="80" rx="10" fill="#2b1b2c" stroke="#f948be" stroke-width="4"/>
+    <text x="1558" y="424" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">External Data &amp; Retrieval</text>
+  </g>
+
+  <g id="one-run">
+    <rect x="72" y="472" width="1776" height="370" rx="16" fill="none" stroke="#4c4d50" stroke-width="2" stroke-dasharray="12 8"/>
+    <text x="100" y="514" font-size="40" font-weight="700" fill="#fffcf5">One run</text>
+  </g>
+
+  <g id="goal">
+    <rect id="box-goal" x="100" y="642" width="300" height="104" rx="10" fill="none" stroke="#adaca9" stroke-width="4"/>
+    <text x="250" y="704" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Goal</text>
+  </g>
+
+  <g id="arrows">
+    <line x1="400" y1="694" x2="446" y2="694" stroke="#adaca9" stroke-width="4" marker-end="url(#arrow)"/>
+    <line x1="1500" y1="694" x2="1546" y2="694" stroke="#adaca9" stroke-width="4" marker-end="url(#arrow)"/>
+  </g>
+
+  <g id="agent">
+    <rect x="450" y="530" width="1050" height="292" rx="16" fill="none" stroke="#4c4d50" stroke-width="2"/>
+    <text x="480" y="568" font-size="40" font-weight="700" fill="#fffcf5">Agent</text>
+  </g>
+
+  <g id="model">
+    <rect id="box-model" x="475" y="642" width="210" height="104" rx="10" fill="#13223f" stroke="#1064f8" stroke-width="4"/>
+    <text x="580" y="704" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Model</text>
+  </g>
+
+  <g id="plus">
+    <text x="715" y="709" text-anchor="middle" font-size="56" fill="#adaca9">+</text>
+  </g>
+
+  <g id="harness">
+    <rect id="box-harness" x="745" y="578" width="730" height="226" rx="16" fill="#2b1b2c" stroke="#f948be" stroke-width="4"/>
+    <text x="762" y="616" font-size="40" font-weight="700" fill="#f948be">Harness</text>
+
+    <rect id="box-orchestration" x="762" y="634" width="340" height="46" rx="10" fill="#2b1b2c" stroke="#f948be" stroke-width="4"/>
+    <text x="932" y="666" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Orchestration</text>
+
+    <rect id="box-tools" x="1118" y="634" width="340" height="46" rx="10" fill="#2b1b2c" stroke="#f948be" stroke-width="4"/>
+    <text x="1288" y="666" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Tools</text>
+
+    <rect id="box-context" x="762" y="688" width="340" height="46" rx="10" fill="#2b1b2c" stroke="#f948be" stroke-width="4"/>
+    <text x="932" y="720" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Context and memory</text>
+
+    <rect id="box-guardrails" x="1118" y="688" width="340" height="46" rx="10" fill="#302819" stroke="#fdad00" stroke-width="4"/>
+    <text x="1288" y="720" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Guardrails</text>
+
+    <rect id="box-instructions" x="762" y="742" width="340" height="46" rx="10" fill="#2b1b2c" stroke="#f948be" stroke-width="4"/>
+    <text x="932" y="774" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Instructions</text>
+
+    <rect id="box-verification" x="1118" y="742" width="340" height="46" rx="10" fill="#122926" stroke="#01b66d" stroke-width="4"/>
+    <text x="1288" y="774" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Verification</text>
+  </g>
+
+  <g id="stop">
+    <rect id="box-stop" x="1550" y="642" width="270" height="104" rx="10" fill="#303236"/>
+    <text x="1685" y="670" text-anchor="middle" font-size="28" font-weight="700" fill="#fffcf5">Run until</text>
+    <text x="1685" y="700" text-anchor="middle" font-size="28" font-weight="700" fill="#fffcf5">a stopping</text>
+    <text x="1685" y="730" text-anchor="middle" font-size="28" font-weight="700" fill="#fffcf5">condition is met</text>
+  </g>
+
+  <g id="across-runs">
+    <text x="72" y="899" font-size="32" font-weight="700" fill="#fffcf5">Across runs</text>
+
+    <rect id="box-observability" x="72" y="918" width="580" height="80" rx="10" fill="#302819" stroke="#fdad00" stroke-width="4"/>
+    <text x="362" y="968" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Observability</text>
+
+    <rect id="box-evaluations" x="670" y="918" width="580" height="80" rx="10" fill="#122926" stroke="#01b66d" stroke-width="4"/>
+    <text x="960" y="968" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Evaluations</text>
+
+    <rect id="box-governance" x="1268" y="918" width="580" height="80" rx="10" fill="#302819" stroke="#fdad00" stroke-width="4"/>
+    <text x="1558" y="968" text-anchor="middle" font-size="32" font-weight="700" fill="#fffcf5">Governance</text>
+  </g>
+</svg>

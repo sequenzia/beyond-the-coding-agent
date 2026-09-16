@@ -40,6 +40,10 @@ Current authoring placement, updated September 16: map 9; section orientation 10
 - The design confines research workers to authorized internal FRB records and attachments. Missing, unreadable, conflicting, incomplete, or unauthorized evidence produces an explicit limitation. Citation existence and semantic support are separate checks.
 - Content-rework assumption, added September 15, 2026: the FRB corpus includes CUI and export-controlled information (ECI). Model calls that handle those records use services and environments approved for the applicable data and use. For this example, assume the approved model choices are older and less capable for the intended synthesis than newer alternatives outside the approved environment. This is an illustrative deployment constraint informed by presenter-supplied audience context, not measured model evidence or a formal designation of the invented excerpts.
 
+### Closing-map synthesis, September 16, 2026
+
+The slide 41 recap connects the six areas using existing evidence and teaching decisions in §1 through §6. Model changes can alter context and tool behavior; the intended configuration is evaluated and monitored across releases. The illustrative FRB brief connects selected evidence, reconciliation, verification before export, and enforced operating controls. This is the talk's synthesis, not a new benchmark or measured FRB result. The six area colors replace the former ownership badges. People retain official decision authority. The spoken conclusion is: "AI engineering means designing and operating how these parts work together."
+
 ## 1. Model Selection: a component you select, measure, and replace
 
 Current teaching definition: choose and maintain a model configuration suited to the task and approved for the data. This summarizes the existing task-fit, eligibility, settings, routing, and lifecycle decisions below.
@@ -637,7 +641,7 @@ Maintenance covers integrations that join private data, untrusted content, and e
 
 **Illustrative FRB operating agreement.** Restrict access to authorized internal records and permitted export destinations, enforced outside the model. Trace exact revisions, decisions, checks, and exports. Monitor quality, freshness, parsing/tool failures, cost per completed brief, and end-to-end latency. Restrict trace access. Failed checks, missing evidence, or exhausted budgets produce an explicit limitation or human handoff. People retain responsibility for official causes, decisions, and board records. The agreement is a teaching design, not a deployed control system or legal agreement. New integrations must be assessed for the combined capability risk, including instructions embedded in internal attachments.
 
-EchoLeak, Replit, Air Canada, and the other incidents remain research backup with their original evidence limitations. Detailed OpenTelemetry convention status, identity patterns, protocol security requirements, and Article 50 treatment also remain backup. No universal disclosure or compliance claim is made on the active slides. The full-screen yours anatomy diagram closes Section 2 after the FRB agreement.
+EchoLeak, Replit, Air Canada, and the other incidents remain research backup with their original evidence limitations. Detailed OpenTelemetry convention status, identity patterns, protocol security requirements, and Article 50 treatment also remain backup. No universal disclosure or compliance claim is made on the active slides. The six-area anatomy recap closes Section 2 after the FRB application; its colors and area key replace the earlier ownership labels.
 
 ### AgentOps content rework
 

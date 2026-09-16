@@ -162,7 +162,7 @@ Review pending work and any completed effects separately. Keep the existing sour
 | 30 | Bound workflow, workers, retries, and resume |
 | 35 | Separate citation existence from source support and retain the failure as a regression case |
 | 40 | Detect and contain an illustrative release regression using protected evidence and accountable response |
-| 41 | Connect the six responsibilities |
+| 41 | Connect the six responsibilities through model changes and the evidence, checks, and controls behind the cited brief |
 | 46 | Review 20 to 50 outputs and record input, observed behavior, expected behavior, and check |
 
 The FRB failure is illustrative. No live demonstration of an FRB application is planned for this revision.

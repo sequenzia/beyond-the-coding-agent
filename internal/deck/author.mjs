@@ -669,7 +669,10 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   text('Failed drafts remain blocked from export.',48,466,864,25,20,{bold:true});
  }
 }
-await newSlide('41');await img('internal/renders/map-yours.png',0,0,960,540,{alt:'Anatomy of an Agentic AI System, with responsibility badges'});
+await newSlide('41');
+await img('internal/renders/map-closing.png',0,0,960,540,{alt:'Agentic system anatomy connecting all six engineering areas'});
+text('Six connected engineering areas',48,36,864,42,32,{bold:true,name:'slide-title'});
+AREA_NAMES.forEach((label,i)=>text(label,48+(i%3)*296,i<3?88:122,272,25,20,{bold:true,color:[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],name:`area-key-${i+1}`}));
 
 await newSlide('42');sectionDivider(3,'Making the transition');
 await newSlide('43',{area:'The transition',beat:'What transfers',map:'all',color:C.green,title:'What transfers'});

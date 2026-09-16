@@ -2,7 +2,7 @@
 
 This directory is the editable source for the PowerPoint deck. Keep these files in Git. `.deck-build/` contains disposable build snapshots, intermediate PPTX files, renders, and validation reports. The builder never reads from an older build directory.
 
-**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 48 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-2-orientation-numbering-map.json`; the Section 1 map remains a historical authoring record; the prior Section 2 map remains a historical authoring record. Layout rules are in design brief §§23 through 33. The compiler and notes tests cover the new numbering.
+**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 48 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-2-orientation-numbering-map.json`; the Section 1 map remains a historical authoring record; the prior Section 2 map remains a historical authoring record. Layout rules are in design brief §§23 through 34. The compiler and notes tests cover the new numbering.
 
 ## Rebuild
 
@@ -65,7 +65,7 @@ The launcher itself needs Node on `PATH`. If it is unavailable, invoke `build.mj
 
 ### Section 2 content and assets
 
-Current area names: Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. `AREA_NAMES` in `author.mjs` supplies the agenda, area headers, competency table, and recap. Preserve map visuals and assets on slides 9 and 41. Their narration may use the current area names. Design brief §26 defines the naming update and wrapped recap labels. Dated revision history below retains the names used at the time.
+Current area names: Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. `AREA_NAMES` in `author.mjs` supplies the agenda, area headers, competency table, and recap. Preserve the opening map on slide 9. Slide 41 uses `map-closing.png`, derived from the base SVG, with a native title and two-row area key. Its highlighted components connect the six areas; no ownership badges remain. Use `node internal/build-diagrams.mjs --closing-only` to regenerate the closing variant without altering opening-map assets. Design brief §26 defines the naming update and wrapped recap labels. Dated revision history below retains the names used at the time.
 
 The map and a static teaching-pattern and FRB orientation open Section 2. The six standalone user screens and screenshot placeholders are removed. Each area now has an opening quote, a combined definition-and-importance screen (technical foundations in all six areas), decisions, pitfalls, and an FRB application. The six quote illustrations and anatomy renders remain in `internal/`. Quote text, definitions, decisions, pitfalls, and application evidence remain editable native objects. Visible copy is explicit in `section2Areas` and the associated compositions in `author.mjs`; speaker notes load from the numbered specs.
 

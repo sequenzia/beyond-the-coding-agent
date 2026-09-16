@@ -236,10 +236,10 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 
 ### 2.7 Section wrap (0:50 reference). Slide 41
 
-- Slide: the existing full-screen anatomy diagram with responsibility badges. Keep the model's selection responsibility.
-- Say: We have followed one system through Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. A change in one can affect the others. **The diagram is a map of engineering work you can identify, test, and improve.** Connect those responsibilities to Section 3's existing skills and new competencies.
-- Takeaway line: "The responsibilities connect. Your existing engineering skills give you a foundation."
-- Sources: the six areas and the published transition topic. Research §0 through §6.
+- Slide: "Six connected engineering areas." Familiar anatomy with the six area colors and a compact two-row area key. No ownership badges. Preserve the component labels and neutral goal, stopping condition, and connectors.
+- Say: **These are six connected engineering areas within one system.** Changing the model can change how it uses context and tools. Evaluate that behavior and monitor it after release. In the illustrative FRB example, a cited brief depends on the evidence retrieved, reconciliation, checks before export, and controls around the work. **AI engineering means designing and operating how these parts work together.** Bridge into the skills that help engineers do that.
+- Takeaway line: "AI engineering means designing and operating how these parts work together."
+- Sources: existing model-configuration, context, tools, orchestration, verification, and AgentOps evidence; illustrative FRB packet. Research §0 through §6.
 
 ### Section 2 checks
 
@@ -255,7 +255,7 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 
 ### 3.0 Transition (0:10). Slide 42
 
-- Slide: Section 3. Making the transition. Matching typographic divider after the yours anatomy diagram.
+- Slide: Section 3. Making the transition. Matching typographic divider after the six-area anatomy recap.
 - Say: **Now let's focus on your transition: the skills you bring, the new competencies, and a practical place to start.**
 - Takeaway line: "Your existing skills give you a foundation to build on."
 - Sources: the Section 2 synthesis and the mapping in 3.1. Research §1.

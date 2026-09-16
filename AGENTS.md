@@ -37,13 +37,13 @@ Conventions the slide files follow:
 
 - **Time splits.** A two-slide beat splits its time between the two files, stated in each header, and the two must sum to the beat. Section sums must match the outline's checks blocks.
 - **Section dividers.** Slides 4, 8, and 42 are matching typographic dividers with hard cuts and no internal builds. Each takes 0:10. Slides 4 and 8 are budgeted within Section 1; slide 42 is in Section 3.
-- **Area names.** Use Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. Preserve the map visuals on slides 9 and 41. Keep Production operations as the existing skill on slide 43.
+- **Area names.** Use Model Selection, Context Engineering, Tools & Extensibility, Orchestration, Verification & Evals, and AgentOps. Preserve the opening map on slide 9 and the connected-area recap on slide 41. Keep Production operations as the existing skill on slide 43.
 - **Kickers.** The orientation on slide 10 uses a neutral section kicker and `mini-all`. Area slides in Section 2 use the area name in Bold and its area color, followed by a neutral beat label. A mini-map sits top right. Section 3 uses "The transition · " plus the beat name, with a mini-map except on recap slide 45. Full-screen diagrams remain standalone.
 - **Pitfalls.** Every area discusses decision-specific pitfalls and highlights one headline pitfall in the body. The sentence matches slide 45 word for word. A separate FRB application follows. Slide 45 retains six recap bands with area names in the blocks.
 - **Takeaways are spoken, not shown.** Content titles identify the responsibility. The agenda includes the agreed learning goals.
 - **Personal stories.** The Section 2 rework removed story #2 and its reservation. The Section 3 review removed story #3. Preserve presenter-authored slot #1. The optional bio story is not included in the current 4:00 Section 1 target. Do not invent it.
 - **Cut order.** Each talk track names what to cut first if the section runs long and what may never be cut.
-- **Diagram.** Slide 9 uses the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 41 uses the render of the `-yours.svg` variant generated from it; the mini-maps are generated from it too. Run `node internal/build-diagrams.mjs` if the base changes.
+- **Diagram.** Slide 9 uses the renders of `internal/anatomy-of-an-agentic-ai-system-landscape.svg`; slide 41 uses the render of the `-closing.svg` variant generated from it, with a native six-area key and title; the mini-maps are generated from it too. Run `node internal/build-diagrams.mjs` if the base changes.
 - **Visual values.** `style/design-brief.md` holds the type scale, grid, color roles, area colors, component specs, build rules, and diagram theme. Slide files describe intent in words like "small" or "strip" and defer to the brief for every size, color, and position. A visual change goes into the brief, not into slide files.
 
 ## Markers
