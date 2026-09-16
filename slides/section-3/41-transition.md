@@ -18,7 +18,7 @@ Beat 3.0 Transition. Section 3. Time 0:10. Builds: 0.
 
 ## Talk track
 
-[0:00] Everything in the section we just covered was engineering. **Most of it is engineering you already do.**
+[0:00] **Now let's focus on your transition: the skills you bring, the new competencies, and a practical place to start.**
 
 [0:10] Advance to slide 42.
 

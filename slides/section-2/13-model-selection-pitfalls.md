@@ -12,7 +12,7 @@ Beat 2.1. Section 2. Rehearsal reference 0:20 of the area's 3:55. Section 2 rema
 - **Coverage:** Task changes can leave gaps.
 - **Dependencies:** A pinned model does not freeze the system.
 
-**Pitfall:** Choosing and changing models without testing them on your task.
+**Pitfall:** Selecting or changing models without testing them on your task.
 
 ## Layout and visual
 
@@ -26,7 +26,7 @@ Beat 2.1. Section 2. Rehearsal reference 0:20 of the area's 3:55. Section 2 rema
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] Tasks change, coverage becomes stale, and model versions retire. A pinned snapshot also does not freeze prompts, retrieval, or tools. The headline pitfall is **Choosing and changing models without testing them on your task.** Inspect failures before deciding which component needs replacement.
+[0:00] Tasks change, coverage becomes stale, and model versions retire. A pinned snapshot also does not freeze prompts, retrieval, or tools. The headline pitfall is **Selecting or changing models without testing them on your task.** Inspect failures before deciding which component needs replacement.
 
 [0:20] Advance to slide 14.
 

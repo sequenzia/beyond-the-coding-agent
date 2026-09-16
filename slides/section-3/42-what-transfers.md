@@ -1,63 +1,57 @@
 # Slide 42: What transfers
 
-Beat 3.1 What transfers. Section 3. Time 1:05. Builds: 2.
+Beat 3.1 What transfers. Section 3. Time 1:05. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker, top left, small:** The transition · What transfers
+**Kicker:** The transition · What transfers
 
 **Title:** What transfers
 
-**Build 1.** Two columns, six rows.
-
-| You already do this | It becomes this |
+| Existing skill | Application in an AI system |
 |---|---|
-| Decomposition and systems thinking | Harness design |
-| Interface design | Tool design |
-| Testing discipline | Eval discipline |
-| Observability | The same, with a new schema |
-| Security and least privilege | Least privilege for tools |
-| Operations: cost, latency, incidents, rollback | The same, in tokens |
-
-**Build 2.** Replace the table with evidence.
-
-Engineers at incident.io, Sentry, Elsevier, and others crossed over in months, not years. One twenty-five-year veteran: about two months.
-
-Small, quoted: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." Matt Morgis, Elsevier, via The Pragmatic Engineer, March 2025.
+| Decomposition and systems thinking | Bounded workflows and clear state |
+| Interface design | Tool contracts and explicit outcomes |
+| Testing discipline | Evals and regression cases |
+| Debugging and observability | Traces of model calls and tool actions |
+| Security and least privilege | Enforced access and action limits |
+| Production operations | Quality, cost, latency, and recovery |
 
 ## Layout and visual
 
-- Display narrative number 42 throughout, using the shared component in the design brief.
-- Playback: Two consecutive physical slides. The comparison table cuts to the evidence and quote.
-
-- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
-
-- The table is the slide. Six rows, two columns, no rules between rows. The left column should look like a job description the audience recognizes; the right column should look like Section 2's kickers, because it is. Rows 1 to 3 are the transformations; rows 4 to 6 are near-identities, and the wording "the same" on the right makes that visible.
-- Build 2 replaces the table with the field evidence and attributed quote. The company names matter more than the quote; keep them.
+- Display narrative number 42 throughout. Preserve the shared header and mini-map.
+- One static, editable table. All six rows appear on entry and remain visible through the handoff to slide 43. Use hard cuts.
+- Pair each familiar skill with its application. Give all six rows equal weight. Use the shared table treatment and visual values in design brief §25.
 - The takeaway is spoken, not shown.
 
 ## Talk track
 
-[0:00] Build 1. The introductory bridge was spoken on slide 41.
+[0:00] **Your engineering habits give you a foundation.** Decomposition helps you define a bounded workflow and the state it carries.
 
-**Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem. **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed. **Testing discipline extends to evals.** The habit of checking before accepting a result transfers. Ordinary tests remain part of the machinery. Observability transfers with a new schema: traces, spans, p95s. Security transfers: least privilege now applies to tools. Operations transfer: cost, latency, incident response, rollback. The units changed to tokens.
+[0:12] Interface design helps you specify what a tool accepts, how it reports errors, and what confirms completion.
 
-[0:40] Build 2.
+[0:22] **Testing discipline extends to evals and regression cases.** You still run ordinary software tests and check actual results.
 
-Field evidence. Gergely Orosz profiled engineers at incident.io, Sentry, Elsevier, and others who crossed over in months, not years. One twenty-five-year veteran became his company's generative AI expert in about two months, by reading and prototyping.
+[0:33] Debugging and observability help you follow model calls and tool actions to investigate where a failure began.
 
-[0:56] **You are not starting over. You are adding a layer.**
+[0:43] Least privilege guides access and action limits. Code enforces those boundaries.
+
+[0:51] Production operations brings monitoring, incident response, and recovery. You track quality alongside cost and latency.
+
+[0:59] **You are learning how to apply these skills to model-dependent behavior.**
 
 [1:05] Advance to slide 43.
 
-The track runs about 1:00. Cuttable if Section 3 runs long, in this order: the Morgis quote spoken aloud, since it is on the slide; the three near-identity rows spoken as sentences, reduced to "Observability, security, and operations transfer almost unchanged." Do not cut the three bold transformations, the field evidence, or the takeaway.
+Cut first: the elaboration on observability and operations, keeping their visible rows. Never cut the foundation, the connection between testing and evals, or the handoff to model-dependent behavior. The 1:05 reference includes time to inspect the mapping.
 
 ## Sources
 
-- Orosz, "AI Engineering in the real world," The Pragmatic Engineer, March 25, 2025. Morgis quote verbatim; profiles at incident.io, Sentry, Wordsmith, Augment Code, Elsevier, Simply Business, and DSI; Ryan Cogswell at DSI, twenty-five years, about two months. Research §1 in `research/section-3.md`. `[primary]`.
-- OpenTelemetry GenAI conventions and OWASP, as referenced in rows 4 and 5, are sourced in Production operations, slides 35 through 39. Research §6 in `research/section-2.md`. `[primary]`.
-- The six-row mapping is the talk's own framing.
+- The six-row mapping is the talk's synthesis. Research §1 in `research/section-3.md`.
+- Tool contracts and enforced permissions: Research §3 in `research/section-2.md`.
+- Bounded workflows and state: Research §4 in `research/section-2.md`.
+- Evals, regression cases, and investigation: Research §5 in `research/section-2.md`.
+- Observability, operating limits, monitoring, and recovery: Research §6 in `research/section-2.md`.
 
 ## Open items
 
-- None.
+- Rehearse the single-screen mapping within its existing 1:05 reference.

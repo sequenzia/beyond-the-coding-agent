@@ -12,7 +12,7 @@ Beat 2.3. Section 2. Rehearsal reference 0:20 of the area's 3:40. Section 2 rema
 - **Contract:** Description, schema, and behavior can drift.
 - **Outcomes:** Success, failure, and uncertainty need distinct results.
 
-**Pitfall:** copying the API surface without evaluating task fit.
+**Pitfall:** Copying APIs without evaluating task fit.
 
 ## Layout and visual
 
@@ -26,7 +26,7 @@ Beat 2.3. Section 2. Rehearsal reference 0:20 of the area's 3:40. Section 2 rema
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **copying the API surface without evaluating task fit.** Prune overlapping capabilities, maintain contracts as behavior changes, and distinguish confirmed results, known failures, and unknown outcomes.
+[0:00] The pitfall is **Copying APIs without evaluating task fit.** Prune overlapping capabilities, maintain contracts as behavior changes, and distinguish confirmed results, known failures, and unknown outcomes.
 
 [0:20] Advance to slide 24.
 

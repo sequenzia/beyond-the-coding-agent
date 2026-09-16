@@ -12,7 +12,7 @@ Beat 2.6. Section 2. Rehearsal reference 0:45 of the area's 4:10. Section 2 rema
 - **Untrusted content:** Instructions can arrive inside documents.
 - **External communication:** Outbound actions can carry information.
 
-**Pitfall:** the lethal trifecta, assembled one integration at a time.
+**Pitfall:** Combining private data, untrusted content, and outbound access without reviewing the risk.
 
 A probabilistic filter is insufficient as the sole security boundary.
 
@@ -28,7 +28,7 @@ A probabilistic filter is insufficient as the sole security boundary.
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **the lethal trifecta, assembled one integration at a time.** Willison describes private data, untrusted content, and external communication combining into a potential path for data theft. A document can contain instructions, and an outbound request can carry information. Review the combined path and break or constrain it.
+[0:00] The pitfall is **Combining private data, untrusted content, and outbound access without reviewing the risk.** Willison describes private data, untrusted content, and external communication combining into a potential path for data theft. A document can contain instructions, and an outbound request can carry information. Review the combined path and break or constrain it.
 
 [0:27] This is one threat model, not a complete safety test. A probabilistic filter can contribute to protection but is insufficient as the sole security boundary.
 

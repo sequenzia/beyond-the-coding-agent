@@ -12,7 +12,7 @@ Beat 2.4. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 rema
 - **Progress:** Repeated work can exhaust the budget.
 - **Recovery:** A timeout does not establish failure.
 
-**Pitfall:** multi-agent before a workflow was tried.
+**Pitfall:** Adding multiple agents before trying a workflow.
 
 ## Layout and visual
 
@@ -26,7 +26,7 @@ Beat 2.4. Section 2. Rehearsal reference 0:25 of the area's 3:55. Section 2 rema
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **multi-agent before a workflow was tried.** Other failures include loops without progress, early completion claims, and handoffs that lose evidence. **A timeout does not establish that an action failed.** Inspect what happened before repeating it.
+[0:00] The pitfall is **Adding multiple agents before trying a workflow.** Other failures include loops without progress, early completion claims, and handoffs that lose evidence. **A timeout does not establish that an action failed.** Inspect what happened before repeating it.
 
 [0:25] Advance to slide 29.
 

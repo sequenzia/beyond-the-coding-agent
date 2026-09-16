@@ -12,7 +12,7 @@ Beat 2.2. Section 2. Rehearsal reference 0:20 of the area's 4:05. Section 2 rema
 - **Summaries:** Qualifications can disappear.
 - **Sources:** Versions and identities must remain traceable.
 
-**Pitfall:** adding instead of curating.
+**Pitfall:** Adding context without curating it.
 
 ## Layout and visual
 
@@ -26,7 +26,7 @@ Beat 2.2. Section 2. Rehearsal reference 0:20 of the area's 4:05. Section 2 rema
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **adding instead of curating.** Inspect retrieval coverage, summaries, and source freshness as records change. Repeated copies do not create independent evidence, and findings from one case must not drift into another.
+[0:00] The pitfall is **Adding context without curating it.** Inspect retrieval coverage, summaries, and source freshness as records change. Repeated copies do not create independent evidence, and findings from one case must not drift into another.
 
 [0:20] Advance to slide 19.
 

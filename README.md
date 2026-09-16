@@ -4,8 +4,8 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 
 ## Session
 
-- **Length:** 50 minutes. Section 2 stays at 25:00 to 29:00, with a 27:00 rehearsal reference. Section 1 has a 4:00 rehearsal target. Section 3 retains a 5:00 reference and may be trimmed later. The final presentation/discussion split remains open.
-- **Deck:** 47 narrative slides across sections of 8, 32, and 7 slides. The 48 authored compositions expand to 57 physical slides and 58 presentation states, with one internal click and one Morph transition.
+- **Length:** 50 minutes. Section 2 stays at 25:00 to 29:00, with a 27:00 rehearsal reference. Section 1 has a 4:00 rehearsal target. Section 3 has a 4:30 reference. The presentation runs about 33:30 to 37:30; discussion fills the remainder.
+- **Deck:** 47 narrative slides across sections of 8, 32, and 7 slides. The 47 authored compositions expand to 54 physical slides and 55 presentation states, with one internal click and no Morph transitions.
 - **Audience:** software engineers who want to move into AI engineering, most of whom have used a coding agent but few of whom have shipped a system whose behavior depends on a model
 - **Focus:** agentic AI, connected briefly to familiar coding agents, Codex CLI and Devin. Each area opens with a quote, explains what it is and why it matters, develops decisions and trade-offs, examines pitfalls, and applies the ideas to one illustrative FRB system.
 - **When:** September 17, 2026

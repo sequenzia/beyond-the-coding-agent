@@ -69,7 +69,7 @@ function band(sentence,color,opts={}){const h=opts.h||64,y=540-h;shape(0,y,960,h
 function list(lines,x,y,w,size=24,opts={}){const step=opts.step||42;lines.forEach((t,i)=>text(t,x,y+i*step,w,opts.lineH||step,size,opts));}
 function twoTable(headers,rows,y,rowHeights,opts={}){
  const vals=[ [headers[0],'',headers[1]],...rows.map(r=>[r[0],'',r[1]]) ];
- const h=rowHeights.reduce((a,b)=>a+b,0);const obj=slide.tables.add({rows:vals.length,columns:3,left:48*P,top:y*P,width:864*P,height:h*P,columnWidths:[420*P,24*P,420*P],values:vals});
+ const h=rowHeights.reduce((a,b)=>a+b,0);const obj=slide.tables.add({rows:vals.length,columns:3,left:48*P,top:y*P,width:864*P,height:h*P,columnWidths:(opts.columnWidths||[420,24,420]).map(w=>w*P),values:vals});
  obj.styleOptions={headerRow:false,bandedRows:false,bandedColumns:false,firstColumn:false,lastColumn:false};
  obj.cells.block({row:0,column:0,rowCount:vals.length,columnCount:3}).assign({fill:C.bg,textStyle:{typeface:'Helvetica',fontSize:20*P,color:C.text},margins:{left:0,right:0,top:0,bottom:0},anchor:'top'});
  for(let r=0;r<vals.length;r++){obj.rows[r].height=rowHeights[r]*P;for(const c of [0,2]){obj.getCell(r,c).text.style={typeface:'Helvetica',fontSize:(r===0?24:20)*P,color:r===0?(opts.color||C.pink):(c===2&&opts.rightColors?opts.rightColors[r-1]:C.text),bold:r===0||!!(c===2&&opts.rightColors),autoFit:'none',lineSpacing:1.25};}}
@@ -84,7 +84,6 @@ function evidenceTable(values,widths,y,heights,opts={}){
 }
 function strip(str,opts={}){text(str,48,68,692,24,16,{...opts,color:C.secondary,exact:20});}
 function thesis(question=false){text('Using AI makes you\nan AI-enabled software engineer.',48,136,864,104,44,{align:'center'});text('Engineering systems that depend on AI\nmakes you an AI engineer.',48,286,864,104,44,{align:'center',bold:true});if(question)text('Questions',48,438,864,40,32,{align:'center',start:1});}
-const pitfalls=['Choosing and changing models without testing them on your task.','adding instead of curating.','copying the API surface without evaluating task fit.','multi-agent before a workflow was tried.','a generic judge instead of error analysis. Trusting the success claim without checking the result.','the lethal trifecta, assembled one integration at a time.'];
 
 // Section 1.
 await newSlide('01');
@@ -167,7 +166,7 @@ const section2Areas = [
         "Pinned: plan migration. Alias: monitor regressions."
       ]
     ],
-    "pitfall": "Choosing and changing models without testing them on your task.",
+    "pitfall": "Selecting or changing models without testing them on your task.",
     "cues": [
       [
         "Access",
@@ -222,7 +221,7 @@ const section2Areas = [
         "Preserve identity and revision. Enforce authorized access."
       ]
     ],
-    "pitfall": "adding instead of curating.",
+    "pitfall": "Adding context without curating it.",
     "cues": [
       [
         "Coverage",
@@ -273,7 +272,7 @@ const section2Areas = [
         "Validate and authorize in code. Scope reads and writes."
       ]
     ],
-    "pitfall": "copying the API surface without evaluating task fit.",
+    "pitfall": "Copying APIs without evaluating task fit.",
     "cues": [
       [
         "Tool set",
@@ -324,7 +323,7 @@ const section2Areas = [
         "Completion checks, saved state, bounded retries, and handoff."
       ]
     ],
-    "pitfall": "multi-agent before a workflow was tried.",
+    "pitfall": "Adding multiple agents before trying a workflow.",
     "cues": [
       [
         "Gates",
@@ -375,7 +374,7 @@ const section2Areas = [
         "Representative work, known failures, and repeated attempts."
       ]
     ],
-    "pitfall": "a generic judge instead of error analysis. Trusting the success claim without checking the result.",
+    "pitfall": "Using a generic judge without error analysis or result checks.",
     "cues": [
       [
         "Outcome",
@@ -430,7 +429,7 @@ const section2Areas = [
         "Review changes. Keep a way to restrict or revert configuration."
       ]
     ],
-    "pitfall": "the lethal trifecta, assembled one integration at a time.",
+    "pitfall": "Combining private data, untrusted content, and outbound access without reviewing the risk.",
     "cues": [
       [
         "Private data",
@@ -451,6 +450,8 @@ const section2Areas = [
   }
 ];
 
+// The recap reads the same sentences as the Section 2 area slides.
+const pitfalls=section2Areas.map(area=>area.pitfall);
 for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
  const a=section2Areas[areaIndex],color=C[a.colorKey],key=n=>String(n).padStart(2,'0');
  const header=(n,beat,title)=>newSlide(key(n),{area:a.area,beat,map:a.map,color,...(title?{title}:{})});
@@ -490,7 +491,7 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
  if(areaIndex===4)text('Inspect the result and the trace before choosing a repair.',48,386,864,30,20);
  if(areaIndex===5)text('A probabilistic filter is insufficient as the sole security boundary.',48,386,864,30,20);
  text('Pitfall',48,426,124,30,20,{bold:true,color});
- const pit=a.pitfall.replace('. Trusting','.\nTrusting');
+ const pit=(areaIndex===0||areaIndex===4)?a.pitfall.replace(' without','\nwithout'):areaIndex===5?a.pitfall.replace(' and outbound','\nand outbound'):a.pitfall;
  text(pit,196,426,716,64,24,{bold:true});
 
  await header(a.start+4,'FRB application',a.titles[4]);
@@ -554,22 +555,30 @@ await newSlide('40');await img('internal/renders/map-yours.png',0,0,960,540,{alt
 
 await newSlide('41');sectionDivider(3,'Making the transition');
 await newSlide('42',{area:'The transition',beat:'What transfers',map:'all',color:C.green,title:'What transfers'});
-twoTable(['You already do this','It becomes this'],[['Decomposition and systems thinking','Harness design'],['Interface design','Tool design'],['Testing discipline','Eval discipline'],['Observability','The same, with a new schema'],['Security and least privilege','Least privilege for tools'],['Operations: cost, latency,\nincidents, rollback','The same, in tokens']],192,[36,36,36,36,36,36,56],{color:C.green,rightColors:[C.pink,C.pink,C.green,C.green,C.green,C.green],end:1});
-text('Engineers at incident.io, Sentry, Elsevier, and others crossed over in months, not years.\nOne twenty-five-year veteran: about two months.',48,192,864,96,24,{start:1});
-text('"For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier."',48,328,864,95,24,{start:1});attr('Matt Morgis, Elsevier, via The Pragmatic Engineer, March 2025',48,446,864,{start:1});
-await newSlide('43',{area:'The transition',beat:'What is new',map:'all',color:C.green,title:'What is new'});
-[['Prompt engineering','2023',370],['Context engineering','2025',300],['Harness engineering','2026',230]].forEach(([a,b,y],i)=>{text(a,48+i*296,y-38,272,30,20);line(48+i*296,y,272,0);text(b,48+i*296,y+12,272,20,16,{color:C.secondary});});text('Each one absorbs the last.',48,442,864,32,24);
-await newSlide('43b',{area:'The transition',beat:'What is new',map:'all',color:C.green,morph:true});strip('Prompt engineering (2023) · Context engineering (2025) · Harness engineering (2026)');
-const competencies=['Model behavior intuition. Informed by reading outputs.','Context engineering.','Tool design, for a caller that reads the description every time.','Harness and loop design.','Evals and error analysis.','AI security. The attack surface is the model\'s reasoning.','Cost and latency as design constraints.'];
-competencies.forEach((v,i)=>text(v,48,192+i*42,864,30,20,{end:1}));
-text('"Getting comfortable with evaluations\nand iterating on non-deterministic\noutputs is the biggest challenge\nmost devs have."',48,192,864,212,44,{start:1});attr('Ross McNairn, Wordsmith, via The Pragmatic Engineer, March 2025',48,428,864,{start:1});
+twoTable(['Existing skill','Application in an AI system'],[
+ ['Decomposition and systems thinking','Bounded workflows and clear state'],
+ ['Interface design','Tool contracts and explicit outcomes'],
+ ['Testing discipline','Evals and regression cases'],
+ ['Debugging and observability','Traces of model calls and tool actions'],
+ ['Security and least privilege','Enforced access and action limits'],
+ ['Production operations','Quality, cost, latency, and recovery'],
+],192,[42,42,42,42,42,42,42],{color:C.green});
+await newSlide('43',{area:'The transition',beat:'What you add',map:'all',color:C.green,title:'What you add'});
+twoTable(['Area','Competency to develop'],[
+ ['Models','Recognize failure patterns and evaluate task fit'],
+ ['Context','Select evidence and preserve its meaning'],
+ ['Tools','Evaluate how the model selects and uses tools'],
+ ['Orchestration','Bound model-selected actions and handle interruption'],
+ ['Evals','Define quality and measure behavior across repeated trials'],
+ ['Production operations','Investigate quality changes and manage\nsecurity, cost, and latency'],
+],192,[40,40,40,40,40,40,60],{color:C.green,columnWidths:[272,24,568]});
 await newSlide('44',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
-['Models','Context','Tools','Orchestration','Evals','Production operations'].forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=[100,163,226,289,352,435][i],h=i===4?76:56;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);text(name,48,y+(h-32)/2,i===5?224:208,32,20,{bold:true,color:i===0?C.text:C.bg,middle:true});text(pitfalls[i],296,y+3,616,h-6,20,{middle:true});});
-await newSlide('45',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'Sublines are spoken. The first assignment replaces the four roadmap rows; hold for the protected story slot.'});
-['Look before you build.','Start constrained.','Own the harness.','Add autonomy as your evals earn it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','',{end:1});text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary,end:1});text(v,136,202+i*67,756,42,32,{bold:true,end:1});});
-text('Review 20 to 50 outputs.',48,192,864,45,32,{start:1,bold:true});
+['Models','Context','Tools','Orchestration','Evals','Production operations'].forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=100+i*66,h=60;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);text(name,48,y+(h-32)/2,i===5?224:208,32,20,{bold:true,color:i===0?C.text:C.bg,middle:true});const sentence=i===5?pitfalls[i].replace(' without reviewing','\nwithout reviewing'):pitfalls[i];text(sentence,296,y+3,616,h-6,20,{middle:true});});
+await newSlide('45',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'The first assignment replaces the four roadmap rows and stays visible through the handoff.'});
+['Choose one narrow task.','Start with one model call.','Turn failures into checks.','Add autonomy when evals justify it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','',{end:1});text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary,end:1});text(v,136,202+i*67,756,42,32,{bold:true,end:1});});
+text('Review 20 to 50 outputs for one task.',48,192,864,45,32,{start:1,bold:true});
 text('Record the input, observed behavior,\nexpected behavior, and check.',48,256,864,60,24,{start:1});
-attr('Illustrative FRB callback. Use your own system’s outputs.',48,342,864,{start:1});
+attr('Illustrative FRB example. Use the same record for your task.',48,342,864,{start:1});
 evidenceTable([
  ['Input','Observed','Expected','Check'],
  ['FRB-042\nsummary','Bearing wear\nconfirmed','Cause remains\nunresolved','Does the source\nsupport the claim?'],

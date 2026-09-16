@@ -11,13 +11,6 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - "When it comes to shipping AI products, you want engineers, not researchers."
 - Software 1.0 to 2.0 to 3.0, where "the hottest new programming language is English" (phrase originates with Karpathy).
 
-**Gergely Orosz, "AI Engineering in the real world," The Pragmatic Engineer, March 25, 2025** [primary]. https://newsletter.pragmaticengineer.com/p/ai-engineering-in-the-real-world
-
-- Profiles software engineers turned AI engineers at incident.io, Sentry, Wordsmith, Augment Code, Elsevier, Simply Business, and DSI.
-- Ross McNairn (Wordsmith): "Working with AI requires a totally different way of approaching problems." And: "Getting comfortable with evaluations and iterating on non-deterministic outputs is the biggest challenge most devs have."
-- Matt Morgis (Elsevier, ex CVS Health): "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier."
-- Ryan Cogswell (DSI), a 25-year veteran, became his company's resident generative AI expert in roughly two months by reading and prototyping.
-
 **roadmap.sh AI Engineer roadmap.** https://roadmap.sh/ai-engineer
 
 - "An AI Engineer uses pre-trained models and existing AI tools to improve user experiences," and they "focus on applying AI in practical ways, without building models from scratch," versus researchers and ML engineers who "focus more on creating new models or developing AI theory."
@@ -40,9 +33,35 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 - Sources: https://www.dice.com/hiring/recruitment/reports/dice-tech-job-report ; https://www.dice.com/career-advice/ai-related-jobs-top-linkedins-fastest-growing-roles-list-for-2026 ; https://lightcast.io/resources/blog/beyond-the-buzz-press-release-2025-07-23
 - UNVERIFIED: "143% year-over-year growth in AI Engineer postings" appears only in aggregator and SEO content. Same for all specific salary bands. Do not put on a slide without a primary citation.
 
+### Skill mapping, revised September 16, 2026
+
+The six-row mapping is the talk's synthesis of the engineering responsibilities already developed in Section 2. It connects familiar skills to their application in an AI system. It does not claim that the work transfers unchanged or establish a time required to become an AI engineer.
+
+| Existing skill | Application in an AI system | Evidence already developed |
+|---|---|---|
+| Decomposition and systems thinking | Bounded workflows and clear state | Section 2 Research §4 |
+| Interface design | Tool contracts and explicit outcomes | Section 2 Research §3 |
+| Testing discipline | Evals and regression cases | Section 2 Research §5 |
+| Debugging and observability | Traces of model calls and tool actions | Section 2 Research §5 and §6 |
+| Security and least privilege | Enforced access and action limits | Section 2 Research §3 and §6 |
+| Production operations | Quality, cost, latency, and recovery | Section 2 Research §6 |
+
 ## 2. New competencies
 
-**The maturity ladder: prompt engineering, then context engineering, then loop and harness engineering.** Cleanest organizing device found.
+### Direct competency view, revised September 16, 2026
+
+Slide 43 turns the six Section 2 areas into learning objectives. This is the talk's synthesis of the existing evidence and engineering decisions, in the same area order. The competencies are unranked. Slide 42 identifies the familiar engineering habits; slide 43 identifies the model-specific behavior those habits must address.
+
+| Area | Competency to develop | Evidence already developed |
+|---|---|---|
+| Models | Recognize failure patterns and evaluate task fit | Section 2 Research §1 |
+| Context | Select evidence and preserve its meaning | Section 2 Research §2 |
+| Tools | Evaluate how the model selects and uses tools | Section 2 Research §3 |
+| Orchestration | Bound model-selected actions and handle interruption | Section 2 Research §4 |
+| Evals | Define quality and measure behavior across repeated trials | Section 2 Research §5 |
+| Production operations | Investigate quality changes and manage security, cost, and latency | Section 2 Research §6 |
+
+The talk track develops those existing decisions through representative failures, source qualifications, tool selection and outcomes, stopping and recovery, expert criteria, prompt injection, and operating limits. No career timeline or competency ranking is inferred.
 
 **Context engineering.** Anthropic, "Effective context engineering for AI agents," September 29, 2025 [primary in research/section-2.md §2]. The shift is "less about finding the right words and phrases for your prompts, and more about answering the broader question of 'what configuration of context is most likely to generate our model's desired behavior?'" (This sentence came from a search index in the Section 3 pass; the Section 2 pass fetched the post directly and confirmed the definition quotes. Confirm this specific sentence before quoting.)
 
@@ -62,9 +81,24 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Observability.** OpenTelemetry GenAI semantic conventions, run by the GenAI SIG since April 2024, standardize spans for model calls, token usage, tool calls, and agent steps. As of September 14, 2026 the conventions live in their own repository and are marked "Status: Development" with a warning that they are subject to change; verified entry in `research/section-2.md` §6. The earlier claim here that core attributes were stable since 1.37.0 was secondary and is superseded. The "your instincts transfer, the schema is new" beat.
 
-**No source explicitly ranks the new competencies.** Keep the slide's current display order as an unranked list. The ladder is a teaching frame, not a profession-wide chronology or a ranking.
+**No source explicitly ranks the new competencies.** The six rows follow Section 2's teaching order.
 
 ## 3. Transition pitfalls
+
+### Recap wording, revised September 16, 2026
+
+Slide 44 repeats the six Section 2 headline pitfalls exactly. These are the talk's summaries of the decisions and failure modes already sourced in Section 2 Research §1 through §6, in that order.
+
+1. Models: Selecting or changing models without testing them on your task.
+2. Context: Adding context without curating it.
+3. Tools: Copying APIs without evaluating task fit.
+4. Orchestration: Adding multiple agents before trying a workflow.
+5. Evals: Using a generic judge without error analysis or result checks.
+6. Production operations: Combining private data, untrusted content, and outbound access without reviewing the risk.
+
+The recap narration connects these failure modes to the roadmap's first assignment: inspect outputs, record a specific failure, and define a check. It adds no seventh pitfall or general claim that all failures arise from mistaking a demo for a product. The framework guidance below supports the roadmap and remains research material.
+
+### Supporting evidence
 
 1. **Over-agentifying.** Anthropic, "Building effective agents," December 19, 2024 [primary]. https://www.anthropic.com/engineering/building-effective-agents "Start with simple prompts, optimize them with comprehensive evaluation, and add multi-step agentic systems only when simpler solutions fall short." "You should consider adding complexity only when it demonstrably improves outcomes." "Agentic systems often trade latency and cost for better task performance, and you should consider when this tradeoff makes sense."
 2. **Framework over-abstraction.** Same post: frameworks "often create extra layers of abstraction that can obscure the underlying prompts and responses, making them harder to debug. They can also make it tempting to add complexity when a simpler setup would suffice."
@@ -89,11 +123,15 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 **Where to start, concretely.** Husain, evals FAQ [primary]: "Start with error analysis, not infrastructure. Spend 30 minutes manually reviewing 20-50 LLM outputs." The single best "do this Monday" line in the research set.
 
-### First assignment, authored September 15, 2026
+### First assignment, revised September 16, 2026
 
-Teaching adaptation of Husain's error-analysis advice above. Slide 45 keeps the four roadmap steps and replaces the adoption arc with: “Review 20 to 50 outputs. Record the input, observed behavior, expected behavior, and check.” The four-field record is the talk's authoring framework, not a direct quote from Husain.
+Teaching adaptation of Husain's error-analysis advice and Anthropic's simplicity guidance above. The four roadmap steps are: choose one narrow task; start with one model call; turn failures into checks; add autonomy when evals justify it. These are the talk's learning sequence, not a quotation or a claim that every production system must follow the same architecture.
 
-Illustrative callback: input, an FRB-042 summary; observed behavior, bearing wear reported as confirmed; expected behavior, cause remains unresolved; check, whether the cited passage supports the claim and preserves its status. The invented packet is in Section 2 research §0 and `internal/frb-running-example.md`. Attendees apply the same record to their own systems. Keep the existing 30-second personal-story reservation on this state. The example is not a personal experience.
+The first task can be summarizing a document with citations, which narrows the existing illustrative FRB research-and-drafting task to a manageable exercise. Someone starting from scratch can run a simple model call on example inputs. Someone with an existing AI feature can inspect its outputs for one task. Both then review 20 to 50 outputs and record the input, observed behavior, expected behavior, and check. The four-field record is the talk's authoring framework, not a direct quote from Husain. The sample is a starting point for error analysis, not statistical proof of production readiness.
+
+The second screen reads: “Review 20 to 50 outputs for one task. Record the input, observed behavior, expected behavior, and check.” Repairs must be followed by rerunning the cases. More autonomy remains conditional on task need, evaluation evidence, and enforced action limits. This develops the existing roadmap and Section 2 decisions without introducing a measured result.
+
+Illustrative callback: input, an FRB-042 summary; observed behavior, bearing wear reported as confirmed; expected behavior, cause remains unresolved; check, whether the cited passage supports the claim and preserves its status. The invented packet is in Section 2 research §0 and `internal/frb-running-example.md`. Attendees apply the same record to their chosen task. The example is not a personal experience. The former personal-story reservation is removed.
 
 **Materials a September 2026 audience recognizes.**
 

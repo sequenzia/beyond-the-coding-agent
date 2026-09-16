@@ -135,7 +135,7 @@ Keep this explanation conceptual. Do not add a hypothetical comparison of model 
 
 **Open weights vs hosted API.** UNVERIFIED, practitioner blogs: self-hosting is priced as GPU rental but decided by operations, redundancy, and an eval harness proving a quantized model kept quality; hosted APIs scale to zero and GPUs do not; self-hosting earns its keep at sustained high utilization or when privacy, latency, or fine-tuning control forces it; open-weight models trail closed by a few points on the benchmarks that matter.
 
-**Pitfall.** Choosing and changing models without testing them on your task. Without representative cases, you cannot establish whether a replacement still meets the product's quality requirement. A pinned version needs controlled migration; a moving alias needs regression monitoring. Rerun the same cases and compare quality, cost, and latency. This sets up area 5.
+**Pitfall.** Selecting or changing models without testing them on your task. Without representative cases, you cannot establish whether a replacement still meets the product's quality requirement. A pinned version needs controlled migration; a moving alias needs regression monitoring. Rerun the same cases and compare quality, cost, and latency. This sets up area 5.
 
 ### FRB application and displaced evidence
 
@@ -206,7 +206,7 @@ Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with 
 
 **When you are the owner.** The vendor chose the context budget, compaction policy, memory convention, and retrieval strategy. You own all four. What goes in: instructions, examples, retrieved knowledge, session state, memory, tool results, each with relevance, freshness, provenance, size. Customer-facing: the context holds another person's data; a compaction that drops a constraint can produce a wrong answer. Memory exposed to the wrong user or tenant is a breach. Cross-session memory can be intentional.
 
-**Pitfall.** Adding context rather than curating it. A large window is not permission to fill it; Chroma shows degradation well before the window is full.
+**Pitfall.** Adding context without curating it. A large window is not permission to fill it; Chroma shows degradation well before the window is full.
 
 ### Context decisions and FRB application
 
@@ -297,7 +297,7 @@ Scoped reads, reversible changes, consequential actions are this talk's starting
 - "A security audit of 2,857 skills on ClawHub has found 341 malicious skills across multiple campaigns." Campaign named ClawHavoc. "335 skills use fake pre-requisites to install an Apple macOS stealer named Atomic Stealer (AMOS)." 341 of 2,857 is 11.9%, roughly one in eight.
 - Unit 42, "OpenClaw's Skill Marketplace and the Emerging AI Supply Chain Threat," June 23, 2026 [primary]. https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/ Bitdefender Labs found "approximately 17% of OpenClaw skills they analyzed in the first few weeks of the platform's release carried malicious payloads." For a skill, "installation results in complete control over the agent's identity." Use the Koi figure on stage; the Bitdefender figure is a different sample.
 
-**Pitfall.** copying the API surface without evaluating task fit. Evaluate granularity, descriptions, payloads, and safe boundaries against representative tasks.
+**Pitfall.** Copying APIs without evaluating task fit. Evaluate granularity, descriptions, payloads, and safe boundaries against representative tasks.
 
 ### Tools decisions and FRB application
 
@@ -368,7 +368,7 @@ The tool returns a receipt when completion is confirmed, an explicit failure whe
 
 **When you are the owner.** You own the loop, stopping conditions, state and resume, retries, escalation, planner-to-worker routing, the compaction trigger, and the budgets for tokens, actions, and latency. Customer-facing: a human is waiting; latency is a product requirement; an unbounded loop is an outage.
 
-**Pitfall.** multi-agent before a workflow was tried.
+**Pitfall.** Adding multiple agents before trying a workflow.
 
 ### Orchestration decisions and maintenance
 
@@ -378,7 +378,7 @@ The three decisions are who chooses the next step, when work should be delegated
 
 Maintenance checks whether new branches preserve required controls and acceptance criteria. Handoffs retain evidence, uncertainty, and clear ownership. Retries must account for an action that might already have succeeded. Persist progress and inspect actual results before repeating side effects, following the illustrative export receipt contract in §0. Set action, token, and end-to-end latency limits. Faulty or obsolete tests may change through review; protecting acceptance criteria does not mean preserving a broken test indefinitely.
 
-The OpenAI reasoning-benchmark result, Anthropic quality and token comparisons, long-running-agent failure taxonomy, workflow-pattern inventory, and Gartner forecast remain backup evidence with their original limitations. Remove the duplicate Osmani quote from the active Orchestration slides. Preserve the headline pitfall, "multi-agent before a workflow was tried."
+The OpenAI reasoning-benchmark result, Anthropic quality and token comparisons, long-running-agent failure taxonomy, workflow-pattern inventory, and Gartner forecast remain backup evidence with their original limitations. Remove the duplicate Osmani quote from the active Orchestration slides. Preserve the headline pitfall, "Adding multiple agents before trying a workflow."
 
 ### FRB workflow and displaced forecast
 
@@ -436,7 +436,7 @@ Optional workers compare independent FRB cases only within the authorized corpus
 
 **Earlier domain examples, backup only.** Refund limits, account ownership, duplicate actions, and ledger state illustrated direct checks. The active FRB examples below replace these on slide 17.
 
-**Pitfall.** a generic judge instead of error analysis. Trusting the success claim without checking the result.
+**Pitfall.** Using a generic judge without error analysis or result checks.
 
 ### Evaluation decisions, maintenance, and the FRB check
 
@@ -506,7 +506,7 @@ Model graders, evaluation services, stored traces, and human reviewers that rece
 
 **When you are the owner.** All of this was rendered for you as a permission prompt, a sandbox, an OAuth flow, `/usage`, and a vendor trust and safety team. You own the approval process, using human approval, async workflows, or enforced policies as needed. The sandbox becomes infrastructure and the audit trail supports accountability. Apply Article 50 disclosure duties within their relevant role and scope.
 
-**Pitfall.** the lethal trifecta, assembled one integration at a time. Map capabilities: private data, untrusted content, external communication. A web fetch may already provide an outbound channel, and one integration may occupy more than one corner.
+**Pitfall.** Combining private data, untrusted content, and outbound access without reviewing the risk. Map capabilities: private data, untrusted content, external communication. A web fetch may already provide an outbound channel, and one integration may occupy more than one corner.
 
 ### Operating decisions and the FRB agreement
 

@@ -12,7 +12,7 @@ test('notes keep formatted speech and cues through the advance, without timing o
 
 [0:10] Build 2, the harness. Keep this description.
 
-[0:20] **[your story #3]** Keep the story slot.
+[0:20] **[your story #9]** Keep the story slot.
 
 [0:50] Hold. Advance to slide 4 at [1:00].
 
@@ -24,7 +24,7 @@ Research §1 https://example.com
 ## Open items
 None.
 `);
-  assert.equal(text(paragraphs), 'Must say. Use /model.\n\nBUILD 2: THE HARNESS\n\nKeep this description.\n\n[your story #3] Keep the story slot.\n\nHold. Advance to slide 4.');
+  assert.equal(text(paragraphs), 'Must say. Use /model.\n\nBUILD 2: THE HARNESS\n\nKeep this description.\n\n[your story #9] Keep the story slot.\n\nHold. Advance to slide 4.');
   assert.equal(paragraphs[0].runs[0].textStyle.bold, true);
   assert.equal(paragraphs[2].runs[0].textStyle.bold, true);
   assert.equal(paragraphs[6].runs[0].textStyle.bold, true);
@@ -52,7 +52,7 @@ test('all narrative slides end at their advance or Q&A handoff and preserve buil
         assert.equal(paragraph.runs[0].textStyle.bold, true, `${file}: ${cue}`);
       }
       if (section === 2) assert.doesNotMatch(plain, /\[your story #2\]/, file);
-      if (file.startsWith('45-')) assert.match(plain, /Autonomy is earned by evals, one step at a time\. Advance to slide 46 on the last word\.$/);
+      if (file.startsWith('45-')) assert.match(plain, /Autonomy is earned by evals, one step at a time\.\n\nAdvance to slide 46\.$/);
       if (file.startsWith('47-')) assert.doesNotMatch(plain, /Backup for questions|Do I need to learn/);
       count++;
     }

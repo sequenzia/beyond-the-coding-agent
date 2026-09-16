@@ -12,7 +12,7 @@ Beat 2.5. Section 2. Rehearsal reference 0:25 of the area's 4:35. Section 2 rema
 - **Grader:** Review disagreement with expert judgment.
 - **Coverage:** Add failures and recheck after changes.
 
-**Pitfall:** a generic judge instead of error analysis. Trusting the success claim without checking the result.
+**Pitfall:** Using a generic judge without error analysis or result checks.
 
 Inspect the result and the trace before choosing a repair.
 
@@ -28,11 +28,11 @@ Inspect the result and the trace before choosing a repair.
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] The pitfall is **a generic judge instead of error analysis. Trusting the success claim without checking the result.** Inspect actual outcomes, representative coverage, and the grader itself before selecting a repair. Evaluation continues after deployment and after changes to the model or harness.
+[0:00] The pitfall is **Using a generic judge without error analysis or result checks.** Inspect actual outcomes, representative coverage, and the grader itself before selecting a repair. Evaluation continues after deployment and after changes to the model or harness.
 
 [0:25] Advance to slide 34.
 
-Cut first: the supporting cue explanations. Never cut both exact headline sentences and ongoing evaluation. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the supporting cue explanations. Never cut the exact headline pitfall and ongoing evaluation. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 

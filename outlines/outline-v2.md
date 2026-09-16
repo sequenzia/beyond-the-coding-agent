@@ -2,7 +2,7 @@
 
 ## Presentation outline, v2
 
-**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Section 1 has a 4:00 rehearsal target. Section 3 retains its 5:00 reference and may be trimmed later. The final presentation/discussion split remains open. The 27:00 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget.
+**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Section 1 has a 4:00 rehearsal target. Section 3 has a 4:30 reference. The 27:00 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget. Discussion fills the remainder of the session.
 
 **Date:** September 17, 2026.
 
@@ -36,10 +36,10 @@ AI engineering builds on a foundation of software engineering. This talk focuses
 | 2.5 Verification and evals | 4:35 | 30 through 34 |
 | 2.6 Production operations | 4:10 | 35 through 39 |
 | 2.7 Section wrap | 0:50 | 40 |
-| 3. Making the transition | 5:00, pending later trimming | 41 through 47 |
+| 3. Making the transition | 4:30 | 41 through 47 |
 | 4. Questions and discussion | Remainder of the 50-minute session | none, slide 47 stays up |
 
-Section 2 references sum to 27:00 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 5:00, the talk would be about 34:00 to 38:00. This does not assign a new discussion budget. Rehearsal and any later trims determine the final split.
+Section 2 references sum to 27:00 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 4:30, the talk runs about 33:30 to 37:30. Discussion fills the remainder of the 50-minute session.
 
 ### The Section 2 pattern
 
@@ -53,7 +53,7 @@ Each area has five separately numbered static slides. The opening and closing an
 
 The six standalone user screens and all paired user/owner labels are removed. Codex CLI and Devin remain the named coding-agent anchors in the map narration. There are no screenshot walkthroughs. Evals has no personal story or 1:00 reservation. The final area is Production operations. The FRB corpus's CUI/ECI requirements and older, less capable approved models are explicit illustrative deployment assumptions informed by presenter-supplied audience context. They are not universal model-performance claims.
 
-The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 47. The builder now implements the same 47-slide narrative. Its expansion produces 57 physical slides and 58 presentation states.
+The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 47. The builder now implements the same 47-slide narrative. Its expansion produces 54 physical slides and 55 presentation states.
 
 ---
 
@@ -169,7 +169,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Say, decisions: Establish data eligibility, compare model and reasoning settings on representative tasks, start with one configuration unless routing earns its complexity, and plan version changes. **Pinned versions need migration; moving aliases need regression monitoring.**
 - Say, pitfalls: Maintain coverage as tasks and routes change. A pinned model does not freeze prompts, retrieval, or tools. Inspect failures before selecting a replacement.
 - Say, application: Assume the FRB corpus includes CUI/ECI and approved options are older and less capable for the intended synthesis. Begin with one eligible configuration. A possible cause must remain a possible cause. If the full brief fails evaluation, test narrower scope or human reconciliation. **Keep the evidence requirement and approved processing boundary.** No scores or winning model are claimed.
-- Pitfall: Choosing and changing models without testing them on your task.
+- Pitfall: Selecting or changing models without testing them on your task.
 - Takeaway line: "The model is a versioned, expiring dependency. Treat it like one."
 - Sources: Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; Anthropic and OpenAI lifecycle guidance; presenter audience context, September 2026; illustrative FRB application. Research §0 and §1 in `research/section-2.md`.
 
@@ -181,7 +181,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Say, decisions: Decide what enters the step, how to retrieve it, what persists, and which sources and access scope apply. Briefly compare keyword, semantic, and hybrid retrieval. Distinguish compaction from persistent memory. **Preserve source identities and enforce access outside the model.**
 - Say, pitfalls: Inspect missing evidence, lost qualifications, stale versions, and misattribution. Keep correctness and access ahead of cache savings.
 - Say, application: Retrieve the preliminary FRB-042-BRF r1 slide 6 and the later FRB-042-MIN r2 §3 paragraph 2 as different documents. **Retain the unresolved cause and outstanding inspection.** Refresh revisions and access; missing or unreadable evidence remains a limitation. Context preparation inherits the approved processing scope.
-- Pitfall: adding instead of curating.
+- Pitfall: Adding context without curating it.
 - Takeaway line: "Context is a budget, not a bucket."
 - Sources: Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB application. Research §0 and §2 in `research/section-2.md`.
 
@@ -193,7 +193,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Say, decisions: Choose capabilities and granularity, design descriptions/inputs/results/errors together, and define permitted execution. More granular tools offer flexibility and add coordination work. **Validate and authorize in code, including reads.**
 - Say, pitfalls: Prune overlapping tools and keep definitions aligned with implementation. Return confirmed results, known failures, or unknown outcomes explicitly.
 - Say, application: Export cited brief accepts the checked draft, citations, and destination. **Verification must apply to the exact exported content.** A caller assertion is insufficient. Enforce scope, preserve uncertainty, and return a receipt. Do not claim completion when the outcome is unknown. Parsing and indexing remain background services.
-- Pitfall: copying the API surface without evaluating task fit.
+- Pitfall: Copying APIs without evaluating task fit.
 - Takeaway line: "A description guides the model. Code enforces the contract."
 - Sources: Anthropic, September and November 2025; MCP, July 2026; OWASP, 2025; illustrative FRB contract. Research §0 and §3 in `research/section-2.md`.
 
@@ -205,7 +205,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Say, decisions: Choose who controls the next step, when delegation earns its coordination cost, and how execution stops or recovers. Keep multi-agent design to a brief contrast. **Define completion checks, saved state, and action/token/retry/latency limits.**
 - Say, pitfalls: Inspect skipped gates, work without progress, early completion claims, and lost handoff evidence. A timeout does not establish failure. Recheck freshness and access on resume.
 - Say, application: Retrieve, inspect, compare, reconcile, verify, export. **Export only after checks pass on the exact draft.** A matching receipt confirms completion; a known failure can be addressed and retried within policy; an unknown outcome requires inspection or handoff. A stopped run is not a completed brief. Optional workers remain within the approved scope.
-- Pitfall: multi-agent before a workflow was tried.
+- Pitfall: Adding multiple agents before trying a workflow.
 - Takeaway line: "The loop is where autonomy gets its limits. Start with the workflow."
 - Sources: Anthropic, December 2024, June and November 2025; 12-Factor Agents; illustrative FRB workflow. Research §0 and §4 in `research/section-2.md`.
 
@@ -217,7 +217,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Say, decisions: Define success with domain experts. Briefly compare code checks, model graders, and expert review. **Evaluate model graders against expert decisions.** Cover representative tasks, serious failures, and useful limitations. Repeat trials where consistency matters and preserve regression cases.
 - Say, pitfalls: Inspect actual outcomes, coverage, and the grader itself. Add production failures and rerun after model or harness changes. Evaluation continues after deployment. No personal story or time reservation follows.
 - Say, application: The invented answer claims the board confirmed bearing wear and cites FRB-042-MIN r2 §3 paragraph 2. The reference exists, but the minutes leave the cause unresolved and require inspection. **Reference PASS; source-support FAIL.** Prevent export of that draft, verify corrected content, and retain the failure as one regression case. Graders and reviewers remain within the approved scope.
-- Pitfall: a generic judge instead of error analysis. Trusting the success claim without checking the result.
+- Pitfall: Using a generic judge without error analysis or result checks.
 - Takeaway line: "Check the action before accepting it. Measure behavior across representative cases. Keep both checks running as the system changes."
 - Sources: Husain and Shankar, September 2026; Anthropic, January 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5 in `research/section-2.md`.
 
@@ -229,7 +229,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Say, decisions: Define authority, observe behavior and resource use, set operating limits and handoff responsibility, and assign change/incident ownership. **Enforce scope outside the model.** Track quality, cost per completed task, and latency. Reverting configuration does not undo completed actions.
 - Say, pitfalls: Review private data, untrusted content, and external communication as a combined potential exfiltration path. Break or constrain it. This is one threat model. **A probabilistic filter is insufficient as the sole security boundary.**
 - Say, application: The FRB agreement covers approved records/services/destinations, protected traces and evaluation artifacts, operating signals, and an authorized responder. Follow failures into a repair, relevant evals, and monitoring. **People retain responsibility for official causes, decisions, and board records.**
-- Pitfall: the lethal trifecta, assembled one integration at a time.
+- Pitfall: Combining private data, untrusted content, and outbound access without reviewing the risk.
 - Takeaway line: "The system needs evidence of its behavior and people accountable for responding."
 - Sources: Rauch in Datadog, 2026; Willison, June 2025; OWASP, 2025 and 2026; OpenTelemetry guidance checked September 2026; illustrative FRB operating agreement. Research §0 and §6 in `research/section-2.md`.
 
@@ -250,72 +250,74 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 
 ---
 
-## Section 3. Making the transition (5:00, 7 slides)
+## Section 3. Making the transition (4:30, 7 slides)
 
 ### 3.0 Transition (0:10). Slide 41
 
 - Slide: Section 3. Making the transition. Matching typographic divider after the yours anatomy diagram.
-- Say: Everything in the section we just covered was engineering. **Most of it is engineering you already do.**
-- Takeaway line: "Most of it is engineering you already do."
+- Say: **Now let's focus on your transition: the skills you bring, the new competencies, and a practical place to start.**
+- Takeaway line: "Your existing skills give you a foundation to build on."
 - Sources: the Section 2 synthesis and the mapping in 3.1. Research §1.
 
 ### 3.1 What transfers (1:05). Slide 42
 
-- Slide: two columns. Left, the software engineering skill. Right, what it becomes.
+- Slide: one static screen with two columns. Left, the existing skill. Right, its application in an AI system: bounded workflows and clear state; tool contracts and explicit outcomes; evals and regression cases; traces of model calls and tool actions; enforced access and action limits; quality, cost, latency, and recovery.
 - Say:
-  - **Decomposition and systems thinking transfer whole.** Matt Morgis at Elsevier: "For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier." The harness is a systems design problem.
-  - **Interface design becomes tool design.** The same instincts about contracts, naming, granularity, and error handling. The caller changed.
-  - **Testing discipline extends to evals.** The habit of checking before accepting a result transfers. Ordinary tests remain part of the machinery.
-  - Observability instincts transfer with a new schema. Traces, spans, p95s. OpenTelemetry already has the GenAI conventions.
-  - Security instincts transfer. Least privilege now applies to tools. OWASP has the list.
-  - Operations transfer: cost, latency, incident response, rollback. The units changed to tokens.
-  - Field evidence: Gergely Orosz profiled engineers at incident.io, Sentry, Elsevier, and others who crossed over in months, not years. One twenty-five-year veteran became his company's generative AI expert in about two months by reading and prototyping.
-- Takeaway line: "You are not starting over. You are adding a layer."
-- Sources: Orosz, "AI Engineering in the real world," March 2025; OpenTelemetry; OWASP. Research §1.
+  - **Your engineering habits give you a foundation.** Decomposition helps you define a bounded workflow and the state it carries.
+  - Interface design helps you specify tool inputs, errors, and evidence of completion.
+  - **Testing discipline extends to evals and regression cases.** Ordinary software tests remain necessary.
+  - Debugging and observability help you follow model calls and tool actions to investigate a failure.
+  - Least privilege guides access and action limits. Code enforces those boundaries.
+  - Production operations brings monitoring, incident response, and recovery. Track quality alongside cost and latency.
+  - **You are learning how to apply these skills to model-dependent behavior.**
+- Takeaway line: "Your engineering habits give you a foundation for model-dependent systems."
+- Sources: the talk's skill mapping in Research §1 of `research/section-3.md`, grounded in Section 2 Research §3 through §6.
 
-### 3.2 What is new (1:15). Slide 43
+### 3.2 What you add (1:15). Slide 43
 
-- Slide: the ladder, prompt engineering, then context engineering, then harness engineering. Below it, the new competencies as an unranked list.
+- Slide: one static screen titled What you add. Six unranked rows pair the Section 2 areas with their model-specific competencies.
 - Say:
-  - **Prompt engineering, context engineering, harness engineering.** This ladder is a teaching frame for expanding responsibility. The years mark examples of vocabulary in the cited posts, not the invention of the practices.
-  - The competencies, in display order without ranking: model behavior intuition, informed by reading outputs. Context engineering. Tool design for a caller that reads the description every time. Harness and loop design. **Evals and error analysis.** AI security, because the attack surface is now the model's reasoning. Cost and latency as first-class design constraints.
-  - The one most engineers find hardest, from Ross McNairn at Wordsmith: **"Getting comfortable with evaluations and iterating on non-deterministic outputs is the biggest challenge most devs have."**
-- Takeaway line: "The new skill is not prompting. It is being comfortable measuring a system you cannot fully specify."
-- Sources: Anthropic, September 2025; Husain, evals FAQ, 2026; Orosz, March 2025. Research §2.
+  - **The added work is understanding and controlling model-dependent behavior.** Read failures and compare models on the intended task.
+  - Select useful evidence and preserve qualifications through retrieval and summarization.
+  - Evaluate how the model selects and uses tools. A valid argument shape does not establish a correct choice or successful action.
+  - Bound model-selected actions and define stopping, recovery, and handoff.
+  - **Define quality with domain experts and measure behavior across representative cases and repeated trials.** Inspect failures before choosing a repair.
+  - Investigate quality changes. Address prompt injection and enforced permissions alongside cost per completed task and end-to-end latency.
+- Takeaway line: "Learn to measure and control model-dependent behavior."
+- Sources: the competency synthesis in Research §2 of `research/section-3.md`, grounded in Section 2 Research §1 through §6.
 
 ### 3.3 The pitfalls, on one slide (0:35). Slide 44
 
 - Slide: six lines, one per area, no other text.
-  1. Models: Choosing and changing models without testing them on your task.
-  2. Context: adding instead of curating.
-  3. Tools: copying the API surface without evaluating task fit.
-  4. Orchestration: multi-agent before a workflow was tried.
-  5. Evals: a generic judge instead of error analysis. Trusting the success claim without checking the result.
-  6. Production operations: the lethal trifecta, assembled one integration at a time.
+  1. Models: Selecting or changing models without testing them on your task.
+  2. Context: Adding context without curating it.
+  3. Tools: Copying APIs without evaluating task fit.
+  4. Orchestration: Adding multiple agents before trying a workflow.
+  5. Evals: Using a generic judge without error analysis or result checks.
+  6. Production operations: Combining private data, untrusted content, and outbound access without reviewing the risk.
 - Say:
-  - You have seen all six. **Every one is a symptom of the same thing: treating the demo as the product.** works.any() shipped as works.all().
-  - One more that is not on the map: reaching for a framework before understanding the loop. Anthropic's warning is that frameworks "create extra layers of abstraction that can obscure the underlying prompts and responses." Learn the loop first.
-- Takeaway line: "Every pitfall on this list is a demo mistaken for a product."
-- Sources: Section 2; Anthropic, December 2024. Research §3.
+  - You have seen each of these in the system we walked through. **Use them to guide what you inspect in your own system.**
+  - Model and tool choices need task evidence. Context needs curation. More autonomy needs checks and limits. Inspect failures and review the capabilities your integrations combine.
+  - **A practical first step is to examine outputs, record a failure, and define the check that would catch it.** The roadmap makes that first assignment concrete.
+- Takeaway line: "Use these pitfalls to guide your first checks."
+- Sources: Section 2 Research §1 through §6; recap synthesis in Section 3 Research §3 and first assignment in §4.
 
-### 3.4 The roadmap (1:25). Slide 45
+### 3.4 The roadmap (0:55). Slide 45
 
 - Slide: four steps.
-  1. Look before you build.
-  2. Start constrained.
-  3. Own the harness.
-  4. Add autonomy as your evals earn it.
+  1. Choose one narrow task.
+  2. Start with one model call.
+  3. Turn failures into checks.
+  4. Add autonomy when evals justify it.
 - Say:
-  - **Look before you build. On Monday, manually review twenty to fifty outputs of whatever AI feature you are closest to.** **Record the input, observed behavior, expected behavior, and check.** That is error analysis and the first entry in your eval suite. For an FRB summary, record the false confirmation, the unresolved cause, and the source-support check. Use the same record for your own system.
-  - **Start constrained. A single model call with retrieval and examples. Then a workflow on predefined code paths. Add a loop only when it demonstrably improves outcomes.** Anthropic says find the simplest solution possible. OpenAI says start with a single agent, start small, validate with real users, and grow.
-  - Own the harness. Own your prompts, your context window, your control flow. Learn the loop before you adopt a framework for it, so the framework is a convenience you can evaluate rather than a black box you depend on.
-  - **Add autonomy as your evals earn it.** Every increase in autonomy is paid for by a verifier or an eval that catches what it breaks.
-  - On the existing final state, show **“Review 20 to 50 outputs. Record the input, observed behavior, expected behavior, and check.”** The illustrative FRB row makes the assignment concrete. Hold it through the existing 30-second story reservation.
-
-**[your story #3]** What you would tell yourself at the start of the transition. It must show one thing you would do earlier, and what it would have saved. Thirty seconds, inside this beat's time.
+  - **Choose one narrow task**, such as summarizing a document with citations.
+  - **Start with one model call** and examples you can inspect. If you already have an AI feature, use its outputs for the chosen task.
+  - **Turn failures into checks.** Inspect the result, repair the cause, and rerun the cases.
+  - **Add autonomy when evals justify it.** Keep actions bounded and verify the result. A workflow or loop is a design to evaluate when the task needs it.
+  - On the final state, show **“Review 20 to 50 outputs for one task. Record the input, observed behavior, expected behavior, and check.”** The illustrative FRB row contrasts false confirmation with an unresolved cause and a source-support check. Apply the record to the chosen task. Fix the cause and rerun the case so it becomes a regression check.
 
 - Takeaway line: "Autonomy is earned by evals, one step at a time."
-- Sources: Husain, evals FAQ; Anthropic, December 2024; OpenAI, "A practical guide to building agents"; Research §4, including the FRB assignment. Hashimoto's adoption arc remains research backup.
+- Sources: Husain, evals FAQ; Anthropic, December 2024; learning-sequence synthesis and FRB assignment in Research §4. OpenAI's guide and Hashimoto's adoption arc remain supporting research.
 
 ### 3.5 Resources and close (0:30). Slides 46 and 47
 
@@ -335,10 +337,10 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 
 ### Section 3 checks
 
-- Time: 0:10 + 1:05 + 1:15 + 0:35 + 1:25 + 0:30 = 5:00.
-- Slides: 41 through 47. Deck: 47 narrative slides and 48 authored compositions expand to 57 physical slides, 58 states, one internal click, one Morph transition, and 57 advances.
+- Time: 0:10 + 1:05 + 1:15 + 0:35 + 0:55 + 0:30 = 4:30.
+- Slides: 41 through 47. Deck: 47 narrative slides and 47 authored compositions expand to 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
-- Evidence status: competencies are unranked. The ladder is a teaching frame. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
+- Evidence status: competencies are unranked learning objectives grounded in Section 2's engineering decisions. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
 
 ---
 
@@ -376,16 +378,15 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 
 ### Whole-talk checks
 
-- Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 27:00 rehearsal reference. Section 3 remains 5:00 pending later trimming. The current references imply 34:00 to 38:00 of presentation; final discussion time is the remainder of the 50-minute session.
-- Deck: 47 narrative slides, eight in Section 1, thirty-two in Section 2, and seven in Section 3. One Section 3 support composition brings the authored total to 48. Expansion produces 57 physical slides, 58 states, one internal click, one Morph transition, and 57 advances.
+- Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 27:00 rehearsal reference. Section 3 is 4:30. The current references imply 33:30 to 37:30 of presentation; discussion fills the remainder of the 50-minute session.
+- Deck: 47 narrative slides, eight in Section 1, thirty-two in Section 2, and seven in Section 3. Each narrative slide has one authored composition. Expansion produces 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances.
 - FRB acceptance: a suspected cause never becomes a confirmed finding without support. Later minutes remain distinct from preliminary material. Similar symptoms and duplicates do not establish a common cause. Missing, unreadable, conflicting, incomplete, or unauthorized evidence yields an explicit limitation. Export matches the selection and preserves citations and uncertainty. Check citation existence separately from semantic support.
-- Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap assignment. The evals personal story is removed. Preserve the other presenter-authored slots in Sections 1 and 3, including the 0:30 roadmap story. Orchestration has no audience pause.
+- Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap assignment. The evals and roadmap personal stories are removed. Preserve the optional presenter-authored slot in Section 1. Orchestration has no audience pause.
 - Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.7, 2.5, 2.6, 3.3); why tests are necessary but not sufficient (1.7, 2.5); why evals continue after deployment (1.7, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
 
 ### What only you can supply
 
 1. **Story #1, 1.2, optional.** A demo that turned out not to be the product.
-2. **Story #3, 3.4.** What you would tell yourself at the start of the transition.
 
 ### Verify in a browser before the slide is final
 

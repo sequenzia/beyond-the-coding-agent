@@ -661,7 +661,7 @@ This section supersedes the Section 2 composition, numbering, and story rules in
 - Narrative slides: 47. Section 1 is 1 through 8, Section 2 is 9 through 40, and Section 3 is 41 through 47.
 - Section 2 uses one narrative identity for every composition. Slide 9 retains six map states. Slides 10 through 39 are six groups of five static slides. Slide 40 is the standalone responsibility map.
 - The five-screen sequence is quote, combined definition and importance, decisions, pitfalls, and FRB application. Hard cuts throughout. No standalone user screen, screenshot placeholder, compact continuation, or user/owner kicker.
-- The authoring target is 48 compositions, including the Section 3 support composition corresponding to narrative 43. The revised opening and existing expansion produce 57 physical slides, 58 states, one internal click, one Morph transition, and 57 advances. The builder validates these counts and records them in its build receipt.
+- The authoring target is 47 compositions. The revised opening and Section 3 review produce 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances. The builder validates these counts and records them in its build receipt.
 - Section 2 remains 25:00 to 29:00. The 27:00 reference in the specs only guides rehearsal cues. There is no automatic slide timing.
 - Slides 4, 8, and 41 are the matching typographic dividers. Slide 44 retains the six recap bands, with the final area labeled Production operations. Slide 47 retains the Questions reveal.
 
@@ -699,7 +699,7 @@ Use aligned native text without decorative boxes or table rules. Supporting retr
 
 Slides 13, 18, 23, 28, 33, and 38 reuse the three labeled rows at y 192, 254, and 316. Labels: x 48, width 216, height 30, Bold 20 in the area color. Body: x 292, width 620, height 54, Regular 20. An authored qualifying line, when present, uses x 48, y 386, width 864, height 30, Regular 20.
 
-The pitfall label uses x 48, y 426, width 124, height 30, Bold 20. The exact sentence uses x 196, y 426, width 716, height 64, Bold 24. Preserve deliberate line breaks, especially between the two Evals sentences. The pitfall is in the body, not a footer band. Slide 33 has no story hold, placeholder, or extra advance.
+The pitfall label uses x 48, y 426, width 124, height 30, Bold 20. The exact sentence uses x 196, y 426, width 716, height 64, Bold 24. Preserve the deliberate line breaks specified in §25. The pitfall is in the body, not a footer band. Slide 33 has no story hold, placeholder, or extra advance.
 
 Slide 38 uses its three rows for the combined-risk capabilities. Its final label can wrap to two lines and uses height 54 at the same y 316 position. It does not add a separate triangle diagram. Preserve the threat-model qualification in the notes. Slide 23 keeps its takeaway in the notes and does not repeat it in the optional qualifying-line position.
 
@@ -718,9 +718,9 @@ All six application slides keep a visible 16-point illustrative caption at x 48,
 
 Preserve the base diagram and all generated variants. Slide 9 remains the opening map. The former responsibility-map composition becomes slide 40 and keeps `internal/renders/map-yours.png` and the Model selection badge.
 
-Section 3 content and compositions are unchanged apart from necessary labels, cross-references, and numbering: old 20 through 26 became 39 through 45 in the Section 2 rework and are now 41 through 47. The support composition associated with old narrative 22 is now associated with 43. Keep its Morph and the close's internal reveal. Update slide 44's Production operations label while retaining the six-band structure and exact pitfall sentences.
+Section 3's numbering migration moved old 20 through 26 to 39 through 45 in the Section 2 rework and then to 41 through 47. Section 25 supersedes the earlier slide 42 and 43 compositions. Both are now static. The support composition and Morph associated with slide 43 are removed. Keep the close's internal reveal. Slide 44 retains the Production operations label, six-band structure, and exact pitfall sentences.
 
-For slide 44's final area label, retain the existing colored block and x 48. Use width 224, height 32 at 20 Bold, centered vertically within the 56-point band, to keep the full new area name on one line. Other recap labels retain their existing width 208 and geometry.
+For slide 44's final area label, retain the existing colored block and x 48. Use width 224, height 32 at 20 Bold, centered vertically within the band, to keep the full new area name on one line. Other recap labels retain width 208. Section 25 defines the revised equal-height bands.
 
 The agenda is now slide 3. Its revised layout and all Section 1 compositions follow section 24.
 
@@ -760,3 +760,19 @@ Slides 4, 8, and 41 use the same `sectionDivider()` component. Label at x 48, y 
 Slide 7's first state keeps the native two-column table at x 48, y 68, width 864, with columns 420, 24, and 420 and row heights 90, 94, 82, and 100. Headers use 24 Bold pink; cells use 20 Regular primary. Reserve "workflow" for the orchestration concept in the narration.
 
 The replacement state gains a title at x 110, y 68, width 748, height 40, Helvetica Bold 32, primary. Preserve commitment numerals at x 110 and statements at x 150, y 132, 252, and 372, width 708, height 68, at 24. The code subline remains x 150, y 205, width 708, height 20, at 16. Preserve semantic colors in its code runs. No overlap with the title or narrative number.
+
+## 25. Section 3 review, September 16, 2026
+
+Slide 42 is one static composition. This supersedes its former two-state table and evidence treatment, including the earlier colored right-column distinction between transformed and unchanged skills. Preserve the shared header, title, mini-map, and narrative number. Use hard cuts into and out of the slide.
+
+Use the existing flat native two-column table at x 48, y 192, width 864. Content columns are 420 wide with a 24-point gutter. The header and each of the six data rows are 42 points high, ending at y 486. Header cells use Helvetica Bold 24 in Section 3 green. All data cells use Helvetica Regular 20 in primary text, with 1.25 line spacing, zero margins, no banding, and no visible borders. All rows carry equal weight. No quote, attribution, or replacement state follows the table.
+
+Slide 43 is one static composition using the same header, native table treatment, type roles, and colors as slide 42. Its table remains at x 48, y 192, width 864. Use a 272-point area column, a 24-point gutter, and a 568-point competency column. The header and first five data rows are 40 points high. The final data row is 60 points high, ending at y 492. Break its description after "manage". All rows carry equal weight. The ladder, strip, quote, support composition, and Morph are removed.
+
+The 47 narrative slides now use 47 authored compositions. The compiler produces 54 physical slides and 55 presentation states, with one internal click, no Morph transitions, and 54 advances. Section 3 has a 4:30 reference, including slide 42 at 1:05, slide 43 at 1:15, and slide 45 at 0:55.
+
+Slide 44 retains the compact header and six full-width recap bands. Each band is 60 points high with 6-point gaps, at y 100, 166, 232, 298, 364, and 430, ending at y 490. Preserve the 272-point colored label block, labels at x 48, and sentences at x 296 with width 616. Labels use Helvetica Bold 20 with the existing area-specific text colors. Sentences use Helvetica Regular 20 in primary text, vertically centered in a 54-point box inset 3 points from the band's top. Break the final sentence before "without reviewing". All bands are visible on entry.
+
+The revised pitfall sentences on slides 13, 18, 23, 28, 33, and 38 use the existing Section 2 geometry. Break slide 13 before "without testing", slide 33 before "without error analysis", and slide 38 before "and outbound access". Keep the other three sentences on one line where they fit. Line breaks do not change the exact sentence shared with slide 44.
+
+Slide 45 retains its two-state replacement composition and existing geometry. Its first state shows four roadmap rows at y 192 with 67-point spacing and height 59. The numbered labels are: Choose one narrow task; Start with one model call; Turn failures into checks; Add autonomy when evals justify it. The assignment state keeps its heading at y 192, instructions at y 256, caption at y 342, and native four-column example at y 374. The heading reads “Review 20 to 50 outputs for one task.” The caption reads “Illustrative FRB example. Use the same record for your task.” No personal-story hold or presenter-authored slot remains. The state stays visible through the handoff to slide 46.

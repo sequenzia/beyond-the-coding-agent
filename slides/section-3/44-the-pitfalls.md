@@ -1,55 +1,48 @@
 # Slide 44: The pitfalls, on one slide
 
-Beat 3.3 The pitfalls, on one slide. Section 3. Time 0:35. Builds: 1.
+Beat 3.3 The pitfalls, on one slide. Section 3. Time 0:35. One static screen; no internal builds.
 
 ## On the slide
 
-**Kicker, top left, small:** The transition · The pitfalls
+**Kicker:** The transition · The pitfalls
 
-Six lines. No title, no other text.
+Six recap bands. No separate title.
 
-1. Models: Choosing and changing models without testing them on your task.
-2. Context: adding instead of curating.
-3. Tools: copying the API surface without evaluating task fit.
-4. Orchestration: multi-agent before a workflow was tried.
-5. Evals: a generic judge instead of error analysis. Trusting the success claim without checking the result.
-6. Production operations: the lethal trifecta, assembled one integration at a time.
+1. Models: Selecting or changing models without testing them on your task.
+2. Context: Adding context without curating it.
+3. Tools: Copying APIs without evaluating task fit.
+4. Orchestration: Adding multiple agents before trying a workflow.
+5. Evals: Using a generic judge without error analysis or result checks.
+6. Production operations: Combining private data, untrusted content, and outbound access without reviewing the risk.
 
 ## Layout and visual
 
-- Display narrative number 44 throughout, using the shared component in the design brief.
-
-- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
-
-- Six lines, all at once, no build. The audience has seen each sentence in the body of its Section 2 pitfalls slide. Preserve the existing six recap bands, label style, and weight.
-- The area names on the left match the kickers from Section 2 in order: Models, Context, Tools, Orchestration, Evals, Production operations.
-- Use the full final area name. Its extended label width is defined in design brief §23.
-- The pitfall text after each colon matches the pitfall sentence on slides 13, 18, 23, 28, 33, and 38 exactly. If a sentence changes, update this recap with it.
-- The seventh pitfall, the framework, is spoken and not shown, per the outline. If you want it on screen, add it as a second build beneath the six, set apart: "And one more: a framework before the loop." It is not on the map, which is why it is kept off the list.
+- Display narrative number 44 throughout, with the shared compact header and no mini-map.
+- Preserve the six recap bands, area order, colors, label style, and weight. Show all six on entry and use hard cuts.
+- Give the bands equal height. Use the recap geometry and wrapping in design brief §25.
+- The pitfall text after each colon matches the headline sentence on slides 13, 18, 23, 28, 33, and 38 exactly. Update each pair together.
 - The takeaway is spoken, not shown.
 
 ## Talk track
 
-[0:00] Slide up. Let them read it.
+[0:00] Pause for the audience to recognize the six pitfalls.
 
-You have seen all six.
+[0:05] You have seen each of these in the system we walked through. **Use them to guide what you inspect in your own system.**
 
-[0:05] **Every one is a symptom of the same thing: treating the demo as the product.** works.any() shipped as works.all().
+[0:16] Model and tool choices need task evidence. Context needs curation. More autonomy needs checks and limits. Inspect failures and review the capabilities your integrations combine.
 
-[0:13] One more that is not on the map: reaching for a framework before understanding the loop. Anthropic's warning is that frameworks "create extra layers of abstraction that can obscure the underlying prompts and responses." Learn the loop first.
-
-[0:29] **Every pitfall on this list is a demo mistaken for a product.**
+[0:29] **Start by examining outputs, recording a failure, and defining a check.** The roadmap makes that concrete.
 
 [0:35] Advance to slide 45.
 
-The track runs about 0:34. The five seconds of silence at the top are deliberate; the audience needs them to recognize the six lines. Cuttable if Section 3 runs long: the framework paragraph, which returns on slide 45 as "own the harness." Do not cut the two bold lines.
+Cut first: the middle paragraph summarizing the six areas. Preserve time to read, the instruction to use the pitfalls for inspection, and the bridge to the first assignment. Do not read all six bands aloud.
 
 ## Sources
 
-- The six pitfalls are Section 2's, one per area. Research §1 through §6 in `research/section-2.md`.
-- Anthropic, "Building effective agents," December 2024. Frameworks "often create extra layers of abstraction that can obscure the underlying prompts and responses, making them harder to debug." Quoted as a substring. Research §3 in `research/section-3.md`. `[primary]`.
-- works.any() and works.all() from slide 1. Research §2 in `research/section-1.md`. `[primary]`.
+- The six pitfalls are the talk's summaries of Section 2 Research §1 through §6 in `research/section-2.md`.
+- Recap synthesis: Research §3 in `research/section-3.md`.
+- The bridge to inspecting outputs and recording a failure develops the existing first assignment. Husain, evals FAQ; Research §4 in `research/section-3.md`.
 
 ## Open items
 
-- Decide whether the framework pitfall appears as a second build or stays spoken.
+- Rehearse the reading pause and roadmap handoff within the existing 0:35 reference.

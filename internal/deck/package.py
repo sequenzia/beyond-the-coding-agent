@@ -120,6 +120,6 @@ with ZipFile(B/'candidate.pptx','w',ZIP_DEFLATED)as z:
     for name,payload in data.items():z.writestr(name,payload)
 (B/'native-build-map.json').write_text(json.dumps(native_map,indent=2))
 summary={'physicalSlides':len(meta),'internalClicks':sum(len({o['start'] for o in m['objects'] if o['start']>0}) for m in meta),'morphTransitions':sum(bool(m['morph']) for m in meta),'numberedSlides':len(meta),'exitAnimations':0}
-assert summary=={'physicalSlides':57,'internalClicks':1,'morphTransitions':1,'numberedSlides':57,'exitAnimations':0},summary
+assert summary=={'physicalSlides':54,'internalClicks':1,'morphTransitions':0,'numberedSlides':54,'exitAnimations':0},summary
 (B/'package-validation.json').write_text(json.dumps(summary,indent=2))
 print(json.dumps(summary))
