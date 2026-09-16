@@ -38,6 +38,12 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetc
 
 ## 1. Models: a component you select, measure, and replace
 
+**Addy Osmani, "Agent Harness Engineering," AddyOsmani.com, April 19, 2026** [primary]. https://addyosmani.com/blog/agent-harness-engineering/ Checked in a browser September 15, 2026.
+
+- "A decent model with a great harness beats a great model with a bad harness."
+- Selected for the Models quote screen. The next sentence describes the author's own experience. Present this as an attributed engineering judgment, not a universal performance guarantee or benchmark result.
+- Teaching application: compare models inside the surrounding context, tools, and control flow used by the product.
+
 **Anthropic model deprecations page** [primary]. https://platform.claude.com/docs/en/about-claude/model-deprecations
 
 - Lifecycle states, verbatim. Active: "The model is fully supported and recommended for use." Legacy: "The model will no longer receive updates and may be deprecated in the future." Deprecated: "The model is still functional but no longer recommended," with a replacement and a retirement date. Retired: "The model is no longer available for use. Requests to retired models will fail."
@@ -103,11 +109,13 @@ Provider responsibilities behind the picker: defaults, model-specific prompt and
 
 **Open weights vs hosted API.** UNVERIFIED, practitioner blogs: self-hosting is priced as GPU rental but decided by operations, redundancy, and an eval harness proving a quantized model kept quality; hosted APIs scale to zero and GPUs do not; self-hosting earns its keep at sustained high utilization or when privacy, latency, or fine-tuning control forces it; open-weight models trail closed by a few points on the benchmarks that matter.
 
-**Pitfall.** Treating the model as a fixed dependency: a hardcoded model ID with no eval suite behind it, so the deprecation email arrives with a replacement you have never measured. Mirror image: an alias with drift you never detect. Same fix, which sets up area 5.
+**Pitfall.** Choosing and changing models without testing them on your task. Without representative cases, you cannot establish whether a replacement still meets the product's quality requirement. A pinned version needs controlled migration; a moving alias needs regression monitoring. Rerun the same cases and compare quality, cost, and latency. This sets up area 5.
 
 ### FRB application and displaced evidence
 
-Illustrative application of §0, not a measured result: compare candidate models and versions on evidence extraction, discussion summaries, and qualified synthesis. Evaluate research workers for faithful evidence and coverage, and the main analyst for reconciliation and warranted uncertainty. Record quality, cost per completed brief, and p95 latency, including workers, retries, and verification. No scores, cheaper-worker assumption, or winner is supplied. Pinned versions and moving aliases retain their existing lifecycle distinction. The Chen prime/composite result and LangChain routing experiment above remain backup evidence, with all original limitations; neither is on slide 9.
+Illustrative application of §0, not a measured result: select a model for the FRB brief using cases that test faithful summaries and supported findings. A possible cause must remain distinct from an established finding. Begin with one model configuration for the brief. Use a pinned version where available with a migration plan. Revisit this proposed design when measured quality, cost, latency, or lifecycle requirements justify a change. No model scores or winning model are supplied.
+
+Models revision, September 15, 2026: slide 8 uses the Devin Desktop picker with a short explanation of its controls. Slide 9 has four static screens: quote, general decisions, maintenance and pitfalls, and FRB application. General decisions address task fit, one model versus routing, and control of model changes. Routing returns here as a model-selection decision; Orchestration owns task decomposition and coordination. Compare candidates on representative tasks and start with one configuration unless measurements justify routing. Maintain coverage as intended use and routes change. A snapshot does not freeze prompts, retrieval, tools, or the environment. The detailed worker/analyst requirements remain in `internal/frb-running-example.md`. The Chen prime/composite result and LangChain routing experiment above remain backup evidence with their original limitations.
 
 ## 2. Context engineering and knowledge
 
@@ -119,7 +127,7 @@ Illustrative application of §0, not a measured result: compare candidate models
 **Anthropic, "Effective context engineering for AI agents," September 29, 2025** [primary]. Prithvi Rajasekaran, Ethan Dixon, Carly Ryan, Jeremy Hadfield. https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 
 - Context engineering is "the set of strategies for curating and maintaining the optimal set of tokens (information) during LLM inference," vs prompt engineering, "methods for writing and organizing LLM instructions."
-- "Context, therefore, must be treated as a finite resource with diminishing marginal returns."
+- "Context, therefore, must be treated as a finite resource with diminishing marginal returns." Selected for the Context quote screen. Exact wording checked in a browser September 15, 2026.
 - "LLMs have an 'attention budget' that they draw on when parsing large volumes of context."
 - System prompts: "The optimal altitude strikes a balance: specific enough to guide behavior effectively, yet flexible enough to provide the model with strong heuristics."
 - Tools: "tools should be self-contained, robust to error, and extremely clear with respect to their intended use." "One of the most common failure modes we see is bloated tool sets."
@@ -168,13 +176,21 @@ Illustrative application of §0, not a measured result: compare candidate models
 
 **Pitfall.** Adding context rather than curating it. A large window is not permission to fill it; Chroma shows degradation well before the window is full.
 
-### FRB context design
+### Context decisions and FRB application
 
-Illustrative application of §0: retrieve relevant excerpts from the authorized corpus with IDs, revisions, source locations, decision status, and comparison cases. Keep FRB-042-BRF r1's preliminary hypothesis distinct from FRB-042-MIN r2's unresolved cause and inspection decision. Refresh retrieval as records arrive. Preserve access constraints, source revisions, and the unresolved status during compaction and resume. A large corpus requires selection within context limits. Relevance, freshness, provenance, and size remain the owner's decisions. Do not use stale memory or duplicate copies as independent evidence.
+Context revision, September 15, 2026: one AGENTS.md user example, the selected Anthropic quote, general decisions, maintenance with pitfalls, and a separate FRB application. The quote retains its exact wording and corporate attribution, with the four named authors recorded above. The illustration depicts selected information in a limited working space; it makes no quantitative claim.
+
+The three decisions are what information enters the next step, what persists or is refreshed, and which sources and access scope apply. Instructions, task state, retrieved knowledge, summaries, and persistent memory have different jobs. RAG retrieves relevant external information and supplies it to the model; file reads, keyword search, embeddings, and hybrid retrieval are methods chosen for the data and task. Keep source locations and revisions. Enforce authorization outside the model, following the OWASP authorization source in §3. Refresh evaluation cases as source formats and retrieval or compaction policies change.
+
+Maintenance covers stale passages, compaction that loses constraints, accumulated irrelevant or conflicting information, and access boundaries. Preserve useful stable prefixes for caching, but correctness and authorization take priority. The Manus prices and ratios, Chroma model count, Breunig's four named failure modes, and SWE-grep performance comparisons remain backup material, with their original qualifications.
+
+Illustrative application of §0: retrieve the preliminary FRB-042-BRF r1 slide 6 and later FRB-042-MIN r2 §3 paragraph 2 as distinct relevant passages, each retaining its identity and source location. Retain the unresolved cause and inspection requirement in the working context and any summary. Refresh source versions and recheck access before finalizing a brief. Access is enforced outside the model. Missing, unreadable, conflicting, or unauthorized evidence remains an explicit limitation. This is a proposed starting design, not a deployed system or measured retrieval result. Comparison case details remain available in `internal/frb-running-example.md` and later evaluation material.
 
 ## 3. Tools and extensibility
 
-**Anthropic, "Writing effective tools for agents, with agents," Ken Aizawa, September 11, 2025** [primary]. https://www.anthropic.com/engineering/writing-tools-for-agents
+**Anthropic, "Writing effective tools for agents, with agents," Ken Aizawa, September 11, 2025** [primary]. https://www.anthropic.com/engineering/writing-tools-for-agents Checked in a browser September 15, 2026.
+
+- "Agents are only as effective as the tools we give them." Selected for the Tools quote screen.
 
 - "deterministic systems produce the same output every time given identical inputs, while non-deterministic systems, like agents, can generate varied responses." Tools are a contract between deterministic code and a non-deterministic caller; "we need to design them for agents."
 - Consolidation is a task-design option, to evaluate against finer-grained alternatives. Consolidation: "Tools can consolidate functionality, handling potentially multiple discrete operations (or API calls) under the hood." schedule_event, not list_users plus list_events plus create_event.
@@ -231,16 +247,24 @@ Scoped reads, reversible changes, consequential actions are this talk's starting
 
 **Pitfall.** copying the API surface without evaluating task fit. Evaluate granularity, descriptions, payloads, and safe boundaries against representative tasks.
 
-### FRB tool contract and displaced incidents
+### Tools decisions and FRB application
 
-Illustrative application of §0: separate background parsing and indexing of PDF, Word, and PowerPoint from the tools the agent calls. Expose search by ID/date/category, retrieval of source passages, export of selected records, and export of a cited brief. Results retain IDs, revisions, locations, coverage, and explicit parse or retrieval failures. Enforce authorization outside the model for reads and exports, including the destination. The export must match selected records or the checked draft, preserve citations and uncertainty, and return a receipt. This is a teaching design, not a deployed API. CamoLeak and the ClawHub audit stay above as backup evidence with their demonstration and secondary-source limitations. Slide 18 retains operating security evidence.
+Tools revision, September 15, 2026: the user screen shows one MCP connection adding a capability to a coding agent. The selected Anthropic quotation opens the owner sequence, followed by general decisions, maintenance with pitfalls, and one FRB tool contract. The quote illustration is a conceptual interface connecting two systems, not an architecture or measured result.
+
+The three decisions are which capabilities need tools, what the caller-facing contract must specify, and which actions may execute under which rules. Choose operations for the task, evaluate granularity and discovery, and begin with a small set of distinct capabilities. Names, input schemas, results, and errors are part of the contract. Return useful context with stable IDs. Evaluate descriptions against representative tasks. Authorization and validation are enforced outside the model, following OWASP above; a model's approval recommendation does not create permission.
+
+Maintenance covers description/schema/behavior drift, overlapping tool sets, and failures that leave the outcome uncertain. Keep contracts and implementation aligned, prune duplicates, and use deferred discovery where appropriate. A caller needs an explicit result, error, or unknown outcome so it can distinguish success from failure. Recheck permissions as capabilities change. In the illustrative export workflow from §0, inspect the prior receipt before retrying an export; the result contract supplies evidence for orchestration's retry decision. The tool-description benchmark, five-server token counts, and concise/detailed payload measurements remain backup with their original qualifications. MCP's security requirements also remain in this section for reference.
+
+**Illustrative Export cited brief contract.** Background services parse and index PDF, Word, and PowerPoint files. Search and retrieval supply the evidence; this focused example is the agent-facing export operation from the §0 contract. It accepts a checked draft, citations, and destination. Code enforces access and permitted destinations, and requires source IDs, revisions, and locations. It returns a brief matching the checked draft, with citations and uncertainty intact, plus an export receipt. Failure or incomplete results are explicit; an unconfirmed export is not reported as complete. This is an illustrative design, not a deployed API. People continue to own official causes, decisions, and board records.
+
+The full four-tool inventory remains in `internal/frb-running-example.md`. CamoLeak and the ClawHub audit remain backup evidence with their demonstration and secondary-source limitations. Operating security principles remain on slide 19; incident details stay in research backup.
 
 ## 4. Orchestration: the loop
 
 **Anthropic, "Building effective agents," Erik Schluntz and Barry Zhang, December 19, 2024** [primary]. https://www.anthropic.com/engineering/building-effective-agents
 
 - Workflows: "systems where LLMs and tools are orchestrated through predefined code paths." Agents: "systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks."
-- "we recommend finding the simplest solution possible, and only increasing complexity when needed."
+- "we recommend finding the simplest solution possible, and only increasing complexity when needed." Selected for the Orchestration quote screen. Exact wording checked in a browser September 15, 2026. This replaces the Osmani quote in the revised area. The Osmani quotation remains on the Models quote screen.
 - "Agentic systems often trade latency and cost for better task performance, and you should consider when this tradeoff makes sense."
 - "it's also common to include stopping conditions (such as a maximum number of iterations) to maintain control."
 - Five workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.
@@ -280,13 +304,28 @@ Illustrative application of §0: separate background parsing and indexing of PDF
 
 **When you are the owner.** You own the loop, stopping conditions, state and resume, retries, escalation, planner-to-worker routing, the compaction trigger, and the budgets for tokens, actions, and latency. Customer-facing: a human is waiting; latency is a product requirement; an unbounded loop is an outage.
 
-**Pitfall.** Multi-agent orchestration before a workflow was tried.
+**Pitfall.** multi-agent before a workflow was tried.
+
+### Orchestration decisions and maintenance
+
+Orchestration revision, September 15, 2026: use one familiar coding-agent action, then the selected Anthropic quote, general decisions, maintenance with pitfalls, and a focused FRB application. The quote illustration contrasts a simple path with optional branching complexity. It is conceptual, not a performance comparison.
+
+The three decisions are who chooses the next step, when work should be delegated, and how execution stops or recovers. Use predefined code for known paths and required checks. Add model-selected actions where judgment helps. Begin with a bounded workflow. Delegate work that can be done independently, define the inputs and expected results of handoffs, and require measured benefit before adding workers. Completion checks, stopping limits, persisted state, bounded retries, and human handoff are part of the execution design. Model selection and routing remain in §1; this area covers how work is divided and coordinated.
+
+Maintenance checks whether new branches preserve required controls and acceptance criteria. Handoffs retain evidence, uncertainty, and clear ownership. Retries must account for an action that might already have succeeded. Persist progress and inspect actual results before repeating side effects, following the illustrative export receipt contract in §0. Set action, token, and end-to-end latency limits. Faulty or obsolete tests may change through review; protecting acceptance criteria does not mean preserving a broken test indefinitely.
+
+The OpenAI reasoning-benchmark result, Anthropic quality and token comparisons, long-running-agent failure taxonomy, workflow-pattern inventory, and Gartner forecast remain backup evidence with their original limitations. Remove the duplicate Osmani quote from the active Orchestration slides. Preserve the headline pitfall, "multi-agent before a workflow was tried."
 
 ### FRB workflow and displaced forecast
 
-Illustrative application of §0: retrieve the target packet, inspect evidence, compare cases, reconcile findings, verify, export. Begin with this bounded workflow. Measure it before adding workers for independent comparisons of FRB-017 and FRB-031. Workers return evidence and uncertainty to the main analyst, within the authorized internal corpus and attachments. Conflicting findings prompt source inspection or an unresolved result. Persist completed steps and revisions for resume, recheck freshness and access, bound retries, and check export receipts before repeating an export. Incomplete indexing and action/token/latency limits produce explicit limitations. Deliver the sequence directly, without an audience pause. The pattern inventory, 12-Factor ownership list, and Gartner forecast remain background or backup, not slide 15 content. Routing now points to the unmeasured FRB framework on slide 9, not the displaced benchmark.
+Illustrative application of §0: retrieve the target packet, inspect evidence, compare cases, reconcile findings, verify, export. Begin with this bounded workflow. Measure it before adding workers for independent comparisons of FRB-017 and FRB-031. Workers return evidence and uncertainty to the main analyst, within the authorized internal corpus and attachments. Conflicting findings prompt source inspection or an unresolved result. Persist completed steps and revisions for resume, recheck freshness and access, bound retries, and check export receipts before repeating an export. Incomplete indexing and action/token/latency limits produce explicit limitations. Deliver the sequence directly, without an audience pause. The pattern inventory, 12-Factor ownership list, and Gartner forecast remain background or backup, not slide 15 content. Slide 9 introduces the choice between one model and task-based routing. This area covers how work is decomposed and coordinated; it does not repeat model selection.
 
 ## 5. Verification and evaluation
+
+**Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, May 28, 2025, updated September 1, 2026** [primary]. https://hamel.dev/blog/posts/evals-faq/ Checked in a browser September 15, 2026.
+
+- "Error analysis is the most important activity in evals."
+- Selected for the Evals quote screen. Attribute the jointly authored guide to both authors. The guide presents practitioner opinions, not universal rules.
 
 **The organizing model for this talk.** Verification checks an action before accepting it. Evaluation measures behavior across representative cases. Inside and outside the loop describe complementary uses of checks, not a universal boundary between tests and evals. Keep both running as the system changes.
 
@@ -322,15 +361,29 @@ Illustrative application of §0: retrieve the target packet, inspect evidence, c
 
 **Pitfall.** a generic judge instead of error analysis. Trusting the success claim without checking the result.
 
-### FRB evaluation and retained backup
+### Evaluation decisions, maintenance, and the FRB check
 
-Illustrative application of §0: the grader fails “The board confirmed bearing wear” because neither the preliminary FRB-042-BRF r1 slide 6 nor the later FRB-042-MIN r2 §3 paragraph 2 supports confirmation. The expected answer separates possible cause, established findings, and the decision to inspect. Inspect whether parsing, retrieval, compaction, worker output, or synthesis caused the error before changing the system. Direct checks cover IDs, revisions, permissions, source locations, selected records, and exported content. Experts judge semantic support, useful synthesis, and warranted uncertainty. Citation existence alone cannot establish support. Calibrate model graders to expert decisions. Inspect the failure and trace, identify the responsible component, change it, rerun the representative suite with repeated trials, and monitor production samples. Model, prompt, retrieval, and tool changes all need regression evidence. Flight booking and refund examples remain backup illustrations only. The 60-second story remains a presenter-authored slot.
+Verification and Evals revision, September 15, 2026: one coding-agent test-run example, the selected Husain/Shankar quote, general decisions, maintenance with pitfalls and the protected personal story, and a worked FRB check. The quote graphic depicts inspection and comparison; it is not a measured result.
+
+The three decisions are what counts as success, which checks can establish it, and which cases and trials provide evidence. Define the outcome, required constraints, and serious failures with domain experts. Use direct checks where possible and expert judgment for meaning and usefulness. Calibrate model graders against expert decisions. Start with 20 to 50 cases drawn from real failures, then cover common tasks and important edge cases. This is a starting recommendation from Anthropic above, not a universal sample-size requirement. Repeat trials to examine consistency.
+
+Verification before accepting a result and evaluation across representative cases remain complementary uses of checks. Evals are tests of an AI system. The probability distinction remains spoken: at least one success across attempts and success across every attempt answer different questions. pass@k and pass^k notation moves to research backup. Traditional tests still run as part of the system's checks. Keep both verification and evaluation running as the system changes.
+
+Maintenance covers criteria that evolve when outputs expose missing requirements, graders that disagree with experts, and suites that miss new failures. Review disagreements, rerun representative cases after model or harness changes, and add production failures to regression cases. Inspect the actual result and trace before choosing a repair. Preserve the existing headline pitfall. Story #2 remains a separate 1:00 presenter-authored slot over the general maintenance screen, before the FRB application. Do not invent the story or use the hypothetical FRB case as personal experience.
+
+**Illustrative source-support check.** The deliberately wrong answer, “The board confirmed bearing wear,” cites FRB-042-MIN r2 §3, paragraph 2. The record and location exist in the invented packet, so the direct reference check passes. The exact passage says the cause remains unresolved and calls for inspection, so the source-support check fails. Expected: unresolved cause; inspection required. Reference existence does not establish semantic support. Keep this failure as a regression case and rerun it after changes, alongside the representative suite and repeated trials. This is a designed teaching check, not a result from a deployed model. The packet in `internal/frb-running-example.md` now records the cited reference on the wrong answer explicitly.
+
+The preliminary briefing remains part of the packet and the Context example. The focused Evals screen needs only the cited minutes to demonstrate the unsupported claim. Inspect parsing, retrieval, compaction, worker output, and synthesis in the actual trace before assigning a cause or selecting a repair. The broader direct-check/expert-judgment inventory, probability notation, flight-booking/refund illustrations, and team-specific allocation figures remain backup with their original qualifications.
 
 ## 6. Operating it: observability, guardrails, security, identity, governance
 
 **Observability.** OpenTelemetry GenAI semantic conventions: spans, attributes, metrics, events for model calls, tool executions, agent runs, retrieval, memory. Now maintained in their own repository, https://github.com/open-telemetry/semantic-conventions-genai [primary], checked in a browser September 14, 2026; the spans document carries "Status: Development" and "Warning: Semantic conventions are subject to change." The old page at https://opentelemetry.io/docs/specs/semconv/gen-ai/ now only redirects. Secondary coverage (July 2026) reports no stable release or tag yet, so instrument against a pinned snapshot and expect attribute names to move. Blog: https://opentelemetry.io/blog/2026/genai-observability/ . Platforms to name generically: Langfuse, LangSmith, Braintrust, Arize Phoenix. Metrics a builder tracks: latency p50/p95/p99, time to first token, tokens per request, cost per request and per completed task, cache hit rate, tool call and failure counts, loop iterations per task, error and rate-limit counts. Agentic moves: cost per completed task; watch p95 and p99 tokens because tails concentrate cost. Coding-agent anchor: Codex `/status` will "Display session configuration and token usage" and `/usage` will "View account token usage"; `otel.exporter`, `otel.trace_exporter`, and `otel.metrics_exporter` accept otlp-http or otlp-grpc, with metrics defaulting to statsig. Devin CLI `/usage` will "Show estimated credit/ACU usage for the session," `/session-stats` shows consumption by dimension, `/context` shows window usage; `--sandbox` with `sandbox.allowed_domains`, `sandbox.denied_domains`, and `sandbox.network_mode` of full or limited; `devin mcp login` for OAuth. Docs in §1 and §3 [primary].
 
-**Datadog, "State of AI Engineering," July 2026.** https://www.datadoghq.com/state-of-ai-engineering/ "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe." "Model, prompt, or retrieval changes can move latency, spend, and failure rates without an obvious code change."
+**Guillermo Rauch, quoted in "State of AI Engineering," Datadog, 2026** [primary]. https://www.datadoghq.com/state-of-ai-engineering/ Checked in a browser September 15, 2026.
+
+- "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe."
+- Selected excerpt for the Operating it quote screen. The report attributes the quotation to Guillermo Rauch of Vercel. Datadog is the publisher, not the speaker. The retrieved page does not establish a publication day.
+
 
 **Simon Willison, "The lethal trifecta for AI agents," June 16, 2025** [primary]. https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/
 
@@ -340,7 +393,7 @@ Illustrative application of §0: the grader fails “The board confirmed bearing
 
 **OWASP Top 10 for LLM Applications 2025.** https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf LLM01 prompt injection; LLM06 excessive agency (too much functionality, permissions, or autonomy); new in 2025: LLM07 system prompt leakage, LLM08 vector and embedding weaknesses, LLM10 unbounded consumption.
 
-**OWASP Top 10 for Agentic Applications 2026, released December 9, 2025** [primary]. Announcement: https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/ Resource page: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ Checked in a browser September 14, 2026. Names as written on the announcement: ASI01 Agent Goal Hijack, ASI02 Tool Misuse, ASI03 Identity & Privilege Abuse, ASI04 Agentic Supply Chain Vulnerabilities, ASI05 Unexpected Code Execution, ASI06 Memory & Context Poisoning, ASI07 Insecure Inter-Agent Communication, ASI08 Cascading Failures, ASI09 Human-Agent Trust Exploitation, ASI10 Rogue Agents. The announcement names EchoLeak as its ASI01 example and the Replit incident as its ASI10 example, which ties both slide 18 incidents to the list. The PDF's full titles may add a word or two; the six names spoken on stage match the announcement.
+**OWASP Top 10 for Agentic Applications 2026, released December 9, 2025** [primary]. Announcement: https://genai.owasp.org/2025/12/09/owasp-top-10-for-agentic-applications-the-benchmark-for-agentic-security-in-the-age-of-autonomous-ai/ Resource page: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ Checked in a browser September 14, 2026. Names as written on the announcement: ASI01 Agent Goal Hijack, ASI02 Tool Misuse, ASI03 Identity & Privilege Abuse, ASI04 Agentic Supply Chain Vulnerabilities, ASI05 Unexpected Code Execution, ASI06 Memory & Context Poisoning, ASI07 Insecure Inter-Agent Communication, ASI08 Cascading Failures, ASI09 Human-Agent Trust Exploitation, ASI10 Rogue Agents. The announcement names EchoLeak as its ASI01 example and the Replit incident as its ASI10 example, which connects both backup incidents to the list. The PDF's full titles may add a word or two; the names retained here match the announcement.
 
 **Guardrail patterns (practitioner consensus, secondary).** Defense in depth at every boundary: input classification, provenance tagging on retrieved content, sandboxed tool execution, output validation, post-hoc trace review. For agents that change production state: circuit breakers on token and action counts, approval gates on consequential actions, least-privilege tool scopes.
 
@@ -365,9 +418,17 @@ Illustrative application of §0: the grader fails “The board confirmed bearing
 
 **Pitfall.** the lethal trifecta, assembled one integration at a time. Map capabilities: private data, untrusted content, external communication. A web fetch may already provide an outbound channel, and one integration may occupy more than one corner.
 
-### FRB operating design
+### Operating decisions and the FRB agreement
 
-Illustrative application of §0: enforce FRB access and allowed export destinations outside the model. Trace the request through exact retrieved revisions, optional worker evidence, synthesis, verification, and export. Restrict trace access. Monitor freshness, parsing/tool failures, quality failures, cost per completed brief, and end-to-end latency. Humans own official causes, decisions, and board records. The capability-based security pitfall still applies to internal documents: attachments can contain untrusted instructions. Internal-only research does not make exports safe by itself. Slide 18 retains the existing security evidence and scoped governance treatment.
+Operating it revision, September 15, 2026: one session-usage example, the selected Guillermo Rauch quote, four general operating decisions, maintenance with the security pitfall, an illustrative FRB operating agreement, and the existing full-screen yours diagram. The quote graphic depicts visibility into an execution path, not a measured trace. The user example is Devin CLI `/usage`, which reports estimated credit/ACU usage for the session, as recorded in the vendor anchor above.
+
+The four decisions concern access and authority, observability, stop/handoff rules, and ownership of approvals and incidents. Enforce identity, scope, and destinations outside the model. Begin with least privilege and explicit approval requirements. Trace model calls, tools, and outcomes; track quality, cost per completed task, and latency. Set enforceable budgets, failure responses, recovery paths, and human handoff. Assign an accountable operator and review process, with audit trails and rollback. Identity design specifics remain illustrative patterns, not universal requirements.
+
+Maintenance covers integrations that join private data, untrusted content, and external communication; changes that move quality, cost, and latency; and changing permissions, policies, approvals, and response processes. Willison's trifecta identifies one exfiltration path. Break or constrain that path. A probabilistic filter is insufficient as the sole security boundary. This is one threat model, not a comprehensive safety test. Protect access to traces as well as source records. Feed observed failures back into evaluations.
+
+**Illustrative FRB operating agreement.** Restrict access to authorized internal records and permitted export destinations, enforced outside the model. Trace exact revisions, decisions, checks, and exports. Monitor quality, freshness, parsing/tool failures, cost per completed brief, and end-to-end latency. Restrict trace access. Failed checks, missing evidence, or exhausted budgets produce an explicit limitation or human handoff. People retain responsibility for official causes, decisions, and board records. The agreement is a teaching design, not a deployed control system or legal agreement. New integrations must be assessed for the combined capability risk, including instructions embedded in internal attachments.
+
+EchoLeak, Replit, Air Canada, and the other incidents remain research backup with their original evidence limitations. Detailed OpenTelemetry convention status, identity patterns, protocol security requirements, and Article 50 treatment also remain backup. No universal disclosure or compliance claim is made on the active slides. The full-screen yours anatomy diagram closes Section 2 after the FRB agreement.
 
 ## 7. June to September 2026: what the audience lived through
 

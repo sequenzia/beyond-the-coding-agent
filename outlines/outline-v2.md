@@ -40,13 +40,25 @@ AI engineering builds on a foundation of software engineering. This talk focuses
 
 ### The Section 2 pattern
 
-Each area has a user slide and an owner slide, with three beats:
+Every Section 2 area follows the five-screen pattern below. Operating it then returns to the full-screen yours diagram to close the section. Each area keeps its existing time budget.
 
-1. **When you are the user.** The coding-agent feature the audience has used. The two named products are Codex CLI and Devin. Devin CLI carries command anchors; Devin Desktop appears on slide 8 for its model picker.
-2. **What someone engineered.** The bridge within the user slide: what had to be built for that feature to work.
-3. **When you are the owner.** The responsibility for the delivered product, its operating limits, and the area's pitfall.
+1. **When you are the user.** One coding-agent action, a smaller screenshot, and two short explanations. Codex CLI and Devin remain the two named products; Devin Desktop supplies the Models picker.
+2. **Quote.** A source-checked perspective and one conceptual visual, after the user example. Reserve 0:20 inside each area's existing budget.
+3. **The decisions you own.** Three decisions, or four for Operating it. Connect each choice to its impact and a conditional starting approach.
+4. **Living with those decisions.** Maintenance, evolution, and decision-specific pitfalls. Highlight one headline pitfall for slide 23.
+5. **FRB application.** One illustrative starting design, its rationale, and evidence that would make you reconsider it.
 
-Define owner once on slide 3: the engineer or team accountable for the delivered product's behavior and operating limits.
+Define owner once on slide 3: the engineer or team accountable for the delivered product's behavior and operating limits. Keep the general owner teaching separate from the FRB application. Preserve the 35:00 presentation, area budgets, story reservations, and closing anatomy diagram.
+
+| Area | Decision map for its review | Quote selection |
+|---|---|---|
+| Models | Model and reasoning settings; one model versus routing; control of model changes | Osmani, April 2026. Research §1 |
+| Context and knowledge | Information selection; retention and freshness; provenance and access | Anthropic, September 2025. Research §2 |
+| Tools and extensibility | Capabilities exposed as tools; tool contracts; authorization and failure handling | Anthropic, September 2025. Research §3 |
+| Orchestration | Predefined versus model-selected actions; delegation; stopping, recovery, and resume | Anthropic, December 2024. Research §4 |
+| Verification and evals | Success criteria; checks and graders; representative cases and trials | Husain and Shankar, September 2026. Research §5 |
+| Operating it | Access and authority; observability; stopping and handoff; ownership of approvals, incidents, and changes | Rauch, in Datadog, 2026. Research §6 |
+
 
 ---
 
@@ -110,7 +122,7 @@ Approved bio from slide 2, September 14, 2026. Stephen Sequenzia, Senior Staff A
 - Say:
   - Three things to leave with: a conceptual map of the discipline, an honest sense of how much there is, and a roadmap for making the transition.
   - The agenda: the map, two minutes. Six areas, twenty-three minutes: models, context and knowledge, tools, orchestration, verification and evals, and operating it. The transition, five minutes. Then fifteen minutes for your questions.
-  - The pattern for each area: **When you are the user**, including what someone engineered, then **When you are the owner**.
+  - The pattern for each area: **a familiar action, a quote, the decisions you own, how they change over time, and a worked example**.
 - Source: the session description in the README.
 
 ### 1.6 Transition (0:15). Slide 6
@@ -130,7 +142,7 @@ Approved bio from slide 2, September 14, 2026. Stephen Sequenzia, Senior Staff A
 
 ## Section 2. What AI engineers actually engineer (25:00, 13 slides)
 
-The map, then six areas. Each area has a user slide, the bridge of what someone engineered, and an owner slide. Cost and latency are deliberately spread across 2.1 (selection and routing), 2.2 (cache economics), 2.4 (budgets), and 2.6 (production metrics).
+The map, then six areas. Each area has a simple user example, a quote, general owner decisions, maintenance with pitfalls, and an FRB application. Cost and latency are deliberately spread across 2.1 (model selection), 2.2 (cache economics), 2.4 (budgets), and 2.6 (production metrics).
 
 ### 2.0 The map (2:00). Slide 7
 
@@ -139,140 +151,156 @@ The map, then six areas. Each area has a user slide, the bridge of what someone 
   - Here is the whole discipline on one slide. At the center, an agent is a model plus a harness. **“If you're not the model, you're the harness.”**
   - A harness is the execution system around the model: it maintains context, calls tools, handles failures, enforces controls, and returns a result. This short definition paraphrases OpenAI's August 2026 description.
   - **Four layers.** The model. The harness: instructions, context and memory, tools, orchestration, guardrails, verification. Per-run services: identity, security, data and knowledge. Across-run services: observability, evaluations, governance.
-  - Every box exists inside the coding agent you use. For each area: When you are the user, what someone engineered, then When you are the owner.
+  - Every box exists inside the coding agent you use. For each area, start with a familiar action, then examine the decisions and responsibilities behind it.
   - In the final twenty seconds, with the diagram at full brightness: **“We'll carry one example through these areas: a system that helps engineers research Failure Review Boards, understand their decisions, and compare recurring issues.”** The case is illustrative. It supports research and drafting. **People own official causes, decisions, and board records.**
 - Takeaway line: "Agent equals model plus harness. Everything that is not the model is what you engineer."
 - Sources: Osmani, April 2026; OpenAI, “Codex as a platform,” August 2026. Research §0, including the illustrative FRB case and its authoring reference.
 
 ### 2.1 Models (3:30). Slides 8 and 9
 
-**Slide 8, When you are the user.** A model picker: the pop-out window in Devin Desktop with its reasoning slider, and `/model` in Codex.
+**Slide 8, When you are the user (0:30).** One static screen: a smaller Devin Desktop picker, with explanations of model choice and reasoning effort beside it.
 
-- Say: You have used the model picker. In Devin Desktop it pops out a window, and there is a slider for reasoning effort, with the price per level next to it. In Codex it is `/model`, and it sets the reasoning effort along with the model. That slider is a cost and latency dial. One layer down, Codex's config lets plan mode run at a different effort and subagents run on a different model. That is model routing, shipped as a setting. Most of you have used routing without ever calling it that.
-- Say, what someone engineered: the provider manages defaults, model-specific prompt and tool tuning, failover, price changes, and retirement handling. Anthropic's documented retirements illustrate lifecycle work. They do not show how every coding-tool migration reached each user.
+- Say: Choose which model handles the coding task, then adjust the effort used to work through it. The picker makes both settings visible. These are the familiar controls that anchor this area.
+- Takeaway line: "The model picker exposes a choice."
+- Sources: Devin Desktop docs and the presenter's picker observation. Research §1.
 
-**Slide 9, When you are the owner.** Title: "The model is a component you select, measure, and replace."
+**Slide 9, When you are the owner (3:00).** Four static screens, each with its own purpose. Hard cuts throughout.
 
-- Slide: an illustrative request, then Select, Measure, Replace, and Route on the existing builds. The request: “Review FRB-042 about a pump shutdown. Summarize its discussion and decisions, compare similar FRBs from the past year, and export a cited brief distinguishing possible causes from established findings.”
-- Say:
-  - Select for evidence extraction, discussion summaries, and qualified synthesis. Consider context limits, tool reliability, data residency, cost per completed brief, and p95 latency. Research uses only authorized internal records and attachments.
-  - **Measure on representative FRB cases. A possible cause must remain a possible cause.** Compare candidates on task quality and operating limits. No model scores or winning model are assumed.
-  - Replace. **Pinned version: controlled migration and lifecycle management. Moving alias: automatic updates and regression monitoring.** A snapshot controls one source of variation. Prompts, retrieval, tools, and the environment still matter. Research-worker evals check evidence fidelity and coverage. Main-analyst evals check faithful summaries, reconciliation, and warranted uncertainty.
-  - Route. Use an editable task/quality/cost-and-latency framework for each candidate model and version: evidence extraction, faithful passages and exact citations; discussion summaries, faithful discussion and decisions; qualified synthesis, supported findings and uncertainty. **Measure cost and p95 latency alongside quality, including workers, retries, and verification.** Use workers only when the measured workflow warrants them. No assumption that the cheapest model can do the research correctly. **Which configuration meets your product's quality requirement?**
-- Pitfall: a hardcoded model ID with no eval suite behind it.
+- Slide, quote (0:20): Osmani's model-and-harness comparison, with a conceptual model component inside a surrounding structure. Full wording and attribution in Research §1.
+- Say, quote: Osmani is describing his experience. **Evaluate the model inside the system you are building.** The context, tools, and control flow shape the result too.
+- Slide, decisions (1:05), title "The model decisions you own": model and reasoning settings; one model or routing; control of model changes.
+- Say, decisions: **Compare candidates on representative tasks.** Assess quality with cost, latency, and deployment constraints. **Start with one model configuration unless measurements justify routing.** Routing can match models to different work, while adding configurations to evaluate and maintain. **Pinned versions need planned migration. Moving aliases need regression monitoring.** Define the evaluation and replacement practices before relying on the choice. Orchestration owns how the work is divided and coordinated.
+- Slide, maintenance (0:50), title "Living with model choices": changing tasks, routing coverage, lifecycle changes, and the headline pitfall.
+- Say, maintenance: Refresh cases as intended use changes. Cover each route and measure the whole workflow. Monitor updates and retirement, and prepare a replacement. **A snapshot does not freeze the whole system.** Prompts, retrieval, tools, and the environment still matter. The recurring mistake is choosing and changing models without testing them on your task.
+- Slide, application (0:45), title "A starting design for the FRB brief": an illustrative proposal, with no measured model results.
+- Say, application: Compare candidates on faithful summaries and supported findings. **A possible cause must remain a possible cause.** Begin with one model configuration for the brief. Use a pinned version where available with a migration plan. **Revisit the design when measured quality, cost, latency, or lifecycle requirements justify a change.** This is a proposed starting point, not a claimed winner or deployed design.
+- Pitfall: Choosing and changing models without testing them on your task.
 - Takeaway line: "The model is a versioned, expiring dependency. Treat it like one."
-- Sources: Anthropic and OpenAI lifecycle pages; Codex CLI and Devin CLI docs. Research §1. Illustrative FRB case, Research §0. Displaced prime/composite and routing benchmarks remain in Research §1 as backup.
+- Sources: Osmani, April 2026; Anthropic and OpenAI lifecycle pages; illustrative FRB case and selection framework. Research §0 and §1. Detailed role assignments and displaced benchmarks remain backup.
 
 ### 2.2 Context and knowledge (3:30). Slides 10 and 11
 
-**Slide 10, When you are the user.** An instructions file and a compaction notice, side by side.
+**Slide 10, When you are the user (0:30).** One static AGENTS.md example beside two explanations: project conventions and checks.
 
-- Say: Two things you have touched. First, the instructions file. Codex and Devin CLI both read AGENTS.md, the cross-tool standard, and Codex's `/init` writes one for you. Second, the moment your session compacted and dropped something that mattered. Both tools have `/compact`, and Codex compacts on its own past a token limit. You have already felt context engineering fail.
-- Say, what someone engineered:
-  - Karpathy's definition from last summer: context engineering is "the delicate art and science of filling the context window with just the right information for the next step." Anthropic's version: context is **"a finite resource with diminishing marginal returns."** Models have an attention budget.
-  - Chroma tested eighteen models: **performance degrades as input grows, on simple tasks, well before the window is full**. Breunig named four ways it fails. Poisoning: an error gets in and keeps getting referenced. Distraction: the model over-focuses on the context and forgets what it knows. Confusion: superfluous content shapes the answer. Clash: new information conflicts with old. One measurable: on the Berkeley function-calling leaderboard, every model got worse with more tools.
-- The provider engineered instructions, compaction, memory, and retrieval. **RAG means retrieving relevant external information and supplying it to the model.** Grep, file reads, embeddings, and hybrid retrieval are methods chosen for the data and task. Cognition's SWE-grep is a code-search example.
-  - Manus reported a roughly 100:1 input-to-output ratio and a tenfold cached-input price gap in its July 2025 example. **Preserve stable prompt prefixes when useful. Measure savings, and update context or tool access when correctness or authorization requires it.**
+- Say: The instructions file gives a coding agent the repository's conventions and ways to validate its work. **You are supplying context for the task.** This familiar file is one source of information the agent uses while working.
+- Takeaway line: "You are supplying context for the task."
+- Sources: Codex CLI and Devin CLI instructions docs. Research §2.
 
-**Slide 11, When you are the owner.** Relevant FRB evidence, with provenance and constraints.
+**Slide 11, When you are the owner (3:00).** Four static screens with hard cuts.
 
-- Say: Retrieve relevant passages from the large authorized corpus, rather than filling the window with the packet. Keep document IDs, revisions, source locations, and decision status. FRB-042-BRF r1 slide 6 says bearing wear is possible. **Later FRB-042-MIN r2 §3 paragraph 2 leaves the cause unresolved and calls for inspection.** Those are different documents. Refresh retrieval when records arrive. Compare FRB-017's sensor fault and FRB-031's bearing wear, without inferring FRB-042's cause from similar symptoms. You own relevance, freshness, provenance, context limits, and access boundaries. **Compaction must preserve the unresolved status, inspection constraint, and access scope.** Missing, unreadable, conflicting, or unauthorized evidence produces an explicit limitation.
+- Slide, quote (0:20): Anthropic's statement that context is a finite resource with diminishing marginal returns, beside a conceptual image of selected information in a limited space. Full wording in Research §2.
+- Say, quote: **The owner chooses what the model sees at each step.** The context window's capacity does not establish that every available piece of information will help.
+- Slide, decisions (1:05), title "The context decisions you own": information for the next step; persistence and refresh; provenance and access.
+- Say, decisions: Select instructions, task state, and relevant knowledge. **RAG retrieves relevant external information and supplies it to the model.** Choose file reads, keyword search, embeddings, or hybrid retrieval for the data and task. Decide which facts and constraints to retain, what to summarize or discard, and when to refresh sources. Persistent memory stores information across sessions; compaction summarizes the current conversation. **Keep source locations and revisions, and enforce the user's access scope outside the model.**
+- Slide, maintenance (0:50), title "Living with context choices": freshness, context growth, and boundaries, followed by the headline pitfall.
+- Say, maintenance: Records change, summaries can lose constraints, and memory can expose information across an access boundary. Refresh retrieval, test what compaction preserves, and retain provenance. Recheck representative cases as sources and policies change. **Preserve useful stable prefixes, but correctness and access take priority over cache savings.** The pitfall is adding instead of curating.
+- Slide, application (0:45), title "A starting context for the FRB brief": preliminary briefing and later minutes, with Select, Retain, and Refresh decisions beside them.
+- Say, application: Retrieve both relevant passages with their IDs, revisions, and locations. **The preliminary briefing names a possible cause. The later minutes leave it unresolved and require inspection.** Preserve that distinction through summaries. Refresh sources and recheck access before finalizing the brief. Missing or inaccessible evidence stays an explicit limitation. This is an illustrative starting design.
 - Pitfall: adding instead of curating.
 - Takeaway line: "Context is a budget, not a bucket."
-- Sources: Anthropic, September 2025; Chroma, July 2025; Breunig, June 2025; Manus, July 2025; Cognition, October 2025; Codex CLI and Devin CLI docs. Research §2. Illustrative FRB case, Research §0.
+- Sources: Anthropic, September 2025; Manus, July 2025; Codex CLI and Devin CLI docs. Research §2. OWASP authorization, Research §3. Illustrative FRB case, Research §0. Chroma, Breunig, and retrieval performance evidence remain qualified research backup.
 
 ### 2.3 Tools and extensibility (3:00). Slides 12 and 13
 
-**Slide 12, When you are the user.** An MCP server entry and the permission prompt.
+**Slide 12, When you are the user (0:25).** One MCP connection example with two short explanations: connect a service and make its capabilities available to the coding agent.
 
-- Say: You have installed MCP servers and seen permission prompts. Codex and Devin expose sandbox and approval settings. A model may recommend an approval decision, but **a model recommendation does not establish permission**.
-- Say, what someone engineered:
-  - **A tool is a contract between code and a model caller.** Evaluate granularity for the task. Consolidation is one option, such as a scheduling tool combining several API operations. Namespacing and descriptions affect selection. **Return meaningful names alongside stable IDs needed to act.** Let the caller choose concise or detailed output when useful.
-  - Anthropic reported improvements from tool-description refinements. In its particular five-server example, definitions consumed about 55,000 tokens before the conversation. Tool search reduced definition overhead. Five servers do not have a fixed token cost.
-  - MCP's security floor includes no token passthrough, minimal scopes, consent before local commands, and sandboxed execution.
+- Say: **An MCP connection adds capabilities to the coding agent.** The server exposes tools the agent can call while working on a task. This is the familiar user action; the next screens explain what the owner designs behind it.
+- Takeaway line: "A connection gives the coding agent another capability."
+- Sources: Codex CLI and Devin CLI MCP docs. Research §3.
 
-**Slide 13, When you are the owner.** A compact FRB tool contract.
+**Slide 13, When you are the owner (2:35).** Four static screens with hard cuts.
 
-- Slide: background parsing/indexing, then a native tool table and explicit result/gate requirements.
-- Say: Background services parse and index PDF reports, Word minutes, and PowerPoint briefings. **Those are separate from the tools the agent calls.** Search takes an ID, date range, or category. Retrieval returns exact source passages. Export records takes selected IDs and revisions. Export cited brief takes the checked draft and citations. Results retain stable IDs, revisions, and source locations. Parsing failures and incomplete results are explicit. Exported records match the selection. The brief preserves citations and uncertainty. **Authorization applies to reads and exports, including the destination, and is enforced outside the model.** A model recommendation does not establish permission.
+- Slide, quote (0:20): Anthropic's statement that agents are only as effective as their tools, beside a conceptual interface connecting two systems. Full wording and attribution in Research §3.
+- Say, quote: **A tool is a contract between code and a model caller.** Its name, description, input, and result affect whether the caller can use it well.
+- Slide, decisions (0:55), title "The tool decisions you own": capabilities, contracts, and execution rules.
+- Say, decisions: **Choose operations that serve the task.** Evaluate granularity and discovery; begin with a small, distinct tool set. Define names, inputs, results, and errors, and return useful context with stable IDs. **Enforce validation and authorization in code.** Least privilege applies to reads and writes. Require approval where policy calls for it; a model recommendation does not establish permission.
+- Slide, maintenance (0:40), title "Living with tool choices": contract changes, tool growth, and failures, followed by the headline pitfall.
+- Say, maintenance: Keep descriptions, schemas, and behavior aligned. Prune overlapping tools and load definitions when needed. Return explicit results, errors, and unknown outcomes. Recheck permissions as capabilities change. **A description guides the model. Code enforces the contract.** The pitfall is copying the API surface without evaluating task fit.
+- Slide, application (0:40), title "A tool contract for the FRB brief": the illustrative Export cited brief contract, showing input, checks, output, and failure.
+- Say, application: Parsing and indexing are background services. **Export cited brief is the agent-facing operation.** It accepts a checked draft, citations, and destination. Enforce access and permitted destinations outside the model. Preserve source IDs, revisions, and locations. Return content matching the checked draft, with citations and uncertainty intact, plus a receipt. Report failure or an unconfirmed outcome explicitly. The full search/retrieve/export inventory remains in the authoring reference.
 - Pitfall: copying the API surface without evaluating task fit.
 - Takeaway line: "Design tools for a caller that reads the description every time and can still get it wrong."
-- Sources: Anthropic, September and November 2025; MCP, July 2026; OWASP, 2025; Codex CLI and Devin CLI docs. Research §3. Illustrative FRB contract, Research §0 and §3. CamoLeak and ClawHub remain backup evidence in Research §3.
+- Sources: Anthropic, September and November 2025; MCP, July 2026; OWASP, 2025; Codex CLI and Devin CLI docs. Research §3. Illustrative FRB contract, Research §0 and §3. Tool benchmarks and incident evidence remain backup.
 
 ### 2.4 Orchestration (3:30). Slides 14 and 15
 
-On the map this is the "Orchestration" box inside the harness: the loop, hooks, workflows. The other five harness boxes have their own areas.
+On the map this is the Orchestration box inside the harness: the execution loop, workflows, and coordination. The other harness boxes have their own areas.
 
-**Slide 14, When you are the user.** `/plan`, subagents, hooks, `/compact`, `/resume`, `/fork`. Under them the loop: gather context, act, verify, repeat.
+**Slide 14, When you are the user (0:30).** One plan-mode example beside two explanations: request a plan and review the approach.
 
-- Say: Plan mode. Subagents. Hooks. Compaction. Resume and fork. Both tools have every one of them. Underneath all of it is one loop: gather context, take action, verify, repeat. Hooks are the deterministic escape hatch: a PostToolUse hook runs the formatter or the tests whether or not the model believes it did. Codex ships hooks turned off; you turn them on.
-- Say, what someone engineered:
-  - The loop's decisions. When to stop. What carries between turns. When to compact. When to spawn a subagent, and what to hand it. Where a hook fires. The other harness boxes on the map get their own areas; this is the one that runs them. Osmani's line applies most sharply here: **"A decent model with a great harness beats a great model with a bad harness."** Evidence from OpenAI in August 2026, and it is loop-level evidence: retained reasoning across turns plus a compaction trigger took one model's score on a reasoning benchmark from 13% to 38% with six times fewer output tokens. Same model.
-  - Anthropic found two failure modes in long-running agents. **Over-ambition: try to one-shot the whole app. Premature completion: a later instance sees progress and declares the job done.** The fix was engineering, not prompting: an initializer writes a feature list and a progress file, each session does one feature with a fixed startup routine, **acceptance criteria stay protected. Faulty or obsolete tests may change through review.**
-  - Multi-agent, honestly. **Anthropic reported a 90.2% improvement against its single-agent research system on an internal eval. Separately, it reported about 15 times chat token use for multi-agent systems**, and it is a poor fit for work where agents need shared context or have dependencies. Anthropic names coding as the example.
+- Say: Ask the coding agent to break a task into proposed steps. Review and refine its approach before implementation. **A plan makes the proposed steps visible.** This familiar action anchors the area; the owner sequence explains execution control.
+- Takeaway line: "A plan makes the proposed steps visible."
+- Sources: Codex CLI and Devin CLI plan-mode docs. Research §4.
 
-**Slide 15, When you are the owner.** A bounded FRB sequence, delivered directly without an audience pause.
+**Slide 15, When you are the owner (3:00).** Four static screens with hard cuts.
 
-- Say:
-  - **Retrieve the target packet, inspect evidence, compare cases, reconcile findings, verify, export. Start with that bounded workflow.** Predefined paths constrain the process; an agent can choose actions within those limits.
-  - After measuring the simpler workflow, optional workers can compare FRB-017 and FRB-031 independently. **Workers use only the authorized internal FRB corpus and attachments. They return evidence and uncertainty to the main analyst.** Conflicting findings trigger source inspection or an unresolved result. Similar symptoms and duplicate documents cannot establish a common cause.
-  - Persist completed steps and exact revisions. On resume, recheck access and freshness. Bound retries and inspect an export receipt before retrying it. Incomplete indexing must be visible.
-  - **Set action, token, and end-to-end latency limits.** At a limit, return an explicit limitation or hand off to a person. A human is waiting. **An unbounded loop is an outage.**
+- Slide, quote (0:20): Anthropic's recommendation to find the simplest solution possible and increase complexity when needed, beside a conceptual simple path and branching network. Exact wording in Research §4.
+- Say, quote: **Begin with the simplest execution design that meets the task.** More autonomy or more workers must earn their place through measured benefit.
+- Slide, decisions (1:05), title "The orchestration decisions you own": who chooses the next step; when to delegate; how execution stops or recovers.
+- Say, decisions: **Use code for known paths and required checks.** Let the model choose where judgment helps. Begin with a bounded workflow. Delegate independent work with explicit inputs and expected results; add workers only when measured gains justify coordination cost. **Define completion checks, stopping limits, persisted state, bounded retries, and human handoff.** Model choice remains in Models; this area governs how work is divided and executed.
+- Slide, maintenance (0:50), title "Living with orchestration choices": workflow changes, handoffs, and recovery, followed by limits and the headline pitfall.
+- Say, maintenance: New branches can bypass required controls. Recheck paths and protect acceptance criteria. Workers can lose context or disagree, so preserve evidence, uncertainty, and ownership. An action may have succeeded before a timeout; inspect results before retrying. **Set action, token, and end-to-end latency limits.** The pitfall is multi-agent before a workflow was tried.
+- Slide, application (0:45), title "A bounded workflow for the FRB brief": six ordered steps, a verification gate before export, and a resume/retry rule.
+- Say, application: **Retrieve the packet, inspect evidence, compare cases, reconcile findings, verify the brief, export.** Begin with those predefined steps. Export only after checks pass. At a limit, stop with an explicit limitation or hand off. Save steps and exact revisions; before retrying export, inspect the receipt and recheck freshness and access. Optional comparison workers must earn their place through measurement and stay within authorized internal records. Deliver this directly without an audience pause.
 - Pitfall: multi-agent before a workflow was tried.
 - Takeaway line: "The loop is where autonomy gets its limits. Start with the workflow."
-- Sources: Anthropic, December 2024, June and November 2025; OpenAI, August 2026; Osmani, April 2026; 12-Factor Agents; Codex CLI and Devin CLI docs. Research §4. Illustrative FRB workflow, Research §0. Pattern inventory and Gartner forecast remain backup in Research §4.
+- Sources: Anthropic, December 2024, June and November 2025; 12-Factor Agents; Codex CLI and Devin CLI docs. Research §4. Illustrative FRB workflow, Research §0. The prior benchmark comparisons, failure taxonomy, and forecast remain qualified research backup.
 
 ### 2.5 Verification and evals (5:00). Slides 16 and 17
 
-**Slide 16, When you are the user.** The test loop, complementary checks, and the FRB hypothesis-as-fact failure.
+**Slide 16, When you are the user (0:30).** One coding-agent test-run example beside two explanations: run the checks and read the result.
 
-- Say: The coding agent can run the repository's checks. Write, run, read the failure, retry. Fowler observed models claiming all tests passed when they had not. **Run the check before accepting the claim.**
-- Say, what someone engineered:
-  - **Checking an action and measuring behavior across cases are complementary uses of checks.** In this talk, verification sits inside the loop and evaluation across runs sits outside it. Evals are tests of an AI system, and may use code, models, or humans as graders.
-  - **Check the result. Inspect the trace.** Illustrative FRB grader: the preliminary briefing names bearing wear as a possible cause. Later minutes leave the cause unresolved and call for inspection. The observed answer says “The board confirmed bearing wear.” **Fail: the answer promotes a hypothesis to an established finding.** The expected answer separates the unresolved cause from the inspection decision. A citation can exist without supporting the sentence. Inspect retrieved revisions, worker findings, synthesis, and required access constraints. Avoid prescribing an arbitrary tool sequence.
-  - Keep pass@k, the probability of at least one success in k trials, and pass^k, the probability all k succeed. They match at k = 1 and answer different questions. Consistency matters for repeated customer use.
-  - **Start with 20 to 50 tasks drawn from real failures. Read failures, refine criteria, and review grader disagreements.** Criteria can evolve as outputs expose missing requirements. Husain's 60–80% time allocation stays in attributed backup notes about his teams' experience.
+- Say: The coding agent runs the repository's tests. You inspect the test output as part of deciding whether to accept a change. **The test run gives you a result to inspect.** This is the familiar action; the owner sequence handles criteria, grading, and failure analysis.
+- Takeaway line: "The test run gives you a result to inspect."
+- Sources: coding-agent verification framing. Research §5.
 
-**[your story #2]** A failure your tests passed and evals or production caught. It must show three things: the suite was green, the behavior was wrong, and a population-level check or a real user found it. Sixty seconds, inside this beat's time. This remains a personal-story slot, separate from the illustrative FRB grader.
+**Slide 17, When you are the owner (4:30).** Four static screens. Hold the maintenance screen for the protected 1:00 personal story.
 
-**Slide 17, When you are the owner.** Verify one, evaluate many, keep evaluating.
+- Slide, quote (0:20): Husain and Shankar's statement that error analysis is the most important activity in evals, beside a conceptual inspection graphic. Full wording in Research §5.
+- Say, quote: Verification checks a result before accepting it. Evaluation measures behavior across representative cases. **These are complementary uses of checks. Evals are tests of an AI system.**
+- Slide, decisions (1:15), title "The evaluation decisions you own": success criteria; checks and graders; cases and trials.
+- Say, decisions: Define the outcome, required constraints, and serious failure cases with domain experts. **Use direct checks where possible. Calibrate model graders against expert judgments.** Begin with 20 to 50 cases drawn from real failures, then cover representative tasks and edge cases. Repeat trials to examine consistency. At least one success across attempts and success across every attempt answer different questions; notation stays in backup.
+- Slide, maintenance (1:55, including story #2 at 1:00), title "Living with evaluation choices": criteria, graders, and coverage, followed by result/trace inspection and the headline pitfall.
+- Say, maintenance: Outputs expose missing requirements, graders disagree, and changes reveal gaps in the suite. Refine criteria with experts, review disagreements, rerun the suite after model or harness changes, and add production failures. **Inspect the result and trace before choosing a repair.** A generic judge is no substitute for error analysis, and a success claim must be checked against the actual result. Hold the general maintenance screen for the personal story, then introduce the separate illustration.
+- Slide, application (1:00), title "A source-support check for the FRB brief": cited minutes, unsupported answer, direct-reference PASS, source-support FAIL, and expected result.
+- Say, application: The deliberately wrong answer cites FRB-042-MIN r2 §3, paragraph 2. The record exists, but it leaves the cause unresolved and requires inspection. **Citation existence and semantic support are different checks.** The claim that the board confirmed bearing wear fails. Expected: unresolved cause, inspection required. Use expert judgment or an expert-calibrated model grader for source support. Keep this failure as a regression case and rerun it after changes, with the broader suite and repeated trials. Inspect the trace before deciding which component to repair.
 
-- Say: **You must define the checks your domain needs.** Direct FRB checks cover IDs, revisions, permissions, source locations, selected records, and exported content. Expert judgment covers faithfulness, useful synthesis, and warranted uncertainty. **Citation existence and semantic support are different checks.** Calibrate model graders to experts. Inspect the failure and trace, identify the responsible component, change it, rerun the representative suite with repeated trials, and monitor production samples. The FRB failure could arise in parsing, retrieval, compaction, a worker, or synthesis. Diagnose before changing prompts or models. **An eval suite gives evidence for a migration decision.**
+**[your story #2]** A failure your tests passed and evals or production caught. It must show that the suite was green, the behavior was wrong, and a broader check or real user found it. Sixty seconds, held over slide 17's general maintenance screen. It remains presenter-authored and separate from the illustrative FRB check.
+
 - Pitfall: a generic judge instead of error analysis. Trusting the success claim without checking the result.
 - Takeaway line: "Check the action before accepting it. Measure behavior across representative cases. Keep both checks running as the system changes."
-- Sources: Anthropic, January 2026 and September 2025; Husain, March 2024 and September 2026; Shankar et al., UIST 2024; Fowler, August 2025. Research §5. Illustrative FRB failure, Research §0. Flight-booking and refund illustrations stay in Research §5 as backup.
+- Sources: Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024. Research §5. Illustrative FRB check, Research §0 and §5. The earlier probability notation, grader inventory, and allocation figures remain qualified backup.
 
 ### 2.6 Operating it (4:30). Slides 18 and 19
 
-**Slide 18, When you are the user.** `/usage`, the OpenTelemetry exporter, the sandbox, the OAuth login. Then three incidents.
+**Slide 18, When you are the user (0:30).** One Devin CLI session-usage example beside two explanations: check usage and connect it to the work.
 
-- Say: `/usage`, in both tools. The OpenTelemetry exporter in Codex's config. The sandbox, and in Devin CLI the domain allowlist that goes with it. The OAuth login when you connected an MCP server. And a trust and safety team you have never met.
-- Say, what someone engineered:
-  - Observability: traces per model call, tool call, and agent step. OpenTelemetry has GenAI conventions for exactly this, still marked Development, so pin a snapshot and expect names to move. The metrics that matter: **cost per completed task, not per request**. p95 and p99 tokens, because long conversations and bad retrieval concentrate cost in the tail. Cache hit rate. Loop iterations per task. Tool failure rate. Datadog's line from July: "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe."
-  - Guardrails: defense in depth at every boundary. Input classification. Provenance tags on retrieved content. Sandboxed tool execution. Output validation. Circuit breakers on tokens and actions. Approval gates on consequential actions. Least-privilege scopes.
-- Security: Willison's lethal trifecta. **Private data, untrusted content, external communication together create an exfiltration risk. Break or constrain the path.** A web fetch can communicate externally, and one integration can supply multiple capabilities. This is one threat path, not a certificate of safety. **A probabilistic filter is insufficient as the sole security boundary.** OWASP supplies a broader threat list.
-  - Identity: a separate workload identity with short-lived delegated authority is an explicitly labeled **design pattern**. Supported authorization requirements remain distinct: downstream enforcement, no token passthrough, minimal scopes.
-  - Governance: audit trails and approvals. **EU AI Act Article 50: disclosure duties for covered direct AI interactions.** Commission guidance distinguishes provider and deployer obligations, applicable EU scope, and the obvious-interaction exception. Details stay in notes.
-- Evidence, fast:
-  - EchoLeak, June 2025: a researcher-demonstrated zero-click vulnerability in Microsoft 365 Copilot. The research reports Microsoft's statement that no exploitation was evidenced.
-  - Replit, July 2025: secondary reporting describes a production database deletion during a code freeze and subsequent safeguards. Attribute to Fortune and the AI Incident Database.
-  - Moffatt v. Air Canada, February 2024: legal commentary reports responsibility for misleading chatbot information. Paraphrase this lesson. The tribunal decision is not independently verified.
+- Say: Devin CLI's usage view shows estimated consumption for the session. **You can inspect the resources the coding agent has used.** Relate that usage to the work you asked it to perform. This familiar view anchors the operating responsibilities.
+- Takeaway line: "You can inspect the resources the coding agent has used."
+- Sources: Devin CLI usage docs, checked September 2026. Research §6.
 
-**Slide 19, When you are the owner.** Title: "You own the approval process."
+**Slide 19, When you are the owner (4:00, including the section wrap).** Four static owner screens followed by the existing yours diagram.
 
-- Say: **You own the approval process.** In the illustrative FRB system, enforce access and permitted export destinations outside the model. **People own official causes, decisions, and board records.** Trace the request through retrieved revisions, worker evidence, synthesis, verification, and export. Restrict trace access. Monitor freshness, parsing/tool failures, quality failures, cost per completed brief, and end-to-end latency. An internal corpus still contains untrusted content. Disclosure duties remain scoped as explained on slide 18.
-- Pitfall: the lethal trifecta, assembled one integration at a time. Label capabilities, not products. A web fetch may already provide external communication; one integration may supply more than one corner.
+- Slide, quote (0:20): Guillermo Rauch's observation about what teams can observe, beside a conceptual visible execution path. Exact quotation and publisher attribution in Research §6.
+- Say, quote: **The owner needs evidence of what the system actually did.** That evidence supports diagnosis and accountable operation.
+- Slide, decisions (1:20), title "The operating decisions you own": access and authority; observability; stopping and handoff; approvals and incident ownership.
+- Say, decisions: **Enforce identity, scope, and permitted destinations outside the model.** Start with least privilege. Trace model calls, tools, and outcomes; measure quality, cost per completed task, and latency. Set budgets and failure responses, including human handoff. Assign an accountable operator, review process, audit trail, and rollback path. This is where observability, guardrails, security, and governance become operating responsibilities.
+- Slide, maintenance (1:00), title "Living with operating choices": integrations, operating signals, and controls, followed by the security boundary and headline pitfall.
+- Say, maintenance: **Private data, untrusted content, and external communication can combine into an exfiltration path.** Willison calls this the lethal trifecta. Review the combined capabilities as integrations change; a web fetch can communicate externally. Break or constrain this path, while recognizing it is one threat model. Inspect changes to quality, cost, and latency and feed failures back into evals. Recheck permissions, approvals, alerts, and handoff. **A probabilistic filter is insufficient as the sole security boundary.**
+- Slide, application (0:55), title "An operating agreement for the FRB system": access, monitoring, handoff, and ownership.
+- Say, application: Enforce access to authorized FRB records and permitted export destinations. Trace exact revisions, decisions, checks, and exports; restrict trace access. Monitor quality, freshness, parsing/tool failures, cost per completed brief, and latency. Failed checks, missing evidence, or exhausted budgets produce an explicit limitation or human handoff. **People own official causes, decisions, and board records.** This is an illustrative starting design.
+- Pitfall: the lethal trifecta, assembled one integration at a time.
 - Takeaway line: "When you are the owner, its answer is your answer."
-- Section wrap: the diagram returns with its "yours" badges. **Every box is something you can engineer, because most of it is engineering you already know how to do.**
-- Sources: Willison, June 2025; OWASP, 2025 and 2026; OpenTelemetry; Datadog, July 2026; EchoLeak analysis; Fortune and AI Incident Database on Replit; McCarthy Tétrault on Air Canada; European Commission, checked September 2026. Research §6. Illustrative FRB operating design, Research §0 and §6.
+- Section wrap (0:25): hard cut to the existing yours anatomy diagram. **Every box is something you can engineer, because most of it is engineering you already know how to do.**
+- Sources: Rauch in Datadog, 2026; Willison, June 2025; OWASP, 2025 and 2026; OpenTelemetry; MCP; Devin CLI docs. Research §6 and §3. Illustrative FRB agreement, Research §0 and §6. Incidents, detailed identity patterns, convention status, and scoped legal material remain research backup.
 
 ### Section 2 checks
 
 - Time: 2:00 + 3:30 + 3:30 + 3:00 + 3:30 + 5:00 + 4:30 = 25:00.
 - Slides: 7 through 19, thirteen slides.
-- Description scope, with beat numbers: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability (2.6); guardrails (2.6); security (2.3, 2.6); cost and latency (2.1, 2.2, 2.4, 2.6). Claims: prototype is not production (2.5, 2.6 incidents); tests necessary but not sufficient (2.5); evals continue after deployment (2.5).
-- Structure: six paired user and owner slides, each with the engineered bridge and a named pitfall.
-- Evidence status: FRB material is invented and visibly illustrative. It reports no deployed system, model scores, or personal experience. Displaced benchmarks, tool incidents, and forecast remain research backup. Slide 18 keeps operating security evidence. OWASP authorization and Commission Article 50 guidance retain their prior status and scope. Replit and Air Canada retain secondary-source limitations. Identity is an illustrative design pattern.
+- Description scope, with beat numbers: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability (2.6); guardrails (2.6); security (2.3, 2.6); cost and latency (2.1, 2.2, 2.4, 2.6). Claims: prototype is not production (2.5, 2.6 operating limits); tests necessary but not sufficient (2.5); evals continue after deployment (2.5).
+- Structure: six paired user and owner slides, each with the engineered bridge and a named pitfall. All six areas use the five-screen pattern, with a quote before general decisions and a separate FRB application. Headline pitfalls appear in the maintenance screen body. Evals holds that screen for the protected personal story. Operating it ends with the additional yours diagram.
+- Evidence status: FRB material is invented and visibly illustrative. It reports no deployed system, model scores, or personal experience. Displaced benchmarks, tool incidents, and forecast remain research backup. Operating security principles remain active; incident details stay in research backup. OWASP authorization and Commission Article 50 guidance retain their prior status and scope. Replit and Air Canada retain secondary-source limitations. Identity is an illustrative design pattern.
 
 ---
 
@@ -312,7 +340,7 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 ### 3.3 The pitfalls, on one slide (0:35). Slide 23
 
 - Slide: six lines, one per area, no other text.
-  1. Models: a hardcoded model ID with no eval suite behind it.
+  1. Models: Choosing and changing models without testing them on your task.
   2. Context: adding instead of curating.
   3. Tools: copying the API surface without evaluating task fit.
   4. Orchestration: multi-agent before a workflow was tried.
@@ -362,7 +390,7 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 ### Section 3 checks
 
 - Time: 0:10 + 1:05 + 1:15 + 0:35 + 1:25 + 0:30 = 5:00.
-- Slides: 20 through 26. Total deck: 26 narrative slides, 34 authored compositions, 64 physical PowerPoint slides, 83 states, 19 internal clicks, seven Morph transitions, and 82 advances.
+- Slides: 20 through 26. Total deck: 26 narrative slides, 28 authored compositions, 56 physical PowerPoint slides, 57 states, one internal click, one Morph transition, and 56 advances.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
 - Evidence status: competencies are unranked. The ladder is a teaching frame. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
 
@@ -403,10 +431,10 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 ### Whole-talk checks
 
 - Time: Section 1, 5:00. Section 2, 25:00. Section 3, 5:00. Total 35:00, plus 15:00 for questions.
-- Deck: 26 narrative slides. Six in Section 1, thirteen in Section 2, seven in Section 3. Eight support compositions bring the authored total to 34. Expansion produces 64 physical slides, 83 states, 19 internal clicks, seven Morph transitions, and 82 advances. Every existing slide keeps its time allocation.
+- Deck: 26 narrative slides. Six in Section 1, thirteen in Section 2, seven in Section 3. Two support compositions bring the authored total to 28. Expansion produces 56 physical slides, 57 states, one internal click, one Morph transition, and 56 advances. Models, Context, and Orchestration each split 0:30 for the user and 3:00 for the owner. Tools splits 0:25 and 2:35. Evals splits 0:30 and 4:30, including the 1:00 story. Operating it splits 0:30 and 4:00, including the 0:25 section wrap. All area time budgets remain unchanged.
 - FRB acceptance: a suspected cause never becomes a confirmed finding without support. Later minutes remain distinct from preliminary material. Similar symptoms and duplicates do not establish a common cause. Missing, unreadable, conflicting, incomplete, or unauthorized evidence yields an explicit limitation. Export matches the selection and preserves citations and uncertainty. Check citation existence separately from semantic support.
-- Rehearsal: use the existing advances. Cut supporting inventory before the FRB decision, eval failure, or roadmap assignment. Preserve the 60-second and 30-second story slots. Orchestration has no audience pause.
-- Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.4, 2.5, 3.3); why tests are necessary but not sufficient (1.4, 2.5); why evals continue after deployment (1.4, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
+- Rehearsal: Each area uses five static screens. Operating it adds the existing yours diagram for the section wrap. Cut supporting inventory before the FRB decision, eval failure, or roadmap assignment. Preserve the 60-second and 30-second story slots. Orchestration has no audience pause.
+- Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.4, 2.5, 2.6, 3.3); why tests are necessary but not sufficient (1.4, 2.5); why evals continue after deployment (1.4, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
 
 ### What only you can supply
 
@@ -421,14 +449,14 @@ On the map this is the "Orchestration" box inside the harness: the loop, hooks, 
 | Model lifecycle and CLI anchors | Vendor pages checked September 14. No claim of universal silent migration |
 | Prime/composite comparison | Backup only. Revised paper checked September 15; retain task, prompting, and version scope |
 | Routing experiment | Backup only. LangChain checked September 15; retain configurations, call-share exclusion, variation, and denominators |
-| Authorization and Article 50 | OWASP and Commission FAQ checked September 15. Role, scope, and exception retained |
-| CamoLeak and EchoLeak | CamoLeak is backup only. EchoLeak stays on slide 18 as a researcher demonstration with no evidence of exploitation reported |
+| Authorization and Article 50 | OWASP authorization remains active. Article 50 is backup, with its checked role, scope, and exception retained |
+| CamoLeak and EchoLeak | Both are backup. Preserve researcher-demonstration scope and the reported lack of evidence of EchoLeak exploitation |
 | ClawHub audit | Backup only. The Hacker News checked September 14; underlying Koi audit not independently checked |
 | Gartner | Backup only. Publisher forecast checked September 14; no architecture-to-cancellation causal claim |
-| Replit and Air Canada | Secondary reports only. Attribute the reports and paraphrase the lesson; tribunal decision not independently verified |
+| Replit and Air Canada | Backup only, from secondary reports. Attribute and paraphrase; tribunal decision not independently verified |
 | FRB artifacts | Invented teaching material. Preserve revisions, uncertainty, authorized scope, and human ownership. No primary-source marker or measured model results |
-| Identity pattern | Illustrative design pattern, separate from supported authorization requirements |
-| OpenTelemetry and OWASP names | Source pages checked September 14; conventions remain Development |
+| Identity pattern | Backup illustrative design pattern, separate from active authorization requirements |
+| OpenTelemetry and OWASP names | Source pages checked September 14. Detailed names and convention status remain backup |
 | Hiring backup | Dice publisher figures checked September 14. LinkedIn ranking known through secondary reporting |
 
 Unverified model-release dates and unsupported research-only numbers remain off stage. Source records hold URLs, quotes, and limitations. Screenshots, story #2, and all resource changes are explicitly deferred in this pass.

@@ -20,7 +20,7 @@ Beat 1.5 What you will leave with, and the agenda. Section 1. Time 0:45. Builds:
 
 **Footer line, full width, smaller:**
 
-When you are the user · What someone engineered · When you are the owner
+User example · Quote · Decisions · Maintenance · Worked example
 
 ## Layout and visual
 
@@ -28,7 +28,7 @@ When you are the user · What someone engineered · When you are the owner
 
 - Two columns of roughly equal width. Left is three numbered lines. Right is the agenda with the minutes right-aligned so they read as a column.
 - The six area names sit as one indented line under "Six areas," separated by periods or thin dots, not as six bullets. Six bullets would make the agenda look longer than the takeaways and unbalance the slide.
-- The footer line is the pattern the audience will see repeated twelve times in Section 2. Keep it visible but small. It is a promise, not a headline.
+- The footer line is the pattern the audience will see in each of the six Section 2 areas. Keep it visible but small. It is a promise, not a headline.
 - No times shown for the intro. The audience is in it.
 
 ## Talk track
@@ -37,7 +37,7 @@ When you are the user · What someone engineered · When you are the owner
 
 [0:10] The agenda. The map, two minutes. Six areas, twenty-three minutes: models, context and knowledge, tools, orchestration, verification and evals, and operating it. The transition, five minutes. Then fifteen minutes for your questions.
 
-[0:26] **For each area: When you are the user, including what someone engineered, then When you are the owner.**
+[0:26] **For each area: a familiar action, a quote, the decisions you own, how they change over time, and a worked example.**
 
 [0:45] Advance to slide 6.
 

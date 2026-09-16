@@ -8,7 +8,7 @@ Beat 3.3 The pitfalls, on one slide. Section 3. Time 0:35. Builds: 1.
 
 Six lines. No title, no other text.
 
-1. Models: a hardcoded model ID with no eval suite behind it.
+1. Models: Choosing and changing models without testing them on your task.
 2. Context: adding instead of curating.
 3. Tools: copying the API surface without evaluating task fit.
 4. Orchestration: multi-agent before a workflow was tried.

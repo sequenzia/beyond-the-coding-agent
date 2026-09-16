@@ -5,7 +5,7 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 ## Session
 
 - **Length:** 50 minutes: 35:00 of presentation and 15:00 of questions and discussion
-- **Deck:** 26 narrative slides across sections of 6, 13, and 7 slides; 34 authored compositions expand to 64 PowerPoint slides, with 19 internal clicks and 83 presentation states
+- **Deck:** 26 narrative slides across sections of 6, 13, and 7 slides; 28 authored compositions expand to 56 PowerPoint slides, with one internal click and 57 presentation states
 - **Audience:** software engineers who want to move into AI engineering, most of whom have used a coding agent but few of whom have shipped a system whose behavior depends on a model
 - **Focus:** agentic AI, taught by taking apart the coding agents the room already uses, Codex CLI and Devin, area by area. Each area closes with a "When you are the owner" beat: what the vendor engineered that you now own, how a customer-facing or enterprise deployment raises the stakes, and that area's most common pitfall
 - **When:** September 17, 2026
@@ -18,8 +18,11 @@ Preparation materials for a conference talk on AI engineering as a discipline, w
 - `slides/section-1/`, `slides/section-2/`, and `slides/section-3/` hold one Markdown file per slide: on-slide text build by build, layout notes, a near-script talk track, sources, and open items. Written from `outlines/outline-v2.md` one slide at a time.
 - `style/colors.md` holds the palette. `style/design-brief.md` fixes the deck's typography, grid, color roles, component specs, build rules, and diagram theme. It is the source of truth for every visual value, and slide files defer to it.
 - `internal/frb-running-example.md` fixes the illustrative Failure Review Board packet, document IDs and revisions, expected brief, and tool/workflow contracts used across the six owner beats.
+- `internal/illustrations/` holds quote-screen images and their generation prompts.
 - `internal/deck/` holds the reusable PowerPoint authoring, animation, rendering, and validation scripts. See [the build guide](internal/deck/README.md) for dependencies and update instructions.
 - `output/` holds the current PowerPoint deck. `output/archive/` preserves older decks. `.deck-build/` holds ignored intermediate files and previews.
+
+All six Section 2 areas now use five screens: user example, quote with a conceptual illustration, general decisions, maintenance and pitfalls, and a separate FRB application. Operating it then returns to the yours anatomy diagram. Evals preserves its 1:00 personal-story slot over the general maintenance screen. The total remains 35:00.
 
 ## Rebuild the PowerPoint deck
 

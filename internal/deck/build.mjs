@@ -14,7 +14,7 @@ const sourceDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(sourceDir, '../..');
 const help = `Rebuild Beyond the Coding Agent.
 
-Usage: node internal/deck/build.mjs [--output output/NAME.pptx] [--slides 08,08b]
+Usage: node internal/deck/build.mjs [--output output/NAME.pptx] [--slides 08,09]
 
 The default output has a unique timestamp. Existing files are never overwritten.
 After a successful build into output/, older decks move into output/archive/.
@@ -33,7 +33,7 @@ function parseArgs(args) {
     options[arg.slice(2)] = args[++i];
   }
   if (options.slides && !/^\d{2}b?(,\d{2}b?)*$/.test(options.slides)) {
-    throw new Error('--slides must be comma-separated source keys, for example 08,08b.');
+    throw new Error('--slides must be comma-separated source keys, for example 08,09.');
   }
   return options;
 }
@@ -109,9 +109,9 @@ async function main() {
     PRESENTATIONS_SKILL_DIR: skill, SLIDES: options.slides || '',
   };
   console.log(`Build directory: ${build}`);
-  const inputs = (await Promise.all(['slides', 'research', 'style', 'internal/deck', 'internal/renders']
+  const inputs = (await Promise.all(['slides', 'research', 'style', 'internal/deck', 'internal/renders', 'internal/illustrations']
     .map(dir => filesBelow(path.join(root, dir))))).flat();
-  inputs.push(path.join(root, 'internal/profile-320.webp'));
+  inputs.push(path.join(root, 'internal/profile-320.webp'), path.join(root, 'internal/frb-running-example.md'), path.join(root, 'outlines/outline-v2.md'));
   const manifest = {
     builtAt: new Date().toISOString(), output: relative, previewSlides: options.slides || 'all',
     runtime: { node, python, modules, skill }, inputs: await hashes(inputs),

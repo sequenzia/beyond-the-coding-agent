@@ -1,6 +1,6 @@
 # Design brief
 
-Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel.
+Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 17 through 22 define the current Section 2 layouts. Section 22 records current deck counts and the synchronized agenda treatment.
 
 ## 1. Scope and precedence
 
@@ -321,7 +321,7 @@ Each entry gives size, weight, color, position, and build behavior.
 
 Words cut, pictures fade. A card and its text are one group so the text does not appear before its card. No other effects. No Fly, Wipe, Zoom, Push, Split, Bounce, or sound. Nothing over 0.5 s. Morph nowhere except the shrink-to-strip copies, because Morph is a transition between slides and cross-fades every unmatched object, which would blur the hard cuts the deck relies on.
 
-The deck has 26 narrative slides, 34 authored compositions, and 64 physical PowerPoint slides. The compiler splits each composition at every finite object exit. The first segment keeps the authoring key; later segments append the original boundary, for example `12b-c1`. Morph applies only to the first segment of each of the seven existing destinations. There are 83 presentation states, 19 internal clicks, and 82 advances. Narrative numbers, original keys, state intervals, and physical indices are recorded in build maps and speaker notes. The 35:00 timing stays unchanged.
+The deck has 26 narrative slides, 28 authored compositions, and 56 physical PowerPoint slides. The compiler splits each composition at every finite object exit. The first segment keeps the authoring key; later segments append the original boundary, for example `12b-c1`. Morph applies only to the first segment of the remaining destination, source 22b. There are 57 presentation states, one internal click, and 56 advances. Narrative numbers, original keys, state intervals, and physical indices are recorded in build maps and speaker notes. The 35:00 timing stays unchanged.
 
 ## 8. Diagram re-theme
 
@@ -547,3 +547,107 @@ This section supersedes the affected body layouts in sections 13 and 14. Preserv
 - **Slide 24.** The first state is unchanged. The assignment replaces it at the existing cut: heading y 192, 32 Bold, height 45; instructions y 256, 24, height 60. Illustration caption y 342, 16. Native four-column example at y 374, width 864, equal columns 216. Header and body 20, row heights 32 and 76, ending y 482. Hold this state for the existing 30-second story. No additional story advance.
 
 Tables use the background fill, no banding, no visible borders, zero margins, top alignment, and 1.25 line spacing. Header color follows the area. Deliberate line breaks distinguish source identity, hypothesis, finding, and observed error. Do not shrink evidence to make room for additional inventory.
+
+## 17. Models revision and Section 2 target pattern, September 15, 2026
+
+This section replaces the first Models pilot. The target is five screens per area: one user example, a quote, general decisions with impact and starting guidance, maintenance with pitfalls, and a separate FRB application. Apply the revised layout only to Models now. Other areas retain their current visuals until their individual review. Reserve 0:20 for each quote within the area's existing time budget.
+
+The deck now has 26 narrative slides, 33 authored compositions, 63 physical slides, 79 presentation states, 16 internal clicks, six Morph transitions, and 78 advances. Models uses five static screens with hard cuts. Source 08 is one screen. Source 09 has replacement boundaries at 1, 2, and 3, generating 09, 09-c1, 09-c2, and 09-c3. No Models content has an internal entrance animation.
+
+### User screen
+
+Preserve the blue area header and area divider. Screenshot placeholder at x 48, y 184, width 420, height 260, retaining the `!!screenshot-Devin Desktop` name. Explanation column at x 492, width 420. Headings at y 192 and 326, size 24 Bold. Bodies at y 236 and 370, size 24, height 64. One static composition with no mini-map or compact strip.
+
+### Owner header and quotation
+
+Retain the standard kicker, mini-map, divider, and narrative number throughout source 09. The quote screen has no extra title. The three content screens have distinct 32-point Bold titles at x 48, y 68, width 692, height 76. Replace titles together with the body on each hard cut.
+
+Quote layout: quotation at x 48, y 192, width 568, height 216, Helvetica Regular 44 with exact 52-point spacing. Use deliberate four-line wrapping. Author attribution at x 48, y 428, width 568, height 28, Helvetica 20. Publication/date at y 462 in 16 secondary. Conceptual image at x 640, y 212, width 272, height 272. Use `internal/illustrations/models-in-system.png`, fit contain. Text stays editable and separate from the image. This two-thirds text, one-third image relationship is the shared quote-screen pattern.
+
+Future quote images use the dark palette and the area's accent, one clear conceptual subject, and no embedded text, claims, or numbers. Models shows a component within a structure; Context shows selected information within limited space; Tools shows a clear interface; Orchestration shows a simple path and branching; Evals shows investigation of a failed result; Operating shows a visible execution trace. Produce each image during that area's review.
+
+### Decisions
+
+Three aligned rows start at y 192, 292, and 392. Question column x 48, width 272, height 82, Helvetica Bold 24. Explanation column x 344, width 568, height 82, Helvetica 20. Three lines per explanation, with the conditional starting guidance last. Use plain text on the slide background, without boxes, table rules, icons, or decorative numbering. General guidance only; no FRB content here.
+
+### Maintenance and pitfalls
+
+Three labeled rows at y 192, 254, and 316. Labels at x 48, width 216, height 30, Helvetica Bold 20 blue. Bodies at x 292, width 620, height 54, Helvetica 20. Whole-system qualification at x 48, y 386, width 864, height 30, size 20. Headline pitfall label at x 48, y 426, width 124, height 30, size 20 Bold blue. Pitfall sentence at x 196, y 426, width 716, height 64, size 24 Bold, with a deliberate line break after “models”. No bottom band. The sentence matches slide 23 exactly.
+
+### FRB application
+
+Illustration caption at x 48, y 192, width 864, size 16. Native two-column table at x 48, y 228, width 864, column widths 224 and 640. Header and cells 20, header Bold blue. Row heights 36, 56, 56, 56, ending at 432. Flat table styling from section 16. Closing reconsideration condition at x 48, y 440, width 864, height 52, size 20. Show a proposed starting design, not model scores or a winner.
+
+All reading text remains at least 20. Content ends by 492. Preserve slide 23's existing geometry and type; its Models sentence fits the current row. Quote illustration generation details stay in `internal/illustrations/README.md`.
+
+
+## 18. Context & Knowledge revision, September 15, 2026
+
+Context now follows the five-screen pattern in section 17. This section supersedes earlier layouts for slides 10 and 11. Current deck counts: 26 narrative slides, 32 authored compositions, 62 physical slides, 75 presentation states, 13 internal clicks, five Morph transitions, and 74 advances. Source 10b is removed. Source 10 is static. Source 11 uses replacement boundaries at 1, 2, and 3, producing 11, 11-c1, 11-c2, and 11-c3. All five Context screens use hard cuts and show complete content immediately. The area's 3:30 splits 0:30, 0:20, 1:05, 0:50, and 0:45.
+
+- **Slide 10.** Preserve the pink area header and divider. One AGENTS.md placeholder at x 48, y 184, width 420, height 260, named `!!screenshot-AGENTS.md`. No compaction image or compact strip. Explanations use the same positions and 24-point type as slide 8: x 492, width 420, headings y 192 and 326, bodies y 236 and 370, height 64.
+- **Slide 11, shared.** Retain the context kicker, mini-map, divider, and narrative number. No extra title on the quote screen. Content titles use the same geometry and 32-point type as section 17. Replace each title with its body on a hard cut.
+- **Quote.** Reuse the Models quote composition and deliberate four-line wrapping at 44 with exact 52 spacing. Attribute the organization at y 428 in 20 and publication/date at y 462 in 16. Image: `internal/illustrations/context-selection.png`, x 640, y 212, 272 square, fit contain. Quote and attribution stay editable.
+- **Decisions.** Reuse section 17's three aligned rows at y 192, 292, and 392. Questions: x 48, width 272, 24 Bold, height 82. Explanations: x 344, width 568, 20, height 82. Three lines per explanation. No FRB content.
+- **Maintenance.** Reuse the three labeled rows at y 192, 254, and 316, with 20-point body and pink labels. Cache qualification at x 48, y 386, width 864, height 30, size 20. Pitfall label at x 48, y 426, width 124, size 20 Bold pink. Sentence at x 196, y 426, width 716, height 64, size 24 Bold. No bottom band.
+- **FRB application.** Illustration caption at x 48, y 192, width 864 in 16. Left excerpt column x 48, width 420. First source caption y 224, height 24, size 16. First quotation y 256, height 64, size 24, two lines. Second source caption y 330, height 40, size 16, two lines. Second quotation y 380, height 90, size 24, three lines. Right annotations x 492, width 420. Labels at y 224, 316, and 408, size 20 Bold pink. Bodies 30 below each label, size 20, height 54. Keep the source excerpts and annotations as editable text. Content ends by 492.
+
+The image shows curation, not a measured capacity. Preserve the exact FRB identities and quotations. Slide 23 retains its Context sentence and geometry. All Models screens remain unchanged.
+
+
+## 19. Tools & Extensibility revision, September 15, 2026
+
+Tools follows the established five-screen pattern. This section supersedes earlier layouts for slides 12 and 13. Current deck counts: 26 narrative slides, 31 authored compositions, 62 physical slides, 71 presentation states, nine internal clicks, four Morph transitions, and 70 advances. Source 12b is removed. Source 12 is static. Source 13 uses replacement boundaries at 1, 2, and 3, producing 13, 13-c1, 13-c2, and 13-c3. All five Tools screens show complete content on entry and use hard cuts. The 3:00 area splits 0:25, 0:20, 0:55, 0:40, and 0:40.
+
+- **Slide 12.** Preserve the pink area header and divider. One MCP configuration placeholder at x 48, y 184, width 420, height 260, named `!!screenshot-MCP configuration`. No approval image, mode captions, or compact strip. Explanations match slides 8 and 10: x 492, width 420; 24-point headings at y 192 and 326; 24-point bodies at y 236 and 370, height 64.
+- **Slide 13, shared.** Retain the Tools kicker, mini-map, divider, and narrative number. No additional title on the quote screen. The three content titles use the same geometry and 32-point Bold type as section 17. Replace each title with its body on a hard cut.
+- **Quote.** Quotation at x 48, y 216, width 568, height 164, Helvetica Regular 44 with exact 52-point spacing and three deliberate lines. Attribution at y 428 in 20; publication/date at y 462 in 16. Image: `internal/illustrations/tools-interface.png`, x 640, y 212, 272 square, fit contain. Quote and attribution remain editable.
+- **Decisions.** Reuse the three rows at y 192, 292, and 392. Questions x 48, width 272, height 82, 24 Bold. Explanations x 344, width 568, height 82, size 20. Three lines per explanation. No FRB content.
+- **Maintenance.** Reuse the three labeled rows at y 192, 254, and 316, with 20-point text and pink labels. Contract-enforcement sentence at x 48, y 386, width 864, height 30, size 20. Pitfall label x 48, y 426, width 124, 20 Bold pink. Sentence x 196, y 426, width 716, height 64, 24 Bold, with a deliberate line break after “surface”. No bottom band.
+- **FRB application.** Illustration caption x 48, y 192, width 864, size 16. Native two-column contract table at x 48, y 228, width 864, column widths 224 and 640. Header and cells 20, header Bold pink. Row heights 36, 38, 56, 56, 56, ending at 470. Keep the flat table styling from section 16. Background parsing/indexing stays in the talk track, separate from this agent-facing export operation.
+
+The illustration is a conceptual interface, not a physical product or architecture. Reading text remains at least 20; content ends by 492. Preserve slide 23's Tools sentence. Models and Context remain unchanged.
+
+
+## 20. Orchestration revision, September 15, 2026
+
+Orchestration follows the established five-screen pattern. This section supersedes earlier layouts for slides 14 and 15. Current deck counts: 26 narrative slides, 30 authored compositions, 59 physical slides, 66 presentation states, seven internal clicks, three Morph transitions, and 65 advances. Source 14b is removed. Source 14 is static. Source 15 uses replacement boundaries at 1, 2, and 3, producing 15, 15-c1, 15-c2, and 15-c3. All five Orchestration screens show complete content on entry and use hard cuts. The 3:30 area splits 0:30, 0:20, 1:05, 0:50, and 0:45.
+
+- **Slide 14.** Preserve the pink area header and divider. One plan-mode screenshot placeholder at x 48, y 184, width 420, height 260, named `!!screenshot-Plan mode`. No command inventory, ring diagram, or compact strip. Two explanations match the preceding areas: x 492, width 420; 24-point Bold headings at y 192 and 326; 24-point bodies at y 236 and 370, height 64.
+- **Slide 15, shared.** Retain the Orchestration kicker, mini-map, divider, and narrative number. No additional title on the quote screen. Content titles use x 48, y 68, width 692, height 76, size 32 Bold. Replace each title with its body on a hard cut.
+- **Quote.** Reuse the Models quote composition: x 48, y 192, width 568, height 216, size 44 with exact 52-point spacing and four deliberate lines. Preserve the excerpt's lowercase opening. Attribution y 428 in 20; publication/date y 462 in 16. Image: `internal/illustrations/orchestration-path.png`, x 640, y 212, 272 square, fit contain. Quote and attribution remain editable.
+- **Decisions.** Reuse the three aligned rows at y 192, 292, and 392. Questions x 48, width 272, height 82, size 24 Bold. Explanations x 344, width 568, height 82, size 20. Three lines per explanation. No FRB content.
+- **Maintenance.** Reuse the three labeled rows at y 192, 254, and 316, with 20-point text and pink labels. Explicit budget sentence at x 48, y 386, width 864, height 30, size 20. Pitfall label x 48, y 426, width 124, 20 Bold pink. Sentence x 196, y 426, width 716, height 64, 24 Bold. No bottom band.
+- **FRB application.** Illustration caption x 48, y 192, width 864, size 16. Six native editable numbered steps in row-major order: left column x 48, right column x 492, rows y 224, 280, and 336. Numerals 24 secondary, width 32, height 40. Labels start 48 to the right, width 372, height 40, size 24. Verification/limit sentence at x 48, y 392, width 864, height 30, size 20 Bold. Resume/retry rule at x 48, y 434, width 864, height 54, size 20, in two deliberate lines. No extra reveal or audience pause.
+
+The quote image is conceptual and carries no measured comparison. Keep reading text at least 20 and body content within y 492. Preserve slide 23's Orchestration sentence. Models, Context, and Tools remain unchanged.
+
+
+## 21. Verification and Evals revision, September 15, 2026
+
+Evals follows the five-screen pattern. This section supersedes earlier layouts for slides 16 and 17. Current deck counts: 26 narrative slides, 29 authored compositions, 57 physical slides, 61 presentation states, four internal clicks, two Morph transitions, and 60 advances. Source 16b is removed. Source 16 is static. Source 17 has replacements at 1, 2, and 3, producing 17, 17-c1, 17-c2, and 17-c3. All five screens show complete content on entry and use hard cuts. The 5:00 area splits 0:30 user, 0:20 quote, 1:15 decisions, 1:55 maintenance including the 1:00 story, and 1:00 application.
+
+- **Slide 16.** Preserve the green area header and divider. One test-run placeholder at x 48, y 184, width 420, height 260, named `!!screenshot-Test run`. Explanations use x 492, width 420; 24-point Bold headings at y 192 and 326; 24-point bodies at y 236 and 370, height 64. The user screen has no failure warning or internal reveal.
+- **Slide 17, shared.** Retain the Evals kicker, mini-map, divider, and narrative number. No extra title on the quote screen. Content titles use the established x 48, y 68, width 692, height 76, size 32 Bold. Replace titles with the body on each hard cut.
+- **Quote.** Three lines at x 48, y 216, width 568, height 164, size 44 with exact 52-point spacing. Both authors at y 428 in 20; publication/date at y 462 in 16. Image `internal/illustrations/evals-inspection.png` at x 640, y 212, 272 square, fit contain. Keep quotation and attribution editable.
+- **Decisions.** Reuse the three aligned rows at y 192, 292, and 392. Questions x 48, width 272, height 82, size 24 Bold. Explanations x 344, width 568, height 82, size 20. Three lines per explanation. No FRB content.
+- **Maintenance and story.** Reuse the three labeled rows at y 192, 254, and 316, with 20-point text and green labels. Result/trace instruction at x 48, y 386, width 864, height 30, size 20. Pitfall label x 48, y 426, width 124, 20 Bold green. Full pitfall sentence x 196, y 426, width 716, height 64, 24 Bold, with a deliberate line break between its two sentences. No band. Hold this general screen for story #2 without a reveal, extra slide, or visible story placeholder.
+- **FRB check.** Illustration caption x 48, y 192, width 864, size 16. Left source caption x 48, y 224, width 420, size 16. Source quotation x 48, y 256, width 420, height 96, size 24, three lines. Reference result at x 48, y 386, width 420, height 30, size 20. Support result at y 424, same geometry, 20 Bold. Right answer label x 492, y 224, width 420, height 30, 20 Bold green. Wrong answer x 492, y 256, width 420, height 64, size 24, two lines. Expected label at x 492, y 350, width 420, 20 Bold green; expected text at y 384, height 64, size 24, two lines. Regression instruction x 48, y 460, width 864, height 30, size 20. PASS and FAIL are explicit words, not color-only signals.
+
+The source-support check is invented teaching material. Keep the citation and exact excerpt attached. Story #2 stays separate from this illustration. All reading text remains at least 20 and content ends by 492. Earlier areas and the slide 23 pitfall wording remain unchanged.
+
+
+## 22. Operating it and completed Section 2 pattern, September 15, 2026
+
+All six areas now use the five-screen pattern. Operating it adds the existing yours diagram as the section wrap. This section supersedes earlier layouts for slides 18 and 19 and the agenda's pattern line. Current deck counts: 26 narrative slides, 28 authored compositions, 56 physical slides, 57 presentation states, one internal click, one Morph transition, and 56 advances. Source 18b is removed. Source 18 is static. Source 19 has replacements at 1, 2, and 3, producing 19, 19-c1, 19-c2, and 19-c3. Source 19b remains the full-screen yours diagram. All six Operating screens use hard cuts. The 4:30 area splits 0:30 user, 0:20 quote, 1:20 decisions, 1:00 maintenance, 0:55 application, and 0:25 wrap.
+
+- **Slide 18.** Preserve the amber area header and divider. One Devin CLI session-usage placeholder at x 48, y 184, width 420, height 260, named `!!screenshot-Usage view`. Explanations use the shared positions: x 492, width 420; 24-point Bold headings y 192 and 326; 24-point bodies y 236 and 370, height 64. No command inventory or compact strip.
+- **Slide 19, shared.** Keep the Operating kicker, mini-map, divider, and narrative number on the four owner screens. No additional title on the quote screen. Content titles use x 48, y 68, width 692, height 76, size 32 Bold. Replace each title with its body on a hard cut. The standalone yours diagram remains unchanged.
+- **Quote.** Preserve 44-point type and exact 52-point spacing. Five deliberate lines at x 48, y 192, width 568, height 268. Image `internal/illustrations/operating-observability.png` at x 664, y 192, 224 square, fit contain. This longer quotation places attribution under the image: author x 640, y 420, width 272, height 28, size 20; publication/publisher/date x 640, y 452, width 272, height 40, size 16 in two lines. The quote and attribution stay editable.
+- **Four decisions.** Rows start at y 192, 266, 340, and 414. Questions x 48, width 272, height 64, size 24 Bold. Explanations x 344, width 568, height 64, size 20, two lines each. The last row ends by 478. No FRB content.
+- **Maintenance.** Use the shared three rows at y 192, 254, and 316, with 20-point bodies and amber labels. Security-boundary sentence x 48, y 386, width 864, height 30, size 20. Pitfall label x 48, y 426, width 124, 20 Bold amber. Sentence x 196, y 426, width 716, height 64, 24 Bold, with a deliberate break after “trifecta,”. No bottom band or triangle.
+- **FRB agreement.** Illustration caption x 48, y 192, width 864, size 16. Native two-column table at x 48, y 228, width 864, column widths 224 and 640. Header and cells 20, header Bold amber. Row heights 36, 56, 56, 56, 56, ending at 488. Use the flat table styling from section 16.
+- **Section wrap.** Preserve `internal/renders/map-yours.png`, source 19b, its hard cut, full-slide geometry, and narrative number 19. Hold for 0:25.
+- **Agenda synchronization.** Slide 5's existing pattern line stays at x 48, y 472, width 864, height 20, size 16 secondary. Its copy now names the five-screen pattern. No geometry changes. Slide 7's pattern narration changes only in the notes; its diagram states remain unchanged.
+
+The six quotation images use a shared conceptual style and each appears only in its own area. Every user screen has one screenshot placeholder and two short explanations. All Section 2 area content is static. Slide 23 retains the six recap bands and exact headline-pitfall wording. All body text remains at least 20 and content ends by 492.

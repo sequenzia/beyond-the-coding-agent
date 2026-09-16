@@ -1,81 +1,89 @@
 # Slide 9: Models, When you are the owner
 
-Beat 2.1 Models, second half. Section 2. Time 2:30 of the beat's 3:30; slide 8 took 1:00. Builds: 5.
+Beat 2.1 Models, second part. Section 2. Time 3:00 of the beat's 3:30; slide 8 took 0:30. Four static screens: quote 0:20, decisions 1:05, maintenance 0:50, application 0:45. Three advances, all hard cuts.
 
 ## On the slide
 
-**Kicker:** Models · When you are the owner
+**Kicker throughout:** Models · When you are the owner
 
-**Title:** The model is a component you select, measure, and replace.
+**Build 1, quote.** No additional title.
 
-**Initial state.** Illustrative FRB request:
+“A decent model with a great harness beats a great model with a bad harness.”
 
-“Review FRB-042 about a pump shutdown. Summarize its discussion and decisions, compare similar FRBs from the past year, and export a cited brief distinguishing possible causes from established findings.”
+Addy Osmani
+Agent Harness Engineering, April 2026
 
-**Build 1. Select.** Evidence extraction · Discussion summaries · Qualified synthesis
-Cost per completed brief · p95 latency
+Conceptual illustration: a small blue model component supported by a larger surrounding structure.
 
-**Build 2. Measure.** Representative FRB cases. Preserve the distinction between possible causes and established findings.
+**Build 2, decisions.** Title: The model decisions you own
 
-**Build 3. Replace.** Replace the request, Select, and Measure with two cards:
+| Decision | Impact and starting approach |
+|---|---|
+| Which model and reasoning settings? | Balance task quality, cost, latency, and deployment constraints. Start with representative task comparisons. |
+| One model or different models? | Routing adds task-specific choices and more configurations to maintain. Start with one until evidence supports routing. |
+| How will model changes be controlled? | Pinned versions need planned migration. Moving aliases need regression monitoring. Define evaluation and replacement practices. |
 
-- Pinned version: controlled migration and lifecycle management.
-- Moving alias: automatic updates and regression monitoring.
+**Build 3, maintenance.** Title: Living with model choices
 
-Research workers: evidence fidelity and coverage.
-Main analyst: faithful summaries, reconciliation, warranted uncertainty.
+- **Task changes:** New tasks can expose gaps in the original evaluation. Refresh the cases as intended use changes.
+- **Routing:** Each route needs evaluation coverage. Measure the whole workflow as routes change.
+- **Model lifecycle:** Versions retire. Aliases update. Monitor changes and prepare a replacement.
 
-**Build 4. Route.** Replace with an editable comparison framework.
+A snapshot does not freeze the whole system.
 
-Repeat for each candidate model and version. Illustrative framework, no results yet.
+**Pitfall:** Choosing and changing models without testing them on your task.
 
-| Task and role | Quality requirement | Cost | p95 latency |
-|---|---|---|---|
-| Evidence extraction, research workers | Faithful passages with exact citations | Measure | Measure |
-| Discussion summary, main analyst | Faithful discussion and decisions | Measure | Measure |
-| Qualified synthesis, main analyst | Supported findings and uncertainty | Measure | Measure |
+**Build 4, application.** Title: A starting design for the FRB brief
 
-Route by measured task fit. Include workers, retries, and verification.
+Illustrative proposed design. No model results claimed.
 
-**Build 5.** Replace the table with:
+| Choice | Starting design and rationale |
+|---|---|
+| Task fit | Compare models on faithful summaries and supported findings. |
+| Allocation | One model configuration for the brief. Add routing only when measurements justify it. |
+| Changes | Pinned version where available, with a migration plan. |
 
-Which configuration meets your product's quality requirement?
-
-**Pitfall:** a hardcoded model ID with no eval suite behind it.
+Revisit when measured quality, cost, latency, or lifecycle requirements justify a change.
 
 ## Layout and visual
 
-- Preserve narrative number 9, header, mini-map, and four physical slides.
-- Select and Measure accumulate around the initial request. Replace, Route, and the final question each start a new physical slide at the existing cuts.
-- Use the native request, role comparison, and table layouts in design brief §16. Keep the framework editable. No invented scores or winning model.
-- Preserve the blue cards and final standard pitfall band. Speak the takeaway.
+- Keep narrative number 9, kicker, and mini-map on all four screens. Each content screen has its own title.
+- Use the quote composition, aligned decision rows, maintenance rows, and native application table in design brief §17.
+- Quote and attribution remain editable text. Use `internal/illustrations/models-in-system.png` only on the quote screen.
+- All content appears immediately. Each advance replaces the body and title on a hard cut. No blank opening state, internal reveal, or pitfall footer.
+- Keep the general decision and maintenance screens free of FRB details. The final screen applies those decisions to an illustrative starting design.
 
 ## Talk track
 
-[0:00] Here is our illustrative request: review FRB-042's pump shutdown, summarize its discussion and decisions, compare the past year's similar FRBs, and export a cited brief. **Keep possible causes distinct from established findings.** Research stays within authorized internal records and attachments.
+[0:00] Build 1, quote. **“A decent model with a great harness beats a great model with a bad harness.”** Addy Osmani is describing his experience. **Evaluate the model inside the system you are building.** Context, tools, and control flow shape the result too.
 
-[0:20] Build 1. Select for evidence extraction, discussion summaries, and qualified synthesis. Consider context limits, tool reliability, data residency, cost per completed brief, and p95 latency.
+[0:20] Build 2, decisions. Three decisions. First, which model and reasoning settings fit the task? **Compare candidates on representative tasks.** Read quality, cost, and latency together. Deployment constraints include context limits, tool reliability, and data residency.
 
-[0:37] Build 2. **Measure your product on representative FRB cases.** A possible cause must remain a possible cause. Public benchmarks use another population and harness.
+[0:39] Second, one model or different models for different work? **Start with one configuration unless measurements justify routing.** Routing gives you more choices, but also more configurations to evaluate and maintain. Orchestration, later, determines how the work is divided and coordinated.
 
-[0:52] Build 3. **Pinned version: controlled migration and lifecycle management. Moving alias: automatic updates and regression monitoring.** A snapshot controls one source of variation. Prompts, retrieval, tools, and the environment still matter. Research workers need evidence fidelity and coverage. The main analyst needs faithful summaries, reconciliation, and warranted uncertainty. Evaluate those responsibilities separately.
+[1:01] Third, how will changes be controlled? **Pinned versions need planned migration. Moving aliases need regression monitoring.** Define how you will evaluate and replace a model before the choice becomes a dependency.
 
-[1:23] Build 4. This table is a comparison framework, with no results yet. Repeat it for candidate models and versions. **Read quality, cost, and latency together.** Measure extraction, discussion summaries, and qualified synthesis. Count workers, retries, and verification in cost per completed brief and end-to-end latency. Route only when measured task fit supports it. A worker is not automatically a job for the cheapest model. We will measure the simple workflow before adding workers.
+[1:25] Build 3, maintenance. Tasks change. Refresh your evaluation cases as intended use changes. Routes change. Cover each route and measure the whole workflow, including retries and verification. Model versions retire and aliases update. Monitor those changes and prepare a replacement.
 
-[2:04] Build 5. **Which configuration meets your product's quality requirement?** The pitfall: **a hardcoded model ID with no eval suite behind it.** That leaves you choosing a replacement without evidence.
+[1:46] **A snapshot does not freeze the whole system.** Prompts, retrieval, tools, and the environment can still change. **Choosing and changing models without testing them on your task** is the recurring pitfall. Skipping that evidence leaves a gap in every one of these decisions.
 
-[2:20] **The model is a versioned, expiring dependency. Treat it like one.**
+[2:15] Build 4, application. Now apply those choices to the FRB brief. This is a proposed starting design, with no measured model results. Compare candidates on faithful summaries and supported findings. **A possible cause must remain a possible cause.** The later minutes still leave FRB-042's cause unresolved.
 
-[2:30] Advance to slide 10.
+[2:33] Begin with one model configuration. Use a pinned version where available, with a migration plan. **Revisit the design when measured quality, cost, latency, or lifecycle requirements justify a change.** The example shows the reasoning behind a starting point, not a winning model.
 
-Cut first: spoken selection axes and the list of table rows. Never cut the FRB request's evidence distinction, separate analyst/worker requirements, unmeasured status, lifecycle distinction, or product-quality question.
+[2:52] **The model is a versioned, expiring dependency. Treat it like one.**
+
+[3:00] Advance to slide 10.
+
+Cut first: the spoken deployment constraints and routing detail. Never cut the quote's attribution, the three decisions, whole-system qualification, headline pitfall, illustrative status, or FRB uncertainty. Preserve the five-screen rhythm and 3:30 total for the area.
 
 ## Sources
 
-- Anthropic and OpenAI lifecycle pages. Research §1 in `research/section-2.md`. A snapshot does not freeze the whole system.
-- Illustrative FRB request and model comparison framework, Research §0 and §1. `internal/frb-running-example.md` holds the invented packet. No measured model result is claimed.
-- The displaced prime/composite and routing benchmarks remain in Research §1 as backup with their original qualifications.
+- Addy Osmani, “Agent Harness Engineering,” April 2026. Research §1 in `research/section-2.md`. Exact quote checked September 15, 2026. An attributed practitioner judgment, not a universal performance guarantee.
+- Anthropic and OpenAI lifecycle pages and model-selection framing. Research §1. A snapshot does not freeze the whole system.
+- Illustrative FRB task and proposed design, Research §0 and §1. `internal/frb-running-example.md` holds the invented packet. No model scores or winning configuration are claimed.
+- Conceptual image generated with the built-in imagegen tool. Prompt and provenance: `internal/illustrations/README.md`.
 
 ## Open items
 
-- None. Candidate measurements are intentionally unspecified in the teaching framework.
+- Review this five-screen Models sequence before beginning Context & Knowledge.

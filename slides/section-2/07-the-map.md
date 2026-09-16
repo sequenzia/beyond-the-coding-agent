@@ -36,7 +36,7 @@ Introduce the illustrative FRB case while the final full-brightness state remain
 
 [1:05] Build 4, across runs. Observability, evaluations, and governance let you learn from and control many runs.
 
-[1:16] Full brightness. Every box exists inside the coding agent you use. Someone built each one. For each area: When you are the user, what someone engineered, then When you are the owner.
+[1:16] Full brightness. Every box exists inside the coding agent you use. Someone built each one. For each area, start with a familiar action, then examine the decisions and responsibilities behind it.
 
 [1:32] **Agent equals model plus harness. Everything that is not the model is what you engineer.**
 

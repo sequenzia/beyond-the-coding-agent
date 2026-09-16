@@ -1,63 +1,89 @@
 # Slide 13: Tools and extensibility, When you are the owner
 
-Beat 2.3 Tools and extensibility, second half. Section 2. Time 1:10 of the beat's 3:00; slide 12 took 1:50. Builds: 4.
+Beat 2.3 Tools and extensibility, second part. Section 2. Time 2:35 of the beat's 3:00; slide 12 took 0:25. Four static screens: quote 0:20, decisions 0:55, maintenance 0:40, application 0:40. Three advances, all hard cuts.
 
 ## On the slide
 
-**Kicker:** Tools and extensibility · When you are the owner
+**Kicker throughout:** Tools and extensibility · When you are the owner
 
-**Title:** You write the contract. You build the gate.
+**Build 1, quote.** No additional title.
 
-**Build 1.** Illustrative FRB tool contract.
+“Agents are only as effective as the tools we give them.”
 
-Background: parse and index PDF reports, Word minutes, and PowerPoint briefings.
+Anthropic
+Writing effective tools for agents, September 2025
 
-**Build 2.** Native tool table, beneath the background line:
+Conceptual illustration: a clear interface connecting two different systems.
 
-| Agent tool | Input | Returns |
-|---|---|---|
-| Search | ID, date, category | Authorized record IDs |
-| Retrieve | ID, revision, location | Exact source passages |
-| Export records | Selected IDs + revisions | Records + manifest |
-| Export cited brief | Checked draft + citations | Brief + export receipt |
+**Build 2, decisions.** Title: The tool decisions you own
 
-**Build 3.** Replace the background and tool table. Illustrative FRB result contract:
+| Decision | Impact and starting approach |
+|---|---|
+| Which capabilities need tools? | Choose operations that serve the task. Test granularity and discovery with real use. Begin with a small, distinct tool set. |
+| What is the tool's contract? | Define names, inputs, results, and errors. Return useful context with stable IDs. Evaluate descriptions with real tasks. |
+| What may run, and under which rules? | Apply least privilege to reads and writes. Validate inputs and enforce authorization in code. Require approval where policy calls for it. |
 
-- Evidence: stable IDs, revisions, source locations. Parsing failures and incomplete results are explicit.
-- Export: selected records or the checked brief, with citations and uncertainty intact.
-- Gate: enforce access and allowed destinations outside the model, for reads and exports.
+**Build 3, maintenance.** Title: Living with tool choices
 
-**Build 4. Pitfall:** copying the API surface without evaluating task fit.
+- **Contract changes:** Descriptions, schemas, and behavior can drift. Update and evaluate them together.
+- **Tool growth:** Overlapping tools make selection harder. Prune duplicates and load definitions when needed.
+- **Failures:** Return an explicit result, error, or unknown outcome. Keep callers from mistaking failure for success.
+
+A description guides the model. Code enforces the contract.
+
+**Pitfall:** copying the API surface without evaluating task fit.
+
+**Build 4, application.** Title: A tool contract for the FRB brief
+
+Illustrative Export cited brief tool.
+
+| Contract | Export cited brief |
+|---|---|
+| Input | Checked draft, citations, destination. |
+| Checks | Enforce access and permitted destination. Require source IDs, revisions, and locations. |
+| Output | Brief matching the checked draft, with citations and uncertainty intact, plus an export receipt. |
+| Failure | Explicit failure or incomplete result. Do not report an unconfirmed export as complete. |
 
 ## Layout and visual
 
-- Preserve narrative number 13, header, mini-map, and two physical slides.
-- Background processing enters on build 1. The agent-facing contract joins on build 2. Results and enforcement replace both at the existing hard cut. Pitfall remains an internal reveal.
-- Use design brief §16's native table and flat labeled-result rows. Do not depict parsing/indexing as tools the agent chooses.
-- Illustration labels remain visible. Pitfall matches slide 23 word for word.
+- Keep narrative number 13, kicker, and mini-map on all four screens. Give each content screen its own title.
+- Follow design brief §19, reusing the established quote, decision-row, and maintenance hierarchy.
+- Quote and attribution remain editable text. Use `internal/illustrations/tools-interface.png` on the quote screen only.
+- Keep the FRB contract as a native editable table. Background parsing/indexing belongs in the talk track, separate from the agent-facing export operation.
+- All content appears immediately. Replace each title and body on a hard cut. No blank opening state, pitfall footer, or internal reveal.
+- General owner screens contain no FRB details.
 
 ## Talk track
 
-[0:00] Build 1. **You write the contract and build the gate.** In our illustration, background services parse and index PDF reports, Word minutes, and PowerPoint briefings. These are separate from the tools the agent calls.
+[0:00] Build 1, quote. **“Agents are only as effective as the tools we give them.”** That is Anthropic's framing. **A tool is a contract between code and a model caller.** Its description, inputs, and results affect whether the caller can use it well.
 
-[0:15] Build 2. Search by ID, date, or category. Retrieve exact source passages. Export selected records, or export the checked brief. Each tool needs a clear input and result contract.
+[0:20] Build 2, decisions. First, which capabilities need tools? **Choose operations that serve the task.** Evaluate granularity and discovery. Begin with a small set whose tools have distinct purposes.
 
-[0:29] Build 3. **Results retain IDs, revisions, and source locations.** Parsing failures and incomplete results are explicit. Exports match the selected records or checked draft, with citations and uncertainty intact. **Enforce authorization outside the model for reads and exports, including the destination.** A model recommendation does not establish permission.
+[0:36] Second, what is the contract? Names, inputs, results, and errors. Return useful context alongside stable IDs. Evaluate descriptions with real tasks. A clear name does not replace a precise input schema.
 
-[0:55] Build 4. **Copying the API surface without evaluating task fit.**
+[0:54] Third, what may run? **Enforce validation and authorization in code.** Least privilege applies to reads and writes. Require approval where policy calls for it. A model recommendation does not establish permission.
 
-[1:01] **Design tools for a caller that reads the description every time and can still get it wrong.**
+[1:15] Build 3, maintenance. Descriptions, schemas, and behavior can drift. Update and evaluate them together. Prune overlapping tools and load definitions when needed. Return explicit results, errors, or unknown outcomes. Recheck permissions as capabilities change.
 
-[1:10] Advance to slide 14.
+[1:36] **A description guides the model. Code enforces the contract.** The recurring pitfall is **copying the API surface without evaluating task fit.** A convenient endpoint wrapper still needs to earn its place in the task.
 
-Cut first: spoken table rows. Never cut background/agent separation, explicit failures, citation-preserving export, or outside-model authorization.
+[1:55] Build 4, application. Background services parse and index the FRB records. **Export cited brief is the agent-facing operation.** It accepts a checked draft, citations, and destination. Code enforces access and permitted destinations and requires source IDs, revisions, and locations.
+
+[2:12] The export must match the checked draft, with citations and uncertainty intact. Return a receipt. Make failed, incomplete, or unconfirmed exports explicit. The full search and retrieval tool inventory remains in the authoring reference.
+
+[2:25] **Design tools for a caller that reads the description every time and can still get it wrong.**
+
+[2:35] Advance to slide 14.
+
+Cut first: the spoken discovery detail and background format inventory. Never cut the quote, the three decisions, outside-model authorization, headline pitfall, background/agent separation, or the export's content and failure contract.
 
 ## Sources
 
-- Anthropic tool design, September 2025; OWASP authorization, 2025; MCP, July 2026. Research §3 in `research/section-2.md`.
-- Illustrative FRB tool/result contract, Research §0 and §3, with details in `internal/frb-running-example.md`.
-- Displaced CamoLeak and ClawHub evidence stays in Research §3 as backup. Operating security evidence stays on slide 18.
+- Anthropic, “Writing effective tools for agents,” September 2025. Research §3 in `research/section-2.md`. Exact quote checked in a browser September 15, 2026.
+- Anthropic advanced tool use, November 2025; MCP Security Best Practices, July 2026; OWASP Excessive Agency, 2025. Research §3. Benchmarks and protocol details remain backup with their qualifications.
+- Illustrative FRB export and result contract, Research §0 and §3, with the full tool inventory in `internal/frb-running-example.md`.
+- Conceptual image generated with the built-in imagegen tool. Prompt and provenance: `internal/illustrations/README.md`.
 
 ## Open items
 
-- None.
+- Review this five-screen Tools & Extensibility sequence before beginning Orchestration.

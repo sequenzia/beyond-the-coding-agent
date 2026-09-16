@@ -31,6 +31,7 @@ FRB-042-MIN r2 is the later minutes revision. FRB-042-BRF r1 is a different, pre
 ## Central failure and expected distinction
 
 - **Observed answer, deliberately wrong:** “The board confirmed bearing wear.”
+- **Citation on that illustrative answer:** FRB-042-MIN r2 §3, paragraph 2. The reference exists, but the cited minutes do not support confirmation. This supplies the direct-reference PASS and source-support FAIL on slide 17.
 - **Expected:** FRB-042's cause remains unresolved. Bearing wear was a possible cause in the preliminary briefing. The later minutes record a decision to inspect the bearing before assigning a cause.
 - **Failed check:** a hypothesis was promoted to an established finding. A citation may exist and still fail to support the sentence.
 - **Trace investigation:** did parsing lose the qualification, retrieval omit the later minutes, compaction drop the constraint, a worker overstate a finding, or synthesis ignore evidence it received? Inspect the actual trace before choosing a repair.

@@ -1,50 +1,42 @@
 # Slide 8: Models, When you are the user
 
-Beat 2.1 Models, first half. Section 2. Time 1:00 of the beat's 3:30; slide 9 takes 2:30. Builds: 2.
+Beat 2.1 Models, first part. Section 2. Time 0:30 of the beat's 3:30; slide 9 takes 3:00. Builds: 0. One static screen.
 
 ## On the slide
 
-**Kicker:** Models · When you are the user
+**Area header:** Models · When you are the user
 
-**Build 1.** Preserve the Devin Desktop and Codex model-picker screenshot placeholders and captions.
+A labeled screenshot placeholder: Devin Desktop model picker, with its reasoning-effort slider visible.
 
-**Build 2.** Screenshots shrink to a strip. Heading: Provider responsibilities behind the picker:
+Beside the picker:
 
-- Defaults.
-- Model-specific prompt and tool tuning.
-- Failover.
-- Price-change handling.
-- Retirement handling.
+**Model**
+Choose which model handles the coding task.
 
-**Callout:** Model retirement creates migration work.
+**Reasoning effort**
+Adjust the effort used to work through the task.
 
 ## Layout and visual
 
-- Display narrative number 8 throughout, using the shared component in the design brief.
-- Playback: Two physical slides retain the existing Morph into the strip. The final callout remains an internal reveal.
-
-- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
-
-- Preserve both full-size placeholders and their compact Morph states. Keep their source keys.
-- Use the existing header, compact kicker, five-line list, and final callout style. The bridge stays within this user slide.
+- Keep narrative number 8 and the full-color area header.
+- Use the smaller picker and two-column explanation layout in design brief §17.
+- No internal reveal or screenshot strip. Hard cut to the quote screen.
+- Show one familiar action. The owner sequence explains its engineering implications.
 
 ## Talk track
 
-[0:00] The model picker exposes a choice. Devin Desktop shows reasoning effort; Codex's `/model` can set it too. **Reasoning effort is a cost and latency dial.** Codex can configure a different effort for planning and a different model for subagents.
+[0:00] This is the model picker in Devin Desktop. The first choice is which model handles your coding task.
 
-[0:30] Build 2. **The provider manages defaults, model-specific tuning, failover, price changes, and retirement handling.** These are responsibilities behind the picker.
+[0:12] The reasoning-effort slider adjusts the effort used to work through that task. **One picker exposes both the model and its reasoning setting.** Those familiar controls are our starting point.
 
-[0:46] Callout. **Model retirement creates migration work.** A retirement record does not tell us how every coding-tool provider migrated every user or whether a change was silent.
+[0:30] Advance to the Models quote.
 
-[1:00] Advance to the owner slide.
-
-Cut first: the config example. Never cut the provider responsibilities or the lifecycle qualification.
+Cut first: the repeated description of the picker. Never cut the distinction between the two controls or the coding-task anchor.
 
 ## Sources
 
-- Codex CLI and Devin docs, checked September 14, 2026. Research §1 in `research/section-2.md`. The Desktop slider is the presenter's observation.
-- Anthropic and OpenAI lifecycle pages. Research §1. Vendor records support lifecycle responsibilities, not universal silent migrations.
+- Devin Desktop docs, checked September 14, 2026. Research §1 in `research/section-2.md`. The picker slider is the presenter's observation; the eventual screenshot will show it.
 
 ## Open items
 
-- Deferred by the presenter: retain both screenshot placeholders. Capture and insert screenshots in a later pass.
+- Retain one labeled Devin Desktop screenshot placeholder for this pilot. Authentic screenshot capture remains deferred.
