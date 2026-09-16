@@ -11,7 +11,7 @@ Beat 1.1 Title. Section 1. Time 0:05. Builds: 0.
 ## Layout and visual
 
 - Preserve the existing centered title composition and narrative number 1.
-- The title is a standalone slide. The code metaphor appears later on slide 5.
+- The title is a standalone slide. The engineering comparison begins on slide 5.
 - No employer, additional artwork, or internal builds. Hard cut to the bio.
 - Visual values follow the design brief.
 

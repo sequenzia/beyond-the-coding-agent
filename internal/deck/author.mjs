@@ -72,7 +72,7 @@ function twoTable(headers,rows,y,rowHeights,opts={}){
  const h=rowHeights.reduce((a,b)=>a+b,0);const obj=slide.tables.add({rows:vals.length,columns:3,left:48*P,top:y*P,width:864*P,height:h*P,columnWidths:(opts.columnWidths||[420,24,420]).map(w=>w*P),values:vals});
  obj.styleOptions={headerRow:false,bandedRows:false,bandedColumns:false,firstColumn:false,lastColumn:false};
  obj.cells.block({row:0,column:0,rowCount:vals.length,columnCount:3}).assign({fill:C.bg,textStyle:{typeface:'Helvetica',fontSize:20*P,color:C.text},margins:{left:0,right:0,top:0,bottom:0},anchor:'top'});
- for(let r=0;r<vals.length;r++){obj.rows[r].height=rowHeights[r]*P;for(const c of [0,2]){obj.getCell(r,c).text.style={typeface:'Helvetica',fontSize:(r===0?24:20)*P,color:r===0?(opts.color||C.pink):(c===2&&opts.rightColors?opts.rightColors[r-1]:C.text),bold:r===0||!!(c===2&&opts.rightColors),autoFit:'none',lineSpacing:1.25};}}
+ for(let r=0;r<vals.length;r++){obj.rows[r].height=rowHeights[r]*P;for(const c of [0,2]){obj.getCell(r,c).text.style={typeface:'Helvetica',fontSize:(r===0?24:(opts.bodySize??20))*P,color:r===0?(opts.color||C.pink):(c===2&&opts.rightColors?opts.rightColors[r-1]:C.text),bold:r===0||!!(c===2&&opts.rightColors),autoFit:'none',lineSpacing:1.25};}}
  addMeta(obj,'table',opts);return obj;
 }
 function evidenceTable(values,widths,y,heights,opts={}){
@@ -119,15 +119,29 @@ shape(48,389,864,1,C.hair);
 text("You'll leave with",48,407,864,25,20,{bold:true,color:C.pink});
 ['A map of the engineering\nresponsibilities','An understanding of what\nproduction readiness requires','A starting point for\nyour own transition'].forEach((label,i)=>text(label,48+i*296,442,272,50,20));
 await newSlide('04');sectionDivider(1,'What changes when AI\nbecomes part of the product');
-await newSlide('05');
-text([[run('demo    = ',C.secondary,false,'Consolas'),run('works',C.text,false,'Consolas'),run('.any()',C.amber,false,'Consolas')],[run('product = ',C.secondary,false,'Consolas'),run('works',C.text,false,'Consolas'),run('.all()',C.green,false,'Consolas')]],48,178,864,184,72,{font:'Consolas',exact:84,nowrap:true});attr('Andrej Karpathy, June 2025',48,472,864,{align:'right'});
-await newSlide('06');thesis();
-await newSlide('07');
-twoTable(['AI during software\ndevelopment','AI in the product\nyou deliver'],[['AI helps you build the software','AI contributes to its behavior\nduring use'],['You review and test what you ship','You also evaluate model behavior\nacross representative cases'],['Your coding-tool provider operates\nthe agent platform',"Your team owns the AI system's\nbehavior and operating limits"]],68,[90,94,82,100],{end:1});
-text('Production readiness',110,68,748,40,32,{bold:true,start:1});
-const commitments=['A compelling prototype is not evidence\nof production readiness.','Traditional tests are necessary\nbut no longer sufficient.','Evaluation does not stop at deployment.'];
-commitments.forEach((v,i)=>{text(String(i+1),110,132+i*120,34,50,24,{color:C.secondary,start:1});text(v,150,132+i*120,708,68,24,{start:1});});
-text([[run('works',C.text,false,'Consolas'),run('.any()',C.amber,false,'Consolas'),run(' is not ',C.secondary),run('works',C.text,false,'Consolas'),run('.all()',C.green,false,'Consolas')]],150,205,708,20,16,{start:1,exact:20});
+await newSlide('05',{title:'Deterministic logic and model behavior'});
+twoTable(['Deterministic logic','Model behavior'],[
+ ['Explicit rules implemented\nin code','Learned behavior guided\nby instructions and context'],
+ ['Same input and state produce\nthe same result','Same supplied input can produce\ndifferent results'],
+],192,[64,104,104],{bodySize:24});
+await newSlide('06',{title:'Reliability with a model in the loop'});
+[
+ ['Correctness','A valid response can still be wrong.'],
+ ['Consistency','One successful run does not\nestablish reliability.'],
+ ['Actions','Model choices can affect subsequent steps.'],
+].forEach(([label,body],i)=>{
+ text(label,48,192+i*100,272,82,24,{bold:true,color:C.pink});
+ text(body,344,192+i*100,568,82,24);
+});
+await newSlide('07',{title:'Engineering the system around the model'});
+[
+ ['Build in determinism','Explicit logic and required\nworkflow steps.'],
+ ['Enforce boundaries','Permissions and execution limits\noutside the model.'],
+ ['Evaluate behavior','Outcomes across cases, repeated runs,\nand production use.'],
+].forEach(([label,body],i)=>{
+ text(label,48,192+i*100,272,82,24,{bold:true,color:C.pink});
+ text(body,344,192+i*100,568,82,24);
+});
 await newSlide('08');sectionDivider(2,'What AI engineers\nactually engineer');
 // The anatomy map uses the supplied renders, including every highlight state.
 await newSlide('09');await img('internal/renders/map-full.png',0,0,960,540,{end:1});

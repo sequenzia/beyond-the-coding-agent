@@ -17,7 +17,7 @@ Beat 1.8 Section 2 transition. Section 1. Time 0:10. Builds: 0.
 
 ## Talk track
 
-[0:00] **Let's look at the system around the model, and the engineering each part requires.**
+[0:00] **Let’s look at the system around the model, and where these responsibilities live.**
 
 [0:10] Advance to slide 9.
 

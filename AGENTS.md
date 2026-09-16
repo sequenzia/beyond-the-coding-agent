@@ -14,7 +14,7 @@ Run `node internal/deck/build.mjs`. Keep the reusable scripts in `internal/deck/
 
 Speaker notes reload the talk track from Markdown, without timestamps, metadata, or material after the advance cue. Build cues use native bold uppercase headings. Research links and rehearsal guidance remain in Markdown. Visible text, layouts, and click assignments are authored in `internal/deck/author.mjs`; update those blocks alongside the corresponding slide specs. Rebuild from the saved code instead of reconstructing the deck. Inspect rendered states after changes and validate native PowerPoint playback before presenting.
 
-The 48 narrative slides use 48 authored compositions. `internal/deck/expand.mjs` splits compositions at finite object exits into 54 physical slides, retaining one internal click and no Morph transitions. Every physical slide displays its narrative number. The presentation has 55 states and 54 advances. Preserve both authored and expanded build maps, and inspect full editing views as well as presentation states.
+The 48 narrative slides use 48 authored compositions. `internal/deck/expand.mjs` splits compositions at finite object exits into 53 physical slides, retaining one internal click and no Morph transitions. Every physical slide displays its narrative number. The presentation has 54 states and 53 advances. Preserve both authored and expanded build maps, and inspect full editing views as well as presentation states.
 
 ## Source of truth and the evidence layer
 

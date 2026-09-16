@@ -4,7 +4,7 @@ Beat 3.5 Close and resources, first half. Section 3. Time 0:22 of the beat's 0:3
 
 ## On the slide
 
-The two thesis sentences, exactly as on slide 6.
+The two thesis sentences that close the talk.
 
 - Using AI makes you an AI-enabled software engineer.
 - Engineering systems that depend on AI makes you an AI engineer.
@@ -16,7 +16,7 @@ The two thesis sentences, exactly as on slide 6.
 - Display narrative number 47 throughout, using the shared component in the design brief.
 - Playback: One physical slide. Questions remains an internal reveal.
 
-- Reuse slide 6 unchanged, then add the build. The audience saw this screen thirty minutes ago; the recognition is the close.
+- Preserve the existing two-sentence thesis composition, then reveal Questions. The close names the role after the opening has established its engineering responsibilities.
 - "Questions" sits beneath the two sentences in the same type, smaller. No contact details, no handles, no logos; those belong on slide 2 or slide 48 if anywhere.
 - Reveal Questions, then advance to the final resources slide. Use a hard cut.
 
@@ -61,7 +61,7 @@ For a routing question, Devin CLI's Fusion (September 11, 2026) is in research �
 
 ## Sources
 
-- The thesis sentences: slide 6. Research §1 in `research/section-1.md`.
+- The thesis sentences: the central thesis in the outline. Research §1 in `research/section-1.md`.
 - Q&A answers trace to the slides named. The Dice figure was confirmed on the publisher page September 14, 2026. Research §1 in `research/section-3.md`. `[primary]`.
 
 ## Open items

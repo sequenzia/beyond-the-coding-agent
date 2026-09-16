@@ -14,6 +14,8 @@ Using AI makes you an AI-enabled software engineer. Engineering systems that dep
 
 AI engineering builds on a foundation of software engineering. This talk focuses on products around foundation models, with overlapping AI and ML roles. It adds the skills and practices needed to make systems useful, reliable, and trustworthy when part of their behavior is delegated to a foundation model. Agentic systems, where the model participates in control flow, are its most demanding expression.
 
+The opening develops the engineering shift before naming the role. Engineers retain accountability for model-dependent behavior. They deliberately build in determinism, delegate selectively, and enforce permissions and execution limits outside the model. Repeatability and correctness are separate requirements.
+
 ### How to read this outline
 
 - Each beat lists its time, the slide, what to say, the evidence, and a takeaway line. It is a talk-track outline, not a script.
@@ -53,7 +55,7 @@ Each area has five separately numbered static slides. The opening and closing an
 
 The six standalone user screens and all paired user/owner labels are removed. Codex CLI and Devin remain the named coding-agent anchors in the map narration. There are no screenshot walkthroughs. Verification & Evals has no personal story or 1:00 reservation. The final area is AgentOps. The FRB corpus's CUI/ECI requirements and older, less capable approved models are explicit illustrative deployment assumptions informed by presenter-supplied audience context. They are not universal model-performance claims.
 
-The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 48. The builder now implements the same 48-slide narrative. Its expansion produces 54 physical slides and 55 presentation states.
+The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 48. The builder now implements the same 48-slide narrative. Its expansion produces 53 physical slides and 54 presentation states.
 
 ---
 
@@ -90,62 +92,57 @@ Approved bio from slide 2, September 14, 2026. Stephen Sequenzia, Senior Staff A
 ### 1.4 Section 1 divider (0:10). Slide 4
 
 - Slide: Section 1. What changes when AI becomes part of the product.
-- Say: Let the section title sit, then advance to the opening metaphor. No additional explanation.
+- Say: Let the section title sit, then advance to the comparison of deterministic logic and model behavior. No additional explanation.
 - Takeaway line: "What changes when AI becomes part of the product."
 - Sources: the published session description in the README.
 
-### 1.5 Opening hook (0:40). Slide 5
+### 1.5 Deterministic logic and model behavior (0:55). Slide 5
 
-- Slide: `demo = works.any()` and `product = works.all()`, with Karpathy attribution.
-- Say: **You have probably seen a coding agent do something impressive.** Andrej Karpathy captures the gap between that moment and a product with these two lines. **A demo shows that a useful path exists. A product needs reliable behavior across its intended use, including a safe response when it cannot complete the task.** When AI becomes part of the product, engineering that behavior becomes your responsibility.
-- Takeaway line: "Production readiness means reliable behavior across intended use, with safe handling when the task cannot be completed."
-- Source: Karpathy, "Software Is Changing (Again)," June 2025. Research §2.
+- Slide: one static, editable comparison.
 
-### 1.6 The thesis (0:30). Slide 6
-
-- Slide: the two thesis sentences, nothing else.
-- Say:
-  - **Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer.** Let the visible thesis carry these sentences; supporting narration follows.
-  - **This talk focuses on products built around foundation models. Your software engineering skills are the foundation.**
-  - ML engineers typically focus on models and the pipelines that produce them. AI engineers typically focus on products around those models. **The roles overlap.**
-  - **The added responsibility is measuring and controlling the model's contribution to the product's behavior.**
-- Takeaway line: "The additional responsibility is measuring and controlling model-dependent behavior."
-- Sources: CMU SEI; Huyen, 2025; swyx, June 2023, as background. Research §1.
-
-### 1.7 Using AI vs engineering AI (1:30). Slide 7, two screens
-
-- Slide, first screen: editable comparison.
-
-  | AI during software development | AI in the product you deliver |
+  | Deterministic logic | Model behavior |
   |---|---|
-  | AI helps you build the software | AI contributes to its behavior during use |
-  | You review and test what you ship | You also evaluate model behavior across representative cases |
-  | Your coding-tool provider operates the agent platform | Your team owns the AI system's behavior and operating limits |
+  | Explicit rules implemented in code | Learned behavior guided by instructions and context |
+  | Same input and state produce the same result | Same supplied input can produce different results |
 
-- Slide, second screen: title "Production readiness" and the three commitments. Retain the small `works.any()` / `works.all()` subline beneath the first.
 - Say:
-  - **The distinction is where the model-dependent behavior lives.** During development, AI helps build the software. In the delivered product, users depend on model output or actions during use. **Human review can exist on either side.**
-  - Your team owns the AI system's behavior and operating limits. You design checks, permissions, approval steps, and failure handling.
-  - **In a predefined workflow, code fixes the path. An agent can let the model select the next action. Your code still enforces permissions and limits.** This is why the talk examines agentic systems and the system around the model.
-  - At 0:55, replace the comparison with Production readiness:
-    1. **A compelling prototype is not evidence of production readiness.** works.any() is not works.all().
-    2. **Traditional tests are necessary but no longer sufficient.**
-    3. **Evaluation does not stop at deployment.**
-- Takeaway line: "Using AI changes how you build. Engineering AI changes what you are responsible for."
-- Sources: Anthropic, "Building effective agents," December 2024. Research §5. The three commitments restate the published description. Fowler, August 2025, and Shankar et al., UIST 2024, remain backup only in Research §2 and §3 and the slide's Markdown after the handoff.
+  - Deterministic logic follows the rules we specify. A foundation model contributes learned behavior guided by instructions and context. It handles language and ambiguity without requiring every rule to be spelled out, but the same supplied input can produce different results. **An instruction is not an enforced constraint.**
+  - Software already deals with uncertainty. Here, part of the product's behavior depends on the model. Using AI to help write software changes how you build. **Putting AI inside the product changes the behavior you are responsible for.**
+- Takeaway line: "Putting AI inside the product changes the behavior you are responsible for."
+- Sources: Aizawa, Anthropic, September 2025; Willison, March and October 2025. Research §2. OWASP, 2025, Research §5. The deterministic comparison concerns logic with fixed inputs and state, not all software systems.
+
+### 1.6 Reliability with a model in the loop (0:45). Slide 6
+
+- Slide: three static rows. Correctness: A valid response can still be wrong. Consistency: One successful run does not establish reliability. Actions: Model choices can affect subsequent steps.
+- Say:
+  - A response can look valid and still be wrong. A successful attempt does not establish consistent behavior across intended use. **Consistency alone is not correctness. A model can repeat the same mistake.**
+  - An agent can select tools and influence subsequent steps. Errors can affect later steps. **A compelling prototype is not evidence of production readiness.**
+- Takeaway line: "Consistency alone is not correctness."
+- Sources: Anthropic, January 2026, Research §3; Anthropic, December 2024, Research §5. Correctness versus repeatability is the conceptual synthesis in Research §2. The production-readiness commitment restates the published description.
+
+### 1.7 Engineering the system around the model (1:00). Slide 7
+
+- Slide: three static responsibility rows. Build in determinism: Explicit logic and required workflow steps. Enforce boundaries: Permissions and execution limits outside the model. Evaluate behavior: Outcomes across cases, repeated runs, and production use.
+- Say:
+  - **Good AI engineers look for places to make behavior deterministic. Adding AI does not mean delegating the whole system to it.** Use model judgment where it helps. Put calculations and required workflow steps in code when explicitly specifiable. Enforce permissions and limits outside the model.
+  - Define acceptable results. Keep software tests and add evaluations across representative cases and repeated runs. Continue evaluating after deployment. Design stopping and human handoff when the system cannot meet the requirement.
+  - This talk focuses on products around foundation models. ML engineering often focuses on models and training pipelines; the roles overlap. Software engineering skills remain the foundation.
+  - **You are still responsible for the product's behavior, even when you no longer write all the rules that produce it.**
+- Takeaway line: "You are still responsible for the product's behavior, even when you no longer write all the rules that produce it."
+- Sources: CMU SEI; Huyen, 2025, Research §1; Anthropic, January 2026, Research §3; Anthropic, December 2024, and OWASP, 2025, Research §5. Selective delegation and building in determinism are the presenter's engineering synthesis of those sources. The software-testing and continuing-evaluation commitments preserve the published description.
 
 ### 1.8 Section 2 transition (0:10). Slide 8
 
 - Slide: Section 2. What AI engineers actually engineer.
-- Say: **"Let's look at the system around the model, and the engineering each part requires."**
-- Takeaway line: "Let's look at the system around the model, and the engineering each part requires."
+- Say: **"Let's look at the system around the model, and where these responsibilities live."**
+- Takeaway line: "Let's look at the system around the model, and where these responsibilities live."
 - Sources: the Section 2 responsibility map.
 
 ### Section 1 checks
 
-- Time: 0:05 + 0:30 + 0:25 + 0:10 + 0:40 + 0:30 + 1:30 + 0:10 = 4:00.
-- Narrative slides: 1 through 8. Title, bio, agenda, Section 1 divider, hook, thesis, comparison and commitments, Section 2 divider. Nine physical slides because the comparison has two screens.
-- Description scope covered: using vs engineering (1.5 through 1.7); distinct discipline and AI versus ML roles (1.6); agentic systems as the most demanding expression and the three production commitments (1.7); learning goals and full agenda (1.3).
+- Time: 0:05 + 0:30 + 0:25 + 0:10 + 0:55 + 0:45 + 1:00 + 0:10 = 4:00. Slides 5 through 8 total 2:50. These are rehearsal targets, not measured delivery times.
+- Narrative slides: 1 through 8. Title, bio, agenda, Section 1 divider, deterministic logic and model behavior, reliability, engineering responsibilities, Section 2 divider. Eight physical slides, all static.
+- Description scope covered: using vs engineering (1.5 and 1.7); distinct discipline and AI versus ML roles (1.7); agentic systems and compounded consequences (1.6); production readiness, ordinary tests plus evals, and continuing evaluation (1.6 and 1.7); learning goals and full agenda (1.3). Selective delegation, deterministic logic, enforced boundaries, and retained accountability are explicit.
 - Verify before stage: no Section 1 quote is flagged. Full list in `research/section-1.md`.
 
 ---
@@ -340,7 +337,7 @@ Resources stays visible during questions and discussion.
 ### Section 3 checks
 
 - Time: 0:10 + 1:05 + 1:15 + 0:35 + 0:35 + 0:30 = 4:10.
-- Slides: 42 through 48. Deck: 48 narrative slides and 48 authored compositions expand to 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances.
+- Slides: 42 through 48. Deck: 48 narrative slides and 48 authored compositions expand to 53 physical slides, 54 states, one internal click, no Morph transitions, and 53 advances.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
 - Evidence status: competencies are unranked learning objectives grounded in Section 2's engineering decisions. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
 
@@ -381,7 +378,7 @@ Resources stays visible during questions and discussion.
 ### Whole-talk checks
 
 - Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 28:30 rehearsal reference. Section 3 is 4:10. The current references imply 33:10 to 37:10 of presentation; discussion fills the remainder of the 50-minute session.
-- Deck: 48 narrative slides, eight in Section 1, thirty-three in Section 2, and seven in Section 3. Each narrative slide has one authored composition. Expansion produces 54 physical slides, 55 states, one internal click, no Morph transitions, and 54 advances.
+- Deck: 48 narrative slides, eight in Section 1, thirty-three in Section 2, and seven in Section 3. Each narrative slide has one authored composition. Expansion produces 53 physical slides, 54 states, one internal click, no Morph transitions, and 53 advances.
 - FRB acceptance: a suspected cause never becomes a confirmed finding without support. Later minutes remain distinct from preliminary material. Similar symptoms and duplicates do not establish a common cause. Missing, unreadable, conflicting, incomplete, or unauthorized evidence yields an explicit limitation. Export matches the selection and preserves citations and uncertainty. Check citation existence separately from semantic support.
 - Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap sequence. The evals and roadmap personal stories are removed. Preserve the optional presenter-authored slot in Section 1. Orchestration has no audience pause.
 - Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.7, 2.5, 2.6, 3.3); why tests are necessary but not sufficient (1.7, 2.5); why evals continue after deployment (1.7, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).

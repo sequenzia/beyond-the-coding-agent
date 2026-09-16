@@ -18,7 +18,7 @@ Beat 1.4 Section 1 divider. Section 1. Time 0:10. Builds: 0.
 
 ## Talk track
 
-[0:00] Let the section title sit. Pause before the opening metaphor, without repeating the agenda.
+[0:00] Let the section title sit. Pause before the comparison of deterministic logic and model behavior, without repeating the agenda.
 
 [0:10] Advance to slide 5.
 

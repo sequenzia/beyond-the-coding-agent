@@ -44,6 +44,13 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 
 ## 2. Using AI vs engineering AI systems
 
+**Ken Aizawa, "Writing effective tools for agents, with agents," Anthropic Engineering, September 11, 2025** [primary]. https://www.anthropic.com/engineering/writing-tools-for-agents Checked in a browser September 16, 2026.
+
+- "deterministic systems produce the same output every time given identical inputs"
+- Agents "can generate varied responses even with the same starting conditions."
+- Opening comparison: deterministic logic specifies rules; the foundation model contributes learned behavior guided by instructions and context. This compares components, not all traditional software against all AI systems. Inputs and state must be held fixed for the deterministic comparison. Software already handles uncertainty from concurrency, external services, and changing state.
+- Engineering interpretation: language and ambiguity motivate selective model judgment. Neither instructions nor repeatable output establish that a requirement was met. A repeatable mistake still fails the requirement. This is the talk's conceptual synthesis, not a measured performance claim.
+
 **Simon Willison, "Not all AI-assisted programming is vibe coding," March 19, 2025** [primary]. https://simonwillison.net/2025/Mar/19/vibe-coding/
 
 - "If an LLM wrote every line of your code, but you've reviewed, tested, and understood it all, that's not vibe coding in my book, that's using an LLM as a typing assistant."
@@ -59,6 +66,7 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 
 - "the hottest new programming language is English"
 - "Demo is works.any(), product is works.all()"
+- Retained as research backup. Removed from the Section 1 opening in the September 16 behavior-focused rework.
 - Talk interpretation of the metaphor: a demo shows a useful path. Production readiness means reliable behavior across intended use, with safe handling when the system cannot complete a task. This is not a claim of exhaustive correctness.
 - On the generation-verification loop: "To improve verification: Make it easy, fast to win. To improve generation: Keep AI on tight leash."
 - Software 1.0 (hand-written code), 2.0 (learned weights), 3.0 (prompts as programs).
@@ -97,6 +105,8 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 
 **Anthropic, "Demystifying evals for AI agents," January 9, 2026** [primary]. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
 
+- Rechecked in a browser September 16, 2026 for the opening rework. "Because model outputs vary between runs, we run multiple trials to produce more consistent results."
+- The opening separates a response's form, its correctness, and consistency across intended use. Evaluate outcomes as well as the trace. One successful attempt does not establish production readiness. Continued evaluation and production observation provide complementary evidence as the system changes.
 - "The capabilities that make agents useful also make them harder to evaluate."
 - "Agents use tools across many turns, modifying state in the environment and adapting as they go, which means mistakes can propagate and compound."
 - "A flight-booking agent might say 'Your flight has been booked' at the end of the transcript, but the outcome is whether a reservation exists in the environment's SQL database."
@@ -139,6 +149,12 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 - "Agents are the better option when flexibility and model-driven decision-making are needed at scale. For many applications, however, optimizing single LLM calls with retrieval and in-context examples is usually enough."
 - "you should consider adding complexity only when it demonstrably improves outcomes."
 - Talk framing: an agent adds model-selected actions to control flow. Ordinary code can still enforce permissions, limits, and other guarantees. Model behavior calls for measurement and failure handling within those boundaries.
+- Rechecked in a browser September 16, 2026. Workflows retain predefined code paths, and agents allow model choices within the system. The recommendation to build in determinism is the presenter's engineering synthesis: use model judgment where useful, keep explicitly specifiable calculations and required steps in code, and evaluate the remaining model-dependent behavior. A fixed workflow does not make the model's output deterministic or establish its correctness.
+
+**OWASP, "LLM06:2025 Excessive Agency," Gen AI Security Project, 2025** [primary]. https://genai.owasp.org/llmrisk/llm062025-excessive-agency/ Checked in a browser September 16, 2026.
+
+- "Implement authorization in downstream systems rather than relying on an LLM to decide if an action is allowed or not."
+- Supports enforcing permissions outside the model. The opening's broader responsibility for execution limits, stopping, and human handoff also follows the bounded-workflow teaching synthesis above and the existing Section 2 execution evidence.
 
 **OpenAI, "A practical guide to building agents," April 2025.** https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
 
@@ -173,7 +189,9 @@ Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means the 
 
 **Other, lower confidence:** Arize, "The AI Agent Reliability Gap: 2026 Report," https://arize.com/resources/agent-reliability-gap/ (14 interviews, small sample). Gartner reportedly said in July 2025 that "context engineering is in, and prompt engineering is out." UNVERIFIED.
 
-## 7. Candidate openers, ranked
+## 7. Historical candidate openers, ranked
+
+These candidates remain authoring history. The current opening uses deterministic logic and model behavior (0:55), reliability (0:45), engineering responsibilities (1:00), and the Section 2 divider (0:10). The presenter approved the exact slide copy and script on September 16, 2026. The responsibility to build in determinism and delegate selectively is explicit. The closing thesis remains on slide 47.
 
 1. **works.any() vs works.all().** Karpathy, June 2025, verified. You have probably seen your coding agent do something impressive this week. The metaphor distinguishes a useful path from reliable intended use with safe failure handling.
 2. **The prediction that came true.** swyx, June 2023: ML engineer postings outnumbered AI engineer postings ten to one; he predicted inversion within five years. AI engineer is #1 on LinkedIn Jobs on the Rise 2026. Turn: the title arrived before the discipline did. Use the ranking, not the percentages.

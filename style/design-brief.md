@@ -1,6 +1,6 @@
 # Design brief
 
-Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 23 through 34 define the current 48-slide authoring target, integrated into Markdown September 16. Section 24 records the revised opening and supersedes earlier Section 1 examples. Sections 17 through 22 describe the earlier Section 2 layouts and exported deck. The builder now implements the new target; final rendering and native playback are reviewed with each exported revision.
+Visual and typographic decisions for the deck. Companion to `style/colors.md`, which holds the palette. Decided September 14, 2026. Revised the same day after the mockup gate, which replaced the monochrome typographic system with the system in sections 5 and 6. The mockup that passed the gate is at https://claude.ai/artifact/S6Yg8AQSPH1EMwW28Qvxms, eight states from seven slides at one point per pixel. Sections 23 through 37 define the current 48-slide authoring target, integrated into Markdown September 16. Section 37 defines the current opening and supersedes the Section 1 core layouts in §24. Sections 17 through 22 describe the earlier Section 2 layouts and exported deck. The builder now implements the new target; final rendering and native playback are reviewed with each exported revision.
 
 ## 1. Scope and precedence
 
@@ -728,7 +728,7 @@ The agenda is now slide 3. Its revised layout and all Section 1 compositions fol
 
 ## 24. Section 1 revision, September 16, 2026
 
-This section supersedes earlier Section 1 geometry, numbering, and agenda rules. The palette, faces, reading floor, grid, and native-number component remain unchanged. The current numbering migration is `internal/deck/section-1-numbering-map.json`; the Section 2 review's earlier map remains historical.
+Historical opening revision. Section 37 supersedes its slides 5 through 7, timing, and physical counts; the agenda and matching dividers below remain current. This section superseded earlier Section 1 geometry, numbering, and agenda rules. The palette, faces, reading floor, grid, and native-number component remain unchanged. The current numbering migration is `internal/deck/section-1-numbering-map.json`; the Section 2 review's earlier map remains historical.
 
 ### Opening order and timing
 
@@ -1046,4 +1046,27 @@ This section supersedes earlier Section 3 color, recap geometry, roadmap-state, 
 - Slide 45 bands occupy x 48, width 864, leaving the shared 48-point side margins. Preserve the six 60-point heights and 6-point gaps at y 100 through 430. Label blocks are 224 wide. Label text uses x 64, width 192, y equal to band top plus 3, height 54, Bold 20, vertically centered. Keep existing area text colors and deliberate label wraps. Sentence boxes use x 296, width 600, y equal to band top plus 3, height 54, Regular 20, primary, vertically centered. Retain the final sentence break before “without reviewing”.
 - Slide 46 is one static composition containing only the four roadmap rows. Preserve their geometry from §25, with no finite exits, assignment, record table, or internal builds. Its reference time is 0:35.
 - Slide 47 is the thesis close with its existing Questions reveal. Slide 48 is Resources, one static state that stays visible during discussion. Preserve their existing typography and geometry.
-- Current counts: 48 narrative slides, 48 authored compositions, 54 physical slides, 55 presentation states, one internal click, no Morph transitions, and 54 advances. Section 3 sums to 4:10. Presentation time is approximately 33:10 to 37:10.
+- Counts at this revision, superseded by §37: 48 narrative slides, 48 authored compositions, 54 physical slides, 55 presentation states, one internal click, no Morph transitions, and 54 advances. Section 3 sums to 4:10. Presentation time is approximately 33:10 to 37:10.
+
+
+## 37. Section 1 behavior-focused rework, September 16, 2026
+
+This section supersedes the core opening layouts, hook and thesis placement, timing, and counts in §24. Slides 1 through 4 and the matching divider on slide 8 retain their compositions. The code metaphor leaves the opening. The two-sentence thesis composition remains on slide 47 with its existing Questions reveal. Slide 48 remains Resources. The published description and Section 2 numbering are unchanged.
+
+### Sequence and presentation states
+
+Slides 5, 6, 7, and 8 take 0:55, 0:45, 1:00, and 0:10 respectively, totaling 2:50. Section 1 remains 4:00. All eight Section 1 slides are static. Slide 7 has no finite exit or replacement screen. All cuts are hard cuts. No new mini-maps, images, kickers, attributions, visible takeaway lines, or animations appear in the core opening.
+
+Current counts: 48 narrative slides, 48 authored compositions, 53 physical slides, 54 presentation states, one internal click, no Morph transitions, and 53 advances. The map on slide 9 retains its six states. The Questions reveal on slide 47 is the only internal click. Section 2 and Section 3 keep their existing timings.
+
+### Shared header and native text
+
+Use the existing standard title header without a kicker or mini-map on slides 5 through 7. Title at x 48, y 68, width 864, height 76, Helvetica Bold 32 in primary text. Header divider at x 48, y 168, width 864, height 1, hairline color. Preserve the shared narrative number and safe area. All explanatory text is Helvetica Regular 24 in primary text, with 1.25 line spacing. Labels and table headers use Bold 24 in pink. No cards, banded fills, or extra footer fragments.
+
+### Slide 5 comparison
+
+Native flat comparison table at x 48, y 192, width 864. Content columns are 420 wide with a 24-wide empty gutter. Row heights are 64, 104, and 104, ending at y 464. Match the native table's no-border treatment, zero cell margins, and top alignment. Body cells use 24 rather than the shared table helper's default 20. Preserve the locked copy and use deliberate line breaks after "implemented", "guided", "produce", and "produce" in the respective body cells. Both column headers fit on one line.
+
+### Slides 6 and 7 explanatory rows
+
+Use native editable text rows, with no visible table header. Each row starts at y 192, 292, or 392. Labels at x 48, width 272, height 82. Explanations at x 344, width 568, height 82. Preserve the locked wording. On slide 6, break the second explanation after "not". On slide 7, break the first explanation after "required", the second after "limits", and the third after "repeated runs,". Other rows fit naturally without forced breaks. All text fits above the bottom safe margin.

@@ -2,7 +2,7 @@
 
 This directory is the editable source for the PowerPoint deck. Keep these files in Git. `.deck-build/` contains disposable build snapshots, intermediate PPTX files, renders, and validation reports. The builder never reads from an older build directory.
 
-**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 48 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-2-orientation-numbering-map.json`; the Section 1 map remains a historical authoring record; the prior Section 2 map remains a historical authoring record. Layout rules are in design brief §§23 through 36. The compiler and notes tests cover the new numbering. Section 3 now keeps only the four-step roadmap, uses orange headers, and ends with resources after the close.
+**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 48 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-2-orientation-numbering-map.json`; the Section 1 map remains a historical authoring record; the prior Section 2 map remains a historical authoring record. Layout rules are in design brief §§23 through 37. The compiler and notes tests cover the new numbering. Section 3 now keeps only the four-step roadmap, uses orange headers, and ends with resources after the close.
 
 ## Rebuild
 
@@ -71,9 +71,9 @@ The map and a static teaching-pattern and FRB orientation open Section 2. The si
 
 ### Builds and slide numbering
 
-The opening order is title (1), unchanged bio (2), agenda (3), Section 1 divider (4), code metaphor (5), thesis (6), comparison and Production readiness (7), then Section 2 divider (8). All three dividers use the same component. The title and hook are now separate static compositions.
+The opening order is title (1), unchanged bio (2), agenda (3), Section 1 divider (4), deterministic logic and model behavior (5, 0:55), reliability (6, 0:45), engineering responsibilities (7, 1:00), then Section 2 divider (8). All three dividers use the same component. All eight Section 1 compositions are static. Slide 7 has no replacement screen. Slides 5 through 8 total 2:50; their locked scripts retain selective delegation, explicit determinism, and enforced boundaries. The closing thesis remains on slide 47.
 
-There are 48 narrative slides, 48 authored compositions, and 54 physical PowerPoint slides. Each narrative slide has one authored composition. The compiler creates another 6 slides at replacement boundaries. There are 55 presentation states, one internal click, no Morph transitions, and 54 advances. Section 2 remains 25:00 to 29:00, with a 28:30 rehearsal reference; Section 1 is 4:00 and Section 3 is 4:10. The presentation is approximately 33:10 to 37:10; discussion fills the rest of the 50-minute session.
+There are 48 narrative slides, 48 authored compositions, and 53 physical PowerPoint slides. Each narrative slide has one authored composition. The compiler creates another 5 slides at replacement boundaries. There are 54 presentation states, one internal click, no Morph transitions, and 53 advances. Section 2 remains 25:00 to 29:00, with a 28:30 rehearsal reference; Section 1 is 4:00 and Section 3 is 4:10. The presentation is approximately 33:10 to 37:10; discussion fills the rest of the 50-minute session.
 
 Every physical slide has an editable narrative number from 1 through 48. Continuations repeat their narrative number. The number is added last so images and bands cannot cover it. Its geometry and typography live in design brief section 6.
 
@@ -104,7 +104,7 @@ Expected counts live in `expand.mjs`; packaging also asserts the native slide, c
 | `expand.test.mjs` | Focused compiler checks for replacement boundaries, sparse clicks, notes, Morph, and source selection |
 | `package.py` | Adds native click animation XML, Morph, font policy, line spacing, and border corrections |
 | `render.mjs` | Imports the candidate PPTX and renders every presentation state and complete physical slide; reports likely text-fit problems |
-| `finalize.mjs` | Checks 54 slides, native tables, geometry, fonts, package integrity, and Artifact Tool import; writes a new final PPTX |
+| `finalize.mjs` | Checks 53 slides, native tables, geometry, fonts, package integrity, and Artifact Tool import; writes a new final PPTX |
 | `runtime.mjs` | Shared runtime paths and font registration |
 
 Each run records `build-manifest.json`, stage logs, authored and expanded models and maps, `native-build-map.json`, `render-map.json`, `fit-warnings.json`, PNG previews, and `validation.json`. The receipt includes expansion, native-build, and render checks, and distinguishes narrative, authored, and physical counts. The manifest hashes inputs and the final PPTX so a future update can be compared with a known build. It also records the runtime locations; keep this generated file private in `.deck-build/`.
