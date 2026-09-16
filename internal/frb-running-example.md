@@ -41,7 +41,7 @@ FRB-042-MIN r2 is the later minutes revision. FRB-042-BRF r1 is a different, pre
 ## Central failure and expected distinction
 
 - **Observed answer, deliberately wrong:** “The board confirmed bearing wear.”
-- **Citation on that illustrative answer:** FRB-042-MIN r2 §3, paragraph 2. The reference exists, but the cited minutes do not support confirmation. This supplies the direct-reference PASS and source-support FAIL on slide 32.
+- **Citation on that illustrative answer:** FRB-042-MIN r2 §3, paragraph 2. The reference exists, but the cited minutes do not support confirmation. This supplies the direct-reference PASS and source-support FAIL on slide 34.
 - **Expected:** FRB-042's cause remains unresolved. Bearing wear was a possible cause in the preliminary briefing. The later minutes record a decision to inspect the bearing before assigning a cause.
 - **Failed check:** a hypothesis was promoted to an established finding. A citation may exist and still fail to support the sentence.
 - **Trace investigation:** did parsing lose the qualification, retrieval omit the later minutes, compaction drop the constraint, a worker overstate a finding, or synthesis ignore evidence it received? Inspect the actual trace before choosing a repair.
@@ -136,14 +136,14 @@ Use failures to identify a response and a subsequent improvement. For example, i
 
 | Slide | Responsibility taught |
 |---|---|
-| 7 | System purpose and human ownership of official records |
-| 12 | Select, measure, replace, and route eligible models for FRB work |
-| 17 | Curate relevant, fresh evidence with provenance and constraints |
-| 22 | Define the agent's tool contract and enforce authorization |
-| 27 | Bound workflow, workers, retries, and resume |
-| 32 | Separate citation existence from source support and retain the failure as a regression case |
-| 37 | Enforce access, trace decisions, and monitor accountable operation |
-| 38 | Connect the six responsibilities |
-| 43 | Review 20 to 50 outputs and record input, observed behavior, expected behavior, and check |
+| 9 | System purpose and human ownership of official records |
+| 14 | Select, measure, replace, and route eligible models for FRB work |
+| 19 | Curate relevant, fresh evidence with provenance and constraints |
+| 24 | Define the agent's tool contract and enforce authorization |
+| 29 | Bound workflow, workers, retries, and resume |
+| 34 | Separate citation existence from source support and retain the failure as a regression case |
+| 39 | Enforce access, trace decisions, and monitor accountable operation |
+| 40 | Connect the six responsibilities |
+| 45 | Review 20 to 50 outputs and record input, observed behavior, expected behavior, and check |
 
 The FRB failure is illustrative. No live demonstration of an FRB application is planned for this revision.

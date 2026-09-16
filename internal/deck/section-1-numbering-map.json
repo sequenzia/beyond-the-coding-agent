@@ -1,0 +1,241 @@
+{
+  "revision": "Section 1 revision, September 16, 2026",
+  "previousNarrativeSlides": 45,
+  "narrativeSlides": 47,
+  "mapping": [
+    {
+      "old": 1,
+      "new": 1,
+      "part": "title"
+    },
+    {
+      "old": 2,
+      "new": 2
+    },
+    {
+      "old": 5,
+      "new": 3
+    },
+    {
+      "old": null,
+      "new": 4,
+      "part": "Section 1 divider"
+    },
+    {
+      "old": 1,
+      "new": 5,
+      "part": "hook"
+    },
+    {
+      "old": 3,
+      "new": 6
+    },
+    {
+      "old": 4,
+      "new": 7
+    },
+    {
+      "old": 6,
+      "new": 8
+    },
+    {
+      "old": 7,
+      "new": 9,
+      "file": "slides/section-2/09-the-map.md"
+    },
+    {
+      "old": 8,
+      "new": 10,
+      "file": "slides/section-2/10-models-opening-quote.md"
+    },
+    {
+      "old": 9,
+      "new": 11,
+      "file": "slides/section-2/11-models-in-the-system.md"
+    },
+    {
+      "old": 10,
+      "new": 12,
+      "file": "slides/section-2/12-model-selection.md"
+    },
+    {
+      "old": 11,
+      "new": 13,
+      "file": "slides/section-2/13-model-selection-pitfalls.md"
+    },
+    {
+      "old": 12,
+      "new": 14,
+      "file": "slides/section-2/14-models-for-the-frb-brief.md"
+    },
+    {
+      "old": 13,
+      "new": 15,
+      "file": "slides/section-2/15-context-and-knowledge-opening-quote.md"
+    },
+    {
+      "old": 14,
+      "new": 16,
+      "file": "slides/section-2/16-context-for-the-next-step.md"
+    },
+    {
+      "old": 15,
+      "new": 17,
+      "file": "slides/section-2/17-context-decisions.md"
+    },
+    {
+      "old": 16,
+      "new": 18,
+      "file": "slides/section-2/18-context-pitfalls.md"
+    },
+    {
+      "old": 17,
+      "new": 19,
+      "file": "slides/section-2/19-evidence-for-the-frb-brief.md"
+    },
+    {
+      "old": 18,
+      "new": 20,
+      "file": "slides/section-2/20-tools-and-extensibility-opening-quote.md"
+    },
+    {
+      "old": 19,
+      "new": 21,
+      "file": "slides/section-2/21-tools-and-connections.md"
+    },
+    {
+      "old": 20,
+      "new": 22,
+      "file": "slides/section-2/22-tool-design-decisions.md"
+    },
+    {
+      "old": 21,
+      "new": 23,
+      "file": "slides/section-2/23-tool-design-pitfalls.md"
+    },
+    {
+      "old": 22,
+      "new": 24,
+      "file": "slides/section-2/24-export-cited-brief.md"
+    },
+    {
+      "old": 23,
+      "new": 25,
+      "file": "slides/section-2/25-orchestration-opening-quote.md"
+    },
+    {
+      "old": 24,
+      "new": 26,
+      "file": "slides/section-2/26-execution-control.md"
+    },
+    {
+      "old": 25,
+      "new": 27,
+      "file": "slides/section-2/27-orchestration-decisions.md"
+    },
+    {
+      "old": 26,
+      "new": 28,
+      "file": "slides/section-2/28-execution-pitfalls.md"
+    },
+    {
+      "old": 27,
+      "new": 29,
+      "file": "slides/section-2/29-workflow-for-the-frb-brief.md"
+    },
+    {
+      "old": 28,
+      "new": 30,
+      "file": "slides/section-2/30-verification-and-evals-opening-quote.md"
+    },
+    {
+      "old": 29,
+      "new": 31,
+      "file": "slides/section-2/31-verification-and-evaluation.md"
+    },
+    {
+      "old": 30,
+      "new": 32,
+      "file": "slides/section-2/32-evaluation-decisions.md"
+    },
+    {
+      "old": 31,
+      "new": 33,
+      "file": "slides/section-2/33-evaluation-pitfalls.md"
+    },
+    {
+      "old": 32,
+      "new": 34,
+      "file": "slides/section-2/34-does-the-source-support-the-claim.md"
+    },
+    {
+      "old": 33,
+      "new": 35,
+      "file": "slides/section-2/35-production-operations-opening-quote.md"
+    },
+    {
+      "old": 34,
+      "new": 36,
+      "file": "slides/section-2/36-production-operations.md"
+    },
+    {
+      "old": 35,
+      "new": 37,
+      "file": "slides/section-2/37-production-decisions.md"
+    },
+    {
+      "old": 36,
+      "new": 38,
+      "file": "slides/section-2/38-risks-across-integrations.md"
+    },
+    {
+      "old": 37,
+      "new": 39,
+      "file": "slides/section-2/39-frb-operating-agreement.md"
+    },
+    {
+      "old": 38,
+      "new": 40,
+      "file": "slides/section-2/40-the-system-responsibilities.md"
+    },
+    {
+      "old": 39,
+      "new": 41,
+      "file": "slides/section-3/41-transition.md"
+    },
+    {
+      "old": 40,
+      "new": 42,
+      "file": "slides/section-3/42-what-transfers.md"
+    },
+    {
+      "old": 41,
+      "new": 43,
+      "file": "slides/section-3/43-what-is-new.md"
+    },
+    {
+      "old": 42,
+      "new": 44,
+      "file": "slides/section-3/44-the-pitfalls.md"
+    },
+    {
+      "old": 43,
+      "new": 45,
+      "file": "slides/section-3/45-the-roadmap.md"
+    },
+    {
+      "old": 44,
+      "new": 46,
+      "file": "slides/section-3/46-resources.md"
+    },
+    {
+      "old": 45,
+      "new": 47,
+      "file": "slides/section-3/47-close.md"
+    }
+  ],
+  "supportComposition": {
+    "old": "41b",
+    "new": "43b"
+  }
+}

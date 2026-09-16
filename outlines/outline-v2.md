@@ -2,7 +2,7 @@
 
 ## Presentation outline, v2
 
-**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Sections 1 and 3 retain their current 5:00 references and may be trimmed later. The final presentation/discussion split remains open. The 27:00 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget.
+**Session:** 50 minutes. Section 2 has a working range of 25:00 to 29:00. Section 1 has a 4:00 rehearsal target. Section 3 retains its 5:00 reference and may be trimmed later. The final presentation/discussion split remains open. The 27:00 Section 2 rehearsal reference below is a cueing aid, not a new fixed budget.
 
 **Date:** September 17, 2026.
 
@@ -27,19 +27,19 @@ AI engineering builds on a foundation of software engineering. This talk focuses
 
 | Block | Rehearsal reference | Narrative slides |
 |---|---|---|
-| 1. Intro and central thesis | 5:00, pending later trimming | 1 through 6 |
-| 2.0 The map | 1:50 | 7 |
-| 2.1 Models | 3:55 | 8 through 12 |
-| 2.2 Context and knowledge | 4:05 | 13 through 17 |
-| 2.3 Tools and extensibility | 3:40 | 18 through 22 |
-| 2.4 Orchestration | 3:55 | 23 through 27 |
-| 2.5 Verification and evals | 4:35 | 28 through 32 |
-| 2.6 Production operations | 4:10 | 33 through 37 |
-| 2.7 Section wrap | 0:50 | 38 |
-| 3. Making the transition | 5:00, pending later trimming | 39 through 45 |
-| 4. Questions and discussion | Remainder of the 50-minute session | none, slide 45 stays up |
+| 1. Intro and central thesis | 4:00 | 1 through 8 |
+| 2.0 The map | 1:50 | 9 |
+| 2.1 Models | 3:55 | 10 through 14 |
+| 2.2 Context and knowledge | 4:05 | 15 through 19 |
+| 2.3 Tools and extensibility | 3:40 | 20 through 24 |
+| 2.4 Orchestration | 3:55 | 25 through 29 |
+| 2.5 Verification and evals | 4:35 | 30 through 34 |
+| 2.6 Production operations | 4:10 | 35 through 39 |
+| 2.7 Section wrap | 0:50 | 40 |
+| 3. Making the transition | 5:00, pending later trimming | 41 through 47 |
+| 4. Questions and discussion | Remainder of the 50-minute session | none, slide 47 stays up |
 
-Section 2 references sum to 27:00 within the agreed 25:00-to-29:00 range. With the unchanged references for Sections 1 and 3, the talk would be about 35:00 to 39:00. This does not assign a new discussion budget. Rehearsal and any later trims determine the final split.
+Section 2 references sum to 27:00 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 5:00, the talk would be about 34:00 to 38:00. This does not assign a new discussion budget. Rehearsal and any later trims determine the final split.
 
 ### The Section 2 pattern
 
@@ -48,24 +48,23 @@ Each area has five separately numbered static slides. The opening and closing an
 1. **Quote.** The area's selected source and conceptual visual, before any explanation.
 2. **What it is and why it matters.** One combined screen with a brief spoken connection to coding agents.
 3. **Key decisions and trade-offs.** The choices, consequences, and conditional starting guidance.
-4. **Common challenges and pitfalls.** Continuing maintenance and one headline sentence that matches slide 42.
+4. **Common challenges and pitfalls.** Continuing maintenance and one headline sentence that matches slide 44.
 5. **FRB application.** A distinct application of those choices to the same illustrative system.
 
 The six standalone user screens and all paired user/owner labels are removed. Codex CLI and Devin remain the named coding-agent anchors in the map narration. There are no screenshot walkthroughs. Evals has no personal story or 1:00 reservation. The final area is Production operations. The FRB corpus's CUI/ECI requirements and older, less capable approved models are explicit illustrative deployment assumptions informed by presenter-supplied audience context. They are not universal model-performance claims.
 
-The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 45. The builder now implements the same 45-slide narrative. Its expansion preserves 56 physical slides and 57 presentation states.
+The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 47. The builder now implements the same 47-slide narrative. Its expansion produces 57 physical slides and 58 presentation states.
 
 ---
 
-## Section 1. Intro and central thesis (5:00, 6 slides)
+## Section 1. Intro and central thesis (4:00, 8 slides)
 
-### 1.1 Opener (1:00). Slide 1
+### 1.1 Title (0:05). Slide 1
 
-- Slide: title, then a build revealing two lines: `demo = works.any()` and `product = works.all()`.
-- Say: In June 2025 Andrej Karpathy put the whole problem in one line: "Demo is works.any(), product is works.all()." **You have probably seen your coding agent do something impressive this week.** A demo proves that a useful path exists. A product needs reliable behavior across its intended use, with a safe response when it cannot complete the task. The distance between those two calls is what this talk is about. It is the distance between using AI and engineering it.
-- Takeaway line: "Production readiness means reliable behavior across intended use, with safe handling when the task cannot be completed."
-- Source: Karpathy, "Software Is Changing (Again)," June 17, 2025. Research §2.
-- Alternates considered, swyx's prediction and Fowler's tolerances, are in `research/section-1.md` §7 and remain usable inside 1.4.
+- Slide: Beyond the Coding Agent. From Software Engineer to AI Engineer. Presenter name and role.
+- Say: Welcome. A brief greeting, then introduce yourself on slide 2.
+- Takeaway line: "Beyond the Coding Agent: From Software Engineer to AI Engineer."
+- Sources: the published session title in the README.
 
 ### 1.2 Who is talking (0:30). Slide 2
 
@@ -75,62 +74,78 @@ Approved bio from slide 2, September 14, 2026. Stephen Sequenzia, Senior Staff A
 2. Leads architecture for agentic AI systems across defense programs.
 3. Has helped 500+ engineers adopt agents, and watched where using one stops and engineering one begins.
 
-**[your story #1, optional here]** The moment a demo you built turned out not to be the product. It must show one concrete failure where a working path was not a working system. Thirty seconds. Keep it within this optional introduction slot; the evals story reservation has been removed.
+**[your story #1, optional here]** The moment a demo you built turned out not to be the product. It must show one concrete failure where a working path was not a working system. Thirty seconds. Retained as an optional presenter-authored slot, not part of this 4:00 rehearsal version. Including it requires a later timing change; the evals story reservation has been removed.
 
-### 1.3 The thesis (0:45). Slide 3
+### 1.3 Agenda and goals (0:25). Slide 3
+
+- Slide: the full agenda, with a smaller goals section beneath it. No visible times or teaching-pattern footer.
+  1. What changes when AI becomes part of the product
+  2. What AI engineers actually engineer: Models, Context and knowledge, Tools and extensibility, Orchestration, Verification and evals, Production operations
+  3. Making the transition: skills that transfer, new competencies, and where to start
+  4. Questions and discussion
+- Say: **First, what changes when AI becomes part of the product. Then the six engineering areas. Finally, making the transition and your questions.** You will leave with a map of the engineering responsibilities, an understanding of what production readiness requires, and a starting point for your own transition.
+- Takeaway line: "A map of the responsibilities, an understanding of production readiness, and a starting point for your transition."
+- Sources: the published session description in the README.
+
+### 1.4 Section 1 divider (0:10). Slide 4
+
+- Slide: Section 1. What changes when AI becomes part of the product.
+- Say: Let the section title sit, then advance to the opening metaphor. No additional explanation.
+- Takeaway line: "What changes when AI becomes part of the product."
+- Sources: the published session description in the README.
+
+### 1.5 Opening hook (0:40). Slide 5
+
+- Slide: `demo = works.any()` and `product = works.all()`, with Karpathy attribution.
+- Say: **You have probably seen a coding agent do something impressive.** Andrej Karpathy captures the gap between that moment and a product with these two lines. **A demo shows that a useful path exists. A product needs reliable behavior across its intended use, including a safe response when it cannot complete the task.** When AI becomes part of the product, engineering that behavior becomes your responsibility.
+- Takeaway line: "Production readiness means reliable behavior across intended use, with safe handling when the task cannot be completed."
+- Source: Karpathy, "Software Is Changing (Again)," June 2025. Research §2.
+
+### 1.6 The thesis (0:30). Slide 6
 
 - Slide: the two thesis sentences, nothing else.
 - Say:
-  - **Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer.**
-  - **This talk focuses on building products around foundation models.** Software engineering is the foundation. The added responsibility is measuring and controlling model-dependent behavior.
-  - ML engineers typically focus on models and the pipelines that produce them. AI engineers typically focus on products built around models. Roles overlap, including adaptation and fine-tuning.
-  - **The engineer or team is accountable for the delivered product's behavior and operating limits.**
+  - **Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer.** Let the visible thesis carry these sentences; supporting narration follows.
+  - **This talk focuses on products built around foundation models. Your software engineering skills are the foundation.**
+  - ML engineers typically focus on models and the pipelines that produce them. AI engineers typically focus on products around those models. **The roles overlap.**
+  - **The added responsibility is measuring and controlling the model's contribution to the product's behavior.**
 - Takeaway line: "The additional responsibility is measuring and controlling model-dependent behavior."
 - Sources: CMU SEI; Huyen, 2025; swyx, June 2023, as background. Research §1.
 
-### 1.4 Using AI vs engineering AI, and why it is a different discipline (1:45). Slide 4, two builds
+### 1.7 Using AI vs engineering AI (1:30). Slide 7, two screens
 
-- Slide, build 1, three-row comparison.
+- Slide, first screen: editable comparison.
 
-  | AI in your development workflow | AI in the product you deliver |
+  | AI during software development | AI in the product you deliver |
   |---|---|
-  | You use model output to help build an artifact | Users depend on model output or decisions during operation |
-  | You decide what to accept and ship | You design checks, approval steps, and failure handling |
-  | Your coding-tool provider operates the agent platform | Your team owns the product's behavior and operating limits |
+  | AI helps you build the software | AI contributes to its behavior during use |
+  | You review and test what you ship | You also evaluate model behavior across representative cases |
+  | Your coding-tool provider operates the agent platform | Your team owns the AI system's behavior and operating limits |
 
-- Slide, build 2: the three commitments.
+- Slide, second screen: title "Production readiness" and the three commitments. Retain the small `works.any()` / `works.all()` subline beneath the first.
 - Say:
-  - The first comparison is where the model-dependent behavior lives: in the development workflow or in the delivered product. Human review can be part of either system. The owner designs checks, approvals, and safe failure handling for intended use.
-  - Anthropic's distinction is the useful one. Workflows are LLMs and tools orchestrated through predefined code paths. Agents are LLMs that dynamically direct their own processes and tool usage. **An agent adds model-selected actions to control flow. Ordinary code can still enforce permissions, limits, and other guarantees.** That is why agentic systems are the most demanding expression of this discipline, and why they are the focus of Section 2.
-  - Fowler's framing: this is software joining the rest of engineering in a world of non-determinism. Other disciplines build tolerances for what they cannot measure. We now have to.
-  - One more thing changes, and it is subtle. Shankar and colleagues showed in a peer-reviewed study that people cannot fully write their evaluation criteria before seeing outputs. Grading outputs is how you discover the criteria. They call it criteria drift. So the order you are used to, spec then tests then code, partly inverts. You learn the spec by watching the system.
-  - Three commitments for the rest of the talk, each of which comes back later:
-    1. A compelling prototype is not evidence of production readiness. works.any() is not works.all().
-    2. Traditional tests remain necessary but are no longer sufficient.
-    3. Evaluation does not stop at deployment.
+  - **The distinction is where the model-dependent behavior lives.** During development, AI helps build the software. In the delivered product, users depend on model output or actions during use. **Human review can exist on either side.**
+  - Your team owns the AI system's behavior and operating limits. You design checks, permissions, approval steps, and failure handling.
+  - **In a predefined workflow, code fixes the path. An agent can let the model select the next action. Your code still enforces permissions and limits.** This is why the talk examines agentic systems and the system around the model.
+  - At 0:55, replace the comparison with Production readiness:
+    1. **A compelling prototype is not evidence of production readiness.** works.any() is not works.all().
+    2. **Traditional tests are necessary but no longer sufficient.**
+    3. **Evaluation does not stop at deployment.**
 - Takeaway line: "Using AI changes how you build. Engineering AI changes what you are responsible for."
-- Sources: Anthropic, "Building effective agents," December 2024; Shankar et al., UIST 2024; Fowler, August 2025. Research §2, §3, §5.
+- Sources: Anthropic, "Building effective agents," December 2024. Research §5. The three commitments restate the published description. Fowler, August 2025, and Shankar et al., UIST 2024, remain backup only in Research §2 and §3 and the slide's Markdown after the handoff.
 
-### 1.5 What you will leave with, and the agenda (0:45). Slide 5
-
-- Slide: three takeaways on the left, agenda on the right.
-- Say:
-  - Three things to leave with: a conceptual map of the discipline, an honest sense of how much there is, and a roadmap for making the transition.
-  - The agenda: the map and six areas, twenty-five to twenty-nine minutes: models, context and knowledge, tools, orchestration, verification and evals, and production operations. Then making the transition and your questions.
-  - The pattern for each area: **a quote, what it is and why it matters, decisions and trade-offs, challenges and pitfalls, and the FRB application**.
-- Source: the session description in the README.
-
-### 1.6 Transition (0:15). Slide 6
+### 1.8 Section 2 transition (0:10). Slide 8
 
 - Slide: Section 2. What AI engineers actually engineer.
-- Say: **"Let's open up the tool you used this morning."**
-- Takeaway line: "Let's open up the tool you used this morning."
-- Sources: none.
+- Say: **"Let's look at the system around the model, and the engineering each part requires."**
+- Takeaway line: "Let's look at the system around the model, and the engineering each part requires."
+- Sources: the Section 2 responsibility map.
 
 ### Section 1 checks
 
-- Time: 1:00 + 0:30 + 0:45 + 1:45 + 0:45 + 0:15 = 5:00.
-- Description scope covered: using vs engineering; distinct discipline; AI engineer vs ML engineer; agentic systems as the most demanding expression; the three claims stated as commitments.
+- Time: 0:05 + 0:30 + 0:25 + 0:10 + 0:40 + 0:30 + 1:30 + 0:10 = 4:00.
+- Narrative slides: 1 through 8. Title, bio, agenda, Section 1 divider, hook, thesis, comparison and commitments, Section 2 divider. Nine physical slides because the comparison has two screens.
+- Description scope covered: using vs engineering (1.5 through 1.7); distinct discipline and AI versus ML roles (1.6); agentic systems as the most demanding expression and the three production commitments (1.7); learning goals and full agenda (1.3).
 - Verify before stage: no Section 1 quote is flagged. Full list in `research/section-1.md`.
 
 ---
@@ -139,16 +154,16 @@ Approved bio from slide 2, September 14, 2026. Stephen Sequenzia, Senior Staff A
 
 The rehearsal reference is 27:00. Five static slides per area follow the opening map, then a standalone closing map. The individual references below guide notes and rehearsal; they do not replace the selected range.
 
-### 2.0 The map (1:50 reference). Slide 7
+### 2.0 The map (1:50 reference). Slide 9
 
 - Slide: existing anatomy diagram, full screen, with its six states.
 - Say: An agent is a model plus a harness. Name the four layers: model, harness, per-run services, and across-run responsibilities. Briefly connect to Codex CLI and Devin. Introduce the invented FRB research-and-drafting request. **People retain official decision authority.**
 - Takeaway line: "Agent equals model plus harness. Everything around the model is engineering work."
 - Sources: Osmani, April 2026; OpenAI, August 2026; illustrative FRB packet. Research §0.
 
-### 2.1 Models (3:55 reference). Slides 8 through 12
+### 2.1 Models (3:55 reference). Slides 10 through 14
 
-- Slide: 8 quote (0:25), 9 what and why (0:45), 10 decisions (1:00), 11 pitfalls (0:20), 12 FRB application (1:25).
+- Slide: 10 quote (0:25), 11 what and why (0:45), 12 decisions (1:00), 13 pitfalls (0:20), 14 FRB application (1:25).
 - Say, quote: Use the selected Osmani comparison as attributed engineering experience. **Evaluate the model inside the intended system.**
 - Say, what and why: The model interprets the task and context and proposes a response or action. **Data sensitivity determines which services and environments are eligible.** Briefly connect to choosing a coding-agent model. Compare quality, cost, and latency within the permitted set.
 - Say, decisions: Establish data eligibility, compare model and reasoning settings on representative tasks, start with one configuration unless routing earns its complexity, and plan version changes. **Pinned versions need migration; moving aliases need regression monitoring.**
@@ -158,9 +173,9 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "The model is a versioned, expiring dependency. Treat it like one."
 - Sources: Osmani, April 2026; NARA, May and August 2025; NIST, May 2024; Anthropic and OpenAI lifecycle guidance; presenter audience context, September 2026; illustrative FRB application. Research §0 and §1 in `research/section-2.md`.
 
-### 2.2 Context and knowledge (4:05 reference). Slides 13 through 17
+### 2.2 Context and knowledge (4:05 reference). Slides 15 through 19
 
-- Slide: 13 quote (0:20), 14 what and why (0:45), 15 decisions (1:25), 16 pitfalls (0:20), 17 FRB application (1:15).
+- Slide: 15 quote (0:20), 16 what and why (0:45), 17 decisions (1:25), 18 pitfalls (0:20), 19 FRB application (1:15).
 - Say, quote: Use the selected Anthropic finite-context quotation. **Choose what information the next step needs.** No universal context-size threshold is claimed.
 - Say, what and why: Context engineering selects and maintains instructions, state, evidence, tool results, and useful history. RAG supplies retrieved knowledge, including internal records. A coding agent combines repository instructions, files, and test results.
 - Say, decisions: Decide what enters the step, how to retrieve it, what persists, and which sources and access scope apply. Briefly compare keyword, semantic, and hybrid retrieval. Distinguish compaction from persistent memory. **Preserve source identities and enforce access outside the model.**
@@ -170,9 +185,9 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "Context is a budget, not a bucket."
 - Sources: Anthropic, September 2024 and September 2025; Manus, July 2025; OWASP, 2025; illustrative FRB application. Research §0 and §2 in `research/section-2.md`.
 
-### 2.3 Tools and extensibility (3:40 reference). Slides 18 through 22
+### 2.3 Tools and extensibility (3:40 reference). Slides 20 through 24
 
-- Slide: 18 quote (0:20), 19 what and why (1:00), 20 decisions (1:00), 21 pitfalls (0:20), 22 FRB application (1:00).
+- Slide: 20 quote (0:20), 21 what and why (1:00), 22 decisions (1:00), 23 pitfalls (0:20), 24 FRB application (1:00).
 - Say, quote: Use the selected Anthropic tools quotation. **A tool is a contract with a model caller.**
 - Say, what and why: A tool exposes an operation that software validates, executes when permitted, and reports on. MCP provides a common connection mechanism. Briefly connect to coding-agent reads and checks. Useful operations and enforced boundaries remain application responsibilities.
 - Say, decisions: Choose capabilities and granularity, design descriptions/inputs/results/errors together, and define permitted execution. More granular tools offer flexibility and add coordination work. **Validate and authorize in code, including reads.**
@@ -182,9 +197,9 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "A description guides the model. Code enforces the contract."
 - Sources: Anthropic, September and November 2025; MCP, July 2026; OWASP, 2025; illustrative FRB contract. Research §0 and §3 in `research/section-2.md`.
 
-### 2.4 Orchestration (3:55 reference). Slides 23 through 27
+### 2.4 Orchestration (3:55 reference). Slides 25 through 29
 
-- Slide: 23 quote (0:20), 24 what and why (0:45), 25 decisions (1:00), 26 pitfalls (0:25), 27 FRB application (1:25).
+- Slide: 25 quote (0:20), 26 what and why (0:45), 27 decisions (1:00), 28 pitfalls (0:25), 29 FRB application (1:25).
 - Say, quote: Use the selected Anthropic simplicity quotation. **Decide which steps code fixes and where model judgment helps.**
 - Say, what and why: Orchestration sequences work, carries state, and controls completion or interruption. A bounded workflow can contain model-selected actions. Briefly connect to the coding-agent action/check/retry loop. A proposed plan does not enforce execution rules.
 - Say, decisions: Choose who controls the next step, when delegation earns its coordination cost, and how execution stops or recovers. Keep multi-agent design to a brief contrast. **Define completion checks, saved state, and action/token/retry/latency limits.**
@@ -194,9 +209,9 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "The loop is where autonomy gets its limits. Start with the workflow."
 - Sources: Anthropic, December 2024, June and November 2025; 12-Factor Agents; illustrative FRB workflow. Research §0 and §4 in `research/section-2.md`.
 
-### 2.5 Verification and evals (4:35 reference). Slides 28 through 32
+### 2.5 Verification and evals (4:35 reference). Slides 30 through 34
 
-- Slide: 28 quote (0:20), 29 what and why (0:50), 30 decisions (1:30), 31 pitfalls (0:25), 32 FRB application (1:30).
+- Slide: 30 quote (0:20), 31 what and why (0:50), 32 decisions (1:30), 33 pitfalls (0:25), 34 FRB application (1:30).
 - Say, quote: Use the selected Husain/Shankar error-analysis quotation with both authors named. **Inspect the result and trace before choosing a repair.**
 - Say, what and why: Verification informs acceptance of a particular result; evaluation measures behavior across cases and trials. These are complementary uses of checks. **Evals are tests of an AI system. Ordinary tests remain necessary.** Connect to inspecting actual coding-agent test output.
 - Say, decisions: Define success with domain experts. Briefly compare code checks, model graders, and expert review. **Evaluate model graders against expert decisions.** Cover representative tasks, serious failures, and useful limitations. Repeat trials where consistency matters and preserve regression cases.
@@ -206,9 +221,9 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "Check the action before accepting it. Measure behavior across representative cases. Keep both checks running as the system changes."
 - Sources: Husain and Shankar, September 2026; Anthropic, January 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5 in `research/section-2.md`.
 
-### 2.6 Production operations (4:10 reference). Slides 33 through 37
+### 2.6 Production operations (4:10 reference). Slides 35 through 39
 
-- Slide: 33 quote (0:25), 34 what and why (0:40), 35 decisions (1:20), 36 pitfalls (0:45), 37 FRB application (1:00).
+- Slide: 35 quote (0:25), 36 what and why (0:40), 37 decisions (1:20), 38 pitfalls (0:45), 39 FRB application (1:00).
 - Say, quote: Use Rauch's selected quotation, attributed to him and published by Datadog. It is a perspective, not a measured prediction.
 - Say, what and why: Production operations keeps the system observable, controlled, and accountable as dependencies and requirements change. Briefly connect to coding-agent permissions, limits, and usage views. **Observe actual outcomes and assign an accountable response.**
 - Say, decisions: Define authority, observe behavior and resource use, set operating limits and handoff responsibility, and assign change/incident ownership. **Enforce scope outside the model.** Track quality, cost per completed task, and latency. Reverting configuration does not undo completed actions.
@@ -218,7 +233,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "The system needs evidence of its behavior and people accountable for responding."
 - Sources: Rauch in Datadog, 2026; Willison, June 2025; OWASP, 2025 and 2026; OpenTelemetry guidance checked September 2026; illustrative FRB operating agreement. Research §0 and §6 in `research/section-2.md`.
 
-### 2.7 Section wrap (0:50 reference). Slide 38
+### 2.7 Section wrap (0:50 reference). Slide 40
 
 - Slide: the existing full-screen anatomy diagram with responsibility badges. Keep the model's selection responsibility.
 - Say: We have followed one system through eligible models, useful context, tool contracts, execution control, evidence of quality, and production operations. A change in one can affect the others. **The diagram is a map of engineering work you can identify, test, and improve.** Connect those responsibilities to Section 3's existing skills and new competencies.
@@ -230,21 +245,21 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Reference time: 1:50 + 3:55 + 4:05 + 3:40 + 3:55 + 4:35 + 4:10 + 0:50 = 27:00. Working range: 25:00 to 29:00.
 - Narrative slides: 7 through 38, thirty-two slides. Each five-slide area is separately numbered. The opening map retains six states; all other Section 2 compositions are static. Projected Section 2 physical count: 37.
 - Description scope: context engineering and retrieval (2.2); tools and extensibility (2.3); harness design (2.0 and all six areas); orchestration (2.4); verification and evals (2.5); observability, guardrails, identity, security, governance (2.6, with boundary decisions in 2.1 through 2.4); cost and latency (2.1, 2.2, 2.4, 2.6). Prototype readiness, tests remaining necessary, and ongoing evaluation are explicit in 2.5 and 2.6.
-- Structure: quote first; combined definition and importance; decisions and trade-offs; common challenges and exact headline pitfall; separate FRB application. No user/owner pairing, screenshot walkthrough, or evals personal-story reservation. The recap is slide 42.
+- Structure: quote first; combined definition and importance; decisions and trade-offs; common challenges and exact headline pitfall; separate FRB application. No user/owner pairing, screenshot walkthrough, or evals personal-story reservation. The recap is slide 44.
 - Evidence: FRB records, checks, and deployment constraints are illustrative. CUI/ECI eligibility is a hard constraint in the example. Older, less capable approved choices reflect presenter context and are not a universal model ranking. Citation existence differs from semantic support. No measured FRB scores or deployed outcome is claimed. Backup research retains its verification limitations.
 
 ---
 
 ## Section 3. Making the transition (5:00, 7 slides)
 
-### 3.0 Transition (0:10). Slide 39
+### 3.0 Transition (0:10). Slide 41
 
 - Slide: Section 3. Making the transition. Matching typographic divider after the yours anatomy diagram.
 - Say: Everything in the section we just covered was engineering. **Most of it is engineering you already do.**
 - Takeaway line: "Most of it is engineering you already do."
 - Sources: the Section 2 synthesis and the mapping in 3.1. Research §1.
 
-### 3.1 What transfers (1:05). Slide 40
+### 3.1 What transfers (1:05). Slide 42
 
 - Slide: two columns. Left, the software engineering skill. Right, what it becomes.
 - Say:
@@ -258,7 +273,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "You are not starting over. You are adding a layer."
 - Sources: Orosz, "AI Engineering in the real world," March 2025; OpenTelemetry; OWASP. Research §1.
 
-### 3.2 What is new (1:15). Slide 41
+### 3.2 What is new (1:15). Slide 43
 
 - Slide: the ladder, prompt engineering, then context engineering, then harness engineering. Below it, the new competencies as an unranked list.
 - Say:
@@ -268,7 +283,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "The new skill is not prompting. It is being comfortable measuring a system you cannot fully specify."
 - Sources: Anthropic, September 2025; Husain, evals FAQ, 2026; Orosz, March 2025. Research §2.
 
-### 3.3 The pitfalls, on one slide (0:35). Slide 42
+### 3.3 The pitfalls, on one slide (0:35). Slide 44
 
 - Slide: six lines, one per area, no other text.
   1. Models: Choosing and changing models without testing them on your task.
@@ -283,7 +298,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "Every pitfall on this list is a demo mistaken for a product."
 - Sources: Section 2; Anthropic, December 2024. Research §3.
 
-### 3.4 The roadmap (1:25). Slide 43
+### 3.4 The roadmap (1:25). Slide 45
 
 - Slide: four steps.
   1. Look before you build.
@@ -302,9 +317,9 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - Takeaway line: "Autonomy is earned by evals, one step at a time."
 - Sources: Husain, evals FAQ; Anthropic, December 2024; OpenAI, "A practical guide to building agents"; Research §4, including the FRB assignment. Hashimoto's adoption arc remains research backup.
 
-### 3.5 Resources and close (0:30). Slides 44 and 45
+### 3.5 Resources and close (0:30). Slides 46 and 47
 
-**Slide 44, resources.** Shown, not discussed.
+**Slide 46, resources.** Shown, not discussed.
 
 - Chip Huyen, *AI Engineering: Building Applications with Foundation Models*, O'Reilly, 2025.
 - Anthropic engineering: "Building effective agents" (December 2024), "Effective context engineering for AI agents" (September 2025), "Demystifying evals for AI agents" (January 2026).
@@ -313,7 +328,7 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 - OWASP Top 10 for LLM Applications (2025) and for Agentic Applications (2026).
 - OpenTelemetry GenAI semantic conventions.
 
-**Slide 45, close.** The two thesis sentences, then "Questions."
+**Slide 47, close.** The two thesis sentences, then "Questions."
 
 - Say: Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer. The difference is not the tools. It is what you are responsible for. Let’s use the remaining time for your questions.
 - Sources: research §4.
@@ -321,13 +336,13 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 ### Section 3 checks
 
 - Time: 0:10 + 1:05 + 1:15 + 0:35 + 1:25 + 0:30 = 5:00.
-- Slides: 20 through 26. Deck: 45 narrative slides and 46 authored compositions expand to 56 physical slides, 57 states, one internal click, one Morph transition, and 56 advances.
+- Slides: 41 through 47. Deck: 47 narrative slides and 48 authored compositions expand to 57 physical slides, 58 states, one internal click, one Morph transition, and 57 advances.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
 - Evidence status: competencies are unranked. The ladder is a teaching frame. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
 
 ---
 
-## Section 4. Questions and discussion (remaining session time, Slide 45 stays up)
+## Section 4. Questions and discussion (remaining session time, Slide 47 stays up)
 
 ### Anticipated questions, with two-line answers
 
@@ -361,11 +376,11 @@ The rehearsal reference is 27:00. Five static slides per area follow the opening
 
 ### Whole-talk checks
 
-- Time: Section 1 remains 5:00 pending later trimming. Section 2 stays in its 25:00-to-29:00 range, with a 27:00 rehearsal reference. Section 3 remains 5:00 pending later trimming. The current references imply 35:00 to 39:00 of presentation; final discussion time is the remainder of the 50-minute session.
-- Deck: 45 narrative slides, six in Section 1, thirty-two in Section 2, and seven in Section 3. One Section 3 support composition brings the authored total to 46. Expansion preserves 56 physical slides, 57 states, one internal click, one Morph transition, and 56 advances.
+- Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 27:00 rehearsal reference. Section 3 remains 5:00 pending later trimming. The current references imply 34:00 to 38:00 of presentation; final discussion time is the remainder of the 50-minute session.
+- Deck: 47 narrative slides, eight in Section 1, thirty-two in Section 2, and seven in Section 3. One Section 3 support composition brings the authored total to 48. Expansion produces 57 physical slides, 58 states, one internal click, one Morph transition, and 57 advances.
 - FRB acceptance: a suspected cause never becomes a confirmed finding without support. Later minutes remain distinct from preliminary material. Similar symptoms and duplicates do not establish a common cause. Missing, unreadable, conflicting, incomplete, or unauthorized evidence yields an explicit limitation. Export matches the selection and preserves citations and uncertainty. Check citation existence separately from semantic support.
 - Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap assignment. The evals personal story is removed. Preserve the other presenter-authored slots in Sections 1 and 3, including the 0:30 roadmap story. Orchestration has no audience pause.
-- Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.4, 2.5, 2.6, 3.3); why tests are necessary but not sufficient (1.4, 2.5); why evals continue after deployment (1.4, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
+- Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.7, 2.5, 2.6, 3.3); why tests are necessary but not sufficient (1.7, 2.5); why evals continue after deployment (1.7, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).
 
 ### What only you can supply
 

@@ -18,7 +18,7 @@ Beat 1.2 Who is talking. Section 1. Time 0:30. Builds: 0.
 
 - Photo left, cropped round or square, no larger than a sixth of the slide width; the source is 320 by 320 pixels, which is its native size at that scale. Ask for a larger original if the template wants it bigger.
 - Name and role at the top of the right column. The three lines beneath, as three short statements, not bullets. Each answers one of the outline's requirements in order: shipped model-dependent systems to production; the enterprise-agent context; why the distinction matters.
-- No logo wall, no timeline, no list of technologies. The slide's only job is to earn the right to state the thesis on slide 3.
+- No logo wall, no timeline, no list of technologies. The slide's only job is to earn the right to introduce the agenda on slide 3.
 
 ## Talk track
 

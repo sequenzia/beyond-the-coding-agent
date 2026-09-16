@@ -4,7 +4,7 @@
 
 - File: `operating-observability.png`.
 - Created September 15, 2026 with the built-in imagegen tool.
-- Use: Production operations quote screen, now slide 33. Conceptual observability metaphor, not a measured trace or real device. The technical filename remains unchanged.
+- Use: Production operations quote screen, now slide 35. Conceptual observability metaphor, not a measured trace or real device. The technical filename remains unchanged.
 - Keep the quotation and attribution as editable slide text.
 
 ### Generation prompt

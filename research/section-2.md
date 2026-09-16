@@ -309,7 +309,7 @@ Maintenance covers description/schema/behavior drift, overlapping tool sets, and
 
 **Illustrative Export cited brief contract.** Background services parse and index PDF, Word, and PowerPoint files. Search and retrieval supply the evidence; this focused example is the agent-facing export operation from the §0 contract. It accepts a checked draft, citations, and destination. Code enforces access and permitted destinations, and requires source IDs, revisions, and locations. It returns a brief matching the checked draft, with citations and uncertainty intact, plus an export receipt. Failure or incomplete results are explicit; an unconfirmed export is not reported as complete. This is an illustrative design, not a deployed API. People continue to own official causes, decisions, and board records.
 
-The full four-tool inventory remains in `internal/frb-running-example.md`. CamoLeak and the ClawHub audit remain backup evidence with their demonstration and secondary-source limitations. Production security principles appear on slides 35 and 36 in the current authoring target; incident details stay in research backup.
+The full four-tool inventory remains in `internal/frb-running-example.md`. CamoLeak and the ClawHub audit remain backup evidence with their demonstration and secondary-source limitations. Production security principles appear on slides 37 and 38 in the current authoring target; incident details stay in research backup.
 
 ### Tools content rework
 
@@ -549,7 +549,7 @@ These are proposed operating responsibilities for the invented FRB system, not a
 - FRB material is illustrative. Check IDs, revisions, source locations, uncertainty, and human ownership against `internal/frb-running-example.md`; do not seek or imply real-world verification of invented cases.
 - Data sensitivities: NARA and the NIST publication abstract checked September 15, 2026. Keep organization-specific eligibility and the observation about older, less capable approved options attributed to presenter-supplied context. The FRB corpus's CUI/ECI constraint and capability gap are illustrative assumptions. No named model, provider, environment, or FRB record has been established as approved or formally designated by these sources.
 
-- OpenAI "Harness engineering" research lead: verify its secondhand material before use. This is distinct from the directly fetched August 19 "Codex as a platform" source in §0 used on slides 7 and 14.
+- OpenAI "Harness engineering" research lead: verify its secondhand material before use. This is distinct from the directly fetched August 19 "Codex as a platform" source in §0 used for the map and orchestration material. Earlier numbered revision notes below retain their historical slide numbers.
 - OpenAI "A practical guide to building agents": confirm quotes against the PDF.
 - OpenClaw CVE, star count, and token exposure: confirm or drop. CamoLeak is a checked researcher report in §3. The malicious-skill count comes from a directly checked secondary report, not a checked underlying audit.
 - Benchmark-criticism percentages: the general claim is safe; the numbers are not.

@@ -52,12 +52,12 @@ test('all narrative slides end at their advance or Q&A handoff and preserve buil
         assert.equal(paragraph.runs[0].textStyle.bold, true, `${file}: ${cue}`);
       }
       if (section === 2) assert.doesNotMatch(plain, /\[your story #2\]/, file);
-      if (file.startsWith('43-')) assert.match(plain, /Autonomy is earned by evals, one step at a time\. Advance to slide 44 on the last word\.$/);
-      if (file.startsWith('45-')) assert.doesNotMatch(plain, /Backup for questions|Do I need to learn/);
+      if (file.startsWith('45-')) assert.match(plain, /Autonomy is earned by evals, one step at a time\. Advance to slide 46 on the last word\.$/);
+      if (file.startsWith('47-')) assert.doesNotMatch(plain, /Backup for questions|Do I need to learn/);
       count++;
     }
   }
-  assert.equal(count, 45);
+  assert.equal(count, 47);
 });
 
 test('missing talk tracks and handoffs fail rather than silently losing presenter content', () => {

@@ -88,33 +88,44 @@ const pitfalls=['Choosing and changing models without testing them on your task.
 
 // Section 1.
 await newSlide('01');
-text('Beyond the Coding Agent',48,185,864,58,44,{bold:true,align:'center',end:1});
-text('From Software Engineer to AI Engineer',48,258,864,48,32,{align:'center',end:1});
-text('Stephen Sequenzia · Senior Staff AI/ML Engineer and Architect',48,472,864,20,16,{color:C.secondary,end:1});
-text([[run('demo    = ',C.secondary,false,'Consolas'),run('works',C.text,false,'Consolas'),run('.any()',C.amber,false,'Consolas')],[run('product = ',C.secondary,false,'Consolas'),run('works',C.text,false,'Consolas'),run('.all()',C.green,false,'Consolas')]],48,178,864,184,72,{font:'Consolas',start:1,exact:84,nowrap:true});attr('Andrej Karpathy, June 2025',48,472,864,{start:1,align:'right'});
+text('Beyond the Coding Agent',48,185,864,58,44,{bold:true,align:'center'});
+text('From Software Engineer to AI Engineer',48,258,864,48,32,{align:'center'});
+text('Stephen Sequenzia · Senior Staff AI/ML Engineer and Architect',48,472,864,20,16,{color:C.secondary});
 await newSlide('02');
 await sharp(path.join(ROOT,'internal/profile-320.webp')).png().toFile(path.join(BUILD,'profile.png'));
 await img(path.join(BUILD,'profile.png'),48,211,144,144,{geometry:'ellipse',alt:'Stephen Sequenzia'});
 text('Stephen Sequenzia',344,75,568,42,32,{bold:true});text('Senior Staff AI/ML Engineer and Architect',344,125,568,60,24);
 list(['Twenty years putting systems into production.\nThe last several with a model in the loop.','Leads architecture for agentic AI systems\nacross defense programs.','Has helped 500+ engineers adopt agents,\nand watched where using one stops\nand engineering one begins.'],344,205,568,24,{step:89,lineH:90});
-await newSlide('03');thesis();
-await newSlide('04');
-twoTable(['AI in your development\nworkflow','AI in the product\nyou deliver'],[['You use model output to help\nbuild an artifact','Users depend on model output or\ndecisions during operation'],['You decide what to accept and ship','You design checks, approval steps,\nand failure handling'],['Your coding-tool provider operates\nthe agent platform',"Your team owns the product's\nbehavior and operating limits"]],68,[90,94,82,100],{end:1});
+await newSlide('03');
+text('Agenda',48,36,864,40,32,{bold:true});
+const agendaRows=[
+ ['What changes when AI becomes part of the product',100],
+ ['What AI engineers actually engineer',148],
+ ['Making the transition',263],
+ ['Questions and discussion',337],
+];
+agendaRows.forEach(([label,y],i)=>{text(String(i+1),48,y,28,32,24,{color:C.secondary});text(label,88,y,824,32,24);});
+[
+ ['Models',88,186,250,C.blue],['Context and knowledge',362,186,278,C.pink],['Tools and extensibility',664,186,248,C.pink],
+ ['Orchestration',88,216,250,C.pink],['Verification and evals',362,216,278,C.green],['Production operations',664,216,248,C.amber],
+].forEach(([label,x,y,w,color])=>text(label,x,y,w,25,20,{color}));
+text('Skills that transfer, new competencies, and where to start',88,298,824,25,20,{color:C.secondary});
+shape(48,389,864,1,C.hair);
+text("You'll leave with",48,407,864,25,20,{bold:true,color:C.pink});
+['A map of the engineering\nresponsibilities','An understanding of what\nproduction readiness requires','A starting point for\nyour own transition'].forEach((label,i)=>text(label,48+i*296,442,272,50,20));
+await newSlide('04');sectionDivider(1,'What changes when AI\nbecomes part of the product');
+await newSlide('05');
+text([[run('demo    = ',C.secondary,false,'Consolas'),run('works',C.text,false,'Consolas'),run('.any()',C.amber,false,'Consolas')],[run('product = ',C.secondary,false,'Consolas'),run('works',C.text,false,'Consolas'),run('.all()',C.green,false,'Consolas')]],48,178,864,184,72,{font:'Consolas',exact:84,nowrap:true});attr('Andrej Karpathy, June 2025',48,472,864,{align:'right'});
+await newSlide('06');thesis();
+await newSlide('07');
+twoTable(['AI during software\ndevelopment','AI in the product\nyou deliver'],[['AI helps you build the software','AI contributes to its behavior\nduring use'],['You review and test what you ship','You also evaluate model behavior\nacross representative cases'],['Your coding-tool provider operates\nthe agent platform',"Your team owns the AI system's\nbehavior and operating limits"]],68,[90,94,82,100],{end:1});
+text('Production readiness',110,68,748,40,32,{bold:true,start:1});
 const commitments=['A compelling prototype is not evidence\nof production readiness.','Traditional tests are necessary\nbut no longer sufficient.','Evaluation does not stop at deployment.'];
 commitments.forEach((v,i)=>{text(String(i+1),110,132+i*120,34,50,24,{color:C.secondary,start:1});text(v,150,132+i*120,708,68,24,{start:1});});
 text([[run('works',C.text,false,'Consolas'),run('.any()',C.amber,false,'Consolas'),run(' is not ',C.secondary),run('works',C.text,false,'Consolas'),run('.all()',C.green,false,'Consolas')]],150,205,708,20,16,{start:1,exact:20});
-await newSlide('05');
-text('You will leave with',48,68,420,40,24,{bold:true,color:C.pink});text('Agenda',492,68,420,40,24,{bold:true,color:C.pink});
-['A conceptual map of\nthe discipline.','An honest sense of\nhow much there is.','A roadmap for making\nthe transition.'].forEach((v,i)=>{text(String(i+1),48,137+i*100,32,32,24,{color:C.secondary});text(v,88,137+i*100,380,66,24);});
-text('The map and six areas',492,137,420,34,24);
-text('25:00 to 29:00',492,177,420,30,20,{color:C.secondary});
-text([[run('Models',C.blue),run(' · ',C.secondary),run('Context and knowledge',C.pink)],[run('Tools',C.pink),run(' · ',C.secondary),run('Orchestration',C.pink)],[run('Verification and evals',C.green)],[run('Production operations',C.amber)]],512,224,400,100,16);
-text('Making the transition',492,350,420,34,24);
-text('Your questions',492,412,420,34,24);
-text('Quote · What and why · Decisions · Pitfalls · FRB example',48,472,864,20,16,{color:C.secondary});
-await newSlide('06');sectionDivider(2,'What AI engineers\nactually engineer');
+await newSlide('08');sectionDivider(2,'What AI engineers\nactually engineer');
 // The anatomy map uses the supplied renders, including every highlight state.
-await newSlide('07');await img('internal/renders/map-full.png',0,0,960,540,{end:1});
+await newSlide('09');await img('internal/renders/map-full.png',0,0,960,540,{end:1});
 for(let k=1;k<=4;k++)await img(`internal/renders/map-${['model','harness','per-run','across-runs'][k-1]}.png`,0,0,960,540,{start:k,end:k+1,duration:300});
 await img('internal/renders/map-full.png',0,0,960,540,{start:5,duration:300});
 // Section 2: reviewed quote-first content, one narrative identity per composition.
@@ -122,7 +133,7 @@ await img('internal/renders/map-full.png',0,0,960,540,{start:5,duration:300});
 const section2Areas = [
   {
     "area": "Models",
-    "start": 8,
+    "start": 10,
     "image": "models-in-system.png",
     "quote": "A decent model with a great harness beats a great model with a bad harness.",
     "author": "Addy Osmani",
@@ -177,7 +188,7 @@ const section2Areas = [
   },
   {
     "area": "Context and knowledge",
-    "start": 13,
+    "start": 15,
     "image": "context-selection.png",
     "quote": "Context, therefore, must be treated as a finite resource with diminishing marginal returns.",
     "author": "Anthropic",
@@ -232,7 +243,7 @@ const section2Areas = [
   },
   {
     "area": "Tools and extensibility",
-    "start": 18,
+    "start": 20,
     "image": "tools-interface.png",
     "quote": "Agents are only as effective as the tools we give them.",
     "author": "Anthropic",
@@ -283,7 +294,7 @@ const section2Areas = [
   },
   {
     "area": "Orchestration",
-    "start": 23,
+    "start": 25,
     "image": "orchestration-path.png",
     "quote": "we recommend finding the simplest solution possible, and only increasing complexity when needed.",
     "author": "Anthropic",
@@ -334,7 +345,7 @@ const section2Areas = [
   },
   {
     "area": "Verification and evals",
-    "start": 28,
+    "start": 30,
     "image": "evals-inspection.png",
     "quote": "Error analysis is the most important activity in evals.",
     "author": "Hamel Husain and Shreya Shankar",
@@ -385,7 +396,7 @@ const section2Areas = [
   },
   {
     "area": "Production operations",
-    "start": 33,
+    "start": 35,
     "image": "operating-observability.png",
     "quote": "The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe.",
     "author": "Guillermo Rauch",
@@ -539,22 +550,22 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   ],[224,640],228,[36,52,52,52,52],{color});
  }
 }
-await newSlide('38');await img('internal/renders/map-yours.png',0,0,960,540,{alt:'Anatomy of an Agentic AI System, with responsibility badges'});
+await newSlide('40');await img('internal/renders/map-yours.png',0,0,960,540,{alt:'Anatomy of an Agentic AI System, with responsibility badges'});
 
-await newSlide('39');sectionDivider(3,'Making the transition');
-await newSlide('40',{area:'The transition',beat:'What transfers',map:'all',color:C.green,title:'What transfers'});
+await newSlide('41');sectionDivider(3,'Making the transition');
+await newSlide('42',{area:'The transition',beat:'What transfers',map:'all',color:C.green,title:'What transfers'});
 twoTable(['You already do this','It becomes this'],[['Decomposition and systems thinking','Harness design'],['Interface design','Tool design'],['Testing discipline','Eval discipline'],['Observability','The same, with a new schema'],['Security and least privilege','Least privilege for tools'],['Operations: cost, latency,\nincidents, rollback','The same, in tokens']],192,[36,36,36,36,36,36,56],{color:C.green,rightColors:[C.pink,C.pink,C.green,C.green,C.green,C.green],end:1});
 text('Engineers at incident.io, Sentry, Elsevier, and others crossed over in months, not years.\nOne twenty-five-year veteran: about two months.',48,192,864,96,24,{start:1});
 text('"For experienced engineers who know how to break problems down, AI tools are an incredible force multiplier."',48,328,864,95,24,{start:1});attr('Matt Morgis, Elsevier, via The Pragmatic Engineer, March 2025',48,446,864,{start:1});
-await newSlide('41',{area:'The transition',beat:'What is new',map:'all',color:C.green,title:'What is new'});
+await newSlide('43',{area:'The transition',beat:'What is new',map:'all',color:C.green,title:'What is new'});
 [['Prompt engineering','2023',370],['Context engineering','2025',300],['Harness engineering','2026',230]].forEach(([a,b,y],i)=>{text(a,48+i*296,y-38,272,30,20);line(48+i*296,y,272,0);text(b,48+i*296,y+12,272,20,16,{color:C.secondary});});text('Each one absorbs the last.',48,442,864,32,24);
-await newSlide('41b',{area:'The transition',beat:'What is new',map:'all',color:C.green,morph:true});strip('Prompt engineering (2023) · Context engineering (2025) · Harness engineering (2026)');
+await newSlide('43b',{area:'The transition',beat:'What is new',map:'all',color:C.green,morph:true});strip('Prompt engineering (2023) · Context engineering (2025) · Harness engineering (2026)');
 const competencies=['Model behavior intuition. Informed by reading outputs.','Context engineering.','Tool design, for a caller that reads the description every time.','Harness and loop design.','Evals and error analysis.','AI security. The attack surface is the model\'s reasoning.','Cost and latency as design constraints.'];
 competencies.forEach((v,i)=>text(v,48,192+i*42,864,30,20,{end:1}));
 text('"Getting comfortable with evaluations\nand iterating on non-deterministic\noutputs is the biggest challenge\nmost devs have."',48,192,864,212,44,{start:1});attr('Ross McNairn, Wordsmith, via The Pragmatic Engineer, March 2025',48,428,864,{start:1});
-await newSlide('42',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
+await newSlide('44',{area:'The transition',beat:'The pitfalls',variant:'compact',color:C.green});
 ['Models','Context','Tools','Orchestration','Evals','Production operations'].forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C.amber][i],y=[100,163,226,289,352,435][i],h=i===4?76:56;shape(0,y,960,h,C.surface);shape(0,y,272,h,color);text(name,48,y+(h-32)/2,i===5?224:208,32,20,{bold:true,color:i===0?C.text:C.bg,middle:true});text(pitfalls[i],296,y+3,616,h-6,20,{middle:true});});
-await newSlide('43',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'Sublines are spoken. The first assignment replaces the four roadmap rows; hold for the protected story slot.'});
+await newSlide('45',{area:'The transition',beat:'The roadmap',map:'all',color:C.green,title:'The roadmap',note:'Sublines are spoken. The first assignment replaces the four roadmap rows; hold for the protected story slot.'});
 ['Look before you build.','Start constrained.','Own the harness.','Add autonomy as your evals earn it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','',{end:1});text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary,end:1});text(v,136,202+i*67,756,42,32,{bold:true,end:1});});
 text('Review 20 to 50 outputs.',48,192,864,45,32,{start:1,bold:true});
 text('Record the input, observed behavior,\nexpected behavior, and check.',48,256,864,60,24,{start:1});
@@ -563,10 +574,10 @@ evidenceTable([
  ['Input','Observed','Expected','Check'],
  ['FRB-042\nsummary','Bearing wear\nconfirmed','Cause remains\nunresolved','Does the source\nsupport the claim?'],
 ],[216,216,216,216],374,[32,76],{color:C.green,start:1});
-await newSlide('44',{title:'Resources',variant:'resources'});
+await newSlide('46',{title:'Resources',variant:'resources'});
 const resources=[['Chip Huyen, AI Engineering: Building Applications with Foundation Models.','O\'Reilly, 2025.'],['Anthropic engineering: "Building effective agents" (December 2024).','"Effective context engineering for AI agents" (September 2025).','"Demystifying evals for AI agents" (January 2026).'],['OpenAI, "A practical guide to building agents" (2025).'],['Hamel Husain, "AI Evals: Everything You Need to Know," hamel.dev.','Shreya Shankar and Hamel Husain, Evals for AI Engineers.','O\'Reilly, October 2026.'],['OWASP Top 10 for LLM Applications (2025)','and for Agentic Applications (2026).'],['OpenTelemetry GenAI semantic conventions.']];
 let ry=146;for(const lines of resources){for(const lineText of lines){text(lineText,48,ry,864,25,20);ry+=25;}ry+=8;}
-await newSlide('45');thesis(true);
+await newSlide('47');thesis(true);
 
 // Add the editable narrative number last, above full-screen images and bands.
 for (let i = 0; i < meta.length; i++) {
