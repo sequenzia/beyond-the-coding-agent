@@ -23,13 +23,13 @@ Effective context engineering for AI agents, September 2025
 
 [0:00] **QUOTE**
 
-[0:00] **“Context, therefore, must be treated as a finite resource with diminishing marginal returns.”**
+[0:00] Anthropic writes: **“Context, therefore, must be treated as a finite resource with diminishing marginal returns.”**
 
-[0:05] Model Selection established the available capacity. Context Engineering decides what information the next step needs and how to supply it. A larger context window does not establish that every available piece will help.
+[0:07] Every model call has limited room for information. **Our job is to decide what belongs in that call.** That includes what to bring forward, what to retrieve, and what to leave out.
 
 [0:20] Advance to slide 17.
 
-Cut first: the repeated capacity explanation. Never cut the quote and attribution. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the bring-forward, retrieve, and leave-out elaboration. Never cut the attribution and selection responsibility. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 

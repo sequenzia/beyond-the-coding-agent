@@ -48,10 +48,16 @@ The slide 41 recap connects the six areas using existing evidence and teaching d
 
 Current teaching definition: choose and maintain a model configuration suited to the task and approved for the data. This summarizes the existing task-fit, eligibility, settings, routing, and lifecycle decisions below.
 
+**Anthropic, "Optimizing for cost and intelligence," Claude Platform documentation, publication date not stated, checked September 16, 2026** [primary]. https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence#compare-models-on-cost-per-task Fetched and read directly in a browser.
+
+- "The ranking flips by workload, and no price list tells you which way."
+- Selected for slide 11 on September 16, 2026, replacing the Osmani quotation below. The surrounding discussion compares model quality and cost per completed task across workloads. No model ranking, benchmark statistic, or product recommendation is imported into the talk.
+- Teaching application: compare eligible models and settings on representative tasks, including quality, cost, and latency. The visible attribution uses "checked September 2026" because the page does not state a publication date.
+
 **Addy Osmani, "Agent Harness Engineering," AddyOsmani.com, April 19, 2026** [primary]. https://addyosmani.com/blog/agent-harness-engineering/ Checked in a browser September 15, 2026.
 
 - "A decent model with a great harness beats a great model with a bad harness."
-- Selected for the Model Selection quote screen. The next sentence describes the author's own experience. Present this as an attributed engineering judgment, not a universal performance guarantee or benchmark result.
+- Former Model Selection opening quote, replaced September 16, 2026. Retained as supporting evidence. The next sentence describes the author's own experience. Present this as an attributed engineering judgment, not a universal performance guarantee or benchmark result.
 - Teaching application: compare models inside the surrounding context, tools, and control flow used by the product.
 
 **Anthropic model deprecations page** [primary]. https://platform.claude.com/docs/en/about-claude/model-deprecations
@@ -566,10 +572,16 @@ The three slide specs and scripts contain no direct FRB reference. Their 1:00, 1
 
 ## 5. Verification & Evals
 
+**Hamel Husain, "A Field Guide to Rapidly Improving AI Products," Hamel's Blog, March 24, 2025** [primary]. https://hamel.dev/blog/posts/field-guide/ Fetched and read directly in a browser September 16, 2026.
+
+- "Can you show me how you’re measuring if any of this actually works?"
+- Selected for slide 31 on September 16, 2026, replacing the error-analysis quotation below. Husain presents this as a question he asks teams in his consulting work. Attribute this article to Husain alone.
+- Teaching application: after model selection, context, tools, and orchestration, require evidence that the whole system does what the product intends. Slide 32 then distinguishes verification of a result from evaluation across cases and repeated runs.
+
 **Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, May 28, 2025, updated September 13, 2026** [primary]. https://hamel.dev/blog/posts/evals-faq/ Checked in a browser September 15, 2026. The page's displayed modification date is September 13; this corrects the earlier September 1 date in this entry.
 
 - "Error analysis is the most important activity in evals."
-- Selected for the Evals quote screen. Attribute the jointly authored guide to both authors. The guide presents practitioner opinions, not universal rules.
+- Former Evals opening quote, replaced September 16, 2026. Retained as supporting evidence. Attribute this jointly authored guide to both authors. The guide presents practitioner opinions, not universal rules.
 
 **The organizing model for this talk.** Verification checks an action before accepting it. Evaluation measures behavior across representative cases. Inside and outside the loop describe complementary uses of checks, not a universal boundary between tests and evals. Keep both running as the system changes.
 
@@ -767,6 +779,8 @@ The proposed operator pauses the rollout, compares affected task categories and 
 - **Models in the room.** Claude Sonnet 5 (June 30), Opus 5 (July 24, updated August 12), Fable 5.1 and Mythos 5.1 (September 1, reportedly with breaking API changes), GLM-5.2 open-weight (June 15). Dates UNVERIFIED. Historical research leads only. Do not use these model names or dates on stage without primary verification. The migration lesson does not depend on them.
 
 ## Verify before stage
+
+- Perspective openings, September 16, 2026: slides 11 and 31 use the newly selected primary-source quotes in §1 and §5. The other four quotations remain unchanged. Approved scripts for 11, 16, 21, 26, 31, and 36 are integrated at 0:25, 0:20, 0:20, 0:20, 0:20, and 0:25. Rehearse the brief attributions and must-say lines. This supersedes earlier notes that the opening scripts remain unchanged. The selection record is `research/perspective-quote-review.md`.
 
 - Slides 27 through 29: approved copy and scripts are integrated at 1:00, 1:00, and 0:25. Rehearse their combined 2:25. Preserve the distinction between needing model judgment and needing model control of execution, the simpler baseline, enforced checks and limits, and uncertainty before retrying. The exact headline still matches slide 45. Slides 26, 30, and 45 remain unchanged.
 

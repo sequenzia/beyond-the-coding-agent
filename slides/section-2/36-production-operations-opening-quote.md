@@ -23,13 +23,13 @@ State of AI Engineering, Datadog, 2026
 
 [0:00] **QUOTE**
 
-[0:00] **“The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe.”**
+[0:00] Guillermo Rauch puts it this way in Datadog’s report: **“The next wave of agent failures won't be about what agents can't do. It'll be about what teams can't observe.”**
 
-[0:09] That is Guillermo Rauch's perspective, quoted in Datadog's report. The team needs evidence of actual behavior and responsibility for responding when the system departs from its intended use.
+[0:12] Once people depend on this system, **we need to see what happened, recognize when behavior changes, and know who responds.** That responsibility continues as models, data, and tools change.
 
 [0:25] Advance to slide 37.
 
-Cut first: the report context. Never cut Rauch attribution and Datadog publisher distinction. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the final sentence about models, data, and tools changing. Never cut the Rauch attribution, Datadog publisher distinction, and operating responsibility. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 

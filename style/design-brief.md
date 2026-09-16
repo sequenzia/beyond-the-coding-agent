@@ -976,7 +976,7 @@ Expected behavior depends on each case's starting conditions. The distinction be
 
 ### Slides 31, 34, and 35
 
-Preserve their current visible copy and layouts. Slide 31 keeps both quote authors. Slide 34 keeps the exact headline pitfall shared with slide 45. Slide 35 retains the exact invented minutes, cited unsupported claim, explicit PASS/FAIL wording, expected unresolved cause and inspection, and regression-case instruction. Its talk track tightens by 0:10 to connect the example to the preceding case-design framework.
+Preserve their current visible copy and layouts. Slide 31 uses the selected quote attribution recorded in Research §5 and its slide spec. Slide 34 keeps the exact headline pitfall shared with slide 45. Slide 35 retains the exact invented minutes, cited unsupported claim, explicit PASS/FAIL wording, expected unresolved cause and inspection, and regression-case instruction. Its talk track tightens by 0:10 to connect the example to the preceding case-design framework.
 
 ## 32. AgentOps integration, September 16, 2026
 
@@ -1119,3 +1119,12 @@ The presenter approved slide 19's four failure modes and 0:45 script. This repla
 - Use standard 1.25 line spacing and zero text insets. No new card, diagram, source footer, or animation appears.
 
 The script distinguishes degraded use of a growing context from information becoming outdated. All three Context Engineering content slides are now approved at 1:00, 1:10, and 0:45. This closes their pending content reviews. Rehearsal remains open. The area stays 4:30 and Section 2 stays 28:30. Slide 20 is unchanged.
+
+
+## 41. Perspective quote refresh, September 16, 2026
+
+Only the visible quotations and attributions on slides 11 and 31 change. Keep all six quote illustrations, header geometry, mini-maps, native narrative numbers, hard cuts, and time allocations. The six opening scripts are refreshed in their slide specs.
+
+Slide 11 retains the quote composition at x 48, y 192, width 568, height 216, size 44 with exact 52-point spacing. Use three deliberate lines, wrapping after “by” and “list”. Attribution stays at y 428 in 20 and publication/check date at y 462 in 16. The check date is explicitly labeled because the documentation has no stated publication date.
+
+Slide 31 retains the three-line quote composition at x 48, y 216, width 568, height 164, size 44 with exact 52-point spacing. Wrap after “how” and “any”. Attribute the new article to Hamel Husain alone. Author and publication/date retain their current positions and type roles. This supersedes the former joint-author requirement in the Evals quote composition. Keep the source title and March 2025 publication date together in the existing caption box.

@@ -6,10 +6,10 @@ Beat 2.5. Section 2. Rehearsal reference 0:20 of the area's 4:35. Section 2 rema
 
 **Kicker:** Verification & Evals · Perspective
 
-“Error analysis is the most important activity in evals.”
+“Can you show me how you’re measuring if any of this actually works?”
 
-Hamel Husain and Shreya Shankar
-AI Evals: Everything You Need to Know, September 2026
+Hamel Husain
+A Field Guide to Rapidly Improving AI Products, March 2025
 
 ## Layout and visual
 
@@ -23,18 +23,18 @@ AI Evals: Everything You Need to Know, September 2026
 
 [0:00] **QUOTE**
 
-[0:00] **“Error analysis is the most important activity in evals.”**
+[0:00] Hamel Husain asks: **“Can you show me how you’re measuring if any of this actually works?”**
 
-[0:05] Inspect the result and trace before choosing a repair. An aggregate score becomes useful when we understand the failures behind it.
+[0:08] We’ve chosen models, assembled context, connected tools, and designed the workflow. **Now we need evidence that the whole system does what we intend.**
 
 [0:20] Advance to slide 32.
 
-Cut first: the score explanation. Never cut the joint attribution and error-analysis principle. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the recap of models, context, tools, and workflow. Never cut the Husain attribution, measurement question, and evidence statement. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
 - Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed Verification & Evals content; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results. Illustration provenance: `internal/illustrations/README.md`.
+- Reviewed Verification & Evals content; Husain, March 2025; Anthropic, January 2026; Husain and Shankar, September 2026; Shankar et al., UIST 2024; illustrative FRB check. Research §0 and §5. The direct-reference PASS and source-support FAIL are properties of the invented example, not measured model results. Illustration provenance: `internal/illustrations/README.md`.
 
 ## Open items
 

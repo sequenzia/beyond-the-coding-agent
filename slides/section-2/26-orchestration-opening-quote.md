@@ -23,13 +23,13 @@ Building effective agents, December 2024
 
 [0:00] **QUOTE**
 
-[0:00] **“we recommend finding the simplest solution possible, and only increasing complexity when needed.”**
+[0:00] Anthropic writes: **“we recommend finding the simplest solution possible, and only increasing complexity when needed.”**
 
-[0:06] Decide which transitions code controls and where the model can choose an action. Then establish how work progresses, stops, and resumes.
+[0:07] Start with the steps the task requires. **Decide where a fixed sequence is enough and where the model needs to choose what happens next.** Add complexity when the task justifies it.
 
 [0:20] Advance to slide 27.
 
-Cut first: the repeated simplicity explanation. Never cut the quote and enforced-control distinction. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the final complexity reminder. Never cut the attribution and fixed-sequence versus model-choice distinction. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 

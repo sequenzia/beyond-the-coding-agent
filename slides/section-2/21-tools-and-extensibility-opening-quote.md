@@ -23,13 +23,13 @@ Writing effective tools for agents, with agents, September 2025
 
 [0:00] **QUOTE**
 
-[0:00] **“Agents are only as effective as the tools we give them.”**
+[0:00] Anthropic writes: **“Agents are only as effective as the tools we give them.”**
 
-[0:05] A tool gives the model an operation it can request. The contract must make that operation useful to the caller and enforceable by the application.
+[0:06] Giving an agent a capability means designing an operation it can request, understand, and use. **We own that interface, and the software that checks and carries out the request.**
 
 [0:20] Advance to slide 22.
 
-Cut first: the contract-element inventory. Never cut the quote and contract definition. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the request, understand, and use elaboration. Never cut the attribution and interface/execution responsibility. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 

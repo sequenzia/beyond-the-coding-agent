@@ -169,9 +169,9 @@ const section2Areas = [
     "area": AREA_NAMES[0],
     "start": 11,
     "image": "models-in-system.png",
-    "quote": "A decent model with a great harness beats a great model with a bad harness.",
-    "author": "Addy Osmani",
-    "publication": "Agent Harness Engineering, April 2026",
+    "quote": "The ranking flips by workload, and no price list tells you which way.",
+    "author": "Anthropic",
+    "publication": "Optimizing for cost and intelligence, checked September 2026",
     "titles": [
       "Model Selection, opening quote",
       "The model invocation",
@@ -219,7 +219,7 @@ const section2Areas = [
         "The price omits tool calls, retries, verification, and review."
       ]
     ],
-    "quoteWrapped": "“A decent model with a\ngreat harness beats a\ngreat model with a\nbad harness.”",
+    "quoteWrapped": "“The ranking flips by\nworkload, and no price list\ntells you which way.”",
     "colorKey": "blue",
     "map": "models"
   },
@@ -375,9 +375,9 @@ const section2Areas = [
     "area": AREA_NAMES[4],
     "start": 31,
     "image": "evals-inspection.png",
-    "quote": "Error analysis is the most important activity in evals.",
-    "author": "Hamel Husain and Shreya Shankar",
-    "publication": "AI Evals: Everything You Need to Know, September 2026",
+    "quote": "Can you show me how you’re measuring if any of this actually works?",
+    "author": "Hamel Husain",
+    "publication": "A Field Guide to Rapidly Improving AI Products, March 2025",
     "titles": [
       "Verification & Evals, opening quote",
       "Verification and evaluation",
@@ -414,7 +414,7 @@ const section2Areas = [
         "Add failures and recheck after changes."
       ]
     ],
-    "quoteWrapped": "“Error analysis is the most\nimportant activity in evals.”",
+    "quoteWrapped": "“Can you show me how\nyou’re measuring if any\nof this actually works?”",
     "colorKey": "green",
     "map": "evals"
   },
