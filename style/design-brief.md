@@ -1150,3 +1150,25 @@ Retain three flat risk rows at y 192, 254, and 316. Labels sit at x 48, width 21
 Keep the existing Pitfall label at x 48, y 426, width 124, height 30, Bold 20 in green. Keep the exact recap sentence at x 196, y 426, width 716, height 64, Bold 24 in primary text, with the existing break before "without". Slide 45 continues to use the same sentence.
 
 The approved scripts take 1:00, 1:15, and 0:40. This moves 0:15 from decisions to pitfalls while preserving their combined 2:55, the area's 4:35, and Section 2's 28:30. Editorial approval is complete. Presenter rehearsal remains open.
+
+## 43. AgentOps foundations, decisions, and pitfalls, September 16, 2026
+
+This updates §32 for slides 37 and 38 and the §23 pitfalls composition for slide 39. Keep the standard headers, amber AgentOps kickers, `mini-operating`, native numbering, static entry, and hard cuts. Preserve the approved wording in native editable text. Use Helvetica, standard 1.25 line spacing, and zero text insets. Slides 36 and 40 remain unchanged.
+
+### Slide 37
+
+Retain the definition and three flat foundation rows. Definition at x 48, y 192, width 864, height 50, Regular 20. Break after "accountable". Labels at x 48, width 216, Bold 20 in amber. Supporting text at x 292, width 620, Regular 20 in primary text. Row tops remain y 262, 382, and 450. The first row has height 30. The final two rows have height 54 to accommodate the approved explanations. Break Configuration versions after "Configuration". Break its explanation after "and". Break the outcome explanation after "cost,".
+
+Retain the recorded trace geometry from §32, replacing its labels with Retrieve, Model, Tool, and Check. Keep the connectors, amber underline beneath Model, and secondary "one span" annotation. The trace shows observed operations without durations or invented measurements. Table headings in the Markdown spec describe the content roles; the composition has no visible table header.
+
+### Slide 38
+
+Retain §32's three flat rows at y 192, 292, and 392. Labels remain x 48, width 216, height 30, Bold 20 in amber. Bodies remain x 292, width 620, height 54, Regular 20. Use two deliberate lines in every row, breaking after the first sentence. Preserve the exact approved Evidence, Releases, and Response wording. No visible table header is added.
+
+### Slide 39
+
+Retain three flat rows at y 192, 254, and 316. Labels Private data, Untrusted content, and Outbound access sit at x 48, width 216, height 30, Bold 20 in amber. Supporting text sits at x 292, width 620, height 54, Regular 20 in primary text. The first two explanations fit on one line. Break the third after "outside". Use CUI/ECI without expanding the abbreviation. No visible table header is added.
+
+Retain the probabilistic-filter sentence at x 48, y 386, width 864, height 30, Regular 20. Retain the Pitfall label and exact headline sentence at their §23 positions, with the existing line break before "and outbound". The sentence remains identical to slide 45.
+
+The approved scripts take 0:55, 1:00, and 0:45, preserving their combined 2:40, AgentOps at 4:10, and Section 2 at 28:30. Editorial approval is complete. Presenter rehearsal remains open.

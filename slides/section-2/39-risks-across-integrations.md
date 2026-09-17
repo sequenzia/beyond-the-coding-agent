@@ -8,9 +8,11 @@ Beat 2.6. Section 2. Rehearsal reference 0:45 of the area's 4:10. Section 2 rema
 
 **Title:** Risks across integrations
 
-- **Private data:** Information the system can access.
-- **Untrusted content:** Instructions can arrive inside documents.
-- **External communication:** Outbound actions can carry information.
+| Capability | What creates the risk |
+|---|---|
+| Private data | Sensitive records, including CUI/ECI. |
+| Untrusted content | Documents or messages may contain malicious instructions. |
+| Outbound access | Requests or actions can send information outside the approved environment. |
 
 **Pitfall:** Combining private data, untrusted content, and outbound access without reviewing the risk.
 
@@ -19,7 +21,7 @@ A probabilistic filter is insufficient as the sole security boundary.
 ## Layout and visual
 
 - Display narrative number 39, the area kicker, and `mini-operating` throughout.
-- Use the pitfalls composition in design brief §23. All visual values are defined there.
+- Use the pitfalls composition in design brief §43, updating §23 and §32. All visual values are defined there.
 - Show the complete content on entry. Use hard cuts in and out, with no internal reveal or user/owner label.
 - Keep text editable and the spoken takeaway out of the visible body.
 - The headline pitfall belongs in the body, not a footer. Its sentence must match slide 45 exactly.
@@ -28,19 +30,23 @@ A probabilistic filter is insufficient as the sole security boundary.
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] **Combining private data, untrusted content, and outbound access without reviewing the risk** is the headline pitfall. Willison describes how these capabilities can combine into a path for data theft. An internal attachment can contain untrusted instructions, and an outbound request can carry information.
+[0:00] For this audience, sensitive data includes **CUI/ECI**. Review where that information goes, including prompts, tool calls, and traces.
 
-[0:23] Review the combined capabilities when integrations change. Break or constrain the path, and enforce the permitted scope outside the model. This is one threat model, not a complete safety test. **A probabilistic filter is insufficient as the sole security boundary.**
+[0:10] An agent may read sensitive records, encounter malicious instructions in a document, and make an outbound request. Willison describes how those capabilities can combine into a path for data theft.
+
+[0:23] **The pitfall is combining private data, untrusted content, and outbound access without reviewing the risk.**
+
+[0:31] Review integrations together. Enforce approved processing, access, and destinations outside the model. **A probabilistic filter is insufficient as the sole security boundary.** This is one threat model, not a complete security assessment.
 
 [0:45] Advance to slide 40.
 
-Cut first: the outbound-request example. Never cut the exact pitfall, threat-model scope, and filter limitation. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the sentence illustrating the document and outbound request. Never cut CUI/ECI and the information path, the Willison attribution, the exact pitfall, enforced processing and access boundaries, threat-model scope, or filter limitation. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Full evidence records: `research/section-2.md`. Illustrative packet and contracts: `internal/frb-running-example.md`.
-- Reviewed AgentOps content; Rauch in Datadog, 2026; Willison, June 2025; OWASP; existing observability framing; illustrative FRB operating agreement. Research §0, §3, and §6.
+- Willison, June 2025; OWASP authorization guidance. Research §3 and §6 in `research/section-2.md`.
+- NARA CUI and Export Controlled registry guidance; NIST SP 800-171 publication abstract, checked September 2026; presenter-supplied CUI/ECI audience context, September 2026. Research §1 and §6 in `research/section-2.md`.
 
 ## Open items
 
-- Rehearse native playback on the actual presentation machine. The build renders full editing views and presentation states; validation here uses the macOS runtime.
+- Content and script approved by the presenter. Rehearse the locked 0:45 script on the presentation machine. The three content slides total 2:40 and preserve the area's 4:10 allocation.

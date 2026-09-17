@@ -432,40 +432,40 @@ const section2Areas = [
       "Risks across integrations",
       "Operating an FRB release"
     ],
-    "definition": "Operate agentic systems with observability, enforced controls,\nand accountable response.",
-    "recordedOperations": ["Retrieve", "Model", "Verify", "Export / hold"],
+    "definition": "AgentOps keeps deployed agents observable, controlled, and accountable\nas the system changes.",
+    "recordedOperations": ["Retrieve", "Model", "Tool", "Check"],
     "foundations": [
-      ["Trace", "The operations behind one task."],
-      ["Versioned\nconfiguration", "The versions and settings in use."],
-      ["Outcome metrics", "Quality, completion time, cost, and review work."]
+      ["Traces", "What happened during a task"],
+      ["Configuration\nversions", "Which model, prompts, retrieval setup, and\ntools were in use"],
+      ["Outcome metrics", "Task success, quality, completion time, cost,\nand human review"]
     ],
     "decisions": [
       [
         "Evidence",
-        "Capture enough to investigate.\nLimit sensitive content."
+        "Record enough to investigate.\nLimit sensitive content and protect access."
       ],
       [
         "Releases",
-        "Compare a controlled cohort.\nDefine rollback conditions."
+        "Evaluate changes, then limit initial exposure.\nDefine pause and rollback conditions."
       ],
       [
         "Response",
-        "Enforce scope and limits.\nAssign an authorized responder."
+        "Enforce permissions and resource limits.\nAssign someone authorized to intervene."
       ]
     ],
     "pitfall": "Combining private data, untrusted content, and outbound access without reviewing the risk.",
     "cues": [
       [
         "Private data",
-        "Information the system can access."
+        "Sensitive records, including CUI/ECI."
       ],
       [
         "Untrusted content",
-        "Instructions can arrive inside documents."
+        "Documents or messages may contain malicious instructions."
       ],
       [
-        "External communication",
-        "Outbound actions can carry information."
+        "Outbound access",
+        "Requests or actions can send information outside\nthe approved environment."
       ]
     ],
     "quoteWrapped": "“The next wave of agent\nfailures won't be about\nwhat agents can't do.\nIt'll be about what teams\ncan't observe.”",
@@ -555,7 +555,7 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   a.foundations.forEach(([label,body],i)=>{
    const y=[262,382,450][i];
    text(label,48,y,216,i===1?54:30,20,{bold:true,color});
-   text(body,292,y,620,30,20);
+   text(body,292,y,620,i===0?30:54,20);
   });
   a.recordedOperations.forEach((label,i)=>text(label,292+i*156,302,i===3?152:120,30,20,{align:'center'}));
   [416,572,728].forEach(x=>arrow(x,316,24));
@@ -604,7 +604,7 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
  await header(a.start+3,'Challenges and pitfalls',a.titles[3]);
  a.cues.forEach(([label,body],i)=>{
   const y=192+i*(areaIndex===1?54:62);
-  text(label,48,y,216,(areaIndex===4||areaIndex===5)&&i===2?54:30,20,{bold:true,color});
+  text(label,48,y,216,areaIndex===4&&i===2?54:30,20,{bold:true,color});
   text(body,292,y,620,54,20);
  });
  if(areaIndex===4)text('Inspect the result, trace, and reference data before choosing a repair.',48,386,864,30,20);
