@@ -1,43 +1,59 @@
-# Slide 48: Resources
+# Slide 48: Resources: Core learning path
 
 Beat 3.5 Close and resources, second half. Section 3. Time 0:08 of the beat's 0:30; slide 47 takes 0:22. Builds: 0. Stays up for questions and discussion.
 
 ## On the slide
 
-**Title:** Resources
+**Title:** Resources: Core learning path
 
-- Chip Huyen, *AI Engineering: Building Applications with Foundation Models*. O'Reilly, 2025.
-- Anthropic engineering: "Building effective agents" (December 2024). "Effective context engineering for AI agents" (September 2025). "Demystifying evals for AI agents" (January 2026).
-- OpenAI, "A practical guide to building agents" (2025).
-- Hamel Husain, "AI Evals: Everything You Need to Know," hamel.dev. Shreya Shankar and Hamel Husain, *Evals for AI Engineers*, O'Reilly, October 2026.
-- OWASP Top 10 for LLM Applications (2025) and for Agentic Applications (2026).
-- OpenTelemetry GenAI semantic conventions.
+- **AI Engineering**. Chip Huyen, Book + supplements.
+  - Application design decisions across the discipline
+  - Visible URL: github.com/chiphuyen/aie-book
+  - Hyperlink destination: https://github.com/chiphuyen/aie-book
+
+- **Agentic AI**. Andrew Ng / DeepLearning.AI, Course.
+  - Implement agentic workflow patterns in Python
+  - Visible URL: deeplearning.ai/courses/agentic-ai
+  - Hyperlink destination: https://www.deeplearning.ai/courses/agentic-ai
+
+- **LLM Zoomcamp**. DataTalks.Club, Course + project.
+  - Build a substantial retrieval-based application
+  - Visible URL: github.com/DataTalksClub/llm-zoomcamp
+  - Hyperlink destination: https://github.com/DataTalksClub/llm-zoomcamp
+
+- **AI Evals Guides**. Hamel Husain & Shreya Shankar, Guides.
+  - Inspect failures and measure improvements while building
+  - Visible URL: hamel.dev/blog/posts/evals-faq/
+  - Hyperlink destination: https://hamel.dev/blog/posts/evals-faq/
+
+**Learning guidance:** Apply evaluation while building your project.
 
 ## Layout and visual
 
 - Display narrative number 48 throughout, using the shared component in the design brief.
-
-- Use the shared header and body separation in the design brief. Full-screen anatomy states keep their standalone composition.
-
-- Final slide. Six entries, plain, readable from a phone camera. This slide exists to be photographed, so no builds, no images, and nothing below the fold.
-- Group the three Anthropic posts and the two Husain items into their respective entries. Allow multiple lines within each entry. Keep every entry on one photographable state beneath the shared header.
-- Vendor-neutral by design: no courses, no products, no tools. The two CLIs named in Section 2 are not resources, they are the subject.
-- Optional: a QR code in the corner pointing at a public page with these links and the sourced research. If the repo is public, its README serves.
+- Use the Resources reference composition in design brief §45, including the resource header, flat text rows, native hyperlinks, and readable URLs.
+- Each entry identifies its author or provider, format, and learning purpose. Keep the entire page on one photographable state.
+- Static composition with a hard cut. No mini-map, builds, images, card panels, or QR code.
+- Resource titles and visible URLs link to the listed official destinations. AI Engineer and Latent Space have separate links within their shared entry.
+- The live presentation holds here. The following three unhidden pages have no scheduled talk time.
 
 ## Talk track
 
 [0:00] Slide up.
 
-Resources. They will be in the deck, so take the photo now.
+Resources are in the deck. **Apply evaluation while building your project.**
 
 [0:08] Section 4 begins. The slide stays.
 
-Nothing else is spoken. Leave resources visible during questions and discussion.
+Leave slide 48 visible during questions and discussion. Slides 49 through 51 are available for optional browsing and in the shared deck.
+
+Cut first: any walkthrough of the optional reference pages. Never cut the core path's availability during discussion.
 
 ## Sources
 
-- Every item is cited in Section 2 or 3 and traced in the research files. The forthcoming Shankar and Husain book is listed for October 31, 2026 with ISBN 9798341660724; say "October" and nothing more precise. Research §4 in `research/section-3.md`.
+- The listed authors and organizations, official materials checked September 2026. Research §6 in `research/section-3.md`.
+- Selection and grouping adapt `research/external/ai-engineering-top-training-resources.md`. The slides present learning purposes, not the guide's editorial ranking.
 
 ## Open items
 
-- Whether to add a QR code, and to what page.
+- None.

@@ -86,6 +86,14 @@ for m in meta:
     assert [int(xfrm.find('a:ext',NS).get(k)) for k in ('cx','cy')]==[20*12700,16*12700],m['key']
     assert not root.xpath('.//p:spTgt[@spid=$id]',namespaces=NS,id=number['spid']),m['key']
     assert not root.xpath('.//p:cTn[@presetClass="exit"]',namespaces=NS),m['key']
+    if m.get('resourceLinks'):
+        # Check both the linked name and its readable URL survive native export.
+        rels=E.fromstring(data[f"ppt/slides/_rels/slide{m['slideIndex']}.xml.rels"])
+        targets={rel.get('Id'):rel.get('Target') for rel in rels if rel.get('Type').endswith('/hyperlink') and rel.get('TargetMode')=='External'}
+        linked=[targets[link.get(q('r:id'))] for link in root.findall('.//a:hlinkClick',NS)]
+        assert sorted(linked)==sorted(m['resourceLinks']*2),(m['key'],'resource hyperlinks',linked)
+        assert root.get('show','1')!='0',(m['key'],'resource page must remain unhidden')
+        assert not root.findall('p:timing',NS),(m['key'],'resource page must remain static')
     assert el.find('.//a:pPr',NS).get('algn')=='r',m['key']
     rpr=el.find('.//a:rPr',NS)
     default=el.find('.//a:defRPr',NS)
@@ -123,6 +131,6 @@ with ZipFile(B/'candidate.pptx','w',ZIP_DEFLATED)as z:
     for name,payload in data.items():z.writestr(name,payload)
 (B/'native-build-map.json').write_text(json.dumps(native_map,indent=2))
 summary={'physicalSlides':len(meta),'internalClicks':sum(len({o['start'] for o in m['objects'] if o['start']>0}) for m in meta),'morphTransitions':sum(bool(m['morph']) for m in meta),'numberedSlides':len(meta),'exitAnimations':0}
-assert summary=={'physicalSlides':53,'internalClicks':1,'morphTransitions':0,'numberedSlides':53,'exitAnimations':0},summary
+assert summary=={'physicalSlides':56,'internalClicks':1,'morphTransitions':0,'numberedSlides':56,'exitAnimations':0},summary
 (B/'package-validation.json').write_text(json.dumps(summary,indent=2))
 print(json.dumps(summary))

@@ -642,9 +642,163 @@ AREA_NAMES.forEach((name,i)=>{const color=[C.blue,C.pink,C.pink,C.pink,C.green,C
 await newSlide('46',{area:'The transition',beat:'The roadmap',map:'all',color:C.transition,title:'The roadmap'});
 ['Choose one narrow task.','Start with one model call.','Turn failures into checks.','Add autonomy when evals justify it.'].forEach((v,i)=>{card(48,192+i*67,864,59,'','');text(String(i+1),64,195+i*67,64,53,44,{color:C.secondary});text(v,136,202+i*67,756,42,32,{bold:true});});
 await newSlide('47');thesis(true);
-await newSlide('48',{title:'Resources',variant:'resources'});
-const resources=[['Chip Huyen, AI Engineering: Building Applications with Foundation Models.','O\'Reilly, 2025.'],['Anthropic engineering: "Building effective agents" (December 2024).','"Effective context engineering for AI agents" (September 2025).','"Demystifying evals for AI agents" (January 2026).'],['OpenAI, "A practical guide to building agents" (2025).'],['Hamel Husain, "AI Evals: Everything You Need to Know," hamel.dev.','Shreya Shankar and Hamel Husain, Evals for AI Engineers.','O\'Reilly, October 2026.'],['OWASP Top 10 for LLM Applications (2025)','and for Agentic Applications (2026).'],['OpenTelemetry GenAI semantic conventions.']];
-let ry=146;for(const lines of resources){for(const lineText of lines){text(lineText,48,ry,864,25,20);ry+=25;}ry+=8;}
+// Resource copy and layout follow design brief section 45.
+const resourcePages = [
+  {
+    "key": "48",
+    "category": "Core learning path",
+    "pitch": 80,
+    "footer": "Apply evaluation while building your project.",
+    "entries": [
+      {
+        "name": "AI Engineering",
+        "byline": "Chip Huyen",
+        "format": "Book + supplements",
+        "purpose": "Application design decisions across the discipline",
+        "url": "https://github.com/chiphuyen/aie-book"
+      },
+      {
+        "name": "Agentic AI",
+        "byline": "Andrew Ng / DeepLearning.AI",
+        "format": "Course",
+        "purpose": "Implement agentic workflow patterns in Python",
+        "url": "https://www.deeplearning.ai/courses/agentic-ai"
+      },
+      {
+        "name": "LLM Zoomcamp",
+        "byline": "DataTalks.Club",
+        "format": "Course + project",
+        "purpose": "Build a substantial retrieval-based application",
+        "url": "https://github.com/DataTalksClub/llm-zoomcamp"
+      },
+      {
+        "name": "AI Evals Guides",
+        "byline": "Hamel Husain & Shreya Shankar",
+        "format": "Guides",
+        "purpose": "Inspect failures and measure improvements while building",
+        "url": "https://hamel.dev/blog/posts/evals-faq/"
+      }
+    ]
+  },
+  {
+    "key": "49",
+    "category": "Building and operating systems",
+    "pitch": 68,
+    "entries": [
+      {
+        "name": "Anthropic Engineering",
+        "format": "Articles",
+        "purpose": "Agent architecture, context, and reliability",
+        "url": "https://www.anthropic.com/engineering"
+      },
+      {
+        "name": "Made With ML",
+        "byline": "Goku Mohandas / Anyscale",
+        "format": "Course + code",
+        "purpose": "Production ML testing, deployment, and monitoring",
+        "url": "https://madewithml.com/"
+      },
+      {
+        "name": "LangChain Academy",
+        "format": "Courses",
+        "purpose": "Stateful agents with LangGraph",
+        "url": "https://academy.langchain.com/"
+      },
+      {
+        "name": "Hugging Face AI Agents Course",
+        "format": "Course + assignments",
+        "purpose": "Agent mechanics and framework practice",
+        "url": "https://huggingface.co/learn/agents-course/unit0/introduction"
+      },
+      {
+        "name": "OpenAI Cookbook",
+        "format": "Code examples",
+        "purpose": "Implementation examples for OpenAI applications",
+        "url": "https://developers.openai.com/cookbook"
+      }
+    ]
+  },
+  {
+    "key": "50",
+    "category": "Model knowledge",
+    "pitch": 104,
+    "footer": "Optional depth for work closer to models and data.",
+    "entries": [
+      {
+        "name": "Hugging Face LLM Course",
+        "format": "Course + code",
+        "purpose": "Open models, datasets, and fine-tuning",
+        "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+      },
+      {
+        "name": "Hands-On Large Language Models",
+        "byline": "Jay Alammar & Maarten Grootendorst",
+        "format": "Book + notebooks",
+        "purpose": "Visual explanations and practical notebooks",
+        "url": "https://www.llm-book.com/"
+      },
+      {
+        "name": "Neural Networks: Zero to Hero",
+        "byline": "Andrej Karpathy",
+        "format": "Video course + code",
+        "purpose": "Model internals through coding",
+        "url": "https://karpathy.ai/zero-to-hero.html"
+      }
+    ]
+  },
+  {
+    "key": "51",
+    "category": "Continuing education",
+    "pitch": 104,
+    "footer": "Supplementary learning alongside your project.",
+    "entries": [
+      {
+        "name": "AI Engineer",
+        "secondName": "Latent Space",
+        "secondUrl": "https://www.latent.space/",
+        "byline": "swyx and collaborators",
+        "format": "Talks + podcast + newsletter",
+        "purpose": "Practitioner talks, workshops, and interviews",
+        "url": "https://ai.engineer/"
+      },
+      {
+        "name": "Simon Willison's Weblog",
+        "format": "Blog + experiments",
+        "purpose": "Experiments, tools, and application security",
+        "url": "https://simonwillison.net/"
+      },
+      {
+        "name": "Dwarkesh Podcast + Substack",
+        "byline": "Dwarkesh Patel",
+        "format": "Interviews + essays",
+        "purpose": "Frontier research discussions and perspectives",
+        "url": "https://www.dwarkesh.com/"
+      }
+    ]
+  }
+];
+const resourceEntries=resourcePages.flatMap(page=>page.entries);
+assert.equal(resourceEntries.length,15);
+assert.equal(new Set(resourceEntries.map(entry=>entry.name)).size,15);
+const readableUrl=url=>url.replace(/^https?:\/\//,'').replace(/^www\./,'');
+function resourceLink(label,url,color,bold=false){return {run:label,textStyle:{typeface:'Helvetica',color,bold},link:{uri:url,isExternal:true}};}
+for(const page of resourcePages){
+ await newSlide(page.key,{title:`Resources: ${page.category}`,variant:'resources'});
+ cur.resourceLinks=page.entries.flatMap(entry=>[entry.url,...(entry.secondUrl?[entry.secondUrl]:[])]);
+ for(const [i,entry] of page.entries.entries()){
+  const y=146+i*page.pitch;
+  const names=[resourceLink(entry.name,entry.url,C.text,true)];
+  if(entry.secondName)names.push(run(' + ',C.text,true),resourceLink(entry.secondName,entry.secondUrl,C.text,true));
+  const attribution=[entry.byline,entry.format].filter(Boolean).join(', ');
+  names.push({run:`   ${attribution}`,textStyle:{typeface:'Helvetica',color:C.secondary,fontSize:'16pt'}});
+  text([names],48,y,864,24,20,{name:`resource-${i+1}-name`,exact:24});
+  text(entry.purpose,48,y+24,864,24,20,{name:`resource-${i+1}-purpose`,exact:24});
+  const destinations=[resourceLink(readableUrl(entry.url),entry.url,C.secondary)];
+  if(entry.secondUrl)destinations.push(run('    ',C.secondary),resourceLink(readableUrl(entry.secondUrl),entry.secondUrl,C.secondary));
+  text([destinations],48,y+48,864,20,16,{name:`resource-${i+1}-url`,exact:20});
+ }
+ if(page.footer)text(page.footer,48,466,864,page.key==='48'?25:20,page.key==='48'?20:16,{name:'resource-guidance',color:page.key==='48'?C.transition:C.secondary,exact:page.key==='48'?25:20});
+}
 
 // Add the editable narrative number last, above full-screen images and bands.
 for (let i = 0; i < meta.length; i++) {

@@ -2,7 +2,7 @@
 
 This directory is the editable source for the PowerPoint deck. Keep these files in Git. `.deck-build/` contains disposable build snapshots, intermediate PPTX files, renders, and validation reports. The builder never reads from an older build directory.
 
-**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 48 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-2-orientation-numbering-map.json`; the Section 1 map remains a historical authoring record; the prior Section 2 map remains a historical authoring record. Layout rules are in design brief §§23 through 37. The compiler and notes tests cover the new numbering. Section 3 now keeps only the four-step roadmap, uses orange headers, and ends with resources after the close.
+**Current revision, September 16, 2026:** the outline, numbered specs, and builder now implement 51 narrative slides. Section 2 has five static slides per area and a 25:00-to-29:00 range. The current numbering migration is in `internal/deck/section-2-orientation-numbering-map.json`; the Section 1 map remains a historical authoring record; the prior Section 2 map remains a historical authoring record. Layout rules are in the design brief, with the four-page Resources composition in §45. The compiler and notes tests cover the new numbering. Section 3 now keeps only the four-step roadmap, uses orange headers, and ends with resources after the close.
 
 ## Rebuild
 
@@ -61,7 +61,7 @@ The launcher itself needs Node on `PATH`. If it is unavailable, invoke `build.mj
 4. Rebuild. Inspect the PNG states named `key-click.png` in the printed `renders/` directory, plus every complete physical slide in `physical-renders/`. Continuation keys include the original state boundary, such as `15-c1`. Fix overlaps and awkward wrapping in `author.mjs`, then rebuild to a new output filename.
 5. Open the final PPTX in PowerPoint and rehearse the clicks and transitions. Rendered images and automated checks cannot validate playback on the presentation machine.
 
-**Markdown synchronization:** speaker notes reload the talk track from Markdown on each build. The export removes timestamps, puts build cues in bold uppercase paragraphs with blank lines around them, and ends after the advance instruction. Slide 48 is the final resources slide and ends at the Q&A handoff. Metadata, authoring notes, cut guidance after the advance, backup sections, sources, research links, and open items stay out of exported notes. Timing and evidence remain in the source Markdown. Visible slide copy, geometry, and click assignments are deliberately authored in JavaScript. Editing on-slide text in Markdown alone does not change the visible slide. Keep both layers in sync. Manual PowerPoint edits also need to be transferred into the builder before the next rebuild.
+**Markdown synchronization:** speaker notes reload the talk track from Markdown on each build. The export removes timestamps, puts build cues in bold uppercase paragraphs with blank lines around them, and ends after the advance instruction. Slide 48 holds the core learning path and ends at the Q&A handoff. Slides 49 through 51 are untimed, unhidden reference pages whose notes end with a return to slide 48. Metadata, authoring notes, cut guidance after the advance, backup sections, sources, research links, and open items stay out of exported notes. Timing and evidence remain in the source Markdown. Visible slide copy, geometry, and click assignments are deliberately authored in JavaScript. Editing on-slide text in Markdown alone does not change the visible slide. Keep both layers in sync. Manual PowerPoint edits also need to be transferred into the builder before the next rebuild.
 
 **FRB Agent reservations:** slides 15, 20, 25, 30, 35, and 40 currently retain only their headers and narrative numbers. Their Markdown talk tracks contain only `<!-- intentionally blank -->`, which exports an empty native notes body. Tests and package validation require blank notes on exactly these six slides; all other slides still require an advance or closing handoff. When replacement scripts are ready, remove the marker and update those validation expectations. Slide 10 keeps its teaching pattern, labels the fifth item "FRB Agent", and reserves the right column with "FRB". Existing time allocations remain reserved.
 
@@ -75,11 +75,13 @@ Full anatomy renders are 7680 by 4320 PNGs, rendered directly from the SVG at de
 
 ### Builds and slide numbering
 
-The opening order is title (1), unchanged bio (2), agenda (3), Section 1 divider (4), deterministic logic and model behavior (5, 0:55), reliability (6, 0:45), engineering responsibilities (7, 1:00), then Section 2 divider (8). All three dividers use the same component. All eight Section 1 compositions are static. Slide 7 has no replacement screen. Slides 5 through 8 total 2:50; their locked scripts retain selective delegation, explicit determinism, and enforced boundaries. The closing thesis remains on slide 47.
+The opening order is title (1), unchanged bio (2), agenda (3), Section 1 divider (4), deterministic logic and model behavior (5, 0:55), reliability (6, 0:45), engineering responsibilities (7, 1:00), then Section 2 divider (8). All three dividers use the same component. All eight Section 1 compositions are static. Slide 7 has no replacement screen. Slides 5 through 8 total 2:50; their locked scripts retain selective delegation, explicit determinism, and enforced boundaries. The closing thesis remains on slide 47. Resources now span slides 48 through 51. Slide 48 stays visible during Q&A; the other three pages have 0:00 scheduled time and are available for optional browsing.
 
-There are 48 narrative slides, 48 authored compositions, and 53 physical PowerPoint slides. Each narrative slide has one authored composition. The compiler creates another 5 slides at replacement boundaries. There are 54 presentation states, one internal click, no Morph transitions, and 53 advances. Section 2 remains 25:00 to 29:00, with a 28:30 rehearsal reference; Section 1 is 4:00 and Section 3 is 4:10. The presentation is approximately 33:10 to 37:10; discussion fills the rest of the 50-minute session.
+There are 51 narrative slides, 51 authored compositions, and 56 physical PowerPoint slides. Each narrative slide has one authored composition. The compiler creates another 5 slides at replacement boundaries. There are 57 presentation states, one internal click, no Morph transitions, and 56 advances across the complete deck. Section 2 remains 25:00 to 29:00, with a 28:30 rehearsal reference; Section 1 is 4:00 and Section 3 is 4:10. The presentation is approximately 33:10 to 37:10; discussion fills the rest of the 50-minute session.
 
-Every physical slide has an editable narrative number from 1 through 48. Continuations repeat their narrative number. The number is added last so images and bands cannot cover it. Its geometry and typography live in design brief section 6.
+The live sequence still holds on slide 48 after 53 advances. Resource names and readable URLs contain native hyperlinks, validated against their authored destinations during packaging. All 15 resources appear once, with separate AI Engineer and Latent Space destinations within one entry.
+
+Every physical slide has an editable narrative number from 1 through 51. Continuations repeat their narrative number. The number is added last so images and bands cannot cover it. Its geometry and typography live in design brief section 6.
 
 Each object's options define when it appears:
 
@@ -94,7 +96,7 @@ text('Visible after click 1, replaced at click 2.', 48, 180, 864, 60, 24,
 
 `--slides 13,14` renders every segment generated from those original keys. `render-map.json` connects each preview to its original state. Slide 9 produces six physical slides: full brightness, four highlights, then full brightness.
 
-Expected counts live in `expand.mjs`; packaging also asserts the native slide, click, and transition counts, notes cutoff, and bold build cues. The compiler checks every state's content, geometry, object order, and notes before export. Run the compiler and notes tests with `node --test internal/deck/expand.test.mjs internal/deck/notes.test.mjs`. Keep the 48-slide narrative and the selected Section 2 timing range synchronized with the outline and specs.
+Expected counts live in `expand.mjs`; packaging also asserts the native slide, click, and transition counts, notes cutoff, and bold build cues. The compiler checks every state's content, geometry, object order, and notes before export. Run the compiler and notes tests with `node --test internal/deck/expand.test.mjs internal/deck/notes.test.mjs`. Keep the 51-slide narrative and the selected Section 2 timing range synchronized with the outline and specs.
 
 ## Files and build stages
 
@@ -108,7 +110,7 @@ Expected counts live in `expand.mjs`; packaging also asserts the native slide, c
 | `expand.test.mjs` | Focused compiler checks for replacement boundaries, sparse clicks, notes, Morph, and source selection |
 | `package.py` | Adds native click animation XML, Morph, font policy, line spacing, and border corrections |
 | `render.mjs` | Imports the candidate PPTX and renders every presentation state and complete physical slide; reports likely text-fit problems |
-| `finalize.mjs` | Checks 53 slides, native tables, geometry, fonts, package integrity, and Artifact Tool import; writes a new final PPTX |
+| `finalize.mjs` | Checks 56 slides, native tables, geometry, fonts, package integrity, and Artifact Tool import; writes a new final PPTX |
 | `runtime.mjs` | Shared runtime paths and font registration |
 
 Each run records `build-manifest.json`, stage logs, authored and expanded models and maps, `native-build-map.json`, `render-map.json`, `fit-warnings.json`, PNG previews, and `validation.json`. The receipt includes expansion, native-build, and render checks, and distinguishes narrative, authored, and physical counts. The manifest hashes inputs and the final PPTX so a future update can be compared with a known build. It also records the runtime locations; keep this generated file private in `.deck-build/`.

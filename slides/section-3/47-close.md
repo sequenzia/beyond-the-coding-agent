@@ -18,7 +18,7 @@ The two thesis sentences that close the talk.
 
 - Preserve the existing two-sentence thesis composition, then reveal Questions. The close names the role after the opening has established its engineering responsibilities.
 - "Questions" sits beneath the two sentences in the same type, smaller. No contact details, no handles, no logos; those belong on slide 2 or slide 48 if anywhere.
-- Reveal Questions, then advance to the final resources slide. Use a hard cut.
+- Reveal Questions, then advance to the core learning-path resources slide. Use a hard cut.
 
 ## Talk track
 

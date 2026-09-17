@@ -39,6 +39,7 @@ The opening develops the engineering shift before naming the role. Engineers ret
 | 2.6 AgentOps | 4:10 | 36 through 40 |
 | 2.7 Section wrap | 0:50 | 41 |
 | 3. Making the transition | 4:10 | 42 through 48 |
+| Additional resource references | 0:00 | 49 through 51 |
 | 4. Questions and discussion | Remainder of the 50-minute session | none, slide 48 stays up |
 
 Section 2 references sum to 28:30 within the agreed 25:00-to-29:00 range. With Section 1 at 4:00 and Section 3 at 4:10, the talk runs about 33:10 to 37:10. Discussion fills the remainder of the 50-minute session.
@@ -55,7 +56,7 @@ Each area has five separately numbered static slides. The opening and closing an
 
 The six standalone user screens and all paired user/owner labels are removed. Codex CLI and Devin remain the named coding-agent anchors in the map narration. There are no screenshot walkthroughs. Verification & Evals has no personal story or 1:00 reservation. The final area is AgentOps. The FRB corpus's CUI/ECI requirements and older, less capable approved models are explicit illustrative deployment assumptions informed by presenter-supplied audience context. They are not universal model-performance claims.
 
-The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 48. The builder now implements the same 48-slide narrative. Its expansion produces 53 physical slides and 54 presentation states.
+The source of truth is this outline with `research/section-2.md`; the reviewed area files and spoken pass in `outlines/section-2-rework/` retain supporting authoring detail. Slide specs now cover narrative slides 1 through 51, including three untimed resource pages. The builder implements the same 51 authored compositions. Its expansion produces 56 physical slides and 57 presentation states.
 
 ---
 
@@ -248,7 +249,7 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 
 ---
 
-## Section 3. Making the transition (4:10, 7 slides)
+## Section 3. Making the transition (4:10, 7 timed slides and 3 untimed resource pages)
 
 ### 3.0 Transition (0:10). Slide 42
 
@@ -316,28 +317,39 @@ The rehearsal reference is 28:30. Five static slides per area follow the opening
 - Takeaway line: "Autonomy is earned by evals, one step at a time."
 - Sources: Husain, evals FAQ; Anthropic, December 2024; learning-sequence synthesis in Research §4. OpenAI's guide and Hashimoto's adoption arc remain supporting research.
 
-### 3.5 Close and resources (0:30). Slides 47 and 48
+### 3.5 Close and resources (0:30). Slides 47 and 48, with untimed references 49 through 51
 
 **Slide 47, close.** The two thesis sentences, then "Questions."
 
 - Say: Using AI makes you an AI-enabled software engineer. Engineering systems that depend on AI makes you an AI engineer. The difference is not the tools. It is what you are responsible for. Let’s use the remaining time for your questions.
 - Sources: research §4.
 
-**Slide 48, resources.** Shown, not discussed.
+**Slide 48, Resources: Core learning path.** Shown, not discussed. Time 0:08 of the close's 0:30; slide 47 takes 0:22.
 
-- Chip Huyen, *AI Engineering: Building Applications with Foundation Models*, O'Reilly, 2025.
-- Anthropic engineering: "Building effective agents" (December 2024), "Effective context engineering for AI agents" (September 2025), "Demystifying evals for AI agents" (January 2026).
-- OpenAI, "A practical guide to building agents" (2025).
-- Hamel Husain, "AI Evals: Everything You Need to Know," hamel.dev. Shankar and Husain, *Evals for AI Engineers*, O'Reilly, forthcoming October 2026.
-- OWASP Top 10 for LLM Applications (2025) and for Agentic Applications (2026).
-- OpenTelemetry GenAI semantic conventions.
+- Chip Huyen, *AI Engineering*. Book and supplements. Application design decisions across the discipline.
+- Andrew Ng / DeepLearning.AI, *Agentic AI*. Course. Implement agentic workflow patterns in Python.
+- DataTalks.Club, LLM Zoomcamp. Course and project. Build a substantial retrieval-based application.
+- Hamel Husain and Shreya Shankar, AI Evals Guides. Written guides. Inspect failures and measure improvements while building.
+- Visible learning guidance: Apply evaluation while building your project.
+- Say: Resources are in the deck. Apply evaluation while building your project.
+- Takeaway line: "Apply evaluation while building your project."
+- Sources: Huyen; Ng / DeepLearning.AI; DataTalks.Club; Husain and Shankar. Official materials checked September 2026. Research §6.
 
-Resources stays visible during questions and discussion.
+**Slides 49 through 51, additional Resources.** Three static reference pages. Scheduled time 0:00. Available in the shared deck and for optional browsing during discussion. Titles and readable URLs link directly to the official resources. No rankings, prices, durations, cohort dates, or certification claims.
+
+- Slide 49, Building and operating systems: Anthropic Engineering, articles on agent architecture, context, and reliability; Goku Mohandas / Anyscale, Made With ML, course and code on production ML testing, deployment, and monitoring; LangChain Academy, courses on stateful agents with LangGraph; Hugging Face AI Agents Course, agent mechanics and framework practice; OpenAI Cookbook, code examples for implementing OpenAI applications.
+- Slide 50, Model knowledge: Hugging Face LLM Course, open models, datasets, and fine-tuning; Alammar and Grootendorst, *Hands-On Large Language Models*, visual explanations and practical notebooks; Karpathy, *Neural Networks: Zero to Hero*, model internals through coding. Label this optional depth for work closer to models and data.
+- Slide 51, Continuing education: AI Engineer and Latent Space, swyx and collaborators, practitioner talks, workshops, and interviews, with separate destinations; Simon Willison's Weblog, experiments, tools, and application security; Dwarkesh Patel, Dwarkesh Podcast and Substack, frontier research discussions and perspectives. Label this supplementary learning alongside a project.
+- Say: No scheduled narration. Browse only when useful to a question, then return to slide 48.
+- Takeaway line: "Choose additional material when your project needs it."
+- Sources: the listed authors and organizations, official materials checked September 2026. Research §6, adapting the supplied external training-resource guide.
+
+Slide 48 stays visible during questions and discussion. The older OpenAI agent guide, standards, and forthcoming evals book remain in research only. The approved learning-resource selection supersedes the earlier vendor-course exclusion for this reference section.
 
 ### Section 3 checks
 
 - Time: 0:10 + 1:05 + 1:15 + 0:35 + 0:35 + 0:30 = 4:10.
-- Slides: 42 through 48. Deck: 48 narrative slides and 48 authored compositions expand to 53 physical slides, 54 states, one internal click, no Morph transitions, and 53 advances.
+- Slides: 42 through 48 are timed. Slides 49 through 51 are untimed references. Deck: 51 narrative slides and 51 authored compositions expand to 56 physical slides, 57 states, one internal click, no Morph transitions, and 56 advances across the complete deck.
 - Description scope, with beat numbers: which existing skills provide a strong foundation (3.1); what additional competencies the discipline demands (3.2); where to focus further learning (3.4, 3.5); a roadmap (3.4).
 - Evidence status: competencies are unranked learning objectives grounded in Section 2's engineering decisions. Dice publisher figures are optional Q&A context; the LinkedIn ranking is secondary reporting.
 
@@ -378,7 +390,7 @@ Resources stays visible during questions and discussion.
 ### Whole-talk checks
 
 - Time: Section 1 has a 4:00 rehearsal target. Section 2 stays in its 25:00-to-29:00 range, with a 28:30 rehearsal reference. Section 3 is 4:10. The current references imply 33:10 to 37:10 of presentation; discussion fills the remainder of the 50-minute session.
-- Deck: 48 narrative slides, eight in Section 1, thirty-three in Section 2, and seven in Section 3. Each narrative slide has one authored composition. Expansion produces 53 physical slides, 54 states, one internal click, no Morph transitions, and 53 advances.
+- Deck: 51 narrative slides, eight in Section 1, thirty-three in Section 2, and ten in Section 3, including three untimed resource pages. Each narrative slide has one authored composition. Expansion produces 56 physical slides, 57 states, one internal click, no Morph transitions, and 56 advances across the complete deck. The live sequence holds on slide 48 after 53 advances.
 - FRB acceptance: a suspected cause never becomes a confirmed finding without support. Later minutes remain distinct from preliminary material. Similar symptoms and duplicates do not establish a common cause. Missing, unreadable, conflicting, incomplete, or unauthorized evidence yields an explicit limitation. Export matches the selection and preserves citations and uncertainty. Check citation existence separately from semantic support.
 - Rehearsal: Each area uses five static slides. The standalone map closes Section 2. Cut supporting inventory before the FRB decision, eval failure, or roadmap sequence. The evals and roadmap personal stories are removed. Preserve the optional presenter-authored slot in Section 1. Orchestration has no audience pause.
 - Scope from the published description, all covered: context engineering and retrieval (2.2); agent tools and extensibility (2.3); harness design (2.0 and the six areas); orchestration (2.4); evaluations and verification (2.5); observability, guardrails, security (2.6, with security also in 2.3); cost and latency (2.1, 2.2, 2.4, 2.6); why a prototype is not production readiness (1.7, 2.5, 2.6, 3.3); why tests are necessary but not sufficient (1.7, 2.5); why evals continue after deployment (1.7, 2.5); existing skills that transfer (3.1); additional competencies (3.2); where to focus further learning (3.4, 3.5).

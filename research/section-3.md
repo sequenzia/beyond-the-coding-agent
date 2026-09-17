@@ -139,7 +139,7 @@ Illustrative callback: input, an FRB-042 summary; observed behavior, bearing wea
 - Shreya Shankar and Hamel Husain, *Evals for AI Engineers: Systematically Measuring and Improving AI Applications*, O'Reilly, listed publication date October 31, 2026, ISBN 9798341660724. Lands about six weeks after the talk; frame as forthcoming. https://www.oreilly.com/library/view/evals-for-ai/9798341660717/colophon01.html
 - Husain and Shankar's Maven course, "AI Evals for Engineers & PMs." https://maven.com/parlance-labs/evals The October 10 cohort is described as the last of 2026. Enrollment counts conflict across sources (700-plus vs 5,000-plus); do not cite a number.
 - Anthropic Academy, launched March 2, 2026, free self-paced courses on Claude Code, agents, MCP, subagents. OpenAI Academy at academy.openai.com. DeepLearning.AI short courses free to audit. Course counts UNVERIFIED.
-- Vendor courses were excluded from the resources slide per the user's vendor-neutral preference; listed here for Q&A.
+- Historical decision: vendor courses were excluded from the original resources slide. The four-page learning-resource revision in §6 supersedes that exclusion for the reference section.
 
 **Durable principles vs frameworks.** The citeable version is Anthropic's abstraction warning (pitfall 2). The general critique that engineers start with the newest framework before understanding the loop is blog-grade.
 
@@ -170,6 +170,110 @@ These are the talk's judgments, grounded in the cited research rather than new e
 - Future architecture: mechanisms may simplify as models improve. The prediction is judgment. Permissions, integration, measurement, and accountable operation remain product responsibilities (Section 2 §0, §6).
 - Cost and architecture: compare alternatives on representative work. Include judge overhead, cache behavior, tail latency, failure recovery, and quality. Historical multipliers do not forecast a new product (Section 2 §1, §2, §4).
 - Hiring: lead with a demonstrable system, failure cases, evals, and evidence-driven improvements. The Dice figures are attributed backup context only.
+
+## 6. Learning resources, checked September 16, 2026
+
+The presenter approved four static Resources slides covering all 15 entries in `research/external/ai-engineering-top-training-resources.md`. Its ranking is editorial. The slides instead group resources by learning purpose: a core path, building and operating systems, optional model knowledge, and continuing education. The core path combines a conceptual foundation, implementation practice, a substantial project, and evaluation during development. This is a teaching recommendation, not a prerequisite sequence or a measured course ranking.
+
+The following official pages were read directly on September 16, 2026. Quotes support the short descriptions on slides 48 through 51. Access costs, course lengths, cohort dates, certification, and release recency are deliberately omitted from slide copy. The live Agentic AI page now shows a different duration from the external guide's snapshot; no duration is carried onto the slides. Existing standards, the OpenAI agent guide, and the forthcoming evals book remain in research only. The earlier exclusion of vendor courses is superseded for this reference section by the presenter's approval.
+
+### Core learning path
+
+**Chip Huyen, "AI Engineering book and other resources," author's GitHub repository, 2025 book; checked September 16, 2026.**
+[primary] https://github.com/chiphuyen/aie-book
+- "This book provides a framework for adapting foundation models"
+- "This is NOT a tutorial book"
+- Teaching use: a conceptual foundation for application design decisions, paired with implementation practice.
+
+**Andrew Ng / DeepLearning.AI, "Agentic AI," official course and syllabus, undated course page; checked September 16, 2026.**
+[primary] https://www.deeplearning.ai/courses/agentic-ai
+- "The course emphasizes practical implementation using Python, building each pattern from first principles before exploring frameworks"
+- Browser verification: read the live course page, including its instructor, design patterns, Python implementation, and evaluation description. Search snippets alone were not used for this entry.
+
+**DataTalks.Club, "LLM Zoomcamp," official GitHub curriculum, maintained course; checked September 16, 2026.**
+[primary] https://github.com/DataTalksClub/llm-zoomcamp
+- "You'll build a complete, working RAG application built and owned by you."
+- Teaching use: build a substantial retrieval-based application through the capstone.
+
+**Hamel Husain and Shreya Shankar, "AI Evals: Everything You Need to Know," Hamel's Blog, maintained guide; checked September 16, 2026.**
+[primary] https://hamel.dev/blog/posts/evals-faq/
+- "evaluation is part of the development process rather than a distinct line item"
+- Teaching use: inspect failures and measure improvements while building. The visible reminder, "Apply evaluation while building your project," is a teaching adaptation.
+
+### Building and operating systems
+
+**Anthropic, "Engineering at Anthropic: Inside the team building reliable AI systems," engineering archive, maintained collection; checked September 16, 2026.**
+[primary] https://www.anthropic.com/engineering
+- "Effective context engineering for AI agents"
+- "Demystifying evals for AI agents"
+- Teaching use: articles on agent architecture, context, and reliability. The individual articles remain cited in Section 2 research.
+
+**Goku Mohandas / Anyscale, "Made With ML," official curriculum, maintained course; checked September 16, 2026.**
+[primary] https://madewithml.com/
+- "combine machine learning with software engineering to design, develop, deploy and iterate on production ML applications"
+- Teaching use: production ML practices, including testing, deployment, and monitoring. Its trained-model focus is distinct from a complete agent curriculum.
+
+**LangChain, "Foundation: Introduction to LangGraph - Python," LangChain Academy, undated course page; checked September 16, 2026.**
+[primary] https://academy.langchain.com/courses/intro-to-langgraph
+- "Module 2: State and Memory"
+- "Lesson 6: Build an Agent with Long-Term Memory"
+- Catalog: https://academy.langchain.com/
+- Teaching use: framework-specific implementation of stateful agents with LangGraph.
+
+**Hugging Face, "Welcome to the AI Agents Course," official course introduction and syllabus, maintained course; checked September 16, 2026.**
+[primary] https://huggingface.co/learn/agents-course/unit0/introduction
+- "Explain Tools, Thoughts, Actions, Observations, and their formats."
+- "Understand how the fundamentals are implemented in popular libraries"
+- Teaching use: agent mechanics and practice with multiple frameworks.
+
+**OpenAI, "Cookbook," official developer examples, maintained collection; checked September 16, 2026.**
+[primary] https://developers.openai.com/cookbook
+- "Building games with Astra"
+- "Automating repetitive work at OpenAI with Codex"
+- Teaching use: implementation examples for OpenAI applications. Individual current example titles establish the collection's format and are not added to the slide.
+
+### Optional model knowledge
+
+**Hugging Face, "Introduction," LLM Course, maintained curriculum; checked September 16, 2026.**
+[primary] https://huggingface.co/learn/llm-course/chapter1/1
+- "fine-tune it on a dataset, and share your results on the Hub"
+- Teaching use: open models, datasets, and fine-tuning with Hugging Face tooling.
+
+**Jay Alammar and Maarten Grootendorst, "Hands-On Large Language Models," official book site, 2024 book; checked September 16, 2026.**
+[primary] https://www.llm-book.com/
+- "Python developers will learn the practical tools and concepts they need to use Large Language Models today."
+- Companion notebooks: https://github.com/HandsOnLLM/Hands-On-Large-Language-Models
+- Teaching use: visual explanations paired with practical notebooks. Use current dependency documentation when needed.
+
+**Andrej Karpathy, "Neural Networks: Zero to Hero," official course site, undated course collection; checked September 16, 2026.**
+[primary] https://karpathy.ai/zero-to-hero.html
+- "A course by Andrej Karpathy on building neural networks, from scratch, in code."
+- Teaching use: optional model internals through coding. Model training is not a prerequisite for the application path.
+
+### Continuing education
+
+**AI Engineer / swyx and collaborators, "AI Engineer," official conference and talk archive, maintained collection; checked September 16, 2026.**
+[primary] https://ai.engineer/
+- "top talks, workshops, and livestreams"
+- Teaching use: practitioner talks and workshops. Grouped with Latent Space as one of the guide's 15 resources, with separate links on the slide.
+
+**swyx and collaborators, "About," Latent Space, maintained publication; checked September 16, 2026.**
+[primary] https://www.latent.space/about
+- "technical deep dives and a real look at the people behind the major projects and news in AI"
+- Main destination: https://www.latent.space/
+- Teaching use: technical interviews and ongoing written coverage.
+
+**Simon Willison, "The lethal trifecta for AI agents: private data, untrusted content, and external communication," Simon Willison's Weblog, June 16, 2025; checked September 16, 2026.**
+[primary] https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/
+- "private data, untrusted content, and external communication"
+- Main destination: https://simonwillison.net/
+- Teaching use: experiments, tools, and application security. The external guide supplies the broader selection rationale.
+
+**Dwarkesh Patel, "About," Dwarkesh Podcast, maintained publication; checked September 16, 2026.**
+[primary] https://www.dwarkesh.com/about
+- "Deeply researched interviews"
+- Main destination: https://www.dwarkesh.com/
+- Teaching use: frontier research discussions and perspectives, following the external guide's synthesis. This is supplementary context, not a coding curriculum.
 
 ## Verify before stage
 

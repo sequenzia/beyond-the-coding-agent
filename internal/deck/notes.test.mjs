@@ -74,11 +74,16 @@ test('narrative slides preserve handoffs and build cues except the six blank FRB
         assert.match(plain, /Section 4 begins\. The slide stays\.$/);
         assert.doesNotMatch(plain, /Nothing else is spoken|## Sources|Whether to add a QR/);
       }
+      if ([49, 50, 51].includes(parseInt(file))) {
+        assert.match(markdown, /Scheduled time 0:00\. Untimed reference page\. Builds: 0\./);
+        assert.match(plain, /Advance to slide 48 when returning to questions and discussion\.$/);
+        assert.doesNotMatch(plain, /BUILD|https?:|Cut first:/);
+      }
       if (file.startsWith('47-')) assert.doesNotMatch(plain, /Backup for questions|Do I need to learn/);
       count++;
     }
   }
-  assert.equal(count, 48);
+  assert.equal(count, 51);
   assert.deepEqual(blankSlides.sort((a, b) => a - b), [15, 20, 25, 30, 35, 40]);
 });
 
