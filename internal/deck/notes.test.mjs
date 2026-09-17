@@ -45,7 +45,7 @@ test('narrative slides preserve handoffs and build cues except the six blank FRB
       const markdown = await fs.readFile(new URL(file, directory), 'utf8');
       const paragraphs = speakerNoteParagraphs(markdown);
       const plain = text(paragraphs);
-      if (section === 2 && [15, 20, 25, 30, 35, 40].includes(parseInt(file))) {
+      if (section === 2 && [20, 25, 30, 35, 40, 45].includes(parseInt(file))) {
         assert.equal(plain, '', file);
         blankSlides.push(parseInt(file));
         count++;
@@ -65,29 +65,50 @@ test('narrative slides preserve handoffs and build cues except the six blank FRB
         assert.equal(paragraph.runs[0].textStyle.bold, true, `${file}: ${cue}`);
       }
       if (section === 2) assert.doesNotMatch(plain, /\[your story #2\]/, file);
-      if (file.startsWith('46-')) {
-        assert.match(plain, /Autonomy is earned by evals, one step at a time\.\n\nAdvance to slide 47\.$/);
+      if (file.startsWith('51-')) {
+        assert.match(plain, /Autonomy is earned by evals, one step at a time\.\n\nAdvance to slide 52\.$/);
         assert.doesNotMatch(plain, /BUILD|twenty to fifty|Review 20 to 50|FRB/);
       }
-      if (file.startsWith('48-')) {
-        assert.match(markdown, /^# Slide 48: Resources/m);
+      if (file.startsWith('53-')) {
+        assert.match(markdown, /^# Slide 53: Resources/m);
         assert.match(plain, /Section 4 begins\. The slide stays\.$/);
         assert.doesNotMatch(plain, /Nothing else is spoken|## Sources|Whether to add a QR/);
       }
-      if ([49, 50, 51].includes(parseInt(file))) {
+      if ([54, 55, 56].includes(parseInt(file))) {
         assert.match(markdown, /Scheduled time 0:00\. Untimed reference page\. Builds: 0\./);
-        assert.match(plain, /Advance to slide 48 when returning to questions and discussion\.$/);
+        assert.match(plain, /Advance to slide 53 when returning to questions and discussion\.$/);
         assert.doesNotMatch(plain, /BUILD|https?:|Cut first:/);
       }
-      if (file.startsWith('47-')) assert.doesNotMatch(plain, /Backup for questions|Do I need to learn/);
+      if (file.startsWith('52-')) assert.doesNotMatch(plain, /Backup for questions|Do I need to learn/);
       count++;
     }
   }
-  assert.equal(count, 51);
-  assert.deepEqual(blankSlides.sort((a, b) => a - b), [15, 20, 25, 30, 35, 40]);
+  assert.equal(count, 56);
+  assert.deepEqual(blankSlides.sort((a, b) => a - b), [20, 25, 30, 35, 40, 45]);
 });
 
 test('missing talk tracks and handoffs fail rather than silently losing presenter content', () => {
   assert.throws(() => speakerNoteParagraphs('## Sources\nNo track.'), /Missing talk track/);
   assert.throws(() => speakerNoteParagraphs('## Talk track\nUnfinished.'), /Missing slide advance/);
+});
+
+test('anatomy migration has consecutive sources and independently timed map notes', async () => {
+  const migration = JSON.parse(await fs.readFile(new URL('./anatomy-numbering-map.json', import.meta.url), 'utf8'));
+  assert.deepEqual(migration.mapping.map(entry => entry.new), Array.from({ length: 56 }, (_, i) => i + 1));
+  const durations = [];
+  const mapNotes = [];
+  for (const entry of migration.mapping) {
+    const markdown = await fs.readFile(new URL(`../../${entry.file}`, import.meta.url), 'utf8');
+    assert.match(markdown, new RegExp(`^# Slide ${entry.new}:`), entry.file);
+    if (entry.old !== 9) continue;
+    const plain = text(speakerNoteParagraphs(markdown));
+    assert.equal((plain.match(/Advance to slide/g) || []).length, 1);
+    assert.ok(plain.endsWith(`Advance to slide ${entry.new + 1}.`), entry.file);
+    const cue = markdown.match(/\[(\d+):(\d{2})\] Advance to slide/);
+    durations.push(Number(cue[1]) * 60 + Number(cue[2]));
+    mapNotes.push(plain);
+  }
+  assert.equal(new Set(mapNotes).size, 6, 'Each map must export its own talk track');
+  assert.deepEqual(durations, [15, 12, 25, 13, 15, 10]);
+  assert.equal(durations.reduce((sum, seconds) => sum + seconds, 0), 90);
 });

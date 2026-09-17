@@ -150,7 +150,9 @@ The assigned operator pauses the rollout, compares similar task categories by co
 
 Review pending work and any completed effects separately. Keep the existing source-support regression case, add newly understood failure variants, rerun relevant evaluations, and monitor recovery. Report review effort separately if the cost measure excludes it. People retain responsibility for official causes, decisions, and board records. The operating agreement is the supporting artifact behind the incident, not a claim that a real service or organization implemented these controls.
 
-## Slide map
+## Slide map (historical authoring placement)
+
+This table records the earlier application design. The active deck reserves the six FRB Agent bodies and scripts pending replacement. Current placements are orientation 15 and FRB applications 20, 25, 30, 35, 40, and 45. Anatomy maps are 9 through 14; the closing map is 46 and now uses the model-change synthesis. The current roadmap is 51 and contains only the four-step learning path.
 
 | Slide | Responsibility taught |
 |---|---|

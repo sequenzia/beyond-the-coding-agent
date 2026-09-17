@@ -1,0 +1,356 @@
+{
+  "revision": "Individually numbered anatomy maps, September 16, 2026",
+  "previousNarrativeSlides": 51,
+  "narrativeSlides": 56,
+  "physicalSlides": 56,
+  "mapping": [
+    {
+      "old": 1,
+      "new": 1,
+      "oldFile": "slides/section-1/01-title.md",
+      "file": "slides/section-1/01-title.md"
+    },
+    {
+      "old": 2,
+      "new": 2,
+      "oldFile": "slides/section-1/02-who-is-talking.md",
+      "file": "slides/section-1/02-who-is-talking.md"
+    },
+    {
+      "old": 3,
+      "new": 3,
+      "oldFile": "slides/section-1/03-agenda-and-goals.md",
+      "file": "slides/section-1/03-agenda-and-goals.md"
+    },
+    {
+      "old": 4,
+      "new": 4,
+      "oldFile": "slides/section-1/04-section-1-transition.md",
+      "file": "slides/section-1/04-section-1-transition.md"
+    },
+    {
+      "old": 5,
+      "new": 5,
+      "oldFile": "slides/section-1/05-deterministic-logic-and-model-behavior.md",
+      "file": "slides/section-1/05-deterministic-logic-and-model-behavior.md"
+    },
+    {
+      "old": 6,
+      "new": 6,
+      "oldFile": "slides/section-1/06-reliability-with-a-model-in-the-loop.md",
+      "file": "slides/section-1/06-reliability-with-a-model-in-the-loop.md"
+    },
+    {
+      "old": 7,
+      "new": 7,
+      "oldFile": "slides/section-1/07-engineering-the-system-around-the-model.md",
+      "file": "slides/section-1/07-engineering-the-system-around-the-model.md"
+    },
+    {
+      "old": 8,
+      "new": 8,
+      "oldFile": "slides/section-1/08-section-2-transition.md",
+      "file": "slides/section-1/08-section-2-transition.md"
+    },
+    {
+      "old": 9,
+      "oldState": 0,
+      "oldKey": "09",
+      "new": 9,
+      "oldFile": "slides/section-2/09-the-map.md",
+      "file": "slides/section-2/09-the-map.md"
+    },
+    {
+      "old": 9,
+      "oldState": 1,
+      "oldKey": "09-c1",
+      "new": 10,
+      "oldFile": "slides/section-2/09-the-map.md",
+      "file": "slides/section-2/10-the-model.md"
+    },
+    {
+      "old": 9,
+      "oldState": 2,
+      "oldKey": "09-c2",
+      "new": 11,
+      "oldFile": "slides/section-2/09-the-map.md",
+      "file": "slides/section-2/11-the-harness.md"
+    },
+    {
+      "old": 9,
+      "oldState": 3,
+      "oldKey": "09-c3",
+      "new": 12,
+      "oldFile": "slides/section-2/09-the-map.md",
+      "file": "slides/section-2/12-per-run-services.md"
+    },
+    {
+      "old": 9,
+      "oldState": 4,
+      "oldKey": "09-c4",
+      "new": 13,
+      "oldFile": "slides/section-2/09-the-map.md",
+      "file": "slides/section-2/13-across-run-services.md"
+    },
+    {
+      "old": 9,
+      "oldState": 5,
+      "oldKey": "09-c5",
+      "new": 14,
+      "oldFile": "slides/section-2/09-the-map.md",
+      "file": "slides/section-2/14-the-map-connected.md"
+    },
+    {
+      "old": 10,
+      "new": 15,
+      "oldFile": "slides/section-2/10-section-orientation.md",
+      "file": "slides/section-2/15-section-orientation.md"
+    },
+    {
+      "old": 11,
+      "new": 16,
+      "oldFile": "slides/section-2/11-models-opening-quote.md",
+      "file": "slides/section-2/16-models-opening-quote.md"
+    },
+    {
+      "old": 12,
+      "new": 17,
+      "oldFile": "slides/section-2/12-models-in-the-system.md",
+      "file": "slides/section-2/17-models-in-the-system.md"
+    },
+    {
+      "old": 13,
+      "new": 18,
+      "oldFile": "slides/section-2/13-model-selection.md",
+      "file": "slides/section-2/18-model-selection.md"
+    },
+    {
+      "old": 14,
+      "new": 19,
+      "oldFile": "slides/section-2/14-model-selection-pitfalls.md",
+      "file": "slides/section-2/19-model-selection-pitfalls.md"
+    },
+    {
+      "old": 15,
+      "new": 20,
+      "oldFile": "slides/section-2/15-models-for-the-frb-brief.md",
+      "file": "slides/section-2/20-models-for-the-frb-brief.md"
+    },
+    {
+      "old": 16,
+      "new": 21,
+      "oldFile": "slides/section-2/16-context-and-knowledge-opening-quote.md",
+      "file": "slides/section-2/21-context-and-knowledge-opening-quote.md"
+    },
+    {
+      "old": 17,
+      "new": 22,
+      "oldFile": "slides/section-2/17-context-for-the-next-step.md",
+      "file": "slides/section-2/22-context-for-the-next-step.md"
+    },
+    {
+      "old": 18,
+      "new": 23,
+      "oldFile": "slides/section-2/18-context-decisions.md",
+      "file": "slides/section-2/23-context-decisions.md"
+    },
+    {
+      "old": 19,
+      "new": 24,
+      "oldFile": "slides/section-2/19-context-pitfalls.md",
+      "file": "slides/section-2/24-context-pitfalls.md"
+    },
+    {
+      "old": 20,
+      "new": 25,
+      "oldFile": "slides/section-2/20-evidence-for-the-frb-brief.md",
+      "file": "slides/section-2/25-evidence-for-the-frb-brief.md"
+    },
+    {
+      "old": 21,
+      "new": 26,
+      "oldFile": "slides/section-2/21-tools-and-extensibility-opening-quote.md",
+      "file": "slides/section-2/26-tools-and-extensibility-opening-quote.md"
+    },
+    {
+      "old": 22,
+      "new": 27,
+      "oldFile": "slides/section-2/22-tools-and-connections.md",
+      "file": "slides/section-2/27-tools-and-connections.md"
+    },
+    {
+      "old": 23,
+      "new": 28,
+      "oldFile": "slides/section-2/23-tool-design-decisions.md",
+      "file": "slides/section-2/28-tool-design-decisions.md"
+    },
+    {
+      "old": 24,
+      "new": 29,
+      "oldFile": "slides/section-2/24-tool-design-pitfalls.md",
+      "file": "slides/section-2/29-tool-design-pitfalls.md"
+    },
+    {
+      "old": 25,
+      "new": 30,
+      "oldFile": "slides/section-2/25-export-cited-brief.md",
+      "file": "slides/section-2/30-export-cited-brief.md"
+    },
+    {
+      "old": 26,
+      "new": 31,
+      "oldFile": "slides/section-2/26-orchestration-opening-quote.md",
+      "file": "slides/section-2/31-orchestration-opening-quote.md"
+    },
+    {
+      "old": 27,
+      "new": 32,
+      "oldFile": "slides/section-2/27-execution-control.md",
+      "file": "slides/section-2/32-execution-control.md"
+    },
+    {
+      "old": 28,
+      "new": 33,
+      "oldFile": "slides/section-2/28-orchestration-decisions.md",
+      "file": "slides/section-2/33-orchestration-decisions.md"
+    },
+    {
+      "old": 29,
+      "new": 34,
+      "oldFile": "slides/section-2/29-execution-pitfalls.md",
+      "file": "slides/section-2/34-execution-pitfalls.md"
+    },
+    {
+      "old": 30,
+      "new": 35,
+      "oldFile": "slides/section-2/30-workflow-for-the-frb-brief.md",
+      "file": "slides/section-2/35-workflow-for-the-frb-brief.md"
+    },
+    {
+      "old": 31,
+      "new": 36,
+      "oldFile": "slides/section-2/31-verification-and-evals-opening-quote.md",
+      "file": "slides/section-2/36-verification-and-evals-opening-quote.md"
+    },
+    {
+      "old": 32,
+      "new": 37,
+      "oldFile": "slides/section-2/32-verification-and-evaluation.md",
+      "file": "slides/section-2/37-verification-and-evaluation.md"
+    },
+    {
+      "old": 33,
+      "new": 38,
+      "oldFile": "slides/section-2/33-evaluation-decisions.md",
+      "file": "slides/section-2/38-evaluation-decisions.md"
+    },
+    {
+      "old": 34,
+      "new": 39,
+      "oldFile": "slides/section-2/34-evaluation-pitfalls.md",
+      "file": "slides/section-2/39-evaluation-pitfalls.md"
+    },
+    {
+      "old": 35,
+      "new": 40,
+      "oldFile": "slides/section-2/35-does-the-source-support-the-claim.md",
+      "file": "slides/section-2/40-does-the-source-support-the-claim.md"
+    },
+    {
+      "old": 36,
+      "new": 41,
+      "oldFile": "slides/section-2/36-production-operations-opening-quote.md",
+      "file": "slides/section-2/41-production-operations-opening-quote.md"
+    },
+    {
+      "old": 37,
+      "new": 42,
+      "oldFile": "slides/section-2/37-production-operations.md",
+      "file": "slides/section-2/42-production-operations.md"
+    },
+    {
+      "old": 38,
+      "new": 43,
+      "oldFile": "slides/section-2/38-production-decisions.md",
+      "file": "slides/section-2/43-production-decisions.md"
+    },
+    {
+      "old": 39,
+      "new": 44,
+      "oldFile": "slides/section-2/39-risks-across-integrations.md",
+      "file": "slides/section-2/44-risks-across-integrations.md"
+    },
+    {
+      "old": 40,
+      "new": 45,
+      "oldFile": "slides/section-2/40-frb-operating-agreement.md",
+      "file": "slides/section-2/45-frb-operating-agreement.md"
+    },
+    {
+      "old": 41,
+      "new": 46,
+      "oldFile": "slides/section-2/41-the-system-responsibilities.md",
+      "file": "slides/section-2/46-the-system-responsibilities.md"
+    },
+    {
+      "old": 42,
+      "new": 47,
+      "oldFile": "slides/section-3/42-transition.md",
+      "file": "slides/section-3/47-transition.md"
+    },
+    {
+      "old": 43,
+      "new": 48,
+      "oldFile": "slides/section-3/43-what-transfers.md",
+      "file": "slides/section-3/48-what-transfers.md"
+    },
+    {
+      "old": 44,
+      "new": 49,
+      "oldFile": "slides/section-3/44-what-you-add.md",
+      "file": "slides/section-3/49-what-you-add.md"
+    },
+    {
+      "old": 45,
+      "new": 50,
+      "oldFile": "slides/section-3/45-the-pitfalls.md",
+      "file": "slides/section-3/50-the-pitfalls.md"
+    },
+    {
+      "old": 46,
+      "new": 51,
+      "oldFile": "slides/section-3/46-the-roadmap.md",
+      "file": "slides/section-3/51-the-roadmap.md"
+    },
+    {
+      "old": 47,
+      "new": 52,
+      "oldFile": "slides/section-3/47-close.md",
+      "file": "slides/section-3/52-close.md"
+    },
+    {
+      "old": 48,
+      "new": 53,
+      "oldFile": "slides/section-3/48-resources.md",
+      "file": "slides/section-3/53-resources.md"
+    },
+    {
+      "old": 49,
+      "new": 54,
+      "oldFile": "slides/section-3/49-resources-building-and-operating-systems.md",
+      "file": "slides/section-3/54-resources-building-and-operating-systems.md"
+    },
+    {
+      "old": 50,
+      "new": 55,
+      "oldFile": "slides/section-3/50-resources-model-knowledge.md",
+      "file": "slides/section-3/55-resources-model-knowledge.md"
+    },
+    {
+      "old": 51,
+      "new": 56,
+      "oldFile": "slides/section-3/51-resources-continuing-education.md",
+      "file": "slides/section-3/56-resources-continuing-education.md"
+    }
+  ]
+}

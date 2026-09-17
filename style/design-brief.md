@@ -12,7 +12,7 @@ Visual and typographic decisions for the deck. Companion to `style/colors.md`, w
 - Three orientation devices: the kicker, the mini-map, and the narrative slide number. No other footer, logo, progress bar, employer name, contact details, or takeaway lines on screen.
 - The brief carries no talk content. It names slides by number only.
 
-**The concept.** The anatomy diagram is the talk's spine. Slide 9 introduces it, Section 2 walks six areas on it, and slide 41 returns to it with the six area colors and an area key. A mini-map at top right says where you are. Each area borrows its color from where it sits on the map and opens with a quote and colored kicker. Helvetica carries the narrative and numbering. Monospace marks commands, filenames, formulas, and the opening code metaphor.
+**The concept.** The anatomy diagram is the talk's spine. Slides 9 through 14 introduce it, Section 2 walks six areas on it, and slide 46 returns to it with the six area colors and an area key. A mini-map at top right says where you are. Each area borrows its color from where it sits on the map and opens with a quote and colored kicker. Helvetica carries the narrative and numbering. Monospace marks commands, filenames, formulas, and the opening code metaphor.
 
 ## 2. Page and PowerPoint setup
 
@@ -1194,3 +1194,16 @@ Each resource is a flat three-line entry spanning x 48 to 912. The name is Helve
 Slide 48 has four entries with an 80-point row pitch. Its evaluation reminder sits at x 48, y 466, width 864, height 25, Regular 20 in transition orange. Slide 49 has five entries with a 68-point row pitch, ending at y 486. Slides 50 and 51 each have three entries with a 104-point row pitch. Their brief optional-depth or supplementary-learning label sits at x 48, y 466, width 864, height 20, Regular 16 secondary text. Slide 51 links AI Engineer and Latent Space separately within one entry, including separate readable destinations on its URL line.
 
 The deck now has 51 narrative slides and authored compositions, 56 physical slides, 57 states, one internal click, no Morph transitions, and 56 advances across the complete deck. Slides 49 through 51 are unhidden reference pages with no scheduled narration or additional talk time. The live sequence holds on slide 48 after its existing 0:08 handoff and 53 total advances. Section 3 remains 4:10. Preserve all other compositions, including the six blank FRB Agent reservations.
+
+
+## 46. Individually numbered anatomy maps, September 16, 2026
+
+This supersedes earlier map numbering, full-slide image geometry, and deck counts. The current numbering migration is `internal/deck/anatomy-numbering-map.json`. Earlier dated sections keep their historical slide numbers; apply that migration to their active compositions. Former slides 10 through 51 become slides 15 through 56. Opening states formerly grouped under slide 9 become independent slides 9 through 14. The closing map is slide 46.
+
+The six opening maps show full brightness, Model, Harness, per-run services, across-run services, then full brightness. Each is a static composition with a hard cut, one native narrative number, and its own script. Place every opening map image at x 24, y 0, width 912, height 513 on the 960 by 540 canvas. This is a proportional 95% scale of the existing image. The outer border ends at y 498.75, leaving about 13 points above the number box at y 512. Preserve the existing generated artwork and highlight treatment. No additional visible titles, kickers, or text are added.
+
+Place the closing map image at x 24, y 15, width 912, height 513. Its outer border ends at y 499.5, leaving about 12 points above the number box. Keep the native title and two-row area key at their §34 sizes and positions. This explicitly supersedes §34's instruction against scaling the closing image. Preserve the generated SVG geometry, labels, area colors, and all mini-maps. No diagram regeneration is needed for these placement changes.
+
+The opening scripts total 1:30: 0:15, 0:12, 0:25, 0:13, 0:15, and 0:10. Orientation remains 0:45, so beat 2.0 is 2:15. The closing map remains 0:50. Section 2's rehearsal reference is 28:55; the full reference is 37:05. The working ranges remain unchanged.
+
+The current deck has 56 narrative slides, 56 authored compositions, 56 physical slides, 57 presentation states, one internal click, no Morph transitions, and 56 advances. Narrative numbers now match physical slide numbers. Section 2 is slides 9 through 46; Section 3 is 47 through 56. The closing statement is slide 52. Resources are 53 through 56, with 53 holding during Q&A after 53 advances and 54 through 56 untimed. The blank FRB Agent reservations are 20, 25, 30, 35, 40, and 45; orientation is 15. All other visual specifications remain in force.

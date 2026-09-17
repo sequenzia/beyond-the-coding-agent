@@ -2,6 +2,8 @@
 
 Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetched and quoted directly. **UNVERIFIED** means from a search snippet or secondary coverage; confirm before it goes on a slide. Organized by the five research threads, with a closing "verify before stage" list.
 
+Current placement after the anatomy split: Section 3 is slides 47 through 56. What transfers is 48, competencies 49, pitfalls 50, roadmap 51, close 52, and Resources 53 through 56. Earlier dated notes retain their original slide numbers; source evidence and verification status are unchanged.
+
 ## 1. Skills mapping: what transfers
 
 **swyx, "The Rise of the AI Engineer," Latent Space, June 30, 2023** [primary]. https://www.latent.space/p/ai-engineer

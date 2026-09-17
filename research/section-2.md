@@ -2,7 +2,7 @@
 
 Compiled 2026-09-14 for the September 17 talk. Markers: **[primary]** means fetched and quoted directly. **UNVERIFIED** means from a search snippet or secondary coverage; confirm before it goes on a slide. Organized by the six areas in the outline, plus the map, the June to September 2026 window, and a closing "verify before stage" list.
 
-Current authoring placement, updated September 16: map 9; section orientation 10; Model Selection 11 through 15; Context Engineering 16 through 20; Tools & Extensibility 21 through 25; Orchestration 26 through 30; Verification & Evals 31 through 35; AgentOps 36 through 40; closing map 41. Dated earlier revision notes and former coding-agent screenshot anchors below retain historical slide numbers. The content-rework subsections describe the active design. Full source records and evidence status remain unchanged by the naming update.
+Current authoring placement, updated September 16: opening maps 9 through 14; section orientation 15; Model Selection 16 through 20; Context Engineering 21 through 25; Tools & Extensibility 26 through 30; Orchestration 31 through 35; Verification & Evals 36 through 40; AgentOps 41 through 45; closing map 46. Dated earlier revision notes and former coding-agent screenshot anchors below retain historical slide numbers. The content-rework subsections describe the active design. Full source records and evidence status remain unchanged by the naming update.
 
 ## 0. The map: agent = model + harness
 
@@ -40,7 +40,15 @@ Current authoring placement, updated September 16: map 9; section orientation 10
 - The design confines research workers to authorized internal FRB records and attachments. Missing, unreadable, conflicting, incomplete, or unauthorized evidence produces an explicit limitation. Citation existence and semantic support are separate checks.
 - Content-rework assumption, added September 15, 2026: the FRB corpus includes CUI and export-controlled information (ECI). Model calls that handle those records use services and environments approved for the applicable data and use. For this example, assume the approved model choices are older and less capable for the intended synthesis than newer alternatives outside the approved environment. This is an illustrative deployment constraint informed by presenter-supplied audience context, not measured model evidence or a formal designation of the invented excerpts.
 
-### Closing-map synthesis, September 16, 2026
+### Anatomy sequence and closing synthesis, September 16, 2026
+
+Current placement: six independently numbered opening maps on slides 9 through 14, then orientation on slide 15; the closing map is slide 46. This revision supersedes earlier map placement and narration below. It uses the existing evidence in §0 through §6 and introduces no benchmark, product capability claim, or measured result.
+
+The opening follows one task from its goal through model proposals and harness execution. The harness supplies instructions and context, executes permitted tool calls, preserves state, handles failures, checks the work, and supports stopping or human handoff. Per-run services provide identity, permitted data access, and security controls. Across runs, observability supports investigation, evaluations assess behavior across cases, and governance establishes policies and accountability. Codex CLI and Devin remain brief familiar anchors, supported by the existing vendor records in §1 and §4.
+
+The closing considers a model change within the same system. It can affect context use and tool choices. Check individual actions, evaluate the changed configuration on representative tasks, and monitor outcomes after release. Permissions and execution limits remain enforced outside the model. The conclusion remains: "AI engineering means designing and operating how these parts work together." The recap no longer depends on the reserved FRB application pages.
+
+### Closing-map synthesis, September 16, 2026 (previous narration)
 
 The slide 41 recap connects the six areas using existing evidence and teaching decisions in §1 through §6. Model changes can alter context and tool behavior; the intended configuration is evaluated and monitored across releases. The illustrative FRB brief connects selected evidence, reconciliation, verification before export, and enforced operating controls. This is the talk's synthesis, not a new benchmark or measured FRB result. The six area colors replace the former ownership badges. People retain official decision authority. The spoken conclusion is: "AI engineering means designing and operating how these parts work together."
 

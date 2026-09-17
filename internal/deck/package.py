@@ -77,6 +77,7 @@ for m in meta:
         fb=sub(ac,'mc:Fallback');sub(fb,'p:transition',spd='fast')
     timing(root,m['objects'])
     # The narrative number must stay editable, topmost, and outside every animation.
+    assert m['narrativeNumber']==m['slideIndex'],(m['key'],'Narrative and physical slide numbers must match')
     number=m['objects'][-1]
     assert number['name']=='narrative-number' and number['start']==0 and number['end']==99,m['key']
     el=elements[-1]
@@ -107,7 +108,7 @@ for m in meta:
     note_lines=[''.join(p.xpath('.//a:t/text()',namespaces=NS)) for p in paragraphs]
     note_text='\n'.join(note_lines).strip()
     assert not re.search(r'\[\d+:\d{2}\]|^## |^Narrative slide |^Source slide |^Beat \d|Research links',note_text,re.M),m['key']
-    if m['narrativeNumber'] in {15,20,25,30,35,40}:
+    if m['narrativeNumber'] in {20,25,30,35,40,45}:
         assert not note_text,(m['key'],'FRB Agent notes must remain blank')
     else:
         assert note_text and re.search(r'Advance to|Section 4 begins\. The slide stays\.',note_text.splitlines()[-1]),m['key']
