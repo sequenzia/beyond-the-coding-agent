@@ -4,58 +4,20 @@ Beat 2.1. Section 2. Rehearsal reference 1:25 of the area's 4:30. Section 2 rema
 
 ## On the slide
 
-**Kicker:** Model Selection · FRB application
+**Kicker:** Model Selection · FRB Agent
 
 **Title:** Models for the FRB brief
-
-**Illustrative proposed design. No model results claimed.**
-
-CUI/ECI corpus. Approved options assumed older and less capable for this synthesis.
-
-**Design**
-
-Evaluate one eligible configuration for summaries and cross-case synthesis.
-
-**Failure to test**
-
-Possible bearing wear becomes a confirmed cause.
-
-**Selection scorecard**
-
-| Measure | Evidence to collect |
-|---|---|
-| Quality | Supported findings. Uncertainty preserved. |
-| Time | Completion time. |
-| Cost | All attempts and review per successful brief. |
 
 ## Layout and visual
 
 - Display narrative number 15, the area kicker, and `mini-models` throughout.
-- Use the two-column FRB application and native scorecard in design brief §27. All visual values are defined there.
-- Keep the illustrative caption and deployment constraint visible above the application. Place design and failure on the left and the compact scorecard on the right.
-- The scorecard contains evidence to collect, with no scores, invented comparison, or winning configuration.
-- Preserve the source distinction in the talk track. The detailed citation check remains on slide 35.
-- Show the complete content on entry. Use hard cuts and no internal builds. Keep text and the scorecard editable.
+- Preserve the existing title, header divider, and area styling. The body is empty, with no placeholder text or other objects.
+- Use the FRB Agent reservation in design brief §44. All visual values are defined there.
+- Show the header on entry with hard cuts and no internal builds. Keep all header text editable.
 
 ## Talk track
 
-[0:00] **FRB APPLICATION**
-
-[0:00] Our invented FRB corpus includes CUI and ECI. Assume the approved options are older and less capable for this synthesis. **Evaluate useful work within that approved set.**
-
-[0:14] Start with one eligible configuration. Test single-case summaries and cross-case synthesis separately. The preliminary briefing calls bearing wear a possible cause. The later minutes leave the cause unresolved and require inspection. A candidate that reports a confirmed cause has failed this case.
-
-[0:34] That answer alone does not identify the faulty component. Check which evidence reached the model and how the workflow handled it.
-
-[0:45] The scorecard records supported findings and preserved uncertainty, completion time, and total cost, including failed attempts and review. It contains evidence to collect. No winning model or measured result is supplied.
-
-[0:59] If the full brief falls short, evaluate preparing cited findings for an engineer to reconcile. **Keep the evidence requirement and the approved processing boundary.** If the narrower task still fails, limit or defer it.
-
-[1:15] Context Engineering develops the information we supply. **The model is a versioned, expiring dependency. Treat it like one.**
-
-[1:25] Advance to slide 16.
-
-Cut first: the detailed scorecard explanation and narrower-task example. Never cut illustrative status, CUI/ECI scope and capability assumptions, possible versus established cause, or the unchanged evidence requirement. Cue times are rehearsal guides, not automatic playback timing.
+<!-- intentionally blank -->
 
 ## Sources
 
@@ -65,4 +27,4 @@ Cut first: the detailed scorecard explanation and narrower-task example. Never c
 
 ## Open items
 
-- Rehearse the 4:30 area on the actual presentation machine. The four primer concepts precede decisions. Preserve the FRB decision and headline pitfall when trimming.
+- Replacement FRB Agent body content and speaker notes are pending. Retain the existing time allocation as a reservation until that content is ready.

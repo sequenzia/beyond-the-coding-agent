@@ -1172,3 +1172,13 @@ Retain three flat rows at y 192, 254, and 316. Labels Private data, Untrusted co
 Retain the probabilistic-filter sentence at x 48, y 386, width 864, height 30, Regular 20. Retain the Pitfall label and exact headline sentence at their §23 positions, with the existing line break before "and outbound". The sentence remains identical to slide 45.
 
 The approved scripts take 0:55, 1:00, and 0:45, preserving their combined 2:40, AgentOps at 4:10, and Section 2 at 28:30. Editorial approval is complete. Presenter rehearsal remains open.
+
+## 44. FRB Agent content reservations, September 16, 2026
+
+This supersedes the FRB application bodies on slides 15, 20, 25, 30, 35, and 40 and the right column on slide 10. Replacement content is pending. Retain all narrative identities, timing allocations, hard cuts, and existing deck counts.
+
+Slide 10 retains its standard header, neutral kicker, `mini-all`, and left-column geometry from §33. The fifth list item reads "FRB Agent". The right column contains only "FRB" at x 492, y 192, width 420, height 30, Helvetica Bold 20 in primary text. Remove the former column heading, subject, request, and illustrative-status text. Add no box or decorative placeholder graphic.
+
+Slides 15, 20, 25, 30, 35, and 40 retain their existing large titles, area names and colors, mini-maps, header dividers, and native narrative numbers. Change only the neutral kicker beat label to "FRB Agent". Remove all body objects, including captions, excerpts, tables, arrows, annotations, and footer statements. Add no visible placeholder in these six bodies.
+
+The six application talk tracks are intentionally blank. Slide 10 retains its teaching-pattern explanation and advance cue, with the FRB narration removed. Existing time allocations are reservations, pending replacement content and rehearsal.

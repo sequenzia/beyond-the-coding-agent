@@ -14,21 +14,15 @@ Beat 2.0. Section 2. Rehearsal reference 0:45 of the beat's 1:50, paired with sl
 2. Foundations: what it is and why it matters
 3. Decisions and trade-offs
 4. Challenges and pitfalls
-5. FRB application
+5. FRB Agent
 
-**One example throughout**
-
-Failure Review Board (FRB) research
-
-“Summarize a pump shutdown review, compare related cases, and export a cited brief.”
-
-Illustrative example. People retain official decision authority.
+**FRB**
 
 ## Layout and visual
 
 - Display narrative number 10, a neutral section kicker, and `mini-all` throughout.
 - Use the flat two-column orientation composition in design brief §33. All visual values are defined there.
-- The left column introduces the repeated teaching pattern. The right column names the FRB example, states its request, and preserves the illustrative status and human decision boundary.
+- The left column introduces the repeated teaching pattern. The right column contains only the editable FRB placeholder defined in design brief §44.
 - Show the complete content on entry. Keep all text native and editable. Use hard cuts with no internal builds.
 - Do not repeat the six area names, introduce case excerpts, or preview deployment constraints here.
 
@@ -38,17 +32,11 @@ Illustrative example. People retain official decision authority.
 
 We'll explore these six areas. Each opens with a quote, followed by **foundations: what it is and why it matters**. Then decisions, trade-offs, and pitfalls.
 
-[0:13] **Then we'll apply each area to the same invented research-and-drafting example.**
-
-Failure Review Board records describe a failure and the board's discussions and decisions. Our system helps engineers research those records.
-
-[0:25] The request is to summarize a pump shutdown review, compare related cases, and export a cited brief. Each area contributes to that same product.
-
-[0:38] **People retain authority over official causes, decisions, and board records.** Let's begin with Model Selection.
+[0:13] Let's begin with Model Selection.
 
 [0:45] Advance to slide 11.
 
-Cut first: the FRB definition reminder. Never cut the repeated application approach, invented status, or human decision boundary. Keep evidence problems and deployment constraints for the later application slides. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the opening sentence. Never cut the teaching-pattern explanation. The existing 0:45 allocation remains reserved pending the replacement FRB orientation. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
@@ -57,4 +45,5 @@ Cut first: the FRB definition reminder. Never cut the repeated application appro
 
 ## Open items
 
-- Rehearse the paired map and orientation within 1:50 and validate native playback on the presentation machine.
+- Replacement FRB orientation content and notes are pending. Keep the existing time reservation.
+- Rehearse the paired map and orientation within 1:50 after replacement content is ready and validate native playback on the presentation machine.

@@ -147,20 +147,17 @@ await newSlide('08');sectionDivider(2,'What AI engineers\nactually engineer');
 await newSlide('09');await img('internal/renders/map-full.png',0,0,960,540,{end:1});
 for(let k=1;k<=4;k++)await img(`internal/renders/map-${['model','harness','per-run','across-runs'][k-1]}.png`,0,0,960,540,{start:k,end:k+1,duration:300});
 await img('internal/renders/map-full.png',0,0,960,540,{start:5,duration:300});
-// Section orientation: the repeated teaching pattern and one shared example.
+// Section orientation: the repeated teaching pattern and the reserved FRB example.
 await newSlide('10',{area:'Section 2',beat:'Orientation',map:'all',color:C.secondary,title:"How we'll explore the six areas"});
 text('In each area',48,192,420,30,20,{bold:true});
-text('One example throughout',492,192,420,30,20,{bold:true});
+text('FRB',492,192,420,30,20,{bold:true});
 [
  ['Opening perspective',234,30],
  ['Foundations:\nwhat it is and why it matters',274,55],
  ['Decisions and trade-offs',339,30],
  ['Challenges and pitfalls',379,30],
- ['FRB application',419,30],
+ ['FRB Agent',419,30],
 ].forEach(([label,y,h],i)=>{text(String(i+1),48,y,24,30,20,{color:C.secondary});text(label,84,y,384,h,20);});
-text('Failure Review Board (FRB)\nresearch',492,234,420,55,20);
-text('“Summarize a pump shutdown review,\ncompare related cases, and export\na cited brief.”',492,309,420,90,20);
-text('Illustrative example. People retain\nofficial decision authority.',492,421,420,55,20,{color:C.secondary});
 
 // Section 2: reviewed quote-first content, one narrative identity per composition.
 // Visible copy is authored here and matched to the numbered Markdown specs.
@@ -613,83 +610,8 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
  const pit=(areaIndex===0||areaIndex===4)?a.pitfall.replace(' without','\nwithout'):areaIndex===5?a.pitfall.replace(' and outbound','\nand outbound'):a.pitfall;
  text(pit,196,426,716,64,24,{bold:true});
 
- await header(a.start+4,'FRB application',a.titles[4]);
- if(areaIndex===0){
-  attr('Illustrative proposed design. No model results claimed.',48,192,864);
-  text('CUI/ECI corpus. Approved options assumed older and less capable\nfor this synthesis.',48,224,864,50,20);
-  text('Design',48,292,420,30,20,{bold:true,color});
-  text('Evaluate one eligible configuration\nfor summaries and cross-case synthesis.',48,326,420,64,20);
-  text('Failure to test',48,408,420,30,20,{bold:true,color});
-  text('Possible bearing wear becomes\na confirmed cause.',48,442,420,50,20);
-  text('Selection scorecard',492,292,420,30,20,{bold:true,color});
-  evidenceTable([
-   ['Measure','Evidence to collect'],
-   ['Quality','Supported findings.\nUncertainty preserved.'],
-   ['Time','Completion time.'],
-   ['Cost','All attempts and review\nper successful brief.'],
-  ],[100,320],330,[30,50,30,50],{color,x:492});
- }else if(areaIndex===1){
-  attr('Illustrative FRB evidence and retrieval failure.',48,192,864);
-  text('FRB-042-BRF r1 · August 19, 2026\nslide 6',48,224,420,40,16,{color:C.secondary,exact:20});
-  text('“Bearing wear is a\npossible cause.”',48,262,420,60,24);
-  text('FRB-042-MIN r2 · August 22, 2026\n§3, paragraph 2 · omitted in this failure',48,344,420,40,16,{color:C.secondary,exact:20});
-  text('“Cause remains unresolved.\nInspect the bearing before\nassigning a cause.”',48,400,420,90,24);
-  [
-   ['Design','Supply both passages\nwith their source identities.',224,254,54],
-   ['Failure','Retrieval misses the later minutes.',314,344,30],
-   ['Evidence to check','Both passages reach the input.\nSummary preserves uncertainty\nand required inspection.',384,414,78],
-  ].forEach(([label,body,labelY,bodyY,bodyH])=>{
-   text(label,492,labelY,420,26,20,{bold:true,color});text(body,492,bodyY,420,bodyH,20);
-  });
- }else if(areaIndex===2){
-  attr('Illustrative CUI/ECI export contract test. No deployed result claimed.',48,192,864);
-  text('Design',48,224,164,30,20,{bold:true,color});
-  text('Export the exact checked draft\nto a permitted destination.',224,224,688,54,20);
-  twoTable(['Contract requires','Model proposes'],[
-   ['A destination permitted\nfor these records','A destination outside\nthe approved scope'],
-  ],294,[32,58],{color});
-  text('Expected result',48,400,216,30,20,{bold:true,color});
-  text('Export rejected before transfer.',292,400,620,32,24,{bold:true});
-  text('Evidence to check',48,442,216,30,20,{bold:true,color});
-  text('Clear rejection reason.\nNo export at that destination.',292,442,620,50,20);
- }else if(areaIndex===3){
-  attr('Illustrative permitted export and recovery test.',48,192,864);
-  text('Orchestrator',48,224,272,30,20,{bold:true,color});
-  text('Export service',640,224,272,30,20,{bold:true,color});
-  text('Record and dispatch export',48,258,272,30,20);
-  text('Export occurs',640,258,272,30,20);
-  arrow(336,272,288);
-  text('Outcome unknown',48,302,272,30,20,{bold:true,color});
-  text('Response lost',388,288,200,20,16,{color:C.secondary,align:'center',exact:20});
-  line(624,314,-114,0);arrow(450,314,-114);
-  line(474,308,12,12);line(474,320,12,-12);
-  text('Inspect export state',48,350,272,30,20);
-  text('Receipt and artifact',640,350,272,30,20);
-  arrow(336,364,288);
-  text('Evidence to check',48,402,216,30,20,{bold:true,color});
-  text('Matching receipt and checked artifact.\nNo duplicate export.',292,402,620,50,20);
-  text('If unresolved: pause or hand off with uncertainty intact.',48,466,864,25,20);
- }else if(areaIndex===4){
-  attr('Illustrative source-support check.',48,192,864);
-  text('FRB-042-MIN r2 · §3, paragraph 2',48,224,420,24,16,{color:C.secondary});
-  text('“Cause remains unresolved.\nInspect the bearing before\nassigning a cause.”',48,256,420,96,24);
-  text('Answer citing these minutes',492,224,420,30,20,{bold:true,color});
-  text('“The board confirmed\nbearing wear.”',492,256,420,64,24);
-  text('Citation exists: PASS',48,386,420,30,20);
-  text('Claim supported: FAIL',48,424,420,30,20,{bold:true});
-  text('Expected',492,350,420,30,20,{bold:true,color});
-  text('Cause unresolved.\nInspection required.',492,384,420,64,24);
-  text('Keep this failure as a regression case.',48,460,864,30,20);
- }else{
-  attr('Illustrative release incident.',48,192,864);
-  evidenceTable([
-   ['Incident','FRB example'],
-   ['Change','An approved model/configuration update\nreaches a controlled cohort.'],
-   ['Signal','APIs stay healthy. Unsupported drafts\nand review work increase.'],
-   ['Response','Pause the rollout. Inspect traces.\nRestore the tested configuration when indicated.'],
-  ],[186,678],224,[32,64,64,64],{color});
-  text('Failed drafts remain blocked from export.',48,466,864,25,20,{bold:true});
- }
+ // Reserve the application body until the replacement FRB Agent content is ready.
+ await header(a.start+4,'FRB Agent',a.titles[4]);
 }
 await newSlide('41');
 await img('internal/renders/map-closing.png',0,0,960,540,{alt:'Agentic system anatomy connecting all six engineering areas'});

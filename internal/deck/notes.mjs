@@ -4,6 +4,8 @@ import assert from 'node:assert/strict';
 export function speakerNoteParagraphs(markdown) {
   const track = markdown.split(/^## Talk track[ \t]*\r?$/m)[1]?.split(/^## /m)[0];
   assert.ok(track, 'Missing talk track');
+  // Preserve the native notes body while intentionally exporting no podium copy.
+  if (track.trim() === '<!-- intentionally blank -->') return [{ runs: [{ run: '' }] }];
   const lines = track.trim().split('\n');
   const end = lines.findIndex(line => /\bAdvance to\b|\bSection 4 begins\./.test(line));
   assert.ok(end >= 0, 'Missing slide advance or closing handoff');

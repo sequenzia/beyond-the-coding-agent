@@ -99,7 +99,10 @@ for m in meta:
     note_lines=[''.join(p.xpath('.//a:t/text()',namespaces=NS)) for p in paragraphs]
     note_text='\n'.join(note_lines).strip()
     assert not re.search(r'\[\d+:\d{2}\]|^## |^Narrative slide |^Source slide |^Beat \d|Research links',note_text,re.M),m['key']
-    assert re.search(r'Advance to|Section 4 begins\. The slide stays\.',note_text.splitlines()[-1]),m['key']
+    if m['narrativeNumber'] in {15,20,25,30,35,40}:
+        assert not note_text,(m['key'],'FRB Agent notes must remain blank')
+    else:
+        assert note_text and re.search(r'Advance to|Section 4 begins\. The slide stays\.',note_text.splitlines()[-1]),m['key']
     for index,(p,line) in enumerate(zip(paragraphs,note_lines)):
         if not re.match(r'^BUILD \d+',line):continue
         assert index==0 or not note_lines[index-1],(m['key'],'space before build cue')

@@ -30,14 +30,27 @@ None.
   assert.equal(paragraphs[6].runs[0].textStyle.bold, true);
 });
 
-test('all narrative slides end at their advance or Q&A handoff and preserve build cues', async () => {
+test('only the explicit blank marker exports empty notes', () => {
+  assert.equal(text(speakerNoteParagraphs('## Talk track\n\n<!-- intentionally blank -->\n\n## Sources\nRetained.')), '');
+  assert.throws(() => speakerNoteParagraphs('## Talk track\n\n'), /Missing slide advance/);
+  assert.throws(() => speakerNoteParagraphs('## Talk track\n<!-- intentionally blank -->\nUnfinished.'), /Missing slide advance/);
+});
+
+test('narrative slides preserve handoffs and build cues except the six blank FRB Agent tracks', async () => {
   let count = 0;
+  const blankSlides = [];
   for (const section of [1, 2, 3]) {
     const directory = new URL(`../../slides/section-${section}/`, import.meta.url);
     for (const file of (await fs.readdir(directory)).filter(name => name.endsWith('.md'))) {
       const markdown = await fs.readFile(new URL(file, directory), 'utf8');
       const paragraphs = speakerNoteParagraphs(markdown);
       const plain = text(paragraphs);
+      if (section === 2 && [15, 20, 25, 30, 35, 40].includes(parseInt(file))) {
+        assert.equal(plain, '', file);
+        blankSlides.push(parseInt(file));
+        count++;
+        continue;
+      }
       assert.doesNotMatch(plain, /\[\d+:\d{2}\]|^## |Research links|^Source slide|^Narrative slide|^Beat \d|^Cut first:|^Cuttable|^Backup/m, file);
       assert.match(plain.split('\n').at(-1), /Advance to|Section 4 begins\. The slide stays\./, file);
       const track = markdown.split('## Talk track')[1].split('\n## ')[0];
@@ -66,6 +79,7 @@ test('all narrative slides end at their advance or Q&A handoff and preserve buil
     }
   }
   assert.equal(count, 48);
+  assert.deepEqual(blankSlides.sort((a, b) => a - b), [15, 20, 25, 30, 35, 40]);
 });
 
 test('missing talk tracks and handoffs fail rather than silently losing presenter content', () => {
