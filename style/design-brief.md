@@ -1128,3 +1128,25 @@ Only the visible quotations and attributions on slides 11 and 31 change. Keep al
 Slide 11 retains the quote composition at x 48, y 192, width 568, height 216, size 44 with exact 52-point spacing. Use three deliberate lines, wrapping after “by” and “list”. Attribution stays at y 428 in 20 and publication/check date at y 462 in 16. The check date is explicitly labeled because the documentation has no stated publication date.
 
 Slide 31 retains the three-line quote composition at x 48, y 216, width 568, height 164, size 44 with exact 52-point spacing. Wrap after “how” and “any”. Attribute the new article to Hamel Husain alone. Author and publication/date retain their current positions and type roles. This supersedes the former joint-author requirement in the Evals quote composition. Keep the source title and March 2025 publication date together in the existing caption box.
+
+## 42. Verification & Evals foundations, decisions, and pitfalls, September 16, 2026
+
+This replaces §31's content and geometry for slides 32 through 34. Keep the standard headers, green area kickers, `mini-evals`, native numbering, static entry, and hard cuts. Preserve the approved wording in editable native text. Slide 31's quote and slide 35's application remain unchanged. Use Helvetica, standard 1.25 line spacing, and zero text insets throughout the body.
+
+### Slide 32
+
+Retain the two comparison columns and shared vocabulary row. Labels Verification and Evaluation remain at x 48 and 492, y 192, width 420, height 30, Bold 20 in area green. Questions remain at y 234, width 420, height 100, Regular 24 in primary text. Break the first after "action". Set the second to three lines, breaking after "system" and "across". It reads "How reliably does the system", "meet those requirements across", and "cases and repeated attempts?".
+
+Keep the separator at x 48, y 350, width 864, height 1. Vocabulary labels remain at x 48, 344, and 640, y 378, width 272, height 26, Bold 20 in green. Definitions begin at y 412, width 272, height 60, Regular 20. Case uses two lines: "Inputs, starting conditions," and "and expected behavior." Trial remains one line. Grader uses two deliberate lines. The SME and golden-dataset introduction remains spoken.
+
+### Slide 33
+
+Replace the former case matrix and comparison footer with three flat decision rows. Begin rows at y 192, 294, and 396. Labels sit at x 48, width 268, height 75, Bold 20 in green. Explanations sit at x 344, width 568, height 90, Regular 20 in primary text. Wrap labels after "as", "we", and "we" respectively, retaining the exact questions. Explanations use three lines where needed. Keep the approved SME, golden-dataset, grader, held-out, and repeated-trial wording. Do not add a table header or caption.
+
+### Slide 34
+
+Retain three flat risk rows at y 192, 254, and 316. Labels sit at x 48, width 216, height 54, Bold 20 in green. Break the third label after "data". Supporting text sits at x 292, width 620, height 54, Regular 20 in primary text. Each explanation fits at most two lines. Place "Inspect the result, trace, and reference data before choosing a repair." at x 48, y 386, width 864, height 30, Regular 20.
+
+Keep the existing Pitfall label at x 48, y 426, width 124, height 30, Bold 20 in green. Keep the exact recap sentence at x 196, y 426, width 716, height 64, Bold 24 in primary text, with the existing break before "without". Slide 45 continues to use the same sentence.
+
+The approved scripts take 1:00, 1:15, and 0:40. This moves 0:15 from decisions to pitfalls while preserving their combined 2:55, the area's 4:35, and Section 2's 28:30. Editorial approval is complete. Presenter rehearsal remains open.

@@ -664,6 +664,29 @@ Retain the exact invented minutes and unsupported claim in the main worked examp
 
 The pass@k and pass^k vocabulary remains supporting material, using the definitions in the Anthropic source and external report. No formulas or reliability calculations appear in the five slides or timed talk tracks. The removed personal story and its time reservation remain absent.
 
+### SME review and golden datasets, September 16, 2026
+
+This revision supersedes the earlier case-matrix treatment on slides 32 through 34. The presenter approved a general foundations, decisions, and pitfalls sequence with no direct application reference. The scripts are editorially locked at 1:00, 1:15, and 0:40. Their combined 2:55 preserves the area's 4:35 and Section 2's 28:30. Slide 35 remains unchanged.
+
+**Presenter, "SME collaboration and golden datasets," authoring conversation, September 16, 2026** [primary]. Source: presenter-supplied context in this conversation. No public URL.
+
+- "We work with a lot of SMEs (Subject Matter Experts) who help us build 'Golden Datasets'."
+- The presenter confirmed a mix of reviewed reference answers or labels, expected behavior, and criteria for judging quality. This supports the first-person description of the team's workflow. It supplies no measured accuracy, dataset size, or claim of error-free labels.
+
+**Michael Hardy, "'All that Glitters': Approaches to Evaluations with Unreliable Model and Human Annotations," arXiv preprint, November 23, 2024** [primary]. https://arxiv.org/abs/2411.15634 Abstract fetched and checked in a browser September 16, 2026.
+
+- "\"Gold\" and \"ground truth\" human-mediated labels have error."
+- The study examines expert annotations of classroom teaching. Its abstract reports errors and bias in human and model judgments. Teaching implication: human-reviewed references can need correction. Do not generalize a numerical error rate or the study's domain-specific findings to the presenter's datasets.
+
+**Matt Gardner et al., "Evaluating Models' Local Decision Boundaries via Contrast Sets," arXiv, April 6, 2020, revised October 1, 2020** [primary]. https://arxiv.org/abs/2004.02709 Abstract fetched and checked in a browser September 16, 2026.
+
+- "when a dataset has systematic gaps (e.g., annotation artifacts), these evaluations are misleading"
+- The paper studies NLP datasets and shows why success on an existing test set need not cover the intended capabilities. Teaching implication: review coverage and add important failures. No reported performance figure is promoted to the talk.
+
+The Anthropic January 2026 source above was rechecked September 16, 2026 for reference solutions, SME review, human calibration of model graders, and combining automated evaluations with review of real runs. These support the use of golden datasets alongside direct checks and other evaluation methods. The data supplies cases and reference judgments. Graders apply checks. Some tasks admit several valid answers, so a reference answer need not prescribe exact wording or an arbitrary action sequence.
+
+"Golden" describes reviewed reference material. "Held-out" describes how cases are used: reserved from routine tuning. A golden dataset can supply held-out cases. These categories are not mutually exclusive. Keep repeated trials and inspection by case category. When results disagree, inspect the actual result, trace, grader, and reference data before selecting a repair. Add failures from real use and continue evaluation after deployment and after model or harness changes.
+
 ## 6. AgentOps: observability, guardrails, security, identity, governance
 
 Current teaching definition: operate agentic systems with observability, enforced controls, and accountable response. AgentOps names this talk's existing operational responsibilities; it introduces no new product, standard, or measured claim.

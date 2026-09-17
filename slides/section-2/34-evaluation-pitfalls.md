@@ -1,6 +1,6 @@
 # Slide 34: Evaluation pitfalls
 
-Beat 2.5. Section 2. Rehearsal reference 0:25 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
+Beat 2.5. Section 2. Rehearsal reference 0:40 of the area's 4:35. Section 2 remains 25:00 to 29:00; these cues sum to a 28:30 rehearsal reference. One static screen; no internal builds.
 
 ## On the slide
 
@@ -8,18 +8,21 @@ Beat 2.5. Section 2. Rehearsal reference 0:25 of the area's 4:35. Section 2 rema
 
 **Title:** Evaluation pitfalls
 
-- **Outcome:** Inspect the actual result.
-- **Grader:** Review disagreement with expert judgment.
-- **Coverage:** Add failures and recheck after changes.
+| Risk | What can go wrong |
+|---|---|
+| **Outcome** | The agent reports success, but the actual result fails the requirements. |
+| **Grader** | The grader rewards answers that experts would reject. |
+| **Reference data and coverage** | Golden datasets can contain human errors, reflect bias, and miss important cases. |
 
 **Pitfall:** Using a generic judge without error analysis or result checks.
 
-Inspect the result and the trace before choosing a repair.
+Inspect the result, trace, and reference data before choosing a repair.
 
 ## Layout and visual
 
 - Display narrative number 34, the area kicker, and `mini-evals` throughout.
-- Retain the current pitfalls composition and visible copy from design brief §23, as retained in §31. All visual values are defined there.
+- Use the three native risk rows and retained headline-pitfall composition in design brief §42. All visual values are defined there.
+- Keep the longer reference-data-and-coverage label legible. The supporting line names reference data as part of error analysis.
 - The headline pitfall stays in the body and matches slide 45 word for word.
 - Keep text editable. Show all content on entry with hard cuts and no internal builds. No personal-story cue or reserved pause is added.
 
@@ -27,18 +30,25 @@ Inspect the result and the trace before choosing a repair.
 
 [0:00] **CHALLENGES AND PITFALLS**
 
-[0:00] **Using a generic judge without error analysis or result checks** is the headline pitfall. Check the actual outcome, the grader, and the cases before choosing a repair. Continually tuning against held-out cases weakens their independence. **Evaluation continues after deployment and after model or harness changes.** Add failures from real use.
+[0:00] **Using a generic judge without error analysis or result checks** can give us false confidence.
 
-[0:25] Advance to slide 35.
+[0:06] Check actual outcomes and review grader disagreements.
 
-Cut first: the held-out reminder, already explained in decisions. Never cut the exact headline pitfall, error analysis, or ongoing evaluation. Cue times are rehearsal guides, not automatic playback timing.
+[0:10] **Golden datasets are valuable references, but human curation can introduce errors and bias.** They can also miss important cases. Use them alongside direct checks and review of real runs.
+
+[0:23] When results disagree, inspect the result, trace, and reference data. The system, grader, or expected answer may need correction.
+
+[0:32] Add failures from real use. **Evaluation continues after deployment and after model or harness changes.**
+
+[0:40] Advance to slide 35.
+
+Cut first: the second sentence at 0:23, after retaining the instruction to inspect result, trace, and reference data. Never cut the exact headline pitfall, human errors and bias, coverage limits, complementary checks, error analysis, or ongoing evaluation. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Husain and Shankar, September 2026; Anthropic, January 2026, definitions rechecked September 2026; OpenAI evaluation-method guidance, checked September 2026. Research §5 in `research/section-2.md`.
-- Illustrative packet, suite cases, and export checks: Research §0 and §5 and `internal/frb-running-example.md`. The direct-reference PASS and source-support FAIL belong to the invented example. No measured model result or universal shipping threshold is claimed.
-- Accepted integration: `outlines/section-2-integration/05-verification-and-evals.md`. Reliability notation and formulas remain in supporting Markdown.
+- Husain and Shankar, September 2026; Anthropic, January 2026, rechecked September 2026. Research §5 in `research/section-2.md`.
+- Hardy, November 2024; Gardner et al., April 2020, revised October 2020, abstracts checked September 2026. Research §5 in `research/section-2.md`.
 
 ## Open items
 
-- Rehearse the retained 4:35 allocation on the actual presentation machine. The foundations slide gains 0:10 and the application gives up 0:10. Preserve ordinary tests, grader calibration, repeated trials, and ongoing evaluation when trimming.
+- Content and script approved by the presenter. Rehearse the locked 0:40 script on the presentation machine. Moving 0:15 from decisions preserves the three content slides' 2:55 and the area's 4:35 allocation.

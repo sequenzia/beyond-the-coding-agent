@@ -10,48 +10,51 @@ Beat 2.5. Section 2. Rehearsal reference 1:00 of the area's 4:35. Section 2 rema
 
 **Verification**
 
-Does this result meet the requirements?
+Does this result or action meet the requirements?
 
 **Evaluation**
 
-How does the system perform across cases and repeated runs?
+How reliably does the system meet those requirements across cases and repeated attempts?
 
 Shared vocabulary:
 
-- **Case:** Input and expected conditions.
+- **Case:** Inputs, starting conditions, and expected behavior.
 - **Trial:** One attempt at a case.
 - **Grader:** A check of behavior or outcome.
 
 ## Layout and visual
 
 - Display narrative number 32, the area kicker, and `mini-evals` throughout.
-- Use the two comparison columns and shared vocabulary row in design brief §31. All visual values are defined there.
-- Compare one-result acceptance with behavior across cases and repeated runs. The same checks can serve both purposes.
+- Use the two comparison columns and shared vocabulary row in design brief §42, which updates §31. All visual values are defined there.
+- Compare acceptance of one result or action with reliability across cases and repeated attempts. The same checks can serve both purposes.
 - Keep the vocabulary native and editable. Do not invent trial results or success-rate graphics.
-- Show the complete content on entry with hard cuts and no internal builds. Keep the coding-agent connection spoken.
+- Show the complete content on entry with hard cuts and no internal builds. Keep the coding-agent example and golden-dataset introduction spoken.
 
 ## Talk track
 
 [0:00] **VERIFICATION AND EVALUATION FOUNDATIONS**
 
-[0:00] **Verification asks whether this result meets the required conditions. Evaluation asks how the system behaves across cases and repeated runs.** The same checks can serve both purposes.
+[0:00] **Verification checks whether a particular result or action meets the requirements. Evaluation measures how reliably the system meets those requirements across cases and repeated attempts.**
 
-[0:14] A case defines the input, starting conditions, and expected behavior. A trial is one attempt at that case. A grader checks an aspect of the behavior or outcome. Several graders may examine the same trial.
+[0:12] For a coding agent, tests help verify one fix. Evaluating the agent means checking its performance across tasks and repeated attempts.
 
-[0:33] **Evals are tests of an AI system. Ordinary software tests remain necessary.** A coding agent's test output is evidence to inspect; its completion message must still agree with the actual result.
+[0:22] Each task is a **case**. Each attempt is a **trial**. A **grader** checks behavior or outcome. The same checks can support verification and evaluation.
 
-[0:47] Check the output and required action constraints, including permission and verified completion. A successful demonstration establishes one useful path. The product needs evidence across representative work, important failures, and repeated attempts.
+[0:33] **We work with subject matter experts to build golden datasets:** curated cases with reviewed reference answers, expected behavior, and criteria for quality.
+
+[0:44] These give us a reference for judging results. **Ordinary software tests still matter**, including checks of required constraints and whether actions actually completed.
+
+[0:55] Next, we decide what success means, how to check it, and which cases to evaluate.
 
 [1:00] Advance to slide 33.
 
-Cut first: the coding-agent elaboration. Never cut the one-result versus many-run distinction, shared vocabulary, ordinary tests, or required outcome constraints. Cue times are rehearsal guides, not automatic playback timing.
+Cut first: the coding-agent example. Never cut the verification/evaluation distinction, shared vocabulary, SME and golden-dataset definition, ordinary tests, or required outcome constraints. Cue times are rehearsal guides, not automatic playback timing.
 
 ## Sources
 
-- Husain and Shankar, September 2026; Anthropic, January 2026, definitions rechecked September 2026; OpenAI evaluation-method guidance, checked September 2026. Research §5 in `research/section-2.md`.
-- Illustrative packet, suite cases, and export checks: Research §0 and §5 and `internal/frb-running-example.md`. The direct-reference PASS and source-support FAIL belong to the invented example. No measured model result or universal shipping threshold is claimed.
-- Accepted integration: `outlines/section-2-integration/05-verification-and-evals.md`. Reliability notation and formulas remain in supporting Markdown.
+- Anthropic, January 2026, definitions and evaluation guidance rechecked September 2026. Research §5 in `research/section-2.md`.
+- Presenter-supplied SME collaboration and golden-dataset context, September 2026. Research §5 in `research/section-2.md`.
 
 ## Open items
 
-- Rehearse the retained 4:35 allocation on the actual presentation machine. The foundations slide gains 0:10 and the application gives up 0:10. Preserve ordinary tests, grader calibration, repeated trials, and ongoing evaluation when trimming.
+- Content and script approved by the presenter. Rehearse the locked 1:00 script on the presentation machine. The three content slides total 2:55 and preserve the area's 4:35 allocation.

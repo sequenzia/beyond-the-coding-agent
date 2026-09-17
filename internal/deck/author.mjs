@@ -386,32 +386,32 @@ const section2Areas = [
       "Does the source support the claim?"
     ],
     "evalScales": [
-      ["Verification", "Does this result meet\nthe requirements?"],
-      ["Evaluation", "How does the system perform\nacross cases and repeated runs?"]
+      ["Verification", "Does this result or action\nmeet the requirements?"],
+      ["Evaluation", "How reliably does the system\nmeet those requirements across\ncases and repeated attempts?"]
     ],
     "evalVocabulary": [
-      ["Case", "Input and expected\nconditions."],
+      ["Case", "Inputs, starting conditions,\nand expected behavior."],
       ["Trial", "One attempt at a case."],
       ["Grader", "A check of behavior\nor outcome."]
     ],
-    "evalCases": [
-      ["Routine brief", "Supported findings.\nUncertainty preserved.", "Reference checks plus expert\nor calibrated model judgment."],
-      ["Disallowed\nexport", "Reject before transfer.\nNo export at that destination.", "Permission and\nexport-state checks."],
-      ["Lost export\nresponse", "Reconcile the outcome.\nAvoid duplicate export.", "Receipt and\nartifact checks."]
+    "evalDecisions": [
+      ["What counts as\nsuccess?", "Outcomes and quality criteria defined with SMEs.\nForbidden actions and acceptable limitations."],
+      ["How will we\njudge it?", "Code for explicit checks. Expert judgment for quality.\nModel graders calibrated against experts."],
+      ["Which cases will we\nevaluate?", "SME-reviewed golden datasets, known failures,\nand adversarial inputs. Held-out cases\nand repeated trials."]
     ],
     "pitfall": "Using a generic judge without error analysis or result checks.",
     "cues": [
       [
         "Outcome",
-        "Inspect the actual result."
+        "The agent reports success, but the actual result\nfails the requirements."
       ],
       [
         "Grader",
-        "Review disagreement with expert judgment."
+        "The grader rewards answers that experts would reject."
       ],
       [
-        "Coverage",
-        "Add failures and recheck after changes."
+        "Reference data\nand coverage",
+        "Golden datasets can contain human errors, reflect bias,\nand miss important cases."
       ]
     ],
     "quoteWrapped": "“Can you show me how\nyou’re measuring if any\nof this actually works?”",
@@ -583,10 +583,11 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
   });
   text('**Execution controls:** Saved state, required checks, stopping limits, and recovery.',48,480,864,25,20);
  }else if(areaIndex===4){
-  attr('Illustrative evaluation cases.',48,192,864);
-  evidenceTable([['Case','Expected behavior','Checks'],...a.evalCases],[216,360,288],224,[32,64,64,64],{color});
-  text('Comparison',48,462,164,30,20,{bold:true,color});
-  text('Held-out cases and repeated trials.',244,462,668,30,20);
+  a.evalDecisions.forEach(([label,body],i)=>{
+   const y=192+i*102;
+   text(label,48,y,268,75,20,{bold:true,color});
+   text(body,344,y,568,90,20);
+  });
  }else if(areaIndex===5){
   a.decisions.forEach(([label,body],i)=>{
    text(label,48,192+i*100,216,30,20,{bold:true,color});
@@ -603,10 +604,10 @@ for (let areaIndex=0;areaIndex<section2Areas.length;areaIndex++) {
  await header(a.start+3,'Challenges and pitfalls',a.titles[3]);
  a.cues.forEach(([label,body],i)=>{
   const y=192+i*(areaIndex===1?54:62);
-  text(label,48,y,216,areaIndex===5&&i===2?54:30,20,{bold:true,color});
+  text(label,48,y,216,(areaIndex===4||areaIndex===5)&&i===2?54:30,20,{bold:true,color});
   text(body,292,y,620,54,20);
  });
- if(areaIndex===4)text('Inspect the result and the trace before choosing a repair.',48,386,864,30,20);
+ if(areaIndex===4)text('Inspect the result, trace, and reference data before choosing a repair.',48,386,864,30,20);
  if(areaIndex===5)text('A probabilistic filter is insufficient as the sole security boundary.',48,386,864,30,20);
  text('Pitfall',48,426,124,30,20,{bold:true,color});
  const pit=(areaIndex===0||areaIndex===4)?a.pitfall.replace(' without','\nwithout'):areaIndex===5?a.pitfall.replace(' and outbound','\nand outbound'):a.pitfall;
